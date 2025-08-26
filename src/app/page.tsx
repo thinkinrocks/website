@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -43,16 +43,37 @@ export default function Home() {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true)
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    console.log("Form submitted:", data)
-    setSubmitted(true)
-    setIsSubmitting(false)
-    // Show success popup and switch to community tab
-    setShowSuccessPopup(true)
-    setFormTab("community")
-    // Hide popup after 3 seconds
-    setTimeout(() => setShowSuccessPopup(false), 3000)
+    
+    try {
+      const response = await fetch('/api/applications', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      
+      const result = await response.json()
+      
+      if (result.success) {
+        console.log("Application submitted successfully:", result)
+        setSubmitted(true)
+        // Show success popup and switch to community tab
+        setShowSuccessPopup(true)
+        setFormTab("community")
+        // Hide popup after 3 seconds
+        setTimeout(() => setShowSuccessPopup(false), 3000)
+      } else {
+        console.error("Submission failed:", result)
+        // You could add error handling here if needed
+        alert("There was an error submitting your application. Please try again.")
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error)
+      alert("There was an error submitting your application. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -72,7 +93,7 @@ export default function Home() {
               Application Submitted!
             </DialogTitle>
             <DialogDescription className="text-center font-mono">
-              Thank you for your interest. We'll be in touch soon!
+                              Thank you for your interest. We&apos;ll be in touch soon!
             </DialogDescription>
           </DialogHeader>
         </DialogContent>
@@ -83,12 +104,12 @@ export default function Home() {
         <header className="text-center mb-16">
           <div className="flex justify-center items-center mb-6">
             <h1 className="text-5xl md:text-7xl font-bold text-gray-800 font-mono">
-              &gt; Thinkin' Rocks
+              &gt; Thinkin&apos; Rocks
             </h1>
                           <span className="bg-green-400 w-3 h-12 md:h-16 animate-blink ml-2"></span>
           </div>
           <p className="text-lg text-gray-600 font-mono max-w-2xl mx-auto">
-            // Democratizing access to technology infrastructure
+            {/* Democratizing access to technology infrastructure */}
           </p>
         </header>
 
@@ -128,48 +149,50 @@ export default function Home() {
               </div>
               
               {/* Tab Content */}
-              <div className="p-8 h-96">
-                {/* Tab Content */}
-                {activeTab === "problem" && (
-                  <div>
-                    <h2 className="text-2xl font-semibold text-gray-800 mb-6 font-mono">
-                      # The Problem
-                    </h2>
-                    <div className="prose prose-lg max-w-none">
-                      <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                        Today's technology landscape is dominated by monopolies. <strong>Cloud & compute resources</strong> are controlled by big tech, 
-                        while <strong>robotics & lab infrastructure</strong> remain locked behind university and corporate walls. Even community-driven 
-                        hacklabs and makerspaces struggle with sustainability and limited resources.
-                      </p>
-                      
-                      <p className="text-lg text-gray-700 leading-relaxed">
-                        <strong>Individuals, students, startups, and small researchers</strong> have no sustainable way to co-own the advanced 
-                        infrastructure they need to innovate, learn, and build the future.
-                      </p>
+              <div className="h-96 overflow-y-auto">
+                <div className="p-8">
+                  {/* Tab Content */}
+                  {activeTab === "problem" && (
+                    <div>
+                      <h2 className="text-2xl font-semibold text-gray-800 mb-6 font-mono">
+                        # The Problem
+                      </h2>
+                      <div className="prose prose-lg max-w-none">
+                        <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                          Today&apos;s technology landscape is dominated by monopolies. <strong>Cloud & compute resources</strong> are controlled by big tech, 
+                          while <strong>robotics & lab infrastructure</strong> remain locked behind university and corporate walls. Even community-driven 
+                          hacklabs and makerspaces struggle with sustainability and limited resources.
+                        </p>
+                        
+                        <p className="text-lg text-gray-700 leading-relaxed">
+                          <strong>Individuals, students, startups, and small researchers</strong> have no sustainable way to co-own the advanced 
+                          infrastructure they need to innovate, learn, and build the future.
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
-                {activeTab === "solution" && (
-                  <div>
-                    <h2 className="text-2xl font-semibold text-gray-800 mb-6 font-mono">
-                      # Our Solution
-                    </h2>
-                    <div className="prose prose-lg max-w-none">
-                      <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                        Thinkin' Rocks is a <strong>member-owned organization</strong> that acquires, operates, and maintains the infrastructure 
-                        our community needs. We provide access to high-end computational & GPU servers, robotics equipment, sensors, 
-                        fabrication tools, and shared collaborative spaces.
-                      </p>
-                      
-                      <p className="text-lg text-gray-700 leading-relaxed">
-                        Through workshops, build sessions, and public events, we're creating an ecosystem where open-source software, 
-                        automation, and documentation flourish. We support open innovation, education, and community-led projects that 
-                        shape our technological future.
-                      </p>
+                  {activeTab === "solution" && (
+                    <div>
+                      <h2 className="text-2xl font-semibold text-gray-800 mb-6 font-mono">
+                        # Our Solution
+                      </h2>
+                      <div className="prose prose-lg max-w-none">
+                        <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                          Thinkin&apos; Rocks is a <strong>member-owned organization</strong> that acquires, operates, and maintains the infrastructure 
+                          our community needs. We provide access to high-end computational & GPU servers, robotics equipment, sensors, 
+                          fabrication tools, and shared collaborative spaces.
+                        </p>
+                        
+                        <p className="text-lg text-gray-700 leading-relaxed">
+                          Through workshops, build sessions, and public events, we&apos;re creating an ecosystem where open-source software, 
+                          automation, and documentation flourish. We support open innovation, education, and community-led projects that 
+                          shape our technological future.
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -353,7 +376,7 @@ export default function Home() {
 
         {/* Early Application Form - IDE Style */}
         <section className="mb-20">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-lg border border-gray-200  overflow-hidden">
               {/* IDE-style tab bar */}
               <div className="bg-gray-100 px-4 py-2 border-b border-gray-200 flex items-center space-x-4">
@@ -388,7 +411,8 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="p-8 h-[750px]">
+              <div className="h-[750px] overflow-y-auto">
+                <div className="p-8">
                 {/* Application Tab */}
                 {formTab === "application" && !submitted && (
                   <div>
@@ -397,136 +421,121 @@ export default function Home() {
                         Show Your Interest
                       </h2>
                       <p className="text-gray-600 font-mono text-sm">
-                        /* Help us build a community that democratizes technology */
+                        {/* Help us build a community that democratizes technology */}
                       </p>
                     </div>
 
-                    {submitted ? (
-                  <div className="bg-gray-900 rounded p-6 font-mono text-sm">
-                    <div className="text-green-400 mb-4">
-                      <span className="text-gray-500">user@organization:~$</span> submit_application.sh
-                    </div>
-                    <div className="space-y-1 text-white">
-                      <p>[INFO] Processing application...</p>
-                      <p>[SUCCESS] Application submitted successfully!</p>
-                    </div>
-                    <div className="mt-4 text-green-400">
-                      <span className="text-gray-500">user@organization:~$</span> <span className="bg-green-400 w-2 h-4 inline-block animate-blink"></span>
-                    </div>
-                  </div>
-                ) : (
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                      <FormField
-                        control={form.control}
-                        name="fullName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Full Name *</FormLabel>
-                            <FormControl>
-                              <Input placeholder="Enter your full name" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                    <Form {...form}>
+                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                        <FormField
+                          control={form.control}
+                          name="fullName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Full Name *</FormLabel>
+                              <FormControl>
+                                <Input placeholder="Enter your full name" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Email Address *</FormLabel>
-                            <FormControl>
-                              <Input type="email" placeholder="Enter your email" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Email Address *</FormLabel>
+                              <FormControl>
+                                <Input type="email" placeholder="Enter your email" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                      <FormField
-                        control={form.control}
-                        name="phone"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Telegram Username</FormLabel>
-                            <FormControl>
-                              <Input type="text" required placeholder="Enter your Telegram username" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                        <FormField
+                          control={form.control}
+                          name="phone"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Telegram Username</FormLabel>
+                              <FormControl>
+                                <Input type="text" required placeholder="Enter your Telegram username" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                                              <FormField
-                        control={form.control}
-                        name="interest"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>How would you like to contribute to building this community? *</FormLabel>
-                            <FormControl>
-                              <Textarea 
-                                placeholder="Tell us about your interest in democratizing technology access, ideas you have, skills you can contribute, or how you'd like to help build this vision..."
-                                rows={4}
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                        <FormField
+                          control={form.control}
+                          name="interest"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>How would you like to contribute to building this community? *</FormLabel>
+                              <FormControl>
+                                <Textarea 
+                                  placeholder="Tell us about your interest in democratizing technology access, ideas you have, skills you can contribute, or how you&apos;d like to help build this vision..."
+                                  rows={4}
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                      <FormField
-                        control={form.control}
-                        name="experience"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Technical Background & Interests</FormLabel>
-                            <FormControl>
-                              <Textarea 
-                                placeholder="Share your experience with computing, robotics, fabrication, research, or other relevant areas..."
-                                rows={3}
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                        <FormField
+                          control={form.control}
+                          name="experience"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Technical Background & Interests</FormLabel>
+                              <FormControl>
+                                <Textarea 
+                                  placeholder="Share your experience with computing, robotics, fabrication, research, or other relevant areas..."
+                                  rows={3}
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                      <FormField
-                        control={form.control}
-                        name="newsletter"
-                        render={({ field }) => (
-                          <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                            <FormControl>
-                              <input
-                                type="checkbox"
-                                checked={field.value}
-                                onChange={field.onChange}
-                                className="mt-1"
-                              />
-                            </FormControl>
-                            <div className="space-y-1 leading-none">
-                              <FormLabel>
-                                Keep me updated on community building progress and opportunities to contribute
-                              </FormLabel>
-                            </div>
-                          </FormItem>
-                        )}
-                      />
+                        <FormField
+                          control={form.control}
+                          name="newsletter"
+                          render={({ field }) => (
+                            <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                              <FormControl>
+                                <input
+                                  type="checkbox"
+                                  checked={field.value}
+                                  onChange={field.onChange}
+                                  className="mt-1"
+                                />
+                              </FormControl>
+                              <div className="space-y-1 leading-none">
+                                <FormLabel>
+                                  Keep me updated on community building progress and opportunities to contribute
+                                </FormLabel>
+                              </div>
+                            </FormItem>
+                          )}
+                        />
 
-                      <Button 
-                        type="submit" 
-                        className="w-full bg-gray-800 hover:bg-gray-700 text-green-400 font-mono border border-gray-600 py-3"
-                        disabled={isSubmitting}
-                      >
-                        {isSubmitting ? "$ processing..." : "$ Show interest"}
-                      </Button>
-                    </form>
-                  </Form>
-                    )}
+                        <Button 
+                          type="submit" 
+                          className="w-full bg-gray-800 hover:bg-gray-700 text-green-400 font-mono border border-gray-600 py-3"
+                          disabled={isSubmitting}
+                        >
+                          {isSubmitting ? "$ processing..." : "$ Show interest"}
+                        </Button>
+                      </form>
+                    </Form>
                   </div>
                 )}
 
@@ -535,14 +544,14 @@ export default function Home() {
                   <div>
                     <div className="text-center mb-8">
                       <h2 className="text-2xl font-bold text-gray-800 font-mono mb-2">
-                        // Building Together
+                        Building Together
                       </h2>
                       <p className="text-gray-600 font-mono text-sm mb-6">
-                        /* Community-driven, member-owned, sustainable */
+                        {/* Community-driven, member-owned, sustainable */}
                       </p>
                       <div className="bg-gray-50 rounded-lg p-6 text-left">
                         <p className="text-gray-700 leading-relaxed">
-                          We're building something special in Finland and beyond. Together, we can create a member-owned cooperative that operates on the principles of 
+                          We&apos;re building something special in Finland and beyond. Together, we can create a member-owned cooperative that operates on the principles of 
                           <strong> transparency, sustainability, accessibility, education, engagement, and loyalty</strong>.
                         </p>
                       </div>
@@ -560,7 +569,7 @@ export default function Home() {
                             We believe in democratic governance and shared ownership of the infrastructure we build together.
                           </p>
                           <p className="text-gray-700 font-mono text-sm">
-                            <span className="text-green-600">//</span> Member happiness is our top priority
+                            <span className="text-green-600">{'//'}</span> Member happiness is our top priority
                           </p>
                         </div>
                       </div>
@@ -591,6 +600,7 @@ export default function Home() {
                     </div>
                   </div>
                 )}
+                </div>
               </div>
             </div>
         </div>
@@ -602,7 +612,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl md:text-3xl font-semibold mb-8 font-mono">
-              // Get in Touch
+              {/* Get in Touch */}
             </h3>
             
             <div className="mb-12">
