@@ -7,7 +7,7 @@ import * as z from "zod"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 
@@ -25,6 +25,7 @@ type FormData = z.infer<typeof formSchema>
 export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false)
   const [activeTab, setActiveTab] = useState("solution")
   const [formTab, setFormTab] = useState("application")
 
@@ -47,10 +48,36 @@ export default function Home() {
     console.log("Form submitted:", data)
     setSubmitted(true)
     setIsSubmitting(false)
+    // Show success popup and switch to community tab
+    setShowSuccessPopup(true)
+    setFormTab("community")
+    // Hide popup after 3 seconds
+    setTimeout(() => setShowSuccessPopup(false), 3000)
   }
 
   return (
     <div className="min-h-screen bg-gray-50 font-mono">
+      {/* Success Dialog */}
+      <Dialog open={showSuccessPopup} onOpenChange={setShowSuccessPopup}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <div className="mb-4 flex justify-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+            </div>
+            <DialogTitle className="text-center font-mono">
+              Application Submitted!
+            </DialogTitle>
+            <DialogDescription className="text-center font-mono">
+              Thank you for your interest. We'll be in touch soon!
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+      
       <main className="container mx-auto px-4 py-12">
         {/* Organization Header - Clean Style */}
         <header className="text-center mb-16">
@@ -336,16 +363,18 @@ export default function Home() {
                   <div className="w-3 h-3 rounded-full bg-green-400"></div>
                 </div>
                 <div className="flex space-x-1">
-                  <button 
-                    className={`px-3 py-1 rounded-t text-sm font-medium transition-colors ${
-                      formTab === "application" 
-                        ? "bg-white border-l border-r border-t border-gray-200" 
-                        : "bg-gray-200 text-gray-600 hover:bg-gray-300"
-                    }`}
-                    onClick={() => setFormTab("application")}
-                  >
-                    application.js
-                  </button>
+                  {!submitted && (
+                    <button 
+                      className={`px-3 py-1 rounded-t text-sm font-medium transition-colors ${
+                        formTab === "application" 
+                          ? "bg-white border-l border-r border-t border-gray-200" 
+                          : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+                      }`}
+                      onClick={() => setFormTab("application")}
+                    >
+                      application.js
+                    </button>
+                  )}
                   <button 
                     className={`px-3 py-1 rounded-t text-sm font-medium transition-colors ${
                       formTab === "community" 
@@ -361,7 +390,7 @@ export default function Home() {
               
               <div className="p-8 h-[750px]">
                 {/* Application Tab */}
-                {formTab === "application" && (
+                {formTab === "application" && !submitted && (
                   <div>
                     <div className="text-center mb-8">
                       <h2 className="text-2xl font-bold text-gray-800 font-mono mb-2">
@@ -502,7 +531,7 @@ export default function Home() {
                 )}
 
                 {/* Community Tab */}
-                {formTab === "community" && (
+                {(formTab === "community" || submitted) && (
                   <div>
                     <div className="text-center mb-8">
                       <h2 className="text-2xl font-bold text-gray-800 font-mono mb-2">
