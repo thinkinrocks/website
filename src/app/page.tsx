@@ -99,34 +99,34 @@ export default function Home() {
         </DialogContent>
       </Dialog>
       
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Organization Header - Clean Style */}
-        <header className="text-center mb-16">
-          <div className="flex justify-center items-center mb-6">
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-800 font-mono">
+        <header className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <div className="flex flex-col sm:flex-row justify-center items-center mb-4 sm:mb-6">
+            <h1 className="text-base sm:text-5xl md:text-7xl font-bold text-gray-800 font-mono text-center whitespace-nowrap">
               &gt; Thinkin&apos; Rocks
             </h1>
-                          <span className="bg-green-400 w-3 h-12 md:h-16 animate-blink ml-2"></span>
+                          <span className="bg-green-400 w-1.5 sm:w-3 h-5 sm:h-12 md:h-16 animate-blink ml-1 sm:ml-2 mt-1 sm:mt-0"></span>
           </div>
-          <p className="text-lg text-gray-600 font-mono max-w-2xl mx-auto">
+          <p className="text-sm sm:text-lg text-gray-600 font-mono max-w-2xl mx-auto px-4">
             {/* Democratizing access to technology infrastructure */}
           </p>
         </header>
 
         {/* Problem & Solution Window */}
-        <section className="mb-20">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg border border-gray-200  overflow-hidden">
+        <section className="mb-12 sm:mb-16 lg:mb-20">
+          <div className="max-w-4xl mx-auto px-2 sm:px-0">
+            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
               {/* Window Header with Tabs */}
-              <div className="bg-gray-100 px-4 py-2 border-b border-gray-200 flex items-center space-x-4">
-                <div className="flex space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-400"></div>
+              <div className="bg-gray-100 px-2 sm:px-4 py-2 border-b border-gray-200 flex items-center space-x-2 sm:space-x-4">
+                <div className="flex space-x-1 sm:space-x-2">
+                  <div className="w-2 sm:w-3 h-2 sm:h-3 rounded-full bg-red-400"></div>
+                  <div className="w-2 sm:w-3 h-2 sm:h-3 rounded-full bg-yellow-400"></div>
+                  <div className="w-2 sm:w-3 h-2 sm:h-3 rounded-full bg-green-400"></div>
                 </div>
-                <div className="flex space-x-1">
+                <div className="flex space-x-1 overflow-x-auto">
                   <button 
-                    className={`px-4 py-1 rounded-t text-sm font-medium transition-colors ${
+                    className={`px-2 sm:px-4 py-1 rounded-t text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                       activeTab === "problem" 
                         ? "bg-white border-l border-r border-t border-gray-200" 
                         : "bg-gray-200 text-gray-600 hover:bg-gray-300"
@@ -136,7 +136,7 @@ export default function Home() {
                     problem.md
                   </button>
                   <button 
-                    className={`px-4 py-1 rounded-t text-sm font-medium transition-colors ${
+                    className={`px-2 sm:px-4 py-1 rounded-t text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                       activeTab === "solution" 
                         ? "bg-white border-l border-r border-t border-gray-200" 
                         : "bg-gray-200 text-gray-600 hover:bg-gray-300"
@@ -149,22 +149,22 @@ export default function Home() {
               </div>
               
               {/* Tab Content */}
-              <div className="h-96 overflow-y-auto">
-                <div className="p-8">
+              <div className="h-80 sm:h-96 overflow-y-auto">
+                <div className="p-4 sm:p-6 lg:p-8">
                   {/* Tab Content */}
                   {activeTab === "problem" && (
                     <div>
-                      <h2 className="text-2xl font-semibold text-gray-800 mb-6 font-mono">
+                      <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6 font-mono">
                         # The Problem
                       </h2>
-                      <div className="prose prose-lg max-w-none">
-                        <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                      <div className="prose prose-sm sm:prose-lg max-w-none">
+                        <p className="text-sm sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
                           Today&apos;s technology landscape is dominated by monopolies. <strong>Cloud & compute resources</strong> are controlled by big tech, 
                           while <strong>robotics & lab infrastructure</strong> remain locked behind university and corporate walls. Even community-driven 
                           hacklabs and makerspaces struggle with sustainability and limited resources.
                         </p>
                         
-                        <p className="text-lg text-gray-700 leading-relaxed">
+                        <p className="text-sm sm:text-lg text-gray-700 leading-relaxed">
                           <strong>Individuals, students, startups, and small researchers</strong> have no sustainable way to co-own the advanced 
                           infrastructure they need to innovate, learn, and build the future.
                         </p>
@@ -174,17 +174,17 @@ export default function Home() {
 
                   {activeTab === "solution" && (
                     <div>
-                      <h2 className="text-2xl font-semibold text-gray-800 mb-6 font-mono">
+                      <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6 font-mono">
                         # Our Solution
                       </h2>
-                      <div className="prose prose-lg max-w-none">
-                        <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                      <div className="prose prose-sm sm:prose-lg max-w-none">
+                        <p className="text-sm sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
                           Thinkin&apos; Rocks is a <strong>member-owned organization</strong> that acquires, operates, and maintains the infrastructure 
                           our community needs. We provide access to high-end computational & GPU servers, robotics equipment, sensors, 
                           fabrication tools, and shared collaborative spaces.
                         </p>
                         
-                        <p className="text-lg text-gray-700 leading-relaxed">
+                        <p className="text-sm sm:text-lg text-gray-700 leading-relaxed">
                           Through workshops, build sessions, and public events, we&apos;re creating an ecosystem where open-source software, 
                           automation, and documentation flourish. We support open innovation, education, and community-led projects that 
                           shape our technological future.
@@ -199,13 +199,13 @@ export default function Home() {
         </section>
 
         {/* Vision & Technology Showcase */}
-        <section className="mb-20">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-8 font-mono text-center">
+        <section className="mb-12 sm:mb-16 lg:mb-20">
+          <div className="max-w-4xl mx-auto px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800 mb-6 sm:mb-8 font-mono text-center">
                Our Vision 
             </h2>
-            <div className="mb-12">
-              <p className="text-lg text-gray-700 font-mono text-center">
+            <div className="mb-8 sm:mb-12">
+              <p className="text-sm sm:text-lg text-gray-700 font-mono text-center px-4">
                 An open hardware/software hub for Finland and beyond — democratizing access to technology, 
                 enabling community-led projects & startups, and supporting education and innovation ecosystems everywhere.
               </p>
@@ -217,77 +217,77 @@ export default function Home() {
             <div className="relative">
               <div className="flex animate-scroll">
                 {/* First set */}
-                <div className="flex space-x-6 flex-shrink-0">
-                  <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-sm text-center mb-2">Servers</h3>
+                <div className="flex space-x-3 sm:space-x-6 flex-shrink-0">
+                  <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Servers</h3>
                     <p className="text-xs text-gray-500 text-center">High-performance computing infrastructure for demanding workloads</p>
                   </div>
 
-                  <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-sm text-center mb-2">GPUs</h3>
+                  <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">GPUs</h3>
                     <p className="text-xs text-gray-500 text-center">AI training, machine learning, and parallel processing power</p>
                   </div>
 
-                  <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-sm text-center mb-2">Robots</h3>
+                  <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Robots</h3>
                     <p className="text-xs text-gray-500 text-center">Robotics platforms, sensors, and automation systems</p>
                   </div>
 
-                  <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-sm text-center mb-2">Experimental Hardware</h3>
+                  <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Experimental Hardware</h3>
                     <p className="text-xs text-gray-500 text-center">Cutting-edge prototyping tools and research equipment</p>
                   </div>
 
-                  <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-sm text-center mb-2">Open Source</h3>
+                  <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Open Source</h3>
                     <p className="text-xs text-gray-500 text-center">Collaborative software development and shared knowledge</p>
                   </div>
 
-                  <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-sm text-center mb-2">Community</h3>
+                  <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Community</h3>
                     <p className="text-xs text-gray-500 text-center">Collaborative spaces for learning, building, and innovation</p>
                   </div>
 
                   <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0 mr-6">
-                    <h3 className="font-semibold text-gray-800 font-mono text-sm text-center mb-2">Workshops</h3>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Workshops</h3>
                     <p className="text-xs text-gray-500 text-center">Hands-on learning sessions and skill-building events</p>
                   </div>
                 </div>
 
                 {/* Second set */}
-                <div className="flex space-x-6 flex-shrink-0">
-                  <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-sm text-center mb-2">Servers</h3>
+                <div className="flex space-x-3 sm:space-x-6 flex-shrink-0">
+                  <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Servers</h3>
                     <p className="text-xs text-gray-500 text-center">High-performance computing infrastructure for demanding workloads</p>
                   </div>
 
-                  <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-sm text-center mb-2">GPUs</h3>
+                  <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">GPUs</h3>
                     <p className="text-xs text-gray-500 text-center">AI training, machine learning, and parallel processing power</p>
                   </div>
 
-                  <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-sm text-center mb-2">Robots</h3>
+                  <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Robots</h3>
                     <p className="text-xs text-gray-500 text-center">Robotics platforms, sensors, and automation systems</p>
                   </div>
 
-                  <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-sm text-center mb-2">Experimental Hardware</h3>
+                  <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Experimental Hardware</h3>
                     <p className="text-xs text-gray-500 text-center">Cutting-edge prototyping tools and research equipment</p>
                   </div>
 
-                  <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-sm text-center mb-2">Open Source</h3>
+                  <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Open Source</h3>
                     <p className="text-xs text-gray-500 text-center">Collaborative software development and shared knowledge</p>
                   </div>
 
-                  <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-sm text-center mb-2">Community</h3>
+                  <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Community</h3>
                     <p className="text-xs text-gray-500 text-center">Collaborative spaces for learning, building, and innovation</p>
                   </div>
 
                   <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0 mr-6">
-                    <h3 className="font-semibold text-gray-800 font-mono text-sm text-center mb-2">Workshops</h3>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Workshops</h3>
                     <p className="text-xs text-gray-500 text-center">Hands-on learning sessions and skill-building events</p>
                   </div>
                 </div>
@@ -411,22 +411,22 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="h-[750px] overflow-y-auto">
-                <div className="p-8">
+              <div className="h-[600px] sm:h-[750px] overflow-y-auto">
+                <div className="p-4 sm:p-6 lg:p-8">
                 {/* Application Tab */}
                 {formTab === "application" && !submitted && (
                   <div>
-                    <div className="text-center mb-8">
-                      <h2 className="text-2xl font-bold text-gray-800 font-mono mb-2">
+                    <div className="text-center mb-6 sm:mb-8">
+                      <h2 className="text-xl sm:text-2xl font-bold text-gray-800 font-mono mb-2">
                         Show Your Interest
                       </h2>
-                      <p className="text-gray-600 font-mono text-sm">
+                      <p className="text-gray-600 font-mono text-xs sm:text-sm">
                         {/* Help us build a community that democratizes technology */}
                       </p>
                     </div>
 
                     <Form {...form}>
-                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
                         <FormField
                           control={form.control}
                           name="fullName"
@@ -543,58 +543,58 @@ export default function Home() {
                 {/* Community Tab */}
                 {(formTab === "community" || submitted) && (
                   <div>
-                    <div className="text-center mb-8">
-                      <h2 className="text-2xl font-bold text-gray-800 font-mono mb-2">
+                    <div className="text-center mb-6 sm:mb-8">
+                      <h2 className="text-xl sm:text-2xl font-bold text-gray-800 font-mono mb-2">
                         Building Together
                       </h2>
-                      <p className="text-gray-600 font-mono text-sm mb-6">
+                      <p className="text-gray-600 font-mono text-xs sm:text-sm mb-4 sm:mb-6">
                         {/* Community-driven, member-owned, sustainable */}
                       </p>
-                      <div className="bg-gray-50 rounded-lg p-6 text-left">
-                        <p className="text-gray-700 leading-relaxed">
+                      <div className="bg-gray-50 rounded-lg p-4 sm:p-6 text-left">
+                        <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                           We&apos;re building something special in Finland and beyond. Together, we can create a member-owned cooperative that operates on the principles of 
                           <strong> transparency, sustainability, accessibility, education, engagement, and loyalty</strong>.
                         </p>
                       </div>
                     </div>
 
-                    <div className="space-y-6">
+                    <div className="space-y-4 sm:space-y-6">
 
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-800 font-mono mb-4">
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-800 font-mono mb-3 sm:mb-4">
                           # Member Ownership
                         </h3>
-                        <div className="bg-gray-50 rounded p-4">
-                          <p className="text-gray-700 mb-4">
+                        <div className="bg-gray-50 rounded p-3 sm:p-4">
+                          <p className="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4">
                             As a <strong>member-owned organization</strong>, every member has a voice in how we operate and grow. 
                             We believe in democratic governance and shared ownership of the infrastructure we build together.
                           </p>
-                          <p className="text-gray-700 font-mono text-sm">
+                          <p className="text-gray-700 font-mono text-xs sm:text-sm">
                             <span className="text-green-600">{'//'}</span> Member happiness is our top priority
                           </p>
                         </div>
                       </div>
 
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-800 font-mono mb-4">
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-800 font-mono mb-3 sm:mb-4">
                           # What to Expect
                         </h3>
-                        <div className="space-y-3">
-                          <div className="flex items-start space-x-3">
-                            <span className="text-green-600 font-mono">→</span>
-                            <p className="text-gray-700">Regular workshops and build sessions</p>
+                        <div className="space-y-2 sm:space-y-3">
+                          <div className="flex items-start space-x-2 sm:space-x-3">
+                            <span className="text-green-600 font-mono text-sm">→</span>
+                            <p className="text-sm sm:text-base text-gray-700">Regular workshops and build sessions</p>
                           </div>
-                          <div className="flex items-start space-x-3">
-                            <span className="text-green-600 font-mono">→</span>
-                            <p className="text-gray-700">Access to shared infrastructure and tools</p>
+                          <div className="flex items-start space-x-2 sm:space-x-3">
+                            <span className="text-green-600 font-mono text-sm">→</span>
+                            <p className="text-sm sm:text-base text-gray-700">Access to shared infrastructure and tools</p>
                           </div>
-                          <div className="flex items-start space-x-3">
-                            <span className="text-green-600 font-mono">→</span>
-                            <p className="text-gray-700">Collaborative community projects</p>
+                          <div className="flex items-start space-x-2 sm:space-x-3">
+                            <span className="text-green-600 font-mono text-sm">→</span>
+                            <p className="text-sm sm:text-base text-gray-700">Collaborative community projects</p>
                           </div>
-                          <div className="flex items-start space-x-3">
-                            <span className="text-green-600 font-mono">→</span>
-                            <p className="text-gray-700">Democratic decision-making process</p>
+                          <div className="flex items-start space-x-2 sm:space-x-3">
+                            <span className="text-green-600 font-mono text-sm">→</span>
+                            <p className="text-sm sm:text-base text-gray-700">Democratic decision-making process</p>
                           </div>
                         </div>
                       </div>
@@ -609,35 +609,35 @@ export default function Home() {
       </main>
 
                   {/* Contact Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="container mx-auto px-4">
+      <footer className="bg-gray-900 text-white py-12 sm:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl md:text-3xl font-semibold mb-8 font-mono">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 font-mono">
               {/* Get in Touch */}
             </h3>
             
-            <div className="mb-12">
-              <p className="text-lg text-gray-300 leading-relaxed mb-8">
+            <div className="mb-8 sm:mb-12">
+              <p className="text-sm sm:text-lg text-gray-300 leading-relaxed mb-6 sm:mb-8 px-4">
                 Have questions? Reach out to us at{' '}
                 <a 
                   href="mailto:milana.begantsova@aaltoes.com" 
-                  className="text-green-400 hover:text-white transition-colors font-semibold underline"
+                  className="text-green-400 hover:text-white transition-colors font-semibold underline break-all"
                 >
                   milana.begantsova@aaltoes.com
                 </a>
               </p>
             </div>
 
-            <div className="flex justify-center space-x-8 mb-8">
+            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-6 sm:mb-8">
               <a 
                 href="https://github.com/aaltoes-tech" 
-                                                className="text-gray-300 hover:text-green-400 transition-colors font-medium"
+                className="text-gray-300 hover:text-green-400 transition-colors font-medium text-sm sm:text-base"
               >
                 GitHub
-        </a>
-        <a
+              </a>
+              <a
                 href="https://discord.gg/sbeqNTUj" 
-                className="text-gray-300 hover:text-green-400 transition-colors font-medium"
+                className="text-gray-300 hover:text-green-400 transition-colors font-medium text-sm sm:text-base"
               >
                 Discord
               </a>
