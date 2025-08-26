@@ -516,6 +516,7 @@ export default function Home() {
                                   checked={field.value}
                                   onChange={field.onChange}
                                   className="mt-1"
+                                  required={true}
                                 />
                               </FormControl>
                               <div className="space-y-1 leading-none">
