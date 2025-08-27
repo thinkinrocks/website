@@ -1,34 +1,49 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
   email: z.email("Please enter a valid email address"),
   phone: z.string().optional(),
-  interest: z.string().min(10, "Please tell us more about your interest (minimum 10 characters)"),
+  interest: z
+    .string()
+    .min(10, "Please tell us more about your interest (minimum 10 characters)"),
   experience: z.string().optional(),
   newsletter: z.boolean(),
-})
+});
 
-type FormData = z.infer<typeof formSchema>
+type FormData = z.infer<typeof formSchema>;
 
 export default function Home() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
-  const [showSuccessPopup, setShowSuccessPopup] = useState(false)
-  const [activeTab, setActiveTab] = useState("solution")
-  const [formTab, setFormTab] = useState("application")
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [activeTab, setActiveTab] = useState("solution");
+  const [formTab, setFormTab] = useState("application");
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -40,42 +55,46 @@ export default function Home() {
       experience: "",
       newsletter: false,
     },
-  })
+  });
 
   const onSubmit = async (data: FormData) => {
-    setIsSubmitting(true)
-    
+    setIsSubmitting(true);
+
     try {
-      const response = await fetch('/api/applications', {
-        method: 'POST',
+      const response = await fetch("/api/applications", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
-      })
-      
-      const result = await response.json()
-      
+      });
+
+      const result = await response.json();
+
       if (result.success) {
-        console.log("Application submitted successfully:", result)
-        setSubmitted(true)
+        console.log("Application submitted successfully:", result);
+        setSubmitted(true);
         // Show success popup and switch to community tab
-        setShowSuccessPopup(true)
-        setFormTab("community")
+        setShowSuccessPopup(true);
+        setFormTab("community");
         // Hide popup after 3 seconds
-        setTimeout(() => setShowSuccessPopup(false), 3000)
+        setTimeout(() => setShowSuccessPopup(false), 3000);
       } else {
-        console.error("Submission failed:", result)
+        console.error("Submission failed:", result);
         // You could add error handling here if needed
-        alert("There was an error submitting your application. Please try again.")
+        alert(
+          "There was an error submitting your application. Please try again."
+        );
       }
     } catch (error) {
-      console.error("Error submitting form:", error)
-      alert("There was an error submitting your application. Please try again.")
+      console.error("Error submitting form:", error);
+      alert(
+        "There was an error submitting your application. Please try again."
+      );
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 font-mono">
@@ -85,8 +104,18 @@ export default function Home() {
           <DialogHeader>
             <div className="mb-4 flex justify-center">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                <svg
+                  className="w-8 h-8 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
                 </svg>
               </div>
             </div>
@@ -94,12 +123,12 @@ export default function Home() {
               Application Submitted!
             </DialogTitle>
             <DialogDescription className="text-center font-mono">
-                              Thank you for your interest. We&apos;ll be in touch soon!
+              Thank you for your interest. We&apos;ll be in touch soon!
             </DialogDescription>
           </DialogHeader>
         </DialogContent>
       </Dialog>
-      
+
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Organization Header - Clean Style */}
         <header className="text-center mb-8 sm:mb-12 lg:mb-16">
@@ -107,7 +136,7 @@ export default function Home() {
             <h1 className="text-base sm:text-5xl md:text-7xl font-bold text-gray-800 font-mono text-center whitespace-nowrap">
               &gt; Thinkin&apos; Rocks
             </h1>
-                          <span className="bg-green-400 w-1.5 sm:w-3 h-5 sm:h-12 md:h-16 animate-blink ml-1 sm:ml-2 mt-1 sm:mt-0"></span>
+            <span className="bg-green-400 w-1.5 sm:w-3 h-5 sm:h-12 md:h-16 animate-blink ml-1 sm:ml-2 mt-1 sm:mt-0"></span>
           </div>
           <p className="text-sm sm:text-lg text-gray-600 font-mono max-w-2xl mx-auto px-4">
             {/* Democratizing access to technology infrastructure */}
@@ -117,45 +146,68 @@ export default function Home() {
         {/* Problem & Solution Window */}
         <section className="mb-12 sm:mb-16 lg:mb-20">
           <div className="max-w-4xl mx-auto px-2 sm:px-0">
-            <Tabs defaultValue="solution" value={activeTab} onValueChange={setActiveTab}>
+            <Tabs
+              defaultValue="solution"
+              value={activeTab}
+              onValueChange={setActiveTab}
+            >
               <TabsList>
                 <TabsTrigger value="problem">problem.md</TabsTrigger>
                 <TabsTrigger value="solution">solution.md</TabsTrigger>
               </TabsList>
-              
-              <TabsContent value="problem" className="h-80 sm:h-96 overflow-y-auto">
+
+              <TabsContent
+                value="problem"
+                className="h-80 sm:h-96 overflow-y-auto"
+              >
                 <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6 font-mono">
                   # The Problem
                 </h2>
                 <div className="prose prose-sm sm:prose-lg max-w-none">
                   <p className="text-sm sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
-                    Today&apos;s technology landscape is dominated by monopolies. <strong>Cloud & compute resources</strong> are controlled by big tech, 
-                    while <strong>robotics & lab infrastructure</strong> remain locked behind university and corporate walls. Even community-driven 
-                    hacklabs and makerspaces struggle with sustainability and limited resources.
+                    Today&apos;s technology landscape is dominated by
+                    monopolies. <strong>Cloud & compute resources</strong> are
+                    controlled by big tech, while{" "}
+                    <strong>robotics & lab infrastructure</strong> remain locked
+                    behind university and corporate walls. Even community-driven
+                    hacklabs and makerspaces struggle with sustainability and
+                    limited resources.
                   </p>
-                  
+
                   <p className="text-sm sm:text-lg text-gray-700 leading-relaxed">
-                    <strong>Individuals, students, startups, and small researchers</strong> have no sustainable way to co-own the advanced 
-                    infrastructure they need to innovate, learn, and build the future.
+                    <strong>
+                      Individuals, students, startups, and small researchers
+                    </strong>{" "}
+                    have no sustainable way to co-own the advanced
+                    infrastructure they need to innovate, learn, and build the
+                    future.
                   </p>
                 </div>
               </TabsContent>
 
-              <TabsContent value="solution" className="h-80 sm:h-96 overflow-y-auto">
+              <TabsContent
+                value="solution"
+                className="h-80 sm:h-96 overflow-y-auto"
+              >
                 <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6 font-mono">
                   # Our Solution
                 </h2>
                 <div className="prose prose-sm sm:prose-lg max-w-none">
                   <p className="text-sm sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
-                    Thinkin&apos; Rocks is a <strong>member-owned organization</strong> that acquires, operates, and maintains the infrastructure 
-                    our community needs. We provide access to high-end computational & GPU servers, robotics equipment, sensors, 
-                    fabrication tools, and shared collaborative spaces.
+                    Thinkin&apos; Rocks is a{" "}
+                    <strong>member-owned organization</strong> that acquires,
+                    operates, and maintains the infrastructure our community
+                    needs. We provide access to high-end computational & GPU
+                    servers, robotics equipment, sensors, fabrication tools, and
+                    shared collaborative spaces.
                   </p>
-                  
+
                   <p className="text-sm sm:text-lg text-gray-700 leading-relaxed">
-                    Through workshops, build sessions, and public events, we&apos;re creating an ecosystem where open-source software, 
-                    automation, and documentation flourish. We support open innovation, education, and community-led projects that 
-                    shape our technological future.
+                    Through workshops, build sessions, and public events,
+                    we&apos;re creating an ecosystem where open-source software,
+                    automation, and documentation flourish. We support open
+                    innovation, education, and community-led projects that shape
+                    our technological future.
                   </p>
                 </div>
               </TabsContent>
@@ -167,16 +219,18 @@ export default function Home() {
         <section className="mb-12 sm:mb-16 lg:mb-20">
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800 mb-6 sm:mb-8 font-mono text-center">
-               Our Vision 
+              Our Vision
             </h2>
             <div className="mb-8 sm:mb-12">
               <p className="text-sm sm:text-lg text-gray-700 font-mono text-center px-4">
-                An open hardware/software hub for Finland and beyond — democratizing access to technology, 
-                enabling community-led projects & startups, and supporting education and innovation ecosystems everywhere.
+                An open hardware/software hub for Finland and beyond —
+                democratizing access to technology, enabling community-led
+                projects & startups, and supporting education and innovation
+                ecosystems everywhere.
               </p>
             </div>
           </div>
-          
+
           <div className="max-w-full overflow-hidden">
             {/* Infinite Scrolling Gallery */}
             <div className="relative">
@@ -184,90 +238,148 @@ export default function Home() {
                 {/* First set */}
                 <div className="flex space-x-3 sm:space-x-6 flex-shrink-0">
                   <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Servers</h3>
-                    <p className="text-xs text-gray-500 text-center">High-performance computing infrastructure for demanding workloads</p>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">
+                      Servers
+                    </h3>
+                    <p className="text-xs text-gray-500 text-center">
+                      High-performance computing infrastructure for demanding
+                      workloads
+                    </p>
                   </div>
 
                   <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">GPUs</h3>
-                    <p className="text-xs text-gray-500 text-center">AI training, machine learning, and parallel processing power</p>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">
+                      GPUs
+                    </h3>
+                    <p className="text-xs text-gray-500 text-center">
+                      AI training, machine learning, and parallel processing
+                      power
+                    </p>
                   </div>
 
                   <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Robots</h3>
-                    <p className="text-xs text-gray-500 text-center">Robotics platforms, sensors, and automation systems</p>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">
+                      Robots
+                    </h3>
+                    <p className="text-xs text-gray-500 text-center">
+                      Robotics platforms, sensors, and automation systems
+                    </p>
                   </div>
 
                   <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Experimental Hardware</h3>
-                    <p className="text-xs text-gray-500 text-center">Cutting-edge prototyping tools and research equipment</p>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">
+                      Experimental Hardware
+                    </h3>
+                    <p className="text-xs text-gray-500 text-center">
+                      Cutting-edge prototyping tools and research equipment
+                    </p>
                   </div>
 
                   <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Open Source</h3>
-                    <p className="text-xs text-gray-500 text-center">Collaborative software development and shared knowledge</p>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">
+                      Open Source
+                    </h3>
+                    <p className="text-xs text-gray-500 text-center">
+                      Collaborative software development and shared knowledge
+                    </p>
                   </div>
 
                   <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Community</h3>
-                    <p className="text-xs text-gray-500 text-center">Collaborative spaces for learning, building, and innovation</p>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">
+                      Community
+                    </h3>
+                    <p className="text-xs text-gray-500 text-center">
+                      Collaborative spaces for learning, building, and
+                      innovation
+                    </p>
                   </div>
 
                   <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0 mr-6">
-                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Workshops</h3>
-                    <p className="text-xs text-gray-500 text-center">Hands-on learning sessions and skill-building events</p>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">
+                      Workshops
+                    </h3>
+                    <p className="text-xs text-gray-500 text-center">
+                      Hands-on learning sessions and skill-building events
+                    </p>
                   </div>
                 </div>
 
                 {/* Second set */}
                 <div className="flex space-x-3 sm:space-x-6 flex-shrink-0">
                   <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Servers</h3>
-                    <p className="text-xs text-gray-500 text-center">High-performance computing infrastructure for demanding workloads</p>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">
+                      Servers
+                    </h3>
+                    <p className="text-xs text-gray-500 text-center">
+                      High-performance computing infrastructure for demanding
+                      workloads
+                    </p>
                   </div>
 
                   <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">GPUs</h3>
-                    <p className="text-xs text-gray-500 text-center">AI training, machine learning, and parallel processing power</p>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">
+                      GPUs
+                    </h3>
+                    <p className="text-xs text-gray-500 text-center">
+                      AI training, machine learning, and parallel processing
+                      power
+                    </p>
                   </div>
 
                   <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Robots</h3>
-                    <p className="text-xs text-gray-500 text-center">Robotics platforms, sensors, and automation systems</p>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">
+                      Robots
+                    </h3>
+                    <p className="text-xs text-gray-500 text-center">
+                      Robotics platforms, sensors, and automation systems
+                    </p>
                   </div>
 
                   <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Experimental Hardware</h3>
-                    <p className="text-xs text-gray-500 text-center">Cutting-edge prototyping tools and research equipment</p>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">
+                      Experimental Hardware
+                    </h3>
+                    <p className="text-xs text-gray-500 text-center">
+                      Cutting-edge prototyping tools and research equipment
+                    </p>
                   </div>
 
                   <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Open Source</h3>
-                    <p className="text-xs text-gray-500 text-center">Collaborative software development and shared knowledge</p>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">
+                      Open Source
+                    </h3>
+                    <p className="text-xs text-gray-500 text-center">
+                      Collaborative software development and shared knowledge
+                    </p>
                   </div>
 
                   <div className="bg-white rounded-lg p-3 sm:p-6 border border-gray-200 flex flex-col items-center w-32 sm:w-48 flex-shrink-0">
-                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Community</h3>
-                    <p className="text-xs text-gray-500 text-center">Collaborative spaces for learning, building, and innovation</p>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">
+                      Community
+                    </h3>
+                    <p className="text-xs text-gray-500 text-center">
+                      Collaborative spaces for learning, building, and
+                      innovation
+                    </p>
                   </div>
 
                   <div className="bg-white rounded-lg p-6  border border-gray-200 flex flex-col items-center w-48 flex-shrink-0 mr-6">
-                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">Workshops</h3>
-                    <p className="text-xs text-gray-500 text-center">Hands-on learning sessions and skill-building events</p>
+                    <h3 className="font-semibold text-gray-800 font-mono text-xs sm:text-sm text-center mb-1 sm:mb-2">
+                      Workshops
+                    </h3>
+                    <p className="text-xs text-gray-500 text-center">
+                      Hands-on learning sessions and skill-building events
+                    </p>
                   </div>
                 </div>
-
-
               </div>
             </div>
-
           </div>
         </section>
 
         {/* Timeline Section */}
         <section className="mb-20">
           <div className="max-w-4xl mx-auto">
-            
             <div className="max-w-6xl mx-auto">
               <div className="relative">
                 {/* Years above timeline */}
@@ -304,7 +416,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="flex justify-between items-start">
                   {/* 2024 Activities */}
                   <div className="flex-1 text-center">
@@ -321,14 +433,13 @@ export default function Home() {
                       <div>• Connect with hardware companies</div>
                       <div>• Expand equipment library</div>
                       <div>• Apply for funding</div>
-                      
                     </div>
                   </div>
 
                   {/* 2026+ Activities */}
                   <div className="flex-1 text-center">
                     <div className="text-sm text-gray-600 space-y-1">
-                    <div>• Comprehensive infrastructure</div>
+                      <div>• Comprehensive infrastructure</div>
                       <div>• Recognized innovation hub</div>
                       <div>• Sustainable ecosystem</div>
                     </div>
@@ -342,19 +453,24 @@ export default function Home() {
         {/* Early Application Form - IDE Style */}
         <section className="mb-20">
           <div className="max-w-4xl mx-auto">
-            <Tabs 
-              defaultValue={submitted ? "community" : "application"} 
-              value={formTab} 
+            <Tabs
+              defaultValue={submitted ? "community" : "application"}
+              value={formTab}
               onValueChange={setFormTab}
             >
               <TabsList>
-                {!submitted && <TabsTrigger value="application">application.js</TabsTrigger>}
+                {!submitted && (
+                  <TabsTrigger value="application">application.js</TabsTrigger>
+                )}
                 <TabsTrigger value="community">community.md</TabsTrigger>
               </TabsList>
-              
+
               {/* Application Tab */}
               {!submitted && (
-                <TabsContent value="application" className="min-h-[600px] sm:min-h-[750px]">
+                <TabsContent
+                  value="application"
+                  className="min-h-[600px] sm:min-h-[750px]"
+                >
                   <div className="text-center mb-6 sm:mb-8">
                     <h2 className="text-xl sm:text-2xl font-bold text-gray-800 font-mono mb-2">
                       Show Your Interest
@@ -365,7 +481,10 @@ export default function Home() {
                   </div>
 
                   <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+                    <form
+                      onSubmit={form.handleSubmit(onSubmit)}
+                      className="space-y-4 sm:space-y-6"
+                    >
                       <FormField
                         control={form.control}
                         name="fullName"
@@ -373,7 +492,10 @@ export default function Home() {
                           <FormItem>
                             <FormLabel>Full Name *</FormLabel>
                             <FormControl>
-                              <Input placeholder="Enter your full name" {...field} />
+                              <Input
+                                placeholder="Enter your full name"
+                                {...field}
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -387,7 +509,11 @@ export default function Home() {
                           <FormItem>
                             <FormLabel>Email Address *</FormLabel>
                             <FormControl>
-                              <Input type="email" placeholder="Enter your email" {...field} />
+                              <Input
+                                type="email"
+                                placeholder="Enter your email"
+                                {...field}
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -401,7 +527,12 @@ export default function Home() {
                           <FormItem>
                             <FormLabel>Telegram Username</FormLabel>
                             <FormControl>
-                              <Input type="text" required placeholder="Enter your Telegram username" {...field} />
+                              <Input
+                                type="text"
+                                required
+                                placeholder="Enter your Telegram username"
+                                {...field}
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -413,12 +544,15 @@ export default function Home() {
                         name="interest"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>How would you like to contribute to building this community? *</FormLabel>
+                            <FormLabel>
+                              How would you like to contribute to building this
+                              community? *
+                            </FormLabel>
                             <FormControl>
-                              <Textarea 
-                                placeholder="Tell us about your interest in democratizing technology access, ideas you have, skills you can contribute, or how you&apos;d like to help build this vision..."
+                              <Textarea
+                                placeholder="Tell us about your interest in democratizing technology access, ideas you have, skills you can contribute, or how you'd like to help build this vision..."
                                 rows={4}
-                                {...field} 
+                                {...field}
                               />
                             </FormControl>
                             <FormMessage />
@@ -431,12 +565,14 @@ export default function Home() {
                         name="experience"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Technical Background & Interests</FormLabel>
+                            <FormLabel>
+                              Technical Background & Interests
+                            </FormLabel>
                             <FormControl>
-                              <Textarea 
+                              <Textarea
                                 placeholder="Share your experience with computing, robotics, fabrication, research, or other relevant areas..."
                                 rows={3}
-                                {...field} 
+                                {...field}
                               />
                             </FormControl>
                             <FormMessage />
@@ -460,15 +596,16 @@ export default function Home() {
                             </FormControl>
                             <div className="space-y-1 leading-none">
                               <FormLabel>
-                                Keep me updated on community building progress and opportunities to contribute
+                                Keep me updated on community building progress
+                                and opportunities to contribute
                               </FormLabel>
                             </div>
                           </FormItem>
                         )}
                       />
 
-                      <Button 
-                        type="submit" 
+                      <Button
+                        type="submit"
                         className="w-full bg-gray-800 hover:bg-gray-700 text-green-400 font-mono border border-gray-600 py-3"
                         disabled={isSubmitting}
                       >
@@ -480,7 +617,10 @@ export default function Home() {
               )}
 
               {/* Community Tab */}
-              <TabsContent value="community" className="min-h-[400px] sm:min-h-[500px]">
+              <TabsContent
+                value="community"
+                className="min-h-[400px] sm:min-h-[500px]"
+              >
                 <div className="text-center mb-6 sm:mb-8">
                   <h2 className="text-xl sm:text-2xl font-bold text-gray-800 font-mono mb-2">
                     Building Together
@@ -490,25 +630,34 @@ export default function Home() {
                   </p>
                   <div className="bg-gray-50 rounded-lg p-4 sm:p-6 text-left">
                     <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                      We&apos;re building something special in Finland and beyond. Together, we can create a member-owned cooperative that operates on the principles of 
-                      <strong> transparency, sustainability, accessibility, education, engagement, and loyalty</strong>.
+                      We&apos;re building something special in Finland and
+                      beyond. Together, we can create a member-owned cooperative
+                      that operates on the principles of
+                      <strong>
+                        {" "}
+                        transparency, sustainability, accessibility, education,
+                        engagement, and loyalty
+                      </strong>
+                      .
                     </p>
                   </div>
                 </div>
 
                 <div className="space-y-4 sm:space-y-6">
-
                   <div>
                     <h3 className="text-base sm:text-lg font-semibold text-gray-800 font-mono mb-3 sm:mb-4">
                       # Member Ownership
                     </h3>
                     <div className="bg-gray-50 rounded p-3 sm:p-4">
                       <p className="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4">
-                        As a <strong>member-owned organization</strong>, every member has a voice in how we operate and grow. 
-                        We believe in democratic governance and shared ownership of the infrastructure we build together.
+                        As a <strong>member-owned organization</strong>, every
+                        member has a voice in how we operate and grow. We
+                        believe in democratic governance and shared ownership of
+                        the infrastructure we build together.
                       </p>
                       <p className="text-gray-700 font-mono text-xs sm:text-sm">
-                        <span className="text-green-600">{'//'}</span> Member happiness is our top priority
+                        <span className="text-green-600">{"//"}</span> Member
+                        happiness is our top priority
                       </p>
                     </div>
                   </div>
@@ -519,43 +668,59 @@ export default function Home() {
                     </h3>
                     <div className="space-y-2 sm:space-y-3">
                       <div className="flex items-start space-x-2 sm:space-x-3">
-                        <span className="text-green-600 font-mono text-sm">→</span>
-                        <p className="text-sm sm:text-base text-gray-700">Regular workshops and build sessions</p>
+                        <span className="text-green-600 font-mono text-sm">
+                          →
+                        </span>
+                        <p className="text-sm sm:text-base text-gray-700">
+                          Regular workshops and build sessions
+                        </p>
                       </div>
                       <div className="flex items-start space-x-2 sm:space-x-3">
-                        <span className="text-green-600 font-mono text-sm">→</span>
-                        <p className="text-sm sm:text-base text-gray-700">Access to shared infrastructure and tools</p>
+                        <span className="text-green-600 font-mono text-sm">
+                          →
+                        </span>
+                        <p className="text-sm sm:text-base text-gray-700">
+                          Access to shared infrastructure and tools
+                        </p>
                       </div>
                       <div className="flex items-start space-x-2 sm:space-x-3">
-                        <span className="text-green-600 font-mono text-sm">→</span>
-                        <p className="text-sm sm:text-base text-gray-700">Collaborative community projects</p>
+                        <span className="text-green-600 font-mono text-sm">
+                          →
+                        </span>
+                        <p className="text-sm sm:text-base text-gray-700">
+                          Collaborative community projects
+                        </p>
                       </div>
                       <div className="flex items-start space-x-2 sm:space-x-3">
-                        <span className="text-green-600 font-mono text-sm">→</span>
-                        <p className="text-sm sm:text-base text-gray-700">Democratic decision-making process</p>
+                        <span className="text-green-600 font-mono text-sm">
+                          →
+                        </span>
+                        <p className="text-sm sm:text-base text-gray-700">
+                          Democratic decision-making process
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
               </TabsContent>
             </Tabs>
-        </div>
+          </div>
         </section>
       </main>
 
-                  {/* Contact Footer */}
+      {/* Contact Footer */}
       <footer className="bg-gray-900 text-white py-12 sm:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 font-mono">
               {/* Get in Touch */}
             </h3>
-            
+
             <div className="mb-8 sm:mb-12">
               <p className="text-sm sm:text-lg text-gray-300 leading-relaxed mb-6 sm:mb-8 px-4">
-                Have questions? Reach out to us at{' '}
-                <a 
-                  href="mailto:milana.begantsova@aaltoes.com" 
+                Have questions? Reach out to us at{" "}
+                <a
+                  href="mailto:milana.begantsova@aaltoes.com"
                   className="text-green-400 hover:text-white transition-colors font-semibold underline break-all"
                 >
                   milana.begantsova@aaltoes.com
@@ -564,24 +729,22 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-6 sm:mb-8">
-              <a 
-                href="https://github.com/aaltoes-tech" 
+              <a
+                href="https://github.com/aaltoes-tech"
                 className="text-gray-300 hover:text-green-400 transition-colors font-medium text-sm sm:text-base"
               >
                 GitHub
               </a>
               <a
-                href="https://discord.gg/sbeqNTUj" 
+                href="https://discord.gg/sbeqNTUj"
                 className="text-gray-300 hover:text-green-400 transition-colors font-medium text-sm sm:text-base"
               >
                 Discord
               </a>
             </div>
-
-
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
