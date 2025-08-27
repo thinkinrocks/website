@@ -8,12 +8,13 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
+  email: z.email("Please enter a valid email address"),
   phone: z.string().optional(),
   interest: z.string().min(10, "Please tell us more about your interest (minimum 10 characters)"),
   experience: z.string().optional(),
@@ -116,85 +117,49 @@ export default function Home() {
         {/* Problem & Solution Window */}
         <section className="mb-12 sm:mb-16 lg:mb-20">
           <div className="max-w-4xl mx-auto px-2 sm:px-0">
-            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-              {/* Window Header with Tabs */}
-              <div className="bg-gray-100 px-2 sm:px-4 py-2 border-b border-gray-200 flex items-center space-x-2 sm:space-x-4">
-                <div className="flex space-x-1 sm:space-x-2">
-                  <div className="w-2 sm:w-3 h-2 sm:h-3 rounded-full bg-red-400"></div>
-                  <div className="w-2 sm:w-3 h-2 sm:h-3 rounded-full bg-yellow-400"></div>
-                  <div className="w-2 sm:w-3 h-2 sm:h-3 rounded-full bg-green-400"></div>
-                </div>
-                <div className="flex space-x-1 overflow-x-auto">
-                  <button 
-                    className={`px-2 sm:px-4 py-1 rounded-t text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
-                      activeTab === "problem" 
-                        ? "bg-white border-l border-r border-t border-gray-200" 
-                        : "bg-gray-200 text-gray-600 hover:bg-gray-300"
-                    }`}
-                    onClick={() => setActiveTab("problem")}
-                  >
-                    problem.md
-                  </button>
-                  <button 
-                    className={`px-2 sm:px-4 py-1 rounded-t text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
-                      activeTab === "solution" 
-                        ? "bg-white border-l border-r border-t border-gray-200" 
-                        : "bg-gray-200 text-gray-600 hover:bg-gray-300"
-                    }`}
-                    onClick={() => setActiveTab("solution")}
-                  >
-                    solution.md
-                  </button>
-                </div>
-              </div>
+            <Tabs defaultValue="solution" value={activeTab} onValueChange={setActiveTab}>
+              <TabsList>
+                <TabsTrigger value="problem">problem.md</TabsTrigger>
+                <TabsTrigger value="solution">solution.md</TabsTrigger>
+              </TabsList>
               
-              {/* Tab Content */}
-              <div className="h-80 sm:h-96 overflow-y-auto">
-                <div className="p-4 sm:p-6 lg:p-8">
-                  {/* Tab Content */}
-                  {activeTab === "problem" && (
-                    <div>
-                      <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6 font-mono">
-                        # The Problem
-                      </h2>
-                      <div className="prose prose-sm sm:prose-lg max-w-none">
-                        <p className="text-sm sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
-                          Today&apos;s technology landscape is dominated by monopolies. <strong>Cloud & compute resources</strong> are controlled by big tech, 
-                          while <strong>robotics & lab infrastructure</strong> remain locked behind university and corporate walls. Even community-driven 
-                          hacklabs and makerspaces struggle with sustainability and limited resources.
-                        </p>
-                        
-                        <p className="text-sm sm:text-lg text-gray-700 leading-relaxed">
-                          <strong>Individuals, students, startups, and small researchers</strong> have no sustainable way to co-own the advanced 
-                          infrastructure they need to innovate, learn, and build the future.
-                        </p>
-                      </div>
-                    </div>
-                  )}
-
-                  {activeTab === "solution" && (
-                    <div>
-                      <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6 font-mono">
-                        # Our Solution
-                      </h2>
-                      <div className="prose prose-sm sm:prose-lg max-w-none">
-                        <p className="text-sm sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
-                          Thinkin&apos; Rocks is a <strong>member-owned organization</strong> that acquires, operates, and maintains the infrastructure 
-                          our community needs. We provide access to high-end computational & GPU servers, robotics equipment, sensors, 
-                          fabrication tools, and shared collaborative spaces.
-                        </p>
-                        
-                        <p className="text-sm sm:text-lg text-gray-700 leading-relaxed">
-                          Through workshops, build sessions, and public events, we&apos;re creating an ecosystem where open-source software, 
-                          automation, and documentation flourish. We support open innovation, education, and community-led projects that 
-                          shape our technological future.
-                        </p>
-                      </div>
-                    </div>
-                  )}
+              <TabsContent value="problem" className="h-80 sm:h-96 overflow-y-auto">
+                <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6 font-mono">
+                  # The Problem
+                </h2>
+                <div className="prose prose-sm sm:prose-lg max-w-none">
+                  <p className="text-sm sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
+                    Today&apos;s technology landscape is dominated by monopolies. <strong>Cloud & compute resources</strong> are controlled by big tech, 
+                    while <strong>robotics & lab infrastructure</strong> remain locked behind university and corporate walls. Even community-driven 
+                    hacklabs and makerspaces struggle with sustainability and limited resources.
+                  </p>
+                  
+                  <p className="text-sm sm:text-lg text-gray-700 leading-relaxed">
+                    <strong>Individuals, students, startups, and small researchers</strong> have no sustainable way to co-own the advanced 
+                    infrastructure they need to innovate, learn, and build the future.
+                  </p>
                 </div>
-              </div>
-            </div>
+              </TabsContent>
+
+              <TabsContent value="solution" className="h-80 sm:h-96 overflow-y-auto">
+                <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6 font-mono">
+                  # Our Solution
+                </h2>
+                <div className="prose prose-sm sm:prose-lg max-w-none">
+                  <p className="text-sm sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
+                    Thinkin&apos; Rocks is a <strong>member-owned organization</strong> that acquires, operates, and maintains the infrastructure 
+                    our community needs. We provide access to high-end computational & GPU servers, robotics equipment, sensors, 
+                    fabrication tools, and shared collaborative spaces.
+                  </p>
+                  
+                  <p className="text-sm sm:text-lg text-gray-700 leading-relaxed">
+                    Through workshops, build sessions, and public events, we&apos;re creating an ecosystem where open-source software, 
+                    automation, and documentation flourish. We support open innovation, education, and community-led projects that 
+                    shape our technological future.
+                  </p>
+                </div>
+              </TabsContent>
+            </Tabs>
           </div>
         </section>
 
@@ -377,233 +342,203 @@ export default function Home() {
         {/* Early Application Form - IDE Style */}
         <section className="mb-20">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg border border-gray-200  overflow-hidden">
-              {/* IDE-style tab bar */}
-              <div className="bg-gray-100 px-4 py-2 border-b border-gray-200 flex items-center space-x-4">
-                <div className="flex space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                </div>
-                <div className="flex space-x-1">
-                  {!submitted && (
-                    <button 
-                      className={`px-3 py-1 rounded-t text-sm font-medium transition-colors ${
-                        formTab === "application" 
-                          ? "bg-white border-l border-r border-t border-gray-200" 
-                          : "bg-gray-200 text-gray-600 hover:bg-gray-300"
-                      }`}
-                      onClick={() => setFormTab("application")}
-                    >
-                      application.js
-                    </button>
-                  )}
-                  <button 
-                    className={`px-3 py-1 rounded-t text-sm font-medium transition-colors ${
-                      formTab === "community" 
-                        ? "bg-white border-l border-r border-t border-gray-200" 
-                        : "bg-gray-200 text-gray-600 hover:bg-gray-300"
-                    }`}
-                    onClick={() => setFormTab("community")}
-                  >
-                    community.md
-                  </button>
-                </div>
-              </div>
+            <Tabs 
+              defaultValue={submitted ? "community" : "application"} 
+              value={formTab} 
+              onValueChange={setFormTab}
+            >
+              <TabsList>
+                {!submitted && <TabsTrigger value="application">application.js</TabsTrigger>}
+                <TabsTrigger value="community">community.md</TabsTrigger>
+              </TabsList>
               
-              <div className="h-[600px] sm:h-[750px] overflow-y-auto">
-                <div className="p-4 sm:p-6 lg:p-8">
-                {/* Application Tab */}
-                {formTab === "application" && !submitted && (
-                  <div>
-                    <div className="text-center mb-6 sm:mb-8">
-                      <h2 className="text-xl sm:text-2xl font-bold text-gray-800 font-mono mb-2">
-                        Show Your Interest
-                      </h2>
-                      <p className="text-gray-600 font-mono text-xs sm:text-sm">
-                        {/* Help us build a community that democratizes technology */}
-                      </p>
-                    </div>
-
-                    <Form {...form}>
-                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
-                        <FormField
-                          control={form.control}
-                          name="fullName"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Full Name *</FormLabel>
-                              <FormControl>
-                                <Input placeholder="Enter your full name" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Email Address *</FormLabel>
-                              <FormControl>
-                                <Input type="email" placeholder="Enter your email" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        <FormField
-                          control={form.control}
-                          name="phone"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Telegram Username</FormLabel>
-                              <FormControl>
-                                <Input type="text" required placeholder="Enter your Telegram username" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        <FormField
-                          control={form.control}
-                          name="interest"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>How would you like to contribute to building this community? *</FormLabel>
-                              <FormControl>
-                                <Textarea 
-                                  placeholder="Tell us about your interest in democratizing technology access, ideas you have, skills you can contribute, or how you&apos;d like to help build this vision..."
-                                  rows={4}
-                                  {...field} 
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        <FormField
-                          control={form.control}
-                          name="experience"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Technical Background & Interests</FormLabel>
-                              <FormControl>
-                                <Textarea 
-                                  placeholder="Share your experience with computing, robotics, fabrication, research, or other relevant areas..."
-                                  rows={3}
-                                  {...field} 
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        <FormField
-                          control={form.control}
-                          name="newsletter"
-                          render={({ field }) => (
-                            <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                              <FormControl>
-                                <input
-                                  type="checkbox"
-                                  checked={field.value}
-                                  onChange={field.onChange}
-                                  className="mt-1"
-                                  required={true}
-                                />
-                              </FormControl>
-                              <div className="space-y-1 leading-none">
-                                <FormLabel>
-                                  Keep me updated on community building progress and opportunities to contribute
-                                </FormLabel>
-                              </div>
-                            </FormItem>
-                          )}
-                        />
-
-                        <Button 
-                          type="submit" 
-                          className="w-full bg-gray-800 hover:bg-gray-700 text-green-400 font-mono border border-gray-600 py-3"
-                          disabled={isSubmitting}
-                        >
-                          {isSubmitting ? "$ processing..." : "$ Show interest"}
-                        </Button>
-                      </form>
-                    </Form>
+              {/* Application Tab */}
+              {!submitted && (
+                <TabsContent value="application" className="min-h-[600px] sm:min-h-[750px]">
+                  <div className="text-center mb-6 sm:mb-8">
+                    <h2 className="text-xl sm:text-2xl font-bold text-gray-800 font-mono mb-2">
+                      Show Your Interest
+                    </h2>
+                    <p className="text-gray-600 font-mono text-xs sm:text-sm">
+                      {/* Help us build a community that democratizes technology */}
+                    </p>
                   </div>
-                )}
 
-                {/* Community Tab */}
-                {(formTab === "community" || submitted) && (
-                  <div>
-                    <div className="text-center mb-6 sm:mb-8">
-                      <h2 className="text-xl sm:text-2xl font-bold text-gray-800 font-mono mb-2">
-                        Building Together
-                      </h2>
-                      <p className="text-gray-600 font-mono text-xs sm:text-sm mb-4 sm:mb-6">
-                        {/* Community-driven, member-owned, sustainable */}
-                      </p>
-                      <div className="bg-gray-50 rounded-lg p-4 sm:p-6 text-left">
-                        <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                          We&apos;re building something special in Finland and beyond. Together, we can create a member-owned cooperative that operates on the principles of 
-                          <strong> transparency, sustainability, accessibility, education, engagement, and loyalty</strong>.
-                        </p>
-                      </div>
-                    </div>
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+                      <FormField
+                        control={form.control}
+                        name="fullName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Full Name *</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Enter your full name" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
-                    <div className="space-y-4 sm:space-y-6">
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Email Address *</FormLabel>
+                            <FormControl>
+                              <Input type="email" placeholder="Enter your email" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
-                      <div>
-                        <h3 className="text-base sm:text-lg font-semibold text-gray-800 font-mono mb-3 sm:mb-4">
-                          # Member Ownership
-                        </h3>
-                        <div className="bg-gray-50 rounded p-3 sm:p-4">
-                          <p className="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4">
-                            As a <strong>member-owned organization</strong>, every member has a voice in how we operate and grow. 
-                            We believe in democratic governance and shared ownership of the infrastructure we build together.
-                          </p>
-                          <p className="text-gray-700 font-mono text-xs sm:text-sm">
-                            <span className="text-green-600">{'//'}</span> Member happiness is our top priority
-                          </p>
-                        </div>
-                      </div>
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Telegram Username</FormLabel>
+                            <FormControl>
+                              <Input type="text" required placeholder="Enter your Telegram username" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
-                      <div>
-                        <h3 className="text-base sm:text-lg font-semibold text-gray-800 font-mono mb-3 sm:mb-4">
-                          # What to Expect
-                        </h3>
-                        <div className="space-y-2 sm:space-y-3">
-                          <div className="flex items-start space-x-2 sm:space-x-3">
-                            <span className="text-green-600 font-mono text-sm">→</span>
-                            <p className="text-sm sm:text-base text-gray-700">Regular workshops and build sessions</p>
-                          </div>
-                          <div className="flex items-start space-x-2 sm:space-x-3">
-                            <span className="text-green-600 font-mono text-sm">→</span>
-                            <p className="text-sm sm:text-base text-gray-700">Access to shared infrastructure and tools</p>
-                          </div>
-                          <div className="flex items-start space-x-2 sm:space-x-3">
-                            <span className="text-green-600 font-mono text-sm">→</span>
-                            <p className="text-sm sm:text-base text-gray-700">Collaborative community projects</p>
-                          </div>
-                          <div className="flex items-start space-x-2 sm:space-x-3">
-                            <span className="text-green-600 font-mono text-sm">→</span>
-                            <p className="text-sm sm:text-base text-gray-700">Democratic decision-making process</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                      <FormField
+                        control={form.control}
+                        name="interest"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>How would you like to contribute to building this community? *</FormLabel>
+                            <FormControl>
+                              <Textarea 
+                                placeholder="Tell us about your interest in democratizing technology access, ideas you have, skills you can contribute, or how you&apos;d like to help build this vision..."
+                                rows={4}
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="experience"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Technical Background & Interests</FormLabel>
+                            <FormControl>
+                              <Textarea 
+                                placeholder="Share your experience with computing, robotics, fabrication, research, or other relevant areas..."
+                                rows={3}
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="newsletter"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                            <FormControl>
+                              <input
+                                type="checkbox"
+                                checked={field.value}
+                                onChange={field.onChange}
+                                className="mt-1"
+                                required={true}
+                              />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                              <FormLabel>
+                                Keep me updated on community building progress and opportunities to contribute
+                              </FormLabel>
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+
+                      <Button 
+                        type="submit" 
+                        className="w-full bg-gray-800 hover:bg-gray-700 text-green-400 font-mono border border-gray-600 py-3"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? "$ processing..." : "$ Show interest"}
+                      </Button>
+                    </form>
+                  </Form>
+                </TabsContent>
+              )}
+
+              {/* Community Tab */}
+              <TabsContent value="community" className="min-h-[400px] sm:min-h-[500px]">
+                <div className="text-center mb-6 sm:mb-8">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-800 font-mono mb-2">
+                    Building Together
+                  </h2>
+                  <p className="text-gray-600 font-mono text-xs sm:text-sm mb-4 sm:mb-6">
+                    {/* Community-driven, member-owned, sustainable */}
+                  </p>
+                  <div className="bg-gray-50 rounded-lg p-4 sm:p-6 text-left">
+                    <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                      We&apos;re building something special in Finland and beyond. Together, we can create a member-owned cooperative that operates on the principles of 
+                      <strong> transparency, sustainability, accessibility, education, engagement, and loyalty</strong>.
+                    </p>
                   </div>
-                )}
                 </div>
-              </div>
-            </div>
+
+                <div className="space-y-4 sm:space-y-6">
+
+                  <div>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-800 font-mono mb-3 sm:mb-4">
+                      # Member Ownership
+                    </h3>
+                    <div className="bg-gray-50 rounded p-3 sm:p-4">
+                      <p className="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4">
+                        As a <strong>member-owned organization</strong>, every member has a voice in how we operate and grow. 
+                        We believe in democratic governance and shared ownership of the infrastructure we build together.
+                      </p>
+                      <p className="text-gray-700 font-mono text-xs sm:text-sm">
+                        <span className="text-green-600">{'//'}</span> Member happiness is our top priority
+                      </p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-800 font-mono mb-3 sm:mb-4">
+                      # What to Expect
+                    </h3>
+                    <div className="space-y-2 sm:space-y-3">
+                      <div className="flex items-start space-x-2 sm:space-x-3">
+                        <span className="text-green-600 font-mono text-sm">→</span>
+                        <p className="text-sm sm:text-base text-gray-700">Regular workshops and build sessions</p>
+                      </div>
+                      <div className="flex items-start space-x-2 sm:space-x-3">
+                        <span className="text-green-600 font-mono text-sm">→</span>
+                        <p className="text-sm sm:text-base text-gray-700">Access to shared infrastructure and tools</p>
+                      </div>
+                      <div className="flex items-start space-x-2 sm:space-x-3">
+                        <span className="text-green-600 font-mono text-sm">→</span>
+                        <p className="text-sm sm:text-base text-gray-700">Collaborative community projects</p>
+                      </div>
+                      <div className="flex items-start space-x-2 sm:space-x-3">
+                        <span className="text-green-600 font-mono text-sm">→</span>
+                        <p className="text-sm sm:text-base text-gray-700">Democratic decision-making process</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </TabsContent>
+            </Tabs>
         </div>
         </section>
       </main>
