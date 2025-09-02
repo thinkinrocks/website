@@ -5,6 +5,12 @@ import Timeline from "../components/Timeline.astro";
 import ComputerIcon from "../assets/computer.svg";
 import BackgroundShader from "../components/BackgroundShader.tsx";
 import BackgroundWave from "../components/BackgroundWave.tsx";
+import { Image } from "astro:assets";
+import JetsonNano from "../assets/jetson-nano.png";
+import AMDVision from "../assets/amd-vision.png";
+import AMDRobotics from "../assets/amd-robotics.png";
+import Tenstorrent from "../assets/tenstorrent.png";
+import Camera from "../assets/camera.png";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -43,11 +49,12 @@ import BackgroundWave from "../components/BackgroundWave.tsx";
     <div class="relative">
       <div class="snap-x snap-mandatory overflow-x-auto scrollbar-hide">
         <div
-          class="flex px-4 gap-4 w-full [&_div]:w-[calc(100vw-4rem)] [&_div]:md:w-[400px] [&_div]:flex-shrink-0"
+          class="flex px-4 gap-4 w-full [&_div]:w-[calc(100vw-4rem)] [&_div]:md:w-[400px] [&_div]:flex-shrink-0 [&_div]:rounded-lg"
         >
-          <div class="rounded-sm bg-orange-50 p-8">
-            <img
-              src="/public/jetson-nano.png"
+          <div class="bg-orange-50 p-8">
+            <Image
+              src={JetsonNano}
+              quality="low"
               alt="NVIDIA Jetson Orin Nano Super Board"
               class="w-full aspect-[2/1] object-contain object-left mb-8"
             />
@@ -60,9 +67,9 @@ import BackgroundWave from "../components/BackgroundWave.tsx";
               for beginners coming from Raspberry Pi.
             </p>
           </div>
-          <div class="rounded-sm bg-red-50 p-8">
-            <img
-              src="/public/amd-robotics.png"
+          <div class="bg-red-50 p-8">
+            <Image
+              src={AMDRobotics}
               alt="AMD Kria KR260 Robotics Board"
               class="w-1/2 aspect-square object-contain mb-8"
             />
@@ -76,9 +83,9 @@ import BackgroundWave from "../components/BackgroundWave.tsx";
               adaptive hardware.
             </p>
           </div>
-          <div class="rounded-sm bg-red-50 p-8">
-            <img
-              src="/public/amd-vision.png"
+          <div class="bg-red-50 p-8">
+            <Image
+              src={AMDVision}
               alt="AMD Kria KV260 Vision Board"
               class="w-1/2 aspect-square object-contain mb-8"
             />
@@ -92,9 +99,9 @@ import BackgroundWave from "../components/BackgroundWave.tsx";
               analytics, and other industrial applications.
             </p>
           </div>
-          <div class="rounded-sm bg-cyan-50 p-8">
-            <img
-              src="/public/tenstorrent.png"
+          <div class="bg-cyan-50 p-8">
+            <Image
+              src={Tenstorrent}
               alt="Tenstorrent Blackhole™ p100a Graphics Card"
               class="w-full aspect-[2/1] object-contain object-left mb-8"
             />
@@ -108,11 +115,11 @@ import BackgroundWave from "../components/BackgroundWave.tsx";
               Supported by Tenstorrent's fully open source software stack.
             </p>
           </div>
-          <div class="rounded-sm bg-green-50 p-8">
-            <img
-              src="/public/camera.png"
+          <div class="bg-green-50 p-8">
+            <Image
+              src={Camera}
               alt="OAK-D Pro Camera"
-              class="w-2/3 aspect-[3/2] object-contain object-left mb-8"
+              class="w-full aspect-[2/1] object-contain object-left mb-8"
             />
             <h3 class="text-2xl font-medium font-logo mb-2">OAK-D Pro</h3>
             <p>
@@ -142,7 +149,7 @@ import BackgroundWave from "../components/BackgroundWave.tsx";
       <div class="flex justify-center">
         <div class="w-full md:w-[400px] relative">
           <div
-            class="absolute bg-red-200 top-[10%] right-[20%] left-[16%] bottom-[40%] -z-10"
+            class="absolute top-[10%] right-[20%] left-[16%] bottom-[40%] -z-10"
           >
             <div
               class="relative w-full h-full flex flex-col items-center justify-center"
