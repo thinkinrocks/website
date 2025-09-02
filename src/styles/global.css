@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans Variable", sans-serif;
+  --font-display: "Alkatra Variable", sans-serif;
+  --font-logo: "Handjet Variable", sans-serif;
+  --font-mono: "Geist Mono Variable", monospace;
+}
+
+/* Hide scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
