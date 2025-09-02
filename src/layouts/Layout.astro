@@ -4,6 +4,7 @@ import "@fontsource-variable/geist-mono";
 import "@fontsource-variable/alkatra";
 import "@fontsource-variable/handjet";
 import "@fontsource-variable/monda";
+import handjet from "@fontsource-variable/handjet/files/handjet-latin-wght-normal.woff2?url";
 import "../styles/global.css";
 ---
 
@@ -14,6 +15,13 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={handjet}
+      crossorigin="anonymous"
+    />
     <title>Thinkin' Rocks</title>
   </head>
   <body>
