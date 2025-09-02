@@ -1,0 +1,40 @@
+---
+import BackgroundShader from "./BackgroundShader.tsx";
+import { ButtonLink } from "./buttons.tsx";
+import { FaDiscord, FaGithub, FaUserPlus } from "react-icons/fa";
+---
+
+<div
+  class="relative mx-auto flex flex-col justify-center h-screen px-4 md:px-16"
+>
+  <BackgroundShader client:load />
+  <div class="relative z-10 flex flex-col items-center justify-center">
+    <h1
+      class="text-7xl md:text-9xl text-amber-600 font-logo mb-4 font-medium text-center tracking-tight whitespace-nowrap"
+    >
+      Thinkin' Rocks
+    </h1>
+    <h2
+      class="text-2xl w-full mb-8 md:text-3xl font-medium font-mono text-center tracking-tight md:leading-10"
+    >
+      access <span class="whitespace-nowrap bg-amber-100 px-2 -mx-2"
+        >co-owned</span
+      >
+      experimental hardware for <span class="bg-amber-100 px-2 -mx-2">R&D</span>
+    </h2>
+    <div class="flex justify-center gap-2">
+      <ButtonLink href="https://discord.gg/gtncJfm85n">
+        <FaGithub className="w-4 h-4 -mb-0.5" />
+        GitHub
+      </ButtonLink>
+      <ButtonLink href="https://github.com/aaltoes-tech">
+        <FaDiscord className="w-4 h-4 -mb-0.5" />
+        Discord
+      </ButtonLink>
+      <ButtonLink href="https://tally.so/r/mBrVg7">
+        <FaUserPlus className="w-4 h-4 -mb-0.5" />
+        Join Us
+      </ButtonLink>
+    </div>
+  </div>
+</div>
