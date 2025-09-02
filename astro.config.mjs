@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 import react from "@astrojs/react";
 
+import vercel from "@astrojs/vercel";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -11,7 +13,8 @@ export default defineConfig({
   },
 
   experimental: {
-    fonts: [{
+    fonts: [
+      {
         provider: fontProviders.google(),
         name: "Noto Sans",
         cssVariable: "--font-noto-sans",
@@ -25,8 +28,15 @@ export default defineConfig({
         provider: fontProviders.google(),
         name: "Alkatra",
         cssVariable: "--font-alkatra",
-      }
+      },
     ],
   },
   integrations: [react()],
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+    imageService: true,
+    devImageService: "sharp",
+  }),
 });
