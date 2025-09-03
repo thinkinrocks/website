@@ -6,6 +6,7 @@ import "@fontsource-variable/handjet";
 import "@fontsource-variable/monda";
 import handjet from "@fontsource-variable/handjet/files/handjet-latin-wght-normal.woff2?url";
 import "../styles/global.css";
+import Analytics from "@vercel/analytics/astro";
 ---
 
 <!doctype html>
@@ -23,6 +24,7 @@ import "../styles/global.css";
       crossorigin="anonymous"
     />
     <title>Thinkin' Rocks</title>
+    <Analytics />
   </head>
   <body>
     <slot />
