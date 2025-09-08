@@ -1,9 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { ImageDithering } from '@paper-design/shaders-react';
-import Image6 from "../assets/fightlab/image 6.png";
-import Image7 from "../assets/fightlab/image 7.png";
-import Image8 from "../assets/fightlab/image 8.png";
+import Image2 from "../assets/fightlab/2.png";
+import Image4 from "../assets/fightlab/4.png";
+import Image3 from "../assets/fightlab/3.png";
 ---
 
 <Layout>
@@ -15,7 +15,7 @@ import Image8 from "../assets/fightlab/image 8.png";
         <div class="mb-6">
           <ImageDithering
             client:load
-            image="/src/assets/fightlab/2.png"
+            image={Image2.src}
             style={{ height: '190px', width:'450px' }}
             colorBack="hsl(0, 0%, 0%)"
             colorFront="hsl(304, 100%, 90%)"
@@ -38,7 +38,7 @@ import Image8 from "../assets/fightlab/image 8.png";
         <div class="mb-6">
           <ImageDithering
             client:load
-            image="/src/assets/fightlab/4.png"
+            image={Image4.src}
             style={{ height: '190px', width:'450px' }}
             colorBack="hsl(0, 0%, 0%)"
             colorFront="hsl(304, 100%, 90%)"
@@ -65,7 +65,7 @@ import Image8 from "../assets/fightlab/image 8.png";
         <div class="mb-6">
           <ImageDithering
             client:load
-            image="/src/assets/fightlab/3.png"
+            image={Image3.src}
             style={{ height: '190px', width:'450px' }}
             colorBack="hsl(0, 0%, 0%)"
             colorFront="hsl(304, 100%, 90%)"
