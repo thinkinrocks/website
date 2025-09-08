@@ -1,7 +1,8 @@
 ---
 import BackgroundWave from "./BackgroundWave.tsx";
 import { ButtonLink, EventButton } from "./buttons.tsx";
-import { FaDiscord, FaGithub, FaUserPlus, FaCalendarAlt } from "react-icons/fa";
+import { FaDiscord, FaUserPlus, FaCalendarAlt } from "react-icons/fa";
+import WelcomeButtons from "./welcome-buttons.tsx";
 ---
 
 <div
@@ -20,20 +21,6 @@ import { FaDiscord, FaGithub, FaUserPlus, FaCalendarAlt } from "react-icons/fa";
       Access <span class="bg-amber-100 px-2 -mx-2">cutting-edge hardware</span> at
       our community-driven lab.
     </h2>
-    <div class="flex flex-wrap justify-center gap-2">
-      <EventButton href="https://luma.com/sf4dp6u2">
-        <FaCalendarAlt className="w-4 h-4 -mb-0.5" />
-        Join meetup 16.09
-      </EventButton>
-      <ButtonLink href="https://discord.gg/gtncJfm85n">
-        <FaDiscord className="w-4 h-4 -mb-0.5" />
-        Discord
-      </ButtonLink>
-
-      <ButtonLink href="https://tally.so/r/mBrVg7">
-        <FaUserPlus className="w-4 h-4 -mb-0.5" />
-        Sign Up
-      </ButtonLink>
-    </div>
+    <WelcomeButtons client:load />
   </div>
 </div>
