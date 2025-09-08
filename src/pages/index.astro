@@ -2,8 +2,6 @@
 import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import Timeline from "../components/Timeline.astro";
-import ComputerIcon from "../assets/computer.svg";
-import BackgroundShader from "../components/BackgroundShader.tsx";
 import BackgroundWave from "../components/BackgroundWave.tsx";
 import { Image } from "astro:assets";
 import JetsonNano from "../assets/jetson-nano.png";
@@ -18,7 +16,7 @@ import Camera from "../assets/camera.png";
 
 <Layout>
   <Welcome />
-  <div class="px-4 md:px-16 pt-16 pb-8 max-w-4xl mx-auto">
+  <div class="px-4 md:px-16 pt-8 pb-8 max-w-4xl mx-auto">
     <div class="rounded-lg bg-fuchsia-50 p-8">
       <h2 class="text-3xl font-medium font-logo mb-2">About</h2>
       <p class="max-w-prose text-lg mb-8">
