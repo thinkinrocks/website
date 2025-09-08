@@ -32,3 +32,22 @@ export function DiscordButton({ href = "#" }: { href: string }) {
     </div>
   );
 }
+
+export function EventButton({
+  href = "#",
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="bg-green-600 h-fit translate-0.5">
+      <a
+        href={href}
+        className="bg-green-50 text-green-600 inline-flex px-4 py-2 -translate-0.5 items-center gap-2 whitespace-nowrap"
+      >
+        {children}
+      </a>
+    </div>
+  );
+}
