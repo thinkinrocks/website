@@ -1,0 +1,122 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ImageDithering } from '@paper-design/shaders-react';
+import Image6 from "../assets/fightlab/image 6.png";
+import Image7 from "../assets/fightlab/image 7.png";
+import Image8 from "../assets/fightlab/image 8.png";
+---
+
+<Layout>
+  <div class="min-h-screen p-8" style="background-color: #FFB5FA;">
+    <div class="max-w-4xl mx-auto">
+      <!-- Terminal Content -->
+      <div class="p-6 font-mono text-gray-800">
+        <!-- First image before paragraph -->
+        <div class="mb-6">
+          <ImageDithering
+            client:load
+            image="/src/assets/fightlab/2.png"
+            style={{ height: '190px', width:'450px' }}
+            colorBack="hsl(0, 0%, 0%)"
+            colorFront="hsl(304, 100%, 90%)"
+            colorHighlight="hsl(303, 100%, 88%)"
+            originalColors={false}
+            type="8x8"
+            pxSize={1}
+            colorSteps={2}
+            scale={1}
+            fit="cover"
+          />
+        </div>
+
+        <div class="mb-6">
+          <div class="mb-2">we are giving 200 euro verkkokauppa gift cards for the most interesting solutions for our challenges</div>
+          <div class="mb-2"></div>
+        </div>
+
+        <!-- Second image before challenges -->
+        <div class="mb-6">
+          <ImageDithering
+            client:load
+            image="/src/assets/fightlab/4.png"
+            style={{ height: '190px', width:'450px' }}
+            colorBack="hsl(0, 0%, 0%)"
+            colorFront="hsl(304, 100%, 90%)"
+            colorHighlight="hsl(303, 100%, 88%)"
+            originalColors={false}
+            type="8x8"
+            pxSize={1}
+            colorSteps={2}
+            scale={1}
+            fit="cover"
+          />
+        </div>
+
+        <div class="mb-6">
+          <div class="mb-2">challenge n1: <a href="#doorbell" class="underline hover:text-gray-600 transition-colors">door bell</a>, deadline 19.09, friday</div>
+          <div class="mb-2">challenge n2: to be announced 19.09</div>
+          <div class="mb-2">challenge n3: to be announced 26.09</div>
+          <div class="mb-2">challenge n4: to be announced 03.10</div>
+          <div class="mb-2">challenge n5: to be announced 10.10</div>
+          <div class="mb-2"></div>
+        </div>
+
+        <!-- Third image before reach out -->
+        <div class="mb-6">
+          <ImageDithering
+            client:load
+            image="/src/assets/fightlab/3.png"
+            style={{ height: '190px', width:'450px' }}
+            colorBack="hsl(0, 0%, 0%)"
+            colorFront="hsl(304, 100%, 90%)"
+            colorHighlight="hsl(303, 100%, 88%)"
+            originalColors={false}
+            type="8x8"
+            pxSize={1}
+            colorSteps={2}
+            scale={1}
+            fit="cover"
+          />
+        </div>
+
+        <div class="mb-6">
+          <div class="mb-2">for any questions, reach out to <a href="https://t.me/mailateippi" class="underline hover:text-gray-600 transition-colors">@mailateippi</a></div>
+        </div>
+
+        <!-- Current command with blinking cursor -->
+        <div class="flex items-center">
+          <span class="animate-pulse text-gray-800">█</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  ::selection {
+    background-color: black !important;
+    color: #FFB5FA !important;
+  }
+  
+  ::-moz-selection {
+    background-color: black !important;
+    color: #FFB5FA !important;
+  }
+  
+  * {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+  
+  *::selection {
+    background-color: black !important;
+    color: #FFB5FA !important;
+  }
+  
+  *::-moz-selection {
+    background-color: black !important;
+    color: #FFB5FA !important;
+  }
+</style>
