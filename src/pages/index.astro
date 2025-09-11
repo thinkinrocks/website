@@ -10,6 +10,8 @@ import AMDRobotics from "../assets/amd-robotics.png";
 import Tenstorrent from "../assets/tenstorrent.png";
 import Camera from "../assets/camera.png";
 import VarjoXR3 from "../assets/varjo-xr3.png";
+import LenovoLegionT5 from "../assets/lenovo-legion-t5.png";
+import BoosterT1 from "../assets/booster-t1.png";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -47,25 +49,6 @@ import VarjoXR3 from "../assets/varjo-xr3.png";
     <div
       class="snap-x snap-mandatory px-4 flex gap-4 overflow-x-auto scrollbar-hide [&_div]:w-[calc(100vw-4rem)] [&_div]:md:w-[400px] [&_div]:flex-shrink-0 [&_div]:rounded-lg"
     >
-      <div class="bg-green-50 p-8 snap-center">
-        <Image
-          src={JetsonNano}
-          width={200}
-          height={200}
-          quality="low"
-          alt="NVIDIA Jetson Orin Nano Super Board"
-          class="w-full aspect-[2/1] object-contain object-left mb-8"
-          priority
-        />
-        <h3 class="text-2xl font-medium font-logo mb-2">
-          NVIDIA Jetson Orin Nano Super
-        </h3>
-        <p>
-          Small, powerful computer that can be used for a variety of tasks,
-          including machine learning, computer vision, and robotics. Good for
-          beginners coming from Raspberry Pi.
-        </p>
-      </div>
       <div class="bg-blue-50 p-8 snap-center">
         <Image
           src={VarjoXR3}
@@ -86,6 +69,64 @@ import VarjoXR3 from "../assets/varjo-xr3.png";
       </div>
       <div class="bg-fuchsia-50 p-8 snap-center">
         <Image
+          src={BoosterT1}
+          width={200}
+          height={200}
+          quality="low"
+          alt="Booster_T1 Humanoid Robot"
+          class="w-1/2 aspect-square object-contain scale-125 mb-8"
+          priority
+        />
+        <h3 class="text-2xl font-medium font-logo mb-2">Booster_T1</h3>
+        <p>
+          Provided by Aaltoes, it is a humanoid with full-force joints and
+          Jetson AGX Orin (200 TOPS) for onboard AI. With RGB-D vision, mic
+          array, 9-axis IMU, ROS2, and a mobile app, it suits research,
+          education, and custom perception/navigation development.
+        </p>
+      </div>
+      <div class="bg-green-50 p-8 snap-center">
+        <Image
+          src={JetsonNano}
+          width={200}
+          height={200}
+          quality="low"
+          alt="NVIDIA Jetson Orin Nano Super Board"
+          class="w-full aspect-[2/1] object-contain object-left mb-8"
+          priority
+        />
+        <h3 class="text-2xl font-medium font-logo mb-2">
+          NVIDIA Jetson Orin Nano Super
+        </h3>
+        <p>
+          67 TOPS Ampere (1024 CUDA, 32 Tensor), 6-core Arm A78AE, 8GB LPDDR5
+          (102 GB/s), 7-25W, $249. Runs LLMs/VLMs/transformers at the edge, with
+          Pi-friendly onboarding via Jetson/Isaac docs and community; existing
+          kits get the boost via software.
+        </p>
+      </div>
+      <div class="bg-fuchsia-50 p-8 snap-center">
+        <Image
+          src={LenovoLegionT5}
+          width={200}
+          height={200}
+          quality="low"
+          alt="Lenovo Legion Tower 5 Gen 10"
+          class="w-1/2 aspect-square object-contain scale-100 mb-8"
+          priority
+        />
+        <h3 class="text-2xl font-medium font-logo mb-2">
+          Lenovo Legion Tower 5 Gen 10
+        </h3>
+        <p>
+          Ryzen 7 7700X + RTX 5070 (12GB), 32GB DDR5-5600, 1TB PCIe 4.0 NVMe on
+          AMD B650 with PCIe 4.0 x16 and M.2. Built for high-FPS 1440p/4K
+          graphics, AI inference, 3D content creation, and
+          streaming/compiling/rendering multitask workflows.
+        </p>
+      </div>
+      <div class="bg-red-50 p-8 snap-center">
+        <Image
           src={AMDRobotics}
           width={200}
           height={200}
@@ -104,7 +145,7 @@ import VarjoXR3 from "../assets/varjo-xr3.png";
           hardware solutions with ease.
         </p>
       </div>
-      <div class="bg-fuchsia-50 p-8 snap-center">
+      <div class="bg-red-50 p-8 snap-center">
         <Image
           src={AMDVision}
           width={200}
@@ -136,10 +177,10 @@ import VarjoXR3 from "../assets/varjo-xr3.png";
           Tenstorrent Blackhole™ p100a
         </h3>
         <p>
-          PCIe board designed for high performance AI processing featuring 16
-          big RISC-V cores and 28 GB of GDDR6 operating at up to 300W in an
-          active-cooled form factor geared for desktop workstations. Supported
-          by Tenstorrent's fully open source software stack.
+          PCIe board for high performance AI processing with 16 big RISC-V cores
+          and 28 GB of GDDR6 operating at up to 300W in an active-cooled form
+          factor geared for desktop workstations. Supported by Tenstorrent's
+          open source software stack.
         </p>
       </div>
       <div class="bg-green-50 p-8 snap-center">
