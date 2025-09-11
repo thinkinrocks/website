@@ -9,6 +9,7 @@ import AMDVision from "../assets/amd-vision.png";
 import AMDRobotics from "../assets/amd-robotics.png";
 import Tenstorrent from "../assets/tenstorrent.png";
 import Camera from "../assets/camera.png";
+import VarjoXR3 from "../assets/varjo-xr3.png";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -20,15 +21,17 @@ import Camera from "../assets/camera.png";
     <div class="rounded-lg bg-fuchsia-50 p-8">
       <h2 class="text-3xl font-medium font-logo mb-2">About</h2>
       <p class="max-w-prose text-lg mb-8">
-        At Thinkin' Rocks, we want to build and maintain the infrastructure our community needs. We provide access
-        to high-end computational & GPU servers, robotics equipment, sensors,
-        fabrication tools, and shared collaborative spaces.
+        At Thinkin' Rocks, we want to build and maintain the infrastructure our
+        community needs. We provide access to high-end computational & GPU
+        servers, robotics equipment, sensors, fabrication tools, and shared
+        collaborative spaces.
       </p>
       <p class="max-w-prose text-lg">
         Through build sessions, workshops, and public events, we're creating an
         ecosystem of deep research, automation, and open-source software. We
         support innovation, education, and community-led projects that shape our
-        technological future. You can already join our discord channel and subscribe to our email list to follow updates.
+        technological future. You can already join our discord channel and
+        subscribe to our email list to follow updates.
       </p>
     </div>
   </div>
@@ -63,6 +66,24 @@ import Camera from "../assets/camera.png";
           beginners coming from Raspberry Pi.
         </p>
       </div>
+      <div class="bg-blue-50 p-8 snap-center">
+        <Image
+          src={VarjoXR3}
+          width={200}
+          height={200}
+          quality="low"
+          alt="Varjo XR-3"
+          class="w-1/2 aspect-square object-contain scale-150 mb-8"
+          priority
+        />
+        <h3 class="text-2xl font-medium font-logo mb-2">Varjo XR-3</h3>
+        <p>
+          Varjo XR-3 is a pro headset with photorealistic 12 MP pass-through,
+          LiDAR depth sensing, and human-eye resolution (70+ PPD) across a 115°
+          FOV. It adds 200 Hz eye tracking, Ultraleap hand tracking, and
+          enterprise-grade ergonomics and security.
+        </p>
+      </div>
       <div class="bg-fuchsia-50 p-8 snap-center">
         <Image
           src={AMDRobotics}
@@ -91,7 +112,6 @@ import Camera from "../assets/camera.png";
           quality="low"
           alt="AMD Kria KV260 Vision Board"
           class="w-1/2 aspect-square object-contain mb-8"
-          priority
         />
         <h3 class="text-2xl font-medium font-logo mb-2">
           AMD Kria KV260 Vision
