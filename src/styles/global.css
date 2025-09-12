@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Noto Sans Variable", sans-serif;
+  --font-sans: "Space Grotesk Variable", sans-serif;
   --font-display: "Alkatra Variable", sans-serif;
   --font-logo: "Handjet Variable", sans-serif;
-  --font-mono: "Geist Mono Variable", monospace;
+  --font-mono: "Departure Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /* Hide scrollbar */

@@ -1,12 +1,20 @@
 ---
-import "@fontsource-variable/noto-sans";
+import "@fontsource-variable/space-grotesk";
 import "@fontsource-variable/geist-mono";
 import "@fontsource-variable/alkatra";
 import "@fontsource-variable/handjet";
 import "@fontsource-variable/monda";
 import handjet from "@fontsource-variable/handjet/files/handjet-latin-wght-normal.woff2?url";
 import "../styles/global.css";
+import "../styles/fonts.css";
 import Analytics from "@vercel/analytics/astro";
+import Navbar from "../components/Navbar.astro";
+
+export interface Props {
+  hideNavbar?: boolean;
+}
+
+const { hideNavbar = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -27,6 +35,7 @@ import Analytics from "@vercel/analytics/astro";
     <Analytics />
   </head>
   <body>
+    {!hideNavbar && <Navbar />}
     <slot />
   </body>
 </html>

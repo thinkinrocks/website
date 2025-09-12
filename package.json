@@ -16,6 +16,7 @@
     "@fontsource-variable/handjet": "^5.2.6",
     "@fontsource-variable/monda": "^5.2.8",
     "@fontsource-variable/noto-sans": "^5.2.7",
+    "@fontsource-variable/space-grotesk": "^5.2.9",
     "@paper-design/shaders-react": "^0.0.47",
     "@tailwindcss/vite": "^4.1.12",
     "@types/react": "^19.1.12",

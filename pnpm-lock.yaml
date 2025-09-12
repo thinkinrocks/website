@@ -29,6 +29,9 @@ importers:
       '@fontsource-variable/noto-sans':
         specifier: ^5.2.7
         version: 5.2.7
+      '@fontsource-variable/space-grotesk':
+        specifier: ^5.2.9
+        version: 5.2.9
       '@paper-design/shaders-react':
         specifier: ^0.0.47
         version: 0.0.47(@types/react@19.1.12)(react@19.1.1)
@@ -365,6 +368,9 @@ packages:
 
   '@fontsource-variable/noto-sans@5.2.7':
     resolution: {integrity: sha512-VaA+clV7xTOx+pSOdyjr9nR7khjrJGr7ZHs2KXlx+AqLyG/SUVBadNwauCH0rvF/eZkZr67neNxdKMOLtVxweg==}
+
+  '@fontsource-variable/space-grotesk@5.2.9':
+    resolution: {integrity: sha512-4VnXk51fypXV+2okrmz7s0ckBZWIhvEgSVKNgRKGLxb5wpQZi5xZuzX+MalVwCUh36Gve3uG2vqCVuQkrHccRA==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -2469,6 +2475,8 @@ snapshots:
   '@fontsource-variable/monda@5.2.8': {}
 
   '@fontsource-variable/noto-sans@5.2.7': {}
+
+  '@fontsource-variable/space-grotesk@5.2.9': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:

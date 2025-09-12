@@ -1,0 +1,215 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import JetsonNano from "../assets/jetson-nano.png";
+import AMDVision from "../assets/amd-vision.png";
+import AMDRobotics from "../assets/amd-robotics.png";
+import Tenstorrent from "../assets/tenstorrent.png";
+import Camera from "../assets/camera.png";
+import VarjoXR3 from "../assets/varjo-xr3.png";
+import LenovoLegionT5 from "../assets/lenovo-legion-t5.png";
+import BoosterT1 from "../assets/booster-t1.png";
+---
+
+<Layout>
+  <div class="py-16 px-4 md:px-16">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-5xl md:text-4xl text-tighter font-mono mb-8 text-center">
+        Available Equipment
+      </h1>
+      <div class="px-4 md:px-16 pt-8 pb-8 max-w-4xl mx-auto">
+        <p class="max-w-prose text-lg mb-8 font-sans">
+            You can borrow our hardware, but it may be used only at the Startup Sauna workspace. Inform us in advance if you need something, and do not share equipment with anyone outside our Discord community without approval.
+      </p>
+    </div>
+     
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="border-b border-gray-200">
+                      <th class="text-left py-2 px-3 font-mono text-tighter text-sm text-gray-800 w-32">Image</th>
+                      <th class="text-left py-2 px-3 font-mono text-tighter text-sm text-gray-800 w-80">Name</th>
+                      <th class="text-left py-2 px-3 font-mono text-tighter text-sm text-gray-800">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Varjo XR-3 -->
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-3 w-32">
+                <Image
+                  src={VarjoXR3}
+                  width={120}
+                  height={120}
+                  quality="low"
+                  alt="Varjo XR-3"
+                  class="w-24 h-24 object-contain"
+                  priority
+                />
+              </td>
+              <td class="py-3 px-3 font-mono text-tighter text-sm w-80">Varjo XR-3</td>
+              <td class="py-3 px-3 font-sans text-xs leading-relaxed">
+                Varjo XR-3 is a pro headset with photorealistic 12 MP pass-through,
+                LiDAR depth sensing, and human-eye resolution (70+ PPD) across a 115°
+                FOV. It adds 200 Hz eye tracking, Ultraleap hand tracking, and
+                enterprise-grade ergonomics and security.
+              </td>
+            </tr>
+
+            <!-- Booster_T1 -->
+            <tr class="border-b border-gray-100 ">
+              <td class="py-3 px-3 w-32">
+                <Image
+                  src={BoosterT1}
+                  width={120}
+                  height={120}
+                  quality="low"
+                  alt="Booster_T1 Humanoid Robot"
+                  class="w-24 h-24 object-contain"
+                  priority
+                />
+              </td>
+              <td class="py-3 px-3 font-mono text-tighter text-sm w-80">Booster_T1</td>
+              <td class="py-3 px-3 font-sans text-xs leading-relaxed">
+                Provided by Aaltoes, it is a humanoid with full-force joints and
+                Jetson AGX Orin (200 TOPS) for onboard AI. With RGB-D vision, mic
+                array, 9-axis IMU, ROS2, and a mobile app, it suits research,
+                education, and custom perception/navigation development.
+              </td>
+            </tr>
+
+            <!-- NVIDIA Jetson Orin Nano Super -->
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-3 w-32">
+                <Image
+                  src={JetsonNano}
+                  width={120}
+                  height={120}
+                  quality="low"
+                  alt="NVIDIA Jetson Orin Nano Super Board"
+                  class="w-24 h-24 object-contain"
+                  priority
+                />
+              </td>
+              <td class="py-3 px-3 font-mono text-tighter text-sm w-80">NVIDIA Jetson Orin Nano Super</td>
+              <td class="py-3 px-3 font-sans text-xs leading-relaxed">
+                67 TOPS Ampere (1024 CUDA, 32 Tensor), 6-core Arm A78AE, 8GB LPDDR5
+                (102 GB/s), 7-25W, $249. Runs LLMs/VLMs/transformers at the edge, with
+                Pi-friendly onboarding via Jetson/Isaac docs and community; existing
+                kits get the boost via software.
+              </td>
+            </tr>
+
+            <!-- Lenovo Legion Tower 5 Gen 10 -->
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-3 w-32">
+                <Image
+                  src={LenovoLegionT5}
+                  width={120}
+                  height={120}
+                  quality="low"
+                  alt="Lenovo Legion Tower 5 Gen 10"
+                  class="w-24 h-24 object-contain"
+                  priority
+                />
+              </td>
+              <td class="py-3 px-3 font-mono text-tighter text-sm w-80">Lenovo Legion Tower 5 Gen 10</td>
+              <td class="py-3 px-3 font-sans text-xs leading-relaxed">
+                Ryzen 7 7700X + RTX 5070 (12GB), 32GB DDR5-5600, 1TB PCIe 4.0 NVMe on
+                AMD B650 with PCIe 4.0 x16 and M.2. Built for high-FPS 1440p/4K
+                graphics, AI inference, 3D content creation, and
+                streaming/compiling/rendering multitask workflows.
+              </td>
+            </tr>
+
+            <!-- AMD Kria KR260 Robotics -->
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-3 w-32">
+                <Image
+                  src={AMDRobotics}
+                  width={120}
+                  height={120}
+                  quality="low"
+                  alt="AMD Kria KR260 Robotics Board"
+                  class="w-24 h-24 object-contain"
+                  priority
+                />
+              </td>
+              <td class="py-3 px-3 font-mono text-tighter text-sm w-80">AMD Kria KR260 Robotics</td>
+              <td class="py-3 px-3 font-sans text-xs leading-relaxed">
+                Built for robotics and industrial applications, it combines high-
+                performance interfaces, native ROS 2 support, and integrated FPGA
+                fabric, enabling roboticists and embedded developers to build adaptive
+                hardware solutions with ease.
+              </td>
+            </tr>
+
+            <!-- AMD Kria KV260 Vision -->
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-3 w-32">
+                <Image
+                  src={AMDVision}
+                  width={120}
+                  height={120}
+                  quality="low"
+                  alt="AMD Kria KV260 Vision Board"
+                  class="w-24 h-24 object-contain"
+                  priority
+                />
+              </td>
+              <td class="py-3 px-3 font-mono text-tighter text-sm w-80">AMD Kria KV260 Vision</td>
+              <td class="py-3 px-3 font-sans text-xs leading-relaxed">
+                Designed for advanced vision applications, it combines powerful
+                processing with integrated FPGA fabric, making it ideal for
+                prototyping smart city, machine vision, security, retail analytics,
+                and industrial solutions.
+              </td>
+            </tr>
+
+            <!-- Tenstorrent Blackhole™ p100a -->
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-3 w-32">
+                <Image
+                  src={Tenstorrent}
+                  width={120}
+                  height={120}
+                  quality="low"
+                  alt="Tenstorrent Blackhole™ p100a Graphics Card"
+                  class="w-24 h-24 object-contain"
+                />
+              </td>
+              <td class="py-3 px-3 font-mono text-tighter text-sm w-80">Tenstorrent Blackhole™ p100a</td>
+              <td class="py-3 px-3 font-sans text-xs leading-relaxed">
+                PCIe board for high performance AI processing with 16 big RISC-V cores
+                and 28 GB of GDDR6 operating at up to 300W in an active-cooled form
+                factor geared for desktop workstations. Supported by Tenstorrent's
+                open source software stack.
+              </td>
+            </tr>
+
+            <!-- OAK-D Pro -->
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-3 w-32">
+                <Image
+                  src={Camera}
+                  width={120}
+                  height={120}
+                  quality="low"
+                  alt="OAK-D Pro Camera"
+                  class="w-24 h-24 object-contain"
+                />
+              </td>
+              <td class="py-3 px-3 font-mono text-tighter text-sm w-80">OAK-D Pro</td>
+              <td class="py-3 px-3 font-sans text-xs leading-relaxed">
+                Camera equipped with IR illumination and an on-device Neural Network
+                inferencing and Computer Vision capabilities. Good for applications
+                that require high-quality and reliable stereo depth perception in any
+                kind of environment.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</Layout>

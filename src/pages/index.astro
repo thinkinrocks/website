@@ -3,15 +3,6 @@ import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import Timeline from "../components/Timeline.astro";
 import BackgroundWave from "../components/BackgroundWave.tsx";
-import { Image } from "astro:assets";
-import JetsonNano from "../assets/jetson-nano.png";
-import AMDVision from "../assets/amd-vision.png";
-import AMDRobotics from "../assets/amd-robotics.png";
-import Tenstorrent from "../assets/tenstorrent.png";
-import Camera from "../assets/camera.png";
-import VarjoXR3 from "../assets/varjo-xr3.png";
-import LenovoLegionT5 from "../assets/lenovo-legion-t5.png";
-import BoosterT1 from "../assets/booster-t1.png";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -19,208 +10,25 @@ import BoosterT1 from "../assets/booster-t1.png";
 
 <Layout>
   <Welcome />
+
   <div class="px-4 md:px-16 pt-8 pb-8 max-w-4xl mx-auto">
-    <div class="rounded-lg bg-fuchsia-50 p-8">
-      <h2 class="text-3xl font-medium font-logo mb-2">About</h2>
-      <p class="max-w-prose text-lg mb-8">
-        At Thinkin' Rocks, we want to build and maintain the infrastructure our
-        community needs. We provide access to high-end computational & GPU
-        servers, robotics equipment, sensors, fabrication tools, and shared
-        collaborative spaces.
+      <p class="max-w-prose text-lg mb-8 font-sans">
+        We build the infrastructure our community needs - from high-end GPU servers and robotics gear to sensors, 
+        fabrication tools, and collaborative spaces. Through build sessions, workshops, and public events, we 
+        foster deep research, open-source projects, and community-driven innovation.
       </p>
-      <p class="max-w-prose text-lg">
-        Through build sessions, workshops, and public events, we're creating an
-        ecosystem of deep research, automation, and open-source software. We
-        support innovation, education, and community-led projects that shape our
-        technological future. You can already join our discord channel and
-        subscribe to our email list to follow updates.
-      </p>
-    </div>
   </div>
-  <div class="px-4 md:px-16 py-8 max-w-4xl mx-auto">
-    <Timeline />
-  </div>
-  <div class="py-8 relative">
-    <div class="max-w-4xl mx-auto px-4 md:px-16">
-      <h2 class="text-4xl font-medium font-logo mb-8 text-center">
-        Available Equipment
-      </h2>
-    </div>
-    <div
-      class="snap-x snap-mandatory px-4 flex gap-4 overflow-x-auto scrollbar-hide [&_div]:w-[calc(100vw-4rem)] [&_div]:md:w-[400px] [&_div]:flex-shrink-0 [&_div]:rounded-lg"
-    >
-      <div class="bg-blue-50 p-8 snap-center">
-        <Image
-          src={VarjoXR3}
-          width={200}
-          height={200}
-          quality="low"
-          alt="Varjo XR-3"
-          class="w-1/2 aspect-square object-contain scale-150 mb-8"
-          priority
-        />
-        <h3 class="text-2xl font-medium font-logo mb-2">Varjo XR-3</h3>
-        <p>
-          Varjo XR-3 is a pro headset with photorealistic 12 MP pass-through,
-          LiDAR depth sensing, and human-eye resolution (70+ PPD) across a 115°
-          FOV. It adds 200 Hz eye tracking, Ultraleap hand tracking, and
-          enterprise-grade ergonomics and security.
-        </p>
-      </div>
-      <div class="bg-fuchsia-50 p-8 snap-center">
-        <Image
-          src={BoosterT1}
-          width={200}
-          height={200}
-          quality="low"
-          alt="Booster_T1 Humanoid Robot"
-          class="w-1/2 aspect-square object-contain scale-125 mb-8"
-          priority
-        />
-        <h3 class="text-2xl font-medium font-logo mb-2">Booster_T1</h3>
-        <p>
-          Provided by Aaltoes, it is a humanoid with full-force joints and
-          Jetson AGX Orin (200 TOPS) for onboard AI. With RGB-D vision, mic
-          array, 9-axis IMU, ROS2, and a mobile app, it suits research,
-          education, and custom perception/navigation development.
-        </p>
-      </div>
-      <div class="bg-green-50 p-8 snap-center">
-        <Image
-          src={JetsonNano}
-          width={200}
-          height={200}
-          quality="low"
-          alt="NVIDIA Jetson Orin Nano Super Board"
-          class="w-full aspect-[2/1] object-contain object-left mb-8"
-          priority
-        />
-        <h3 class="text-2xl font-medium font-logo mb-2">
-          NVIDIA Jetson Orin Nano Super
-        </h3>
-        <p>
-          67 TOPS Ampere (1024 CUDA, 32 Tensor), 6-core Arm A78AE, 8GB LPDDR5
-          (102 GB/s), 7-25W, $249. Runs LLMs/VLMs/transformers at the edge, with
-          Pi-friendly onboarding via Jetson/Isaac docs and community; existing
-          kits get the boost via software.
-        </p>
-      </div>
-      <div class="bg-fuchsia-50 p-8 snap-center">
-        <Image
-          src={LenovoLegionT5}
-          width={200}
-          height={200}
-          quality="low"
-          alt="Lenovo Legion Tower 5 Gen 10"
-          class="w-1/2 aspect-square object-contain scale-100 mb-8"
-          priority
-        />
-        <h3 class="text-2xl font-medium font-logo mb-2">
-          Lenovo Legion Tower 5 Gen 10
-        </h3>
-        <p>
-          Ryzen 7 7700X + RTX 5070 (12GB), 32GB DDR5-5600, 1TB PCIe 4.0 NVMe on
-          AMD B650 with PCIe 4.0 x16 and M.2. Built for high-FPS 1440p/4K
-          graphics, AI inference, 3D content creation, and
-          streaming/compiling/rendering multitask workflows.
-        </p>
-      </div>
-      <div class="bg-red-50 p-8 snap-center">
-        <Image
-          src={AMDRobotics}
-          width={200}
-          height={200}
-          quality="low"
-          alt="AMD Kria KR260 Robotics Board"
-          class="w-1/2 aspect-square object-contain mb-8"
-          priority
-        />
-        <h3 class="text-2xl font-medium font-logo mb-2">
-          AMD Kria KR260 Robotics
-        </h3>
-        <p>
-          Built for robotics and industrial applications, it combines high-
-          performance interfaces, native ROS 2 support, and integrated FPGA
-          fabric, enabling roboticists and embedded developers to build adaptive
-          hardware solutions with ease.
-        </p>
-      </div>
-      <div class="bg-red-50 p-8 snap-center">
-        <Image
-          src={AMDVision}
-          width={200}
-          height={200}
-          quality="low"
-          alt="AMD Kria KV260 Vision Board"
-          class="w-1/2 aspect-square object-contain mb-8"
-        />
-        <h3 class="text-2xl font-medium font-logo mb-2">
-          AMD Kria KV260 Vision
-        </h3>
-        <p>
-          Designed for advanced vision applications, it combines powerful
-          processing with integrated FPGA fabric, making it ideal for
-          prototyping smart city, machine vision, security, retail analytics,
-          and industrial solutions.
-        </p>
-      </div>
-      <div class="bg-cyan-50 p-8 snap-center">
-        <Image
-          src={Tenstorrent}
-          width={350}
-          height={200}
-          quality="low"
-          alt="Tenstorrent Blackhole™ p100a Graphics Card"
-          class="w-full aspect-[2/1] object-contain object-left mb-8"
-        />
-        <h3 class="text-2xl font-medium font-logo mb-2">
-          Tenstorrent Blackhole™ p100a
-        </h3>
-        <p>
-          PCIe board for high performance AI processing with 16 big RISC-V cores
-          and 28 GB of GDDR6 operating at up to 300W in an active-cooled form
-          factor geared for desktop workstations. Supported by Tenstorrent's
-          open source software stack.
-        </p>
-      </div>
-      <div class="bg-green-50 p-8 snap-center">
-        <Image
-          src={Camera}
-          width={350}
-          height={200}
-          quality="low"
-          alt="OAK-D Pro Camera"
-          class="w-full aspect-[2/1] object-contain object-left mb-8"
-        />
-        <h3 class="text-2xl font-medium font-logo mb-2">OAK-D Pro</h3>
-        <p>
-          Camera equipped with IR illumination and an on-device Neural Network
-          inferencing and Computer Vision capabilities. Good for applications
-          that require high-quality and reliable stereo depth perception in any
-          kind of environment.
-        </p>
-      </div>
-    </div>
-    <!-- Left gradient -->
-    <div
-      class="absolute hidden md:block left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent pointer-events-none z-10"
-    >
-    </div>
-    <!-- Right gradient -->
-    <div
-      class="absolute hidden md:block right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent pointer-events-none z-10"
-    >
-    </div>
-  </div>
-  <div class="relative">
-    <BackgroundWave client:load />
+
+  <!-- Footer-like contact section at bottom -->
+  <div class="relative mt-auto" id="contact">
     <div class="relative px-4 md:px-16 py-16 max-w-4xl mx-auto z-10">
       <div class="relative w-full h-full flex flex-col justify-center p-4">
-        <p class="text-base text-center md:text-xl font-medium font-logo z-20">
-          for questions and partnerships, <br />contact at
+        <p class="text-base text-center md:text-xl font-sans z-20">
+          for questions and partnerships, <br />
+          contact at
           <a
             href="mailto:milana.begantsova@aaltoes.com"
-            class="text-amber-600 underline"
+            class="text--600 underline"
           >
             milana.begantsova@aaltoes.com
           </a>
