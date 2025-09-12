@@ -31,58 +31,199 @@ const { hideNavbar = false } = Astro.props;
       href={handjet}
       crossorigin="anonymous"
     />
+    <!-- Preload Departure Mono (font-mono) -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/departure-mono/DepartureMono-Regular.woff2"
+      crossorigin="anonymous"
+    />
     <title>Thinkin' Rocks</title>
     <Analytics />
     <style>
-      @keyframes spin {
-        to { transform: rotate(360deg); }
+      /* Progressive enhancement styles for seamless loading */
+      body {
+        transition: opacity 0.1s ease;
       }
       
-      .loading-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #fff4fe;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        opacity: 1;
+      /* Skeleton loading styles */
+      .skeleton {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+        border-radius: 4px;
+      }
+      
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+      
+      /* Hide elements until React components are ready */
+      .hydration-pending {
+        opacity: 0;
         transition: opacity 0.3s ease;
       }
       
-      .loading-overlay.hidden {
-        opacity: 0;
+      .hydration-ready {
+        opacity: 1;
+      }
+      
+      /* Progressive content loading */
+      .lazy-load {
+        transition: opacity 0.7s ease;
+      }
+      
+      /* 3-dot loader in bottom right */
+      .dot-loader {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        display: flex;
+        gap: 4px;
+        opacity: 1;
+        transition: opacity 0.3s ease;
         pointer-events: none;
       }
       
-      .spinner {
-        width: 24px;
-        height: 24px;
-        border: 2px solid #e5e7eb;
-        border-top: 2px solid #6366f1;
+      .dot-loader.hidden {
+        opacity: 0;
+      }
+      
+      .dot {
+        width: 8px;
+        height: 8px;
+        background: #6366f1;
         border-radius: 50%;
-        animation: spin 1s linear infinite;
+        animation: dotPulse 1.4s infinite ease-in-out both;
+      }
+      
+      .dot:nth-child(1) { animation-delay: -0.32s; }
+      .dot:nth-child(2) { animation-delay: -0.16s; }
+      .dot:nth-child(3) { animation-delay: 0s; }
+      
+      @keyframes dotPulse {
+        0%, 80%, 100% {
+          opacity: 0.3;
+          transform: scale(0.8);
+        }
+        40% {
+          opacity: 1;
+          transform: scale(1);
+        }
       }
     </style>
   </head>
   <body>
-    <div id="loading" class="loading-overlay">
-      <div class="spinner"></div>
+    <!-- 3-dot loader in bottom right corner -->
+    <div id="dot-loader" class="dot-loader">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
     </div>
     
     {!hideNavbar && <Navbar />}
     <slot />
     
     <script>
-      window.addEventListener('load', () => {
-        const loading = document.getElementById('loading');
-        if (loading) {
-          loading.classList.add('hidden');
-          setTimeout(() => loading.remove(), 300);
+      let loadingTasksCount = 0;
+      const dotLoader = document.getElementById('dot-loader');
+      
+      // Function to show/hide dot loader based on loading tasks
+      function updateLoaderVisibility() {
+        if (!dotLoader) return;
+        if (loadingTasksCount > 0) {
+          dotLoader.classList.remove('hidden');
+        } else {
+          dotLoader.classList.add('hidden');
         }
+      }
+      
+      // Track loading tasks
+      function addLoadingTask() {
+        loadingTasksCount++;
+        updateLoaderVisibility();
+      }
+      
+      function removeLoadingTask() {
+        loadingTasksCount = Math.max(0, loadingTasksCount - 1);
+        updateLoaderVisibility();
+      }
+      
+      // Progressive enhancement - reveal content smoothly
+      document.addEventListener('DOMContentLoaded', () => {
+        addLoadingTask(); // Initial page load
+        
+        // Mark hydration as ready for React components
+        const pendingElements = document.querySelectorAll('.hydration-pending');
+        pendingElements.forEach(el => {
+          el.classList.remove('hydration-pending');
+          el.classList.add('hydration-ready');
+        });
+        
+        // Progressive content loading with intersection observer
+        const lazyElements = document.querySelectorAll('.lazy-load');
+        
+        if ('IntersectionObserver' in window) {
+          const lazyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('opacity-100');
+                entry.target.classList.remove('opacity-0');
+                lazyObserver.unobserve(entry.target);
+              }
+            });
+          }, { 
+            rootMargin: '50px 0px',
+            threshold: 0.1 
+          });
+          
+          lazyElements.forEach(el => {
+            el.classList.add('opacity-0', 'transition-opacity', 'duration-700');
+            lazyObserver.observe(el);
+          });
+        } else {
+          // Fallback for browsers without intersection observer
+          lazyElements.forEach(el => {
+            el.classList.add('opacity-100');
+          });
+        }
+        
+        // Track React component hydration
+        const reactComponents = document.querySelectorAll('[data-astro-cid]');
+        reactComponents.forEach(component => {
+          addLoadingTask();
+          // Check if component has rendered content
+          const checkHydration = () => {
+            if (component.children.length > 0) {
+              removeLoadingTask();
+            } else {
+              setTimeout(checkHydration, 100);
+            }
+          };
+          setTimeout(checkHydration, 100);
+        });
+      });
+      
+      // Preload critical resources
+      window.addEventListener('load', () => {
+        removeLoadingTask(); // Remove initial page load task
+        
+        // Preload next page resources on hover
+        const links = document.querySelectorAll('a[href^="/"]');
+        links.forEach(link => {
+          link.addEventListener('mouseenter', () => {
+            const url = link.getAttribute('href');
+            if (url && !document.querySelector(`link[rel="prefetch"][href="${url}"]`)) {
+              const prefetchLink = document.createElement('link');
+              prefetchLink.rel = 'prefetch';
+              prefetchLink.href = url;
+              document.head.appendChild(prefetchLink);
+            }
+          });
+        });
       });
     </script>
   </body>
