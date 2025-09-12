@@ -1,9 +1,7 @@
 ---
 import "@fontsource-variable/space-grotesk";
-import "@fontsource-variable/geist-mono";
 import "@fontsource-variable/alkatra";
 import "@fontsource-variable/handjet";
-import "@fontsource-variable/monda";
 import "../styles/global.css";
 import "../styles/fonts.css";
 import Analytics from "@vercel/analytics/astro";
@@ -23,6 +21,16 @@ const { hideNavbar = false } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- Font preloading for better caching and performance -->
+    <link 
+      rel="preload" 
+      href="/fonts/departure-mono/DepartureMono-Regular.woff2" 
+      as="font" 
+      type="font/woff2" 
+      crossorigin="anonymous"
+    />
+    
     <title>Thinkin' Rocks</title>
     <Analytics />
     <style>
