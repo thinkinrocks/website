@@ -43,6 +43,14 @@ const { hideNavbar = false } = Astro.props;
     <Analytics />
     <style>
       /* Progressive enhancement styles for seamless loading */
+      html {
+        visibility: hidden;
+      }
+      
+      html.loaded {
+        visibility: visible;
+      }
+      
       body {
         opacity: 0;
         transition: opacity 0.3s ease;
@@ -144,6 +152,7 @@ const { hideNavbar = false } = Astro.props;
         } else {
           dotLoader.classList.add('hidden');
           // Show content when all loading is complete
+          document.documentElement.classList.add('loaded');
           document.body.classList.add('loaded');
         }
       }
