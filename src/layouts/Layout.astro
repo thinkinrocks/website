@@ -44,7 +44,12 @@ const { hideNavbar = false } = Astro.props;
     <style>
       /* Progressive enhancement styles for seamless loading */
       body {
-        transition: opacity 0.1s ease;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      
+      body.loaded {
+        opacity: 1;
       }
       
       /* Skeleton loading styles */
@@ -131,13 +136,15 @@ const { hideNavbar = false } = Astro.props;
       let loadingTasksCount = 0;
       const dotLoader = document.getElementById('dot-loader');
       
-      // Function to show/hide dot loader based on loading tasks
+      // Function to show/hide dot loader and content based on loading tasks
       function updateLoaderVisibility() {
         if (!dotLoader) return;
         if (loadingTasksCount > 0) {
           dotLoader.classList.remove('hidden');
         } else {
           dotLoader.classList.add('hidden');
+          // Show content when all loading is complete
+          document.body.classList.add('loaded');
         }
       }
       
@@ -155,6 +162,22 @@ const { hideNavbar = false } = Astro.props;
       // Progressive enhancement - reveal content smoothly
       document.addEventListener('DOMContentLoaded', () => {
         addLoadingTask(); // Initial page load
+        
+        // Font loading detection
+        if ('fonts' in document) {
+          addLoadingTask(); // Add font loading task
+          Promise.all([
+            document.fonts.load('400 1em "Departure Mono"'),
+            document.fonts.load('400 1em "Space Grotesk Variable"')
+          ]).then(() => {
+            removeLoadingTask(); // Remove font loading task
+          }).catch(() => {
+            // Fallback: show content after timeout even if font loading fails
+            setTimeout(() => {
+              removeLoadingTask();
+            }, 2000);
+          });
+        }
         
         // Mark hydration as ready for React components
         const pendingElements = document.querySelectorAll('.hydration-pending');
