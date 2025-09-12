@@ -24,7 +24,7 @@ export default function WelcomeButtons() {
         onClick={() => track("signup_button_click")}
       >
         <FaUserPlus className="w-4 h-4 -mb-0.5" />
-        Get Involved
+        Show interest
       </ButtonLink>
     </div>
   );
