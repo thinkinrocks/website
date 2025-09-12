@@ -4,7 +4,6 @@ import "@fontsource-variable/geist-mono";
 import "@fontsource-variable/alkatra";
 import "@fontsource-variable/handjet";
 import "@fontsource-variable/monda";
-import handjet from "@fontsource-variable/handjet/files/handjet-latin-wght-normal.woff2?url";
 import "../styles/global.css";
 import "../styles/fonts.css";
 import Analytics from "@vercel/analytics/astro";
@@ -24,75 +23,15 @@ const { hideNavbar = false } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <!-- Only preconnect to CDNs for background loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <title>Thinkin' Rocks</title>
     <Analytics />
     <style>
-      /* Critical CSS: Immediate font rendering without any delays */
-      :root {
-        /* High-quality fallback fonts that look great on their own */
-        --font-sans-system: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-        --font-mono-system: "SF Mono", Monaco, Menlo, "Cascadia Code", "Roboto Mono", "Source Code Pro", Consolas, monospace;
-      }
-      
-      /* Show content immediately - no delays or hiding */
+      /* Standard CSS for normal font loading */
       body {
-        visibility: visible;
-        font-family: var(--font-sans-system);
-        opacity: 1;
-      }
-      
-      /* Use excellent system fonts immediately */
-      .font-sans {
-        font-family: var(--font-sans-system);
-      }
-      
-      .font-mono {
-        font-family: var(--font-mono-system);
-        /* Adjust spacing to better match typical monospace expectations */
-        letter-spacing: 0.01em;
-      }
-      
-      /* Optional enhancement: only if fonts are already cached */
-      @supports (font-display: optional) {
-        .font-sans {
-          font-family: var(--font-sans), var(--font-sans-system);
-        }
-        
-        .font-mono {
-          font-family: var(--font-mono), var(--font-mono-system);
-          letter-spacing: normal;
-        }
-      }
-      
-      /* Skeleton loading styles */
-      .skeleton {
-        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-        background-size: 200% 100%;
-        animation: loading 1.5s infinite;
-        border-radius: 4px;
-      }
-      
-      @keyframes loading {
-        0% { background-position: 200% 0; }
-        100% { background-position: -200% 0; }
-      }
-      
-      /* Hide elements until React components are ready */
-      .hydration-pending {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-      
-      .hydration-ready {
-        opacity: 1;
-      }
-      
-      /* Progressive content loading */
-      .lazy-load {
-        transition: opacity 0.7s ease;
+        margin: 0;
+        line-height: 1.5;
+        color: #1f2937;
+        background: #ffffff;
       }
     </style>
   </head>
@@ -102,58 +41,13 @@ const { hideNavbar = false } = Astro.props;
     <slot />
     
     <script>
-      // Minimal script - no font loading, just progressive enhancement
-      
-      // Mark hydration as ready for React components
+      // Minimal page enhancement - no font loading at all
       document.addEventListener('DOMContentLoaded', () => {
+        // Basic hydration support
         const pendingElements = document.querySelectorAll('.hydration-pending');
         pendingElements.forEach(el => {
           el.classList.remove('hydration-pending');
           el.classList.add('hydration-ready');
-        });
-        
-        // Progressive content loading with intersection observer
-        const lazyElements = document.querySelectorAll('.lazy-load');
-        
-        if ('IntersectionObserver' in window) {
-          const lazyObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('opacity-100');
-                entry.target.classList.remove('opacity-0');
-                lazyObserver.unobserve(entry.target);
-              }
-            });
-          }, { 
-            rootMargin: '50px 0px',
-            threshold: 0.1 
-          });
-          
-          lazyElements.forEach(el => {
-            el.classList.add('opacity-0', 'transition-opacity', 'duration-700');
-            lazyObserver.observe(el);
-          });
-        } else {
-          // Fallback for browsers without intersection observer
-          lazyElements.forEach(el => {
-            el.classList.add('opacity-100');
-          });
-        }
-      });
-      
-      // Preload next page resources on hover
-      window.addEventListener('load', () => {
-        const links = document.querySelectorAll('a[href^="/"]');
-        links.forEach(link => {
-          link.addEventListener('mouseenter', () => {
-            const url = link.getAttribute('href');
-            if (url && !document.querySelector(`link[rel="prefetch"][href="${url}"]`)) {
-              const prefetchLink = document.createElement('link');
-              prefetchLink.rel = 'prefetch';
-              prefetchLink.href = url;
-              document.head.appendChild(prefetchLink);
-            }
-          });
         });
       });
     </script>
