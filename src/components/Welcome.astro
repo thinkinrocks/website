@@ -9,15 +9,17 @@ import WelcomeButtons from "./welcome-buttons.tsx";
   <BackgroundWave client:load colorFront="#fff4fe" rotation={180} pxSize={18} />
   <div class="relative z-10 flex flex-col items-center justify-center">
     <h1
-      class="text-6xl md:text-8xl text-indigo-800 font-mono mb-4 text-center tracking-tighter"
+      class="text-6xl md:text-8xl text-indigo-800 font-mono mb-4 text-center tracking-tighter fade-in"
     >
       <span class="-mr-5">Thinkin'</span> <span class="-ml-5">Rocks*</span>
     </h1>
     <h2
-      class="text-2xl w-full mb-8 md:text-2xl font-sans text-center tracking-tight md:leading-10"
+      class="text-2xl w-full mb-8 md:text-2xl font-sans text-center tracking-tight md:leading-10 fade-in"
     >
       *cutting-edge technology is just a rock until you make it move 
     </h2>
-    <WelcomeButtons client:load />
+    <div class="fade-in">
+      <WelcomeButtons client:load />
+    </div>
   </div>
 </div>

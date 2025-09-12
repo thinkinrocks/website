@@ -34,12 +34,68 @@ const { hideNavbar = false } = Astro.props;
     <title>Thinkin' Rocks</title>
     <Analytics />
     <style>
-      /* Standard CSS for normal font loading */
+      /* Smooth page loading and content animations */
       body {
         margin: 0;
         line-height: 1.5;
         color: #1f2937;
         background: #ffffff;
+        opacity: 0;
+        transition: opacity 0.4s ease-out;
+      }
+      
+      body.loaded {
+        opacity: 1;
+      }
+      
+      /* Smooth content reveal animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Staggered animation delays for multiple elements */
+      .fade-in:nth-child(1) { transition-delay: 0.1s; }
+      .fade-in:nth-child(2) { transition-delay: 0.2s; }
+      .fade-in:nth-child(3) { transition-delay: 0.3s; }
+      .fade-in:nth-child(4) { transition-delay: 0.4s; }
+      .fade-in:nth-child(5) { transition-delay: 0.5s; }
+      
+      /* Smooth loading skeleton */
+      .skeleton {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+        border-radius: 4px;
+      }
+      
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+      
+      /* Smooth navigation transitions */
+      .nav-item {
+        transition: color 0.2s ease, opacity 0.2s ease;
+      }
+      
+      /* Image loading states */
+      img {
+        transition: opacity 0.3s ease;
+      }
+      
+      img[loading="lazy"] {
+        opacity: 0;
+      }
+      
+      img[loading="lazy"].loaded {
+        opacity: 1;
       }
     </style>
   </head>
@@ -49,14 +105,62 @@ const { hideNavbar = false } = Astro.props;
     <slot />
     
     <script>
-      // Minimal page enhancement - no font loading at all
-      document.addEventListener('DOMContentLoaded', () => {
+      // Smooth page loading system
+      function initSmoothLoading() {
+        // Show page with smooth fade-in
+        document.body.classList.add('loaded');
+        
+        // Set up intersection observer for content animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+        
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+          observer.observe(el);
+        });
+        
+        // Handle image loading
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(img => {
+          img.addEventListener('load', () => {
+            img.classList.add('loaded');
+          });
+          
+          // If image is already loaded (from cache)
+          if (img.complete) {
+            img.classList.add('loaded');
+          }
+        });
+        
         // Basic hydration support
         const pendingElements = document.querySelectorAll('.hydration-pending');
         pendingElements.forEach(el => {
           el.classList.remove('hydration-pending');
           el.classList.add('hydration-ready');
         });
+      }
+      
+      // Initialize when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSmoothLoading);
+      } else {
+        initSmoothLoading();
+      }
+      
+      // Smooth page transitions on navigation
+      window.addEventListener('beforeunload', () => {
+        document.body.style.opacity = '0';
       });
     </script>
   </body>
