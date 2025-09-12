@@ -4,9 +4,9 @@
   src: url("/fonts/departure-mono/DepartureMono-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: optional; /* Only use if already cached - prevents visible swapping */
 }
 
 :root {
-  --font-departure-mono: "Departure Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-departure-mono: "Departure Mono", "SF Mono", Monaco, Menlo, "Roboto Mono", "Source Code Pro", monospace;
 }
