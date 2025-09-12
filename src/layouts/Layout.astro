@@ -24,67 +24,47 @@ const { hideNavbar = false } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href={handjet}
-      crossorigin="anonymous"
-    />
-    <!-- Preload critical fonts -->
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href="/fonts/departure-mono/DepartureMono-Regular.woff2"
-      crossorigin="anonymous"
-    />
-    <!-- Preconnect to external font CDNs for faster loading -->
+    <!-- Only preconnect to CDNs for background loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <title>Thinkin' Rocks</title>
     <Analytics />
     <style>
-      /* Critical CSS: Define fonts with careful fallback matching */
+      /* Critical CSS: Immediate font rendering without any delays */
       :root {
-        /* Match system fonts that closely resemble custom fonts */
-        --font-sans-fallback: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-        /* Use a monospace font that closely matches Departure Mono's metrics */
-        --font-mono-fallback: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Source Code Pro", Menlo, monospace;
+        /* High-quality fallback fonts that look great on their own */
+        --font-sans-system: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        --font-mono-system: "SF Mono", Monaco, Menlo, "Cascadia Code", "Roboto Mono", "Source Code Pro", Consolas, monospace;
       }
       
-      /* Prevent font swapping completely */
+      /* Show content immediately - no delays or hiding */
       body {
-        visibility: hidden;
-      }
-      
-      /* Show with fallback fonts immediately */
-      body.fonts-ready {
         visibility: visible;
-        font-family: var(--font-sans-fallback);
+        font-family: var(--font-sans-system);
+        opacity: 1;
       }
       
-      /* Font-specific classes with better matching fallbacks */
+      /* Use excellent system fonts immediately */
       .font-sans {
-        font-family: var(--font-sans-fallback);
+        font-family: var(--font-sans-system);
       }
       
-      /* Use more conservative approach for mono - only load if cached */
       .font-mono {
-        font-family: var(--font-mono-fallback);
-        /* Add slight letter spacing to better match Departure Mono */
-        letter-spacing: 0.015em;
+        font-family: var(--font-mono-system);
+        /* Adjust spacing to better match typical monospace expectations */
+        letter-spacing: 0.01em;
       }
       
-      /* Only apply custom fonts if they loaded instantly */
-      .instant-fonts-loaded .font-sans {
-        font-family: var(--font-sans);
-      }
-      
-      /* For mono, be extra conservative - only if font was cached */
-      .mono-font-cached .font-mono {
-        font-family: var(--font-mono);
-        letter-spacing: normal;
+      /* Optional enhancement: only if fonts are already cached */
+      @supports (font-display: optional) {
+        .font-sans {
+          font-family: var(--font-sans), var(--font-sans-system);
+        }
+        
+        .font-mono {
+          font-family: var(--font-mono), var(--font-mono-system);
+          letter-spacing: normal;
+        }
       }
       
       /* Skeleton loading styles */
@@ -122,54 +102,7 @@ const { hideNavbar = false } = Astro.props;
     <slot />
     
     <script>
-      // Immediate fallback font display to prevent blank page
-      function showFallbackFonts() {
-        document.body.classList.add('fonts-ready');
-      }
-      
-      // Ultra-conservative font loading to prevent any visible changes
-      function loadCustomFonts() {
-        if ('fonts' in document) {
-          // Check if fonts are already available (cached from previous visits)
-          const spaceGroteskCached = document.fonts.check('400 16px "Space Grotesk Variable"');
-          const departureMonoCached = document.fonts.check('400 16px "Departure Mono"');
-          
-          // For sans-serif, try a quick load
-          if (spaceGroteskCached) {
-            document.body.classList.add('instant-fonts-loaded');
-          } else {
-            // Try to load Space Grotesk with very short timeout
-            Promise.race([
-              document.fonts.load('400 16px "Space Grotesk Variable"'),
-              new Promise(resolve => setTimeout(resolve, 50))
-            ]).then(() => {
-              if (document.fonts.check('400 16px "Space Grotesk Variable"')) {
-                document.body.classList.add('instant-fonts-loaded');
-              }
-            }).catch(() => {
-              // Stay with fallback fonts
-            });
-          }
-          
-          // For monospace, ONLY use if already cached (no loading attempts)
-          if (departureMonoCached) {
-            document.body.classList.add('mono-font-cached');
-          }
-          // If not cached, permanently stay with fallback mono fonts
-        }
-      }
-      
-      // Show content immediately, then try to load custom fonts
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-          showFallbackFonts();
-          // Small delay to let page render with fallbacks first
-          setTimeout(loadCustomFonts, 50);
-        });
-      } else {
-        showFallbackFonts();
-        setTimeout(loadCustomFonts, 50);
-      }
+      // Minimal script - no font loading, just progressive enhancement
       
       // Mark hydration as ready for React components
       document.addEventListener('DOMContentLoaded', () => {
