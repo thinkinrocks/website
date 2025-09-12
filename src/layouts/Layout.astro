@@ -31,7 +31,7 @@ const { hideNavbar = false } = Astro.props;
       href={handjet}
       crossorigin="anonymous"
     />
-    <!-- Preload Departure Mono (font-mono) -->
+    <!-- Preload critical fonts -->
     <link
       rel="preload"
       as="font"
@@ -39,25 +39,52 @@ const { hideNavbar = false } = Astro.props;
       href="/fonts/departure-mono/DepartureMono-Regular.woff2"
       crossorigin="anonymous"
     />
+    <!-- Preconnect to external font CDNs for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <title>Thinkin' Rocks</title>
     <Analytics />
     <style>
-      /* Progressive enhancement styles for seamless loading */
-      html {
+      /* Critical CSS: Define fonts with careful fallback matching */
+      :root {
+        /* Match system fonts that closely resemble custom fonts */
+        --font-sans-fallback: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        /* Use a monospace font that closely matches Departure Mono's metrics */
+        --font-mono-fallback: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Source Code Pro", Menlo, monospace;
+      }
+      
+      /* Prevent font swapping completely */
+      body {
         visibility: hidden;
       }
       
-      html.loaded {
+      /* Show with fallback fonts immediately */
+      body.fonts-ready {
         visibility: visible;
+        font-family: var(--font-sans-fallback);
       }
       
-      body {
-        opacity: 0;
-        transition: opacity 0.3s ease;
+      /* Font-specific classes with better matching fallbacks */
+      .font-sans {
+        font-family: var(--font-sans-fallback);
       }
       
-      body.loaded {
-        opacity: 1;
+      /* Use more conservative approach for mono - only load if cached */
+      .font-mono {
+        font-family: var(--font-mono-fallback);
+        /* Add slight letter spacing to better match Departure Mono */
+        letter-spacing: 0.015em;
+      }
+      
+      /* Only apply custom fonts if they loaded instantly */
+      .instant-fonts-loaded .font-sans {
+        font-family: var(--font-sans);
+      }
+      
+      /* For mono, be extra conservative - only if font was cached */
+      .mono-font-cached .font-mono {
+        font-family: var(--font-mono);
+        letter-spacing: normal;
       }
       
       /* Skeleton loading styles */
@@ -87,108 +114,65 @@ const { hideNavbar = false } = Astro.props;
       .lazy-load {
         transition: opacity 0.7s ease;
       }
-      
-      /* 3-dot loader in bottom right */
-      .dot-loader {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-        display: flex;
-        gap: 4px;
-        opacity: 1;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-      }
-      
-      .dot-loader.hidden {
-        opacity: 0;
-      }
-      
-      .dot {
-        width: 8px;
-        height: 8px;
-        background: #6366f1;
-        border-radius: 50%;
-        animation: dotPulse 1.4s infinite ease-in-out both;
-      }
-      
-      .dot:nth-child(1) { animation-delay: -0.32s; }
-      .dot:nth-child(2) { animation-delay: -0.16s; }
-      .dot:nth-child(3) { animation-delay: 0s; }
-      
-      @keyframes dotPulse {
-        0%, 80%, 100% {
-          opacity: 0.3;
-          transform: scale(0.8);
-        }
-        40% {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
     </style>
   </head>
   <body>
-    <!-- 3-dot loader in bottom right corner -->
-    <div id="dot-loader" class="dot-loader">
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-    </div>
     
     {!hideNavbar && <Navbar />}
     <slot />
     
     <script>
-      let loadingTasksCount = 0;
-      const dotLoader = document.getElementById('dot-loader');
-      
-      // Function to show/hide dot loader and content based on loading tasks
-      function updateLoaderVisibility() {
-        if (!dotLoader) return;
-        if (loadingTasksCount > 0) {
-          dotLoader.classList.remove('hidden');
-        } else {
-          dotLoader.classList.add('hidden');
-          // Show content when all loading is complete
-          document.documentElement.classList.add('loaded');
-          document.body.classList.add('loaded');
-        }
+      // Immediate fallback font display to prevent blank page
+      function showFallbackFonts() {
+        document.body.classList.add('fonts-ready');
       }
       
-      // Track loading tasks
-      function addLoadingTask() {
-        loadingTasksCount++;
-        updateLoaderVisibility();
-      }
-      
-      function removeLoadingTask() {
-        loadingTasksCount = Math.max(0, loadingTasksCount - 1);
-        updateLoaderVisibility();
-      }
-      
-      // Progressive enhancement - reveal content smoothly
-      document.addEventListener('DOMContentLoaded', () => {
-        addLoadingTask(); // Initial page load
-        
-        // Font loading detection
+      // Ultra-conservative font loading to prevent any visible changes
+      function loadCustomFonts() {
         if ('fonts' in document) {
-          addLoadingTask(); // Add font loading task
-          Promise.all([
-            document.fonts.load('400 1em "Departure Mono"'),
-            document.fonts.load('400 1em "Space Grotesk Variable"')
-          ]).then(() => {
-            removeLoadingTask(); // Remove font loading task
-          }).catch(() => {
-            // Fallback: show content after timeout even if font loading fails
-            setTimeout(() => {
-              removeLoadingTask();
-            }, 2000);
-          });
+          // Check if fonts are already available (cached from previous visits)
+          const spaceGroteskCached = document.fonts.check('400 16px "Space Grotesk Variable"');
+          const departureMonoCached = document.fonts.check('400 16px "Departure Mono"');
+          
+          // For sans-serif, try a quick load
+          if (spaceGroteskCached) {
+            document.body.classList.add('instant-fonts-loaded');
+          } else {
+            // Try to load Space Grotesk with very short timeout
+            Promise.race([
+              document.fonts.load('400 16px "Space Grotesk Variable"'),
+              new Promise(resolve => setTimeout(resolve, 50))
+            ]).then(() => {
+              if (document.fonts.check('400 16px "Space Grotesk Variable"')) {
+                document.body.classList.add('instant-fonts-loaded');
+              }
+            }).catch(() => {
+              // Stay with fallback fonts
+            });
+          }
+          
+          // For monospace, ONLY use if already cached (no loading attempts)
+          if (departureMonoCached) {
+            document.body.classList.add('mono-font-cached');
+          }
+          // If not cached, permanently stay with fallback mono fonts
         }
-        
-        // Mark hydration as ready for React components
+      }
+      
+      // Show content immediately, then try to load custom fonts
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          showFallbackFonts();
+          // Small delay to let page render with fallbacks first
+          setTimeout(loadCustomFonts, 50);
+        });
+      } else {
+        showFallbackFonts();
+        setTimeout(loadCustomFonts, 50);
+      }
+      
+      // Mark hydration as ready for React components
+      document.addEventListener('DOMContentLoaded', () => {
         const pendingElements = document.querySelectorAll('.hydration-pending');
         pendingElements.forEach(el => {
           el.classList.remove('hydration-pending');
@@ -222,28 +206,10 @@ const { hideNavbar = false } = Astro.props;
             el.classList.add('opacity-100');
           });
         }
-        
-        // Track React component hydration
-        const reactComponents = document.querySelectorAll('[data-astro-cid]');
-        reactComponents.forEach(component => {
-          addLoadingTask();
-          // Check if component has rendered content
-          const checkHydration = () => {
-            if (component.children.length > 0) {
-              removeLoadingTask();
-            } else {
-              setTimeout(checkHydration, 100);
-            }
-          };
-          setTimeout(checkHydration, 100);
-        });
       });
       
-      // Preload critical resources
+      // Preload next page resources on hover
       window.addEventListener('load', () => {
-        removeLoadingTask(); // Remove initial page load task
-        
-        // Preload next page resources on hover
         const links = document.querySelectorAll('a[href^="/"]');
         links.forEach(link => {
           link.addEventListener('mouseenter', () => {
