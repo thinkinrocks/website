@@ -6,9 +6,11 @@ import AMDVision from "../assets/amd-vision.png";
 import AMDRobotics from "../assets/amd-robotics.png";
 import Tenstorrent from "../assets/tenstorrent.png";
 import Camera from "../assets/camera.png";
+import DoublepointDeveloperKit from "../assets/doublepoint.png";
 import VarjoXR3 from "../assets/varjo-xr3.png";
 import LenovoLegionT5 from "../assets/lenovo-legion-t5.png";
 import BoosterT1 from "../assets/booster-t1.png";
+import NexysA7 from "../assets/nexys-a7.png";
 ---
 
 <Layout>
@@ -54,6 +56,47 @@ import BoosterT1 from "../assets/booster-t1.png";
                 enterprise-grade ergonomics and security.
               </td>
             </tr>
+              <!-- Doublepoint Developer Kit -->
+              <tr class="border-b border-gray-100">
+                <td class="py-3 px-3 w-32">
+                  <Image
+                    src={DoublepointDeveloperKit}
+                    width={80}
+                    height={80}
+                    quality="low"
+                    alt="Varjo XR-3"
+                    class="w-24 h-24 object-contain"
+                    priority
+                  />
+                </td>
+                <td class="py-3 px-3 font-mono text-tighter text-sm w-80">Doublepoint Developer Kit (coming soon)</td>
+                <td class="py-3 px-3 font-sans text-xs leading-relaxed">
+                  Doublepoint Developer Kit enables precise wrist and finger gesture recognition through advanced sensors. 
+                  It supports low-latency, natural input for XR, wearables, and mobile devices, making interactions more intuitive. 
+                  </td>
+              </tr>
+
+            <!-- Doublepoint Developer Kit -->
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-3 w-32">
+                <Image
+                  src={NexysA7}
+                  width={80}
+                  height={80}
+                  quality="low"
+                  alt="Nexys A7 FPGA Trainer Board"
+                  class="w-24 h-24 object-contain"
+                  priority
+                />
+              </td>
+              <td class="py-3 px-3 font-mono text-tighter text-sm w-80">Nexys A7 FPGA Trainer Board</td>
+              <td class="py-3 px-3 font-sans text-xs leading-relaxed">
+                Nexys A7 is an FPGA trainer board built on the AMD Artix-7, featuring a high-performance programmable logic 
+                platform with abundant I/O, DDR2 memory, and built-in peripherals, ideal for digital design, embedded systems, 
+                and hardware prototyping.
+              </td>
+            </tr>
+
 
             <!-- Booster_T1 -->
             <tr class="border-b border-gray-100 ">
@@ -74,6 +117,27 @@ import BoosterT1 from "../assets/booster-t1.png";
                 Jetson AGX Orin (200 TOPS) for onboard AI. With RGB-D vision, mic
                 array, 9-axis IMU, ROS2, and a mobile app, it suits research,
                 education, and custom perception/navigation development.
+              </td>
+            </tr>
+
+            <!-- Tenstorrent Blackhole™ p100a -->
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-3 w-32">
+                <Image
+                  src={Tenstorrent}
+                  width={120}
+                  height={120}
+                  quality="low"
+                  alt="Tenstorrent Blackhole™ p100a Graphics Card"
+                  class="w-24 h-24 object-contain"
+                />
+              </td>
+              <td class="py-3 px-3 font-mono text-tighter text-sm w-80">Tenstorrent Blackhole™ p100a</td>
+              <td class="py-3 px-3 font-sans text-xs leading-relaxed">
+                PCIe board for high performance AI processing with 16 big RISC-V cores
+                and 28 GB of GDDR6 operating at up to 300W in an active-cooled form
+                factor geared for desktop workstations. Supported by Tenstorrent's
+                open source software stack.
               </td>
             </tr>
 
@@ -162,27 +226,6 @@ import BoosterT1 from "../assets/booster-t1.png";
                 processing with integrated FPGA fabric, making it ideal for
                 prototyping smart city, machine vision, security, retail analytics,
                 and industrial solutions.
-              </td>
-            </tr>
-
-            <!-- Tenstorrent Blackhole™ p100a -->
-            <tr class="border-b border-gray-100">
-              <td class="py-3 px-3 w-32">
-                <Image
-                  src={Tenstorrent}
-                  width={120}
-                  height={120}
-                  quality="low"
-                  alt="Tenstorrent Blackhole™ p100a Graphics Card"
-                  class="w-24 h-24 object-contain"
-                />
-              </td>
-              <td class="py-3 px-3 font-mono text-tighter text-sm w-80">Tenstorrent Blackhole™ p100a</td>
-              <td class="py-3 px-3 font-sans text-xs leading-relaxed">
-                PCIe board for high performance AI processing with 16 big RISC-V cores
-                and 28 GB of GDDR6 operating at up to 300W in an active-cooled form
-                factor geared for desktop workstations. Supported by Tenstorrent's
-                open source software stack.
               </td>
             </tr>
 
