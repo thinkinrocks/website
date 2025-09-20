@@ -1,0 +1,83 @@
+[
+  {
+    "id": "009",
+    "title": "Partnership with Alif Semiconductor",
+    "content": "Held a meeting with Alif Semiconductor. They agreed to support us by providing development boards for our community projects.",
+    "author": "Milana",
+    "timestamp": "2025-09-19T14:00:00Z",
+    "tags": ["partnership", "semiconductor", "hardware"],
+    "type": "announcement"
+  },
+  {
+    "id": "008",
+    "title": "New Custom Computer: Shelby",
+    "content": "Purchased and configured a powerful custom-built computer, named *Shelby*, to support our compute-intensive research and prototyping tasks.",
+    "author": "Milana",
+    "timestamp": "2025-09-18T13:30:00Z",
+    "tags": ["infrastructure", "compute", "server"],
+    "type": "update"
+  },
+  {
+    "id": "007",
+    "title": "FPGA Expansion and Doublepoint Kits",
+    "content": "Acquired the Nexys A7 FPGA Trainer Board and established a collaboration with Doublepoint. They kindly agreed to provide us with two developer kits.",
+    "author": "Milana",
+    "timestamp": "2025-09-17T15:00:00Z",
+    "tags": ["FPGA", "hardware", "partnership"],
+    "type": "milestone"
+  },
+  {
+    "id": "006",
+    "title": "First Community Meetup",
+    "content": "Hosted our very first community meetup, bringing together over 70 participants. Great energy, ideas, and momentum for what’s ahead.",
+    "author": "Milana",
+    "timestamp": "2025-09-16T18:00:00Z",
+    "tags": ["community", "event", "networking"],
+    "type": "event"
+  },
+  {
+    "id": "005",
+    "title": "Organization Officially Registered",
+    "content": "Thinkin’ Rocks has been officially registered as an organization. A huge step forward in building a strong foundation for our community.",
+    "author": "Milana",
+    "timestamp": "2025-09-14T10:00:00Z",
+    "tags": ["organization", "legal", "milestone"],
+    "type": "announcement"
+  },
+  {
+    "id": "004",
+    "title": "First Introduction at Explore Aaltoes",
+    "content": "Presented Thinkin’ Rocks for the first time at Explore Aaltoes. Shared our vision with 150+ people and received enthusiastic feedback.",
+    "author": "Milana",
+    "timestamp": "2025-09-11T19:00:00Z",
+    "tags": ["event", "community", "presentation"],
+    "type": "event"
+  },
+  {
+    "id": "003",
+    "title": "First Community Computer",
+    "content": "Acquired our very first shared computer, a Lenovo Legion T5, marking the beginning of our hardware collection.",
+    "author": "Milana",
+    "timestamp": "2025-09-10T12:00:00Z",
+    "tags": ["hardware", "compute", "community"],
+    "type": "update"
+  },
+  {
+    "id": "002",
+    "title": "Varjo Partnership and XR Headsets",
+    "content": "Established a collaboration with Varjo. They generously provided us with three Varjo XR-3 headsets for immersive development and R&D.",
+    "author": "Milana",
+    "timestamp": "2025-09-08T11:30:00Z",
+    "tags": ["XR", "partnership", "hardware"],
+    "type": "announcement"
+  },
+  {
+    "id": "001",
+    "title": "First Hardware Orders",
+    "content": "Placed our first major hardware acquisitions: Tenstorrent Blackhole, FPGA boards, Jetson Nano, and Oak-D Pro camera. The lab is starting to take shape!",
+    "author": "Milana",
+    "timestamp": "2025-09-01T09:00:00Z",
+    "tags": ["hardware", "AI", "FPGA", "vision"],
+    "type": "milestone"
+  }
+]
