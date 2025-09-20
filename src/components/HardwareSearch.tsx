@@ -57,21 +57,9 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
   };
 
   const getImagePath = (imageName: string) => {
-    // Map image names to their paths in the public folder
-    const imageMap: { [key: string]: string } = {
-      'varjo-xr3.png': '/src/assets/varjo-xr3.png',
-      'doublepoint.png': '/src/assets/doublepoint.png',
-      'nexys-a7.png': '/src/assets/nexys-a7.png',
-      'booster-t1.png': '/src/assets/booster-t1.png',
-      'tenstorrent.png': '/src/assets/tenstorrent.png',
-      'jetson-nano.png': '/src/assets/jetson-nano.png',
-      'lenovo-legion-t5.png': '/src/assets/lenovo-legion-t5.png',
-      'amd-robotics.png': '/src/assets/amd-robotics.png',
-      'amd-vision.png': '/src/assets/amd-vision.png',
-      'camera.png': '/src/assets/camera.png',
-    };
-    
-    return imageMap[imageName] || `/src/assets/${imageName}`;
+    // For deployment, images should be in the public folder
+    // Move images from src/assets to public/images for proper deployment
+    return `/images/${imageName}`;
   };
 
   return (
@@ -129,6 +117,9 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
                 alt={item.name}
                 className="w-32 h-32 object-contain"
                 loading="lazy"
+                decoding="async"
+                width="128"
+                height="128"
               />
             </div>
             <h3 className="font-mono text-lg text-gray-900 mb-3 text-center">{item.name}</h3>
