@@ -20,6 +20,26 @@ const hardwareItems = hardwareItemsData as HardwareItem[];
       <!-- Hardware Search Component -->
       <HardwareSearch items={hardwareItems} client:load />
 
+      <!-- Contact Section -->
+      <div class="text-center mt-16">
+        <h2 class="text-2xl font-mono mb-4 text-gray-900">
+          Didn't Find What You Were Looking For?
+        </h2>
+        <p class="text-lg font-sans mb-8 text-gray-700 max-w-2xl mx-auto">
+          Don't hesitate to reach out. We're here to help!
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <div class="bg-indigo-600 h-fit translate-0.5">
+            <a 
+              href="mailto:team@thinkinrocks.com" 
+              class="bg-indigo-50 text-indigo-600 inline-flex px-4 py-2 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono"
+            >
+              Contact us
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </Layout>
