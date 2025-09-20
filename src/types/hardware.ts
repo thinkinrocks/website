@@ -3,7 +3,7 @@ export interface HardwareItem {
   name: string;
   description: string;
   image: string;
-  category: string;
+  categories: string[];
   status: 'available' | 'coming-soon' | 'maintenance';
 }
 

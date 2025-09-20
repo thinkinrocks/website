@@ -9,9 +9,10 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
-  // Get unique categories
+  // Get unique categories from all items
   const categories = useMemo(() => {
-    const uniqueCategories = [...new Set(items.map(item => item.category))];
+    const allCategories = items.flatMap(item => item.categories);
+    const uniqueCategories = [...new Set(allCategories)];
     return uniqueCategories.sort();
   }, [items]);
 
@@ -21,9 +22,14 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
       const matchesSearch = searchQuery === '' || 
         item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.category.toLowerCase().includes(searchQuery.toLowerCase());
+        item.categories.some(category => 
+          category.toLowerCase().includes(searchQuery.toLowerCase())
+        );
       
-      const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(item.category);
+      const matchesCategory = selectedCategories.length === 0 || 
+        selectedCategories.some(selectedCategory => 
+          item.categories.includes(selectedCategory)
+        );
       
       return matchesSearch && matchesCategory;
     });

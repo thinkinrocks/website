@@ -4,7 +4,7 @@
     "name": "Varjo XR-3",
     "description": "Varjo XR-3 is a pro headset with photorealistic 12 MP pass-through, LiDAR depth sensing, and human-eye resolution (70+ PPD) across a 115° FOV. It adds 200 Hz eye tracking, Ultraleap hand tracking, and enterprise-grade ergonomics and security.",
     "image": "varjo-xr3.png",
-    "category": "XR/VR",
+    "categories": ["XR/VR", "Computer Vision"],
     "status": "available"
   },
   {
@@ -12,7 +12,7 @@
     "name": "Doublepoint Developer Kit",
     "description": "Doublepoint Developer Kit enables precise wrist and finger gesture recognition through advanced sensors. It supports low-latency, natural input for XR, wearables, and mobile devices, making interactions more intuitive.",
     "image": "doublepoint.png",
-    "category": "Sensors",
+    "categories": ["Sensors"],
     "status": "coming-soon"
   },
   {
@@ -20,7 +20,7 @@
     "name": "Nexys A7 FPGA Trainer Board",
     "description": "Nexys A7 is an FPGA trainer board built on the AMD Artix-7, featuring a high-performance programmable logic platform with abundant I/O, DDR2 memory, and built-in peripherals, ideal for digital design, embedded systems, and hardware prototyping.",
     "image": "nexys-a7.png",
-    "category": "FPGA",
+    "categories": ["FPGA"],
     "status": "available"
   },
   {
@@ -28,7 +28,7 @@
     "name": "Booster_T1",
     "description": "Provided by Aaltoes, it is a humanoid with full-force joints and Jetson AGX Orin (200 TOPS) for onboard AI. With RGB-D vision, mic array, 9-axis IMU, ROS2, and a mobile app, it suits research, education, and custom perception/navigation development.",
     "image": "booster-t1.png",
-    "category": "Robotics",
+    "categories": ["Robotics", "AI"],
     "status": "available"
   },
   {
@@ -36,7 +36,7 @@
     "name": "Tenstorrent Blackhole™ p100a",
     "description": "PCIe board for high performance AI processing with 16 big RISC-V cores and 28 GB of GDDR6 operating at up to 300W in an active-cooled form factor geared for desktop workstations. Supported by Tenstorrent's open source software stack.",
     "image": "tenstorrent.png",
-    "category": "AI/Compute",
+    "categories": ["AI"],
     "status": "available"
   },
   {
@@ -44,7 +44,7 @@
     "name": "NVIDIA Jetson Orin Nano Super",
     "description": "67 TOPS Ampere (1024 CUDA, 32 Tensor), 6-core Arm A78AE, 8GB LPDDR5 (102 GB/s), 7-25W, $249. Runs LLMs/VLMs/transformers at the edge, with Pi-friendly onboarding via Jetson/Isaac docs and community; existing kits get the boost via software.",
     "image": "jetson-nano.png",
-    "category": "Edge AI",
+    "categories": ["AI", "Computer Vision"],
     "status": "available"
   },
   {
@@ -52,7 +52,7 @@
     "name": "Lenovo Legion Tower 5 Gen 10",
     "description": "Ryzen 7 7700X + RTX 5070 (12GB), 32GB DDR5-5600, 1TB PCIe 4.0 NVMe on AMD B650 with PCIe 4.0 x16 and M.2. Built for high-FPS 1440p/4K graphics, AI inference, 3D content creation, and streaming/compiling/rendering multitask workflows.",
     "image": "lenovo-legion-t5.png",
-    "category": "Workstation",
+    "categories": ["Workstation", "AI"],
     "status": "available"
   },
   {
@@ -60,7 +60,7 @@
     "name": "AMD Kria KR260 Robotics",
     "description": "Built for robotics and industrial applications, it combines high-performance interfaces, native ROS 2 support, and integrated FPGA fabric, enabling roboticists and embedded developers to build adaptive hardware solutions with ease.",
     "image": "amd-robotics.png",
-    "category": "Robotics",
+    "categories": ["Robotics", "FPGA"],
     "status": "available"
   },
   {
@@ -68,7 +68,7 @@
     "name": "AMD Kria KV260 Vision",
     "description": "Designed for advanced vision applications, it combines powerful processing with integrated FPGA fabric, making it ideal for prototyping smart city, machine vision, security, retail analytics, and industrial solutions.",
     "image": "amd-vision.png",
-    "category": "Computer Vision",
+    "categories": ["Computer Vision", "FPGA"],
     "status": "available"
   },
   {
@@ -76,7 +76,7 @@
     "name": "OAK-D Pro",
     "description": "Camera equipped with IR illumination and an on-device Neural Network inferencing and Computer Vision capabilities. Good for applications that require high-quality and reliable stereo depth perception in any kind of environment.",
     "image": "camera.png",
-    "category": "Computer Vision",
+    "categories": ["Computer Vision"],
     "status": "available"
   }
 ]
