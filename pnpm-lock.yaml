@@ -17,21 +17,15 @@ importers:
       '@fontsource-variable/alkatra':
         specifier: ^5.2.6
         version: 5.2.6
-      '@fontsource-variable/geist-mono':
-        specifier: ^5.2.6
-        version: 5.2.6
       '@fontsource-variable/handjet':
         specifier: ^5.2.6
         version: 5.2.6
-      '@fontsource-variable/monda':
+      '@fontsource-variable/inter':
         specifier: ^5.2.8
         version: 5.2.8
-      '@fontsource-variable/noto-sans':
+      '@fontsource/source-code-pro':
         specifier: ^5.2.7
         version: 5.2.7
-      '@fontsource-variable/space-grotesk':
-        specifier: ^5.2.9
-        version: 5.2.9
       '@paper-design/shaders-react':
         specifier: ^0.0.47
         version: 0.0.47(@types/react@19.1.12)(react@19.1.1)
@@ -357,20 +351,14 @@ packages:
   '@fontsource-variable/alkatra@5.2.6':
     resolution: {integrity: sha512-tUUVJnmAFz2gTq1VyKdOJBEVMbzuflEmRmG94HNdRjJW/nGH5ZFQdHbaRG2arnlRglCRn9quIGcpMeDIiGtIxg==}
 
-  '@fontsource-variable/geist-mono@5.2.6':
-    resolution: {integrity: sha512-vw6T9JGTrYJ980bn7W8iTPhe2jVK5ifunVs7xh9dfTVArjDSkJs03JjeZrH5LKEpGABLXSlSlNU57HRm4tmFMg==}
-
   '@fontsource-variable/handjet@5.2.6':
     resolution: {integrity: sha512-935pm8jCb0awj+7AX/B1JjHfZAi50rYvN4M6KefUhu9iicHnDUheNuaV9w1387PrDoG1BzFEFHMagtn4U8GZBQ==}
 
-  '@fontsource-variable/monda@5.2.8':
-    resolution: {integrity: sha512-IndvvRRG6zt0KTlmzOTt16F3JbIXFmKE1UGxl6f3fxftianDIPRE/9SFbttW3gRkjWTWgGKDPTL8S7ULeUdPOQ==}
+  '@fontsource-variable/inter@5.2.8':
+    resolution: {integrity: sha512-kOfP2D+ykbcX/P3IFnokOhVRNoTozo5/JxhAIVYLpea/UBmCQ/YWPBfWIDuBImXX/15KH+eKh4xpEUyS2sQQGQ==}
 
-  '@fontsource-variable/noto-sans@5.2.7':
-    resolution: {integrity: sha512-VaA+clV7xTOx+pSOdyjr9nR7khjrJGr7ZHs2KXlx+AqLyG/SUVBadNwauCH0rvF/eZkZr67neNxdKMOLtVxweg==}
-
-  '@fontsource-variable/space-grotesk@5.2.9':
-    resolution: {integrity: sha512-4VnXk51fypXV+2okrmz7s0ckBZWIhvEgSVKNgRKGLxb5wpQZi5xZuzX+MalVwCUh36Gve3uG2vqCVuQkrHccRA==}
+  '@fontsource/source-code-pro@5.2.7':
+    resolution: {integrity: sha512-7papq9TH94KT+S5VSY8cU7tFmwuGkIe3qxXRMscuAXH6AjMU+KJI75f28FzgBVDrlMfA0jjlTV4/x5+H5o/5EQ==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -2468,15 +2456,11 @@ snapshots:
 
   '@fontsource-variable/alkatra@5.2.6': {}
 
-  '@fontsource-variable/geist-mono@5.2.6': {}
-
   '@fontsource-variable/handjet@5.2.6': {}
 
-  '@fontsource-variable/monda@5.2.8': {}
+  '@fontsource-variable/inter@5.2.8': {}
 
-  '@fontsource-variable/noto-sans@5.2.7': {}
-
-  '@fontsource-variable/space-grotesk@5.2.9': {}
+  '@fontsource/source-code-pro@5.2.7': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:

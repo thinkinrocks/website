@@ -26,7 +26,6 @@ const sortedEntries = logEntries.sort((a, b) => new Date(b.timestamp).getTime() 
           <div class="fade-in">
             <div class="mb-2">
               <span class="text-xs font-mono text-gray-500">{formatTimestamp(entry.timestamp)}</span>
-              <span class="text-xs text-gray-500 ml-2">— {entry.author}</span>
             </div>
             <h3 class="text-lg font-mono text-gray-900 mb-2">{entry.title}</h3>
             <p class="font-sans text-gray-800 leading-relaxed">
@@ -36,13 +35,13 @@ const sortedEntries = logEntries.sort((a, b) => new Date(b.timestamp).getTime() 
         ))}
       </div>
       
-      <!-- Contact -->
+      <!-- Discord Link -->
       <div class="text-center mt-12">
         <a 
-          href="mailto:milana@thinkinrocks.com" 
+          href="#" 
           class="font-mono text-indigo-600 hover:text-indigo-800 transition-colors"
         >
-          milana@thinkinrocks.com
+          Join our Discord
         </a>
       </div>
     </div>
