@@ -1,5 +1,8 @@
 ---
 import { FaDiscord, FaLinkedin, FaTelegram, FaInstagram } from "react-icons/fa";
+
+// Get current page from Astro.url
+const currentPath = Astro.url.pathname;
 ---
 
 <!-- Navigation positioned across full width -->
@@ -10,17 +13,17 @@ import { FaDiscord, FaLinkedin, FaTelegram, FaInstagram } from "react-icons/fa";
       <div class="flex items-center justify-between h-12 w-full">
         <!-- Navigation Links -->
         <div class="flex items-center space-x-2">
-          <a href="/" class="font-mono text-gray-700 nav-item hover:text-indigo-600">Thinkin'Rocks</a>
+          <a href="/" class={`font-mono nav-item hover:text-indigo-600 ${(currentPath === '/' || currentPath === '') ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>Thinkin'Rocks</a>
           <span class="text-gray-700">|</span>
-          <a href="/about" class="font-mono text-gray-700 nav-item hover:text-indigo-600">about</a>
+          <a href="/about" class={`font-mono nav-item hover:text-indigo-600 ${currentPath === '/about' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>about</a>
           <span class="text-gray-700">|</span>
-          <a href="/hardware" class="font-mono text-gray-700 nav-item hover:text-indigo-600">hardware</a>
+          <a href="/hardware" class={`font-mono nav-item hover:text-indigo-600 ${currentPath === '/hardware' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>hardware</a>
           <span class="text-gray-700">|</span>
-          <a href="/questions" class="font-mono text-gray-700 nav-item hover:text-indigo-600">questions</a>
+          <a href="/questions" class={`font-mono nav-item hover:text-indigo-600 ${currentPath === '/questions' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>questions</a>
           <span class="text-gray-700">|</span>
-          <a href="/team" class="font-mono text-gray-700 nav-item hover:text-indigo-600">team</a>
+          <a href="/team" class={`font-mono nav-item hover:text-indigo-600 ${currentPath === '/team' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>team</a>
           <span class="text-gray-700">|</span>
-          <a href="/log" class="font-mono text-gray-700 nav-item hover:text-indigo-600">log</a>
+          <a href="/log" class={`font-mono nav-item hover:text-indigo-600 ${currentPath === '/log' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>log</a>
         </div>
         
         <!-- Social Media Icons -->
@@ -54,22 +57,20 @@ import { FaDiscord, FaLinkedin, FaTelegram, FaInstagram } from "react-icons/fa";
     <div class="absolute right-0 top-0 w-8 h-12 bg-gradient-to-l from-[#fff4fe] to-transparent z-10 pointer-events-none"></div>
     
     <!-- Scrollable navigation -->
-    <div class="overflow-x-auto scrollbar-hide">
+    <div id="mobile-nav-container" class="overflow-x-auto scrollbar-hide scroll-smooth">
       <div class="flex items-center h-12 px-4" style="width: max-content;">
-        <!-- Extra padding on left to center Thinkin'Rocks button -->
-        <div style="width: calc(50vw - 1rem - 85px);"></div>
         
-        <a href="/" class="font-mono text-gray-700 nav-item hover:text-indigo-600 px-3">Thinkin'Rocks</a>
+        <a href="/" data-page="home" class={`font-mono nav-item hover:text-indigo-600 px-3 nav-link ${(currentPath === '/' || currentPath === '') ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>Thinkin'Rocks</a>
         <span class="text-gray-700 px-1">|</span>
-        <a href="/about" class="font-mono text-gray-700 nav-item hover:text-indigo-600 px-3">about</a>
+        <a href="/about" data-page="about" class={`font-mono nav-item hover:text-indigo-600 px-3 nav-link ${currentPath === '/about' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>about</a>
         <span class="text-gray-700 px-1">|</span>
-        <a href="/hardware" class="font-mono text-gray-700 nav-item hover:text-indigo-600 px-3">hardware</a>
+        <a href="/hardware" data-page="hardware" class={`font-mono nav-item hover:text-indigo-600 px-3 nav-link ${currentPath === '/hardware' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>hardware</a>
         <span class="text-gray-700 px-1">|</span>
-        <a href="/questions" class="font-mono text-gray-700 nav-item hover:text-indigo-600 px-3">questions</a>
+        <a href="/questions" data-page="questions" class={`font-mono nav-item hover:text-indigo-600 px-3 nav-link ${currentPath === '/questions' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>questions</a>
         <span class="text-gray-700 px-1">|</span>
-        <a href="/team" class="font-mono text-gray-700 nav-item hover:text-indigo-600 px-3">team</a>
+        <a href="/team" data-page="team" class={`font-mono nav-item hover:text-indigo-600 px-3 nav-link ${currentPath === '/team' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>team</a>
         <span class="text-gray-700 px-1">|</span>
-        <a href="/log" class="font-mono text-gray-700 nav-item hover:text-indigo-600 px-3">log</a>
+        <a href="/log" data-page="log" class={`font-mono nav-item hover:text-indigo-600 px-3 nav-link ${currentPath === '/log' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>log</a>
         
         <!-- Social Media Icons -->
         <div class="flex items-center space-x-3 ml-6">
@@ -109,7 +110,91 @@ import { FaDiscord, FaLinkedin, FaTelegram, FaInstagram } from "react-icons/fa";
   }
 </style>
 
-
+<script>
+  // Center a specific nav item in mobile navigation
+  function centerNavItem(item, animated = true) {
+    const container = document.getElementById('mobile-nav-container');
+    if (!container || !item) return;
+    
+    // Calculate position to center the item
+    const containerWidth = container.clientWidth;
+    const itemRect = item.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+    
+    // Calculate scroll position to center the item
+    const itemRelativePos = itemRect.left - containerRect.left + container.scrollLeft;
+    const itemWidth = itemRect.width;
+    const scrollTo = itemRelativePos - (containerWidth / 2) + (itemWidth / 2);
+    
+    // Scroll to center the item (with or without animation)
+    container.scrollTo({
+      left: Math.max(0, scrollTo),
+      behavior: animated ? 'smooth' : 'instant'
+    });
+  }
+  
+  // Center the active page in mobile navigation on load (no animation)
+  function centerActiveNavItemOnLoad() {
+    const container = document.getElementById('mobile-nav-container');
+    if (!container) return;
+    
+    // Find the active nav item (highlighted one)
+    let activeItem = container.querySelector('.text-indigo-600');
+    
+    // Fallback: if no active item found, check if we're on home page and center Thinkin'Rocks
+    if (!activeItem) {
+      const currentPath = window.location.pathname;
+      if (currentPath === '/' || currentPath === '') {
+        activeItem = container.querySelector('a[href="/"]');
+      }
+    }
+    
+    if (!activeItem) return;
+    
+    // Small delay to ensure styles are applied and layout is complete
+    setTimeout(() => {
+      centerNavItem(activeItem, false);
+    }, 50);
+  }
+  
+  // Handle navigation clicks: scroll first, then navigate
+  function handleNavClick(event) {
+    // Only handle clicks on nav links, not social media or other links
+    if (!event.target.classList.contains('nav-link')) return;
+    
+    // Prevent default navigation
+    event.preventDefault();
+    
+    const clickedLink = event.target;
+    const targetUrl = clickedLink.href;
+    
+    // Center the clicked item first (with animation)
+    centerNavItem(clickedLink, true);
+    
+    // Navigate after a short delay to show the scroll animation
+    setTimeout(() => {
+      window.location.href = targetUrl;
+    }, 250); // 250ms allows the scroll animation to be visible
+  }
+  
+  // Set up event listeners
+  function setupNavigation() {
+    const container = document.getElementById('mobile-nav-container');
+    if (!container) return;
+    
+    // Add click event listener to the container (event delegation)
+    container.addEventListener('click', handleNavClick);
+    
+    // Center the active item on load (without animation)
+    centerActiveNavItemOnLoad();
+  }
+  
+  // Run on page load
+  document.addEventListener('DOMContentLoaded', setupNavigation);
+  
+  // Run after page transitions (for SPAs, if applicable)
+  document.addEventListener('astro:page-load', setupNavigation);
+</script>
 
 <!-- Spacer to account for fixed navbar -->
 <div class="h-12"></div>
