@@ -1,5 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import type { HardwareItem } from '../types/hardware';
+import {AdvancedImage} from '@cloudinary/react';
+import {fit} from "@cloudinary/url-gen/actions/resize";
+import {cloudinary} from "../data/cloudinary";
 
 interface HardwareSearchProps {
   items: HardwareItem[];
@@ -118,14 +121,12 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div className="flex items-center justify-center mb-4">
-              <img
-                src={getImagePath(item.image)}
+              <AdvancedImage
+                cldImg={cloudinary
+                  .image(item.cloudinaryPublicId)
+                  .resize(fit().width(128).height(128))}
                 alt={item.name}
                 className="w-32 h-32 object-contain"
-                loading="lazy"
-                decoding="async"
-                width="128"
-                height="128"
               />
             </div>
             <h3 className="font-mono text-lg text-gray-900 mb-3 text-center">{item.name}</h3>

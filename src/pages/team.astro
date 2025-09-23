@@ -1,11 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import MilanaPic from "../assets/team/milana.png";
-import YerzhanPic from "../assets/team/yerzhan.png";
-import DaniyarPic from "../assets/team/daniyar.png";
-import AlexPic from "../assets/team/alex.png";
-import RobertPic from "../assets/team/robert.png";
+import { CldImage } from 'astro-cloudinary';
 ---
 
 <Layout>
@@ -22,14 +18,12 @@ import RobertPic from "../assets/team/robert.png";
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 mb-10">
         <div class="text-center">
           <div class="w-32 h-32 bg-gray-200 rounded-lg mx-auto mb-2 overflow-hidden border border-gray-300">
-            <Image
-              src={MilanaPic}
+            <CldImage
+              src="milana-min_yrnyld"
               alt="Milana"
               class="w-32 h-32 object-cover"
               width={128}
               height={128}
-              quality="low"
-              loading="eager"
               priority
             />
           </div>
@@ -39,14 +33,12 @@ import RobertPic from "../assets/team/robert.png";
         
         <div class="text-center">
           <div class="w-32 h-32 bg-gray-200 rounded-lg mx-auto mb-2 overflow-hidden border border-gray-300">
-            <Image
-              src={YerzhanPic}
+            <CldImage
+              src="yerzhan-min_gl7gur"
               alt="Yerzhan"
               class="w-32 h-32 object-cover"
               width={128}
               height={128}
-              quality="low"
-              loading="eager"
               priority
             />
           </div>
@@ -56,14 +48,12 @@ import RobertPic from "../assets/team/robert.png";
         
         <div class="text-center">
           <div class="w-32 h-32 bg-gray-200 rounded-lg mx-auto mb-2 overflow-hidden border border-gray-300">
-            <Image
-              src={RobertPic}
+            <CldImage
+              src="robert-min_lllwnc"
               alt="Robert"
               class="w-32 h-32 object-cover"
               width={128}
               height={128}
-              quality="low"
-              loading="eager"
               priority
             />
           </div>
@@ -73,14 +63,12 @@ import RobertPic from "../assets/team/robert.png";
         
         <div class="text-center">
           <div class="w-32 h-32 bg-gray-200 rounded-lg mx-auto mb-2 overflow-hidden border border-gray-300">
-            <Image
-              src={DaniyarPic}
+            <CldImage
+              src="daniyar-min_kok519"
               alt="Daniyar"
               class="w-32 h-32 object-cover"
               width={128}
               height={128}
-              quality="low"
-              loading="eager"
               priority
             />
           </div>
@@ -90,14 +78,12 @@ import RobertPic from "../assets/team/robert.png";
         
         <div class="text-center">
           <div class="w-32 h-32 bg-gray-200 rounded-lg mx-auto mb-2 overflow-hidden border border-gray-300">
-            <Image
-              src={AlexPic}
+            <CldImage
+              src="alex-min_ypkkz2"
               alt="Alex"
               class="w-32 h-32 object-cover"
               width={128}
               height={128}
-              quality="low"
-              loading="eager"
               priority
             />
           </div>

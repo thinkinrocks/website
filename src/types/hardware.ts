@@ -2,7 +2,7 @@ export interface HardwareItem {
   id: string;
   name: string;
   description: string;
-  image: string;
+  cloudinaryPublicId: string;
   categories: string[];
   status: 'available' | 'coming-soon' | 'maintenance';
 }
