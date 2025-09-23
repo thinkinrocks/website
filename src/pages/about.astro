@@ -1,0 +1,164 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+---
+
+<Layout>
+  <div class="pt-24 md:pt-32 pb-16 px-4 md:px-16">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-5xl md:text-2xl font-mono tracking-tighter mb-6">
+        About Thinkin' Rocks
+      </h1>
+      
+      <!-- Main Content -->
+      <div class="mb-16 fade-in">
+        <p class="font-sans text-lg text-gray-700 mb-4 leading-relaxed">
+          Thinkin' Rocks is the playground we always wished existed.
+        </p>
+        <p class="font-sans text-lg text-gray-700 mb-4 leading-relaxed">
+          Finland has world-class students and a thriving startup scene, yet when it comes to hardware, access is 
+          limited. Most students are still restricted to laptops, while peers abroad prototype with GPUs, humanoid 
+          robots, and XR headsets. Too many bold ideas never move beyond a slide deck - and we believe that holds 
+          Finland back.
+        </p>
+        <p class="font-sans text-lg text-gray-700 mb-4 leading-relaxed">
+          In 2025, with the support of Aaltoes - Europe's largest student-run entrepreneurship society and the 
+          community behind Slush, Junction, and Kiuas - we launched Thinkin' Rocks: a student-driven technology 
+          studio where anyone curious enough can get their hands on advanced tools. From Varjo XR headsets and 
+          humanoid robots to Tenstorrent AI kits, FPGA boards, and Jetson-powered platforms, we make frontier 
+          tech as accessible as a library book. Students learn by building - crashing code, fixing it, and working 
+          side by side with engineers from companies like Varjo and Doublepoint.
+        </p>
+        <p class="font-sans text-lg text-gray-700 mb-4 leading-relaxed">
+          By opening access, we strengthen Finland's deep-tech pipeline: turning projects into prototypes, and 
+          prototypes into startups. Our vision is bold - to become Finland's hub for applied innovation and fuel the 
+          100x100 ambition: 100 deep-tech startups, each worth €100M.
+        </p>
+        <p class="font-sans text-lg text-gray-700 mb-6 leading-relaxed">
+          To reach that vision, we've set clear goals each year:
+        </p>
+        
+        <!-- Goals Visualization -->
+        <div class="bg-gray-50 p-6 rounded-lg mb-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="text-center">
+              <div class="text-xl font-mono text-gray-900 mb-1">500+</div>
+              <div class="font-sans text-sm text-gray-700">active contributors</div>
+            </div>
+            <div class="text-center">
+              <div class="text-xl font-mono text-gray-900 mb-1">10-15</div>
+              <div class="font-sans text-sm text-gray-700">MVP prototypes</div>
+            </div>
+            <div class="text-center">
+              <div class="text-xl font-mono text-gray-900 mb-1">2,500+</div>
+              <div class="font-sans text-sm text-gray-700">students reached</div>
+            </div>
+            <div class="text-center">
+              <div class="text-xl font-mono text-gray-900 mb-1">3-5</div>
+              <div class="font-sans text-sm text-gray-700">new startups</div>
+            </div>
+          </div>
+        </div>
+        
+        <p class="font-sans text-lg text-gray-700 mb-4 leading-relaxed">
+          The journey is already underway. Since our launch at Explore Aaltoes in September 2025, we've partnered 
+          with Varjo, Alif Semiconductor, Tenstorrent, Doublepoint, and Booster Robotics, and hosted meetups with 
+          80+ students and researchers. Today, world-class tools are no longer locked in labs - they're in student 
+          hands.
+        </p>
+        <p class="font-sans text-lg text-gray-700 mb-4 leading-relaxed">
+          And this is only the start. We're expanding our hardware pool with neurowearables, humanoid robots, and 
+          advanced AI compute, while running hackathons, build sprints, and demo days that turn ideas into working 
+          prototypes.
+        </p>
+      </div>
+ 
+
+        <!-- Partners Section -->
+      <div class="mb-16 fade-in">
+        <h2 class="text-2xl font-mono mb-6 text-gray-900">Our Partners</h2>
+        <p class="font-sans text-lg text-gray-700 mb-8 leading-relaxed">
+          We work with industry leaders to bring cutting-edge technology directly to students:
+        </p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mb-8">
+          <div class="bg-gray-50 p-4 rounded-lg text-center">
+            <div class="w-40 h-24 mx-auto flex items-center justify-center">
+              <img 
+                src="/images/companies-logo/varjo.png" 
+                alt="Varjo" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+          <div class="bg-gray-50 p-4 rounded-lg text-center">
+            <div class="w-40 h-24 mx-auto flex items-center justify-center">
+              <img 
+                src="/images/companies-logo/doublepoint.png" 
+                alt="Doublepoint" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+          <div class="bg-gray-50 p-4 rounded-lg text-center">
+            <div class="w-40 h-24 mx-auto flex items-center justify-center">
+              <img 
+                src="/images/companies-logo/tenstorrent.webp" 
+                alt="Tenstorrent" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+          <div class="bg-gray-50 p-4 rounded-lg text-center">
+            <div class="w-40 h-24 mx-auto flex items-center justify-center">
+              <img 
+                src="/images/companies-logo/Alif_Semiconductor_logo.webp" 
+                alt="Alif Semiconductor" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+          <div class="bg-gray-50 p-4 rounded-lg text-center">
+            <div class="w-40 h-24 mx-auto flex items-center justify-center">
+              <img 
+                src="/images/companies-logo/booster_robotics.png" 
+                alt="Booster Robotics" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+          <a 
+            href="mailto:milana@thinkinrocks.com?subject=Partnership%20Opportunity&body=Hi%20Milana,%0D%0A%0D%0AI'm%20interested%20in%20exploring%20a%20partnership%20opportunity%20with%20Thinkin'%20Rocks.%0D%0A%0D%0ACompany:%20[Your%20Company]%0D%0ATechnology/Hardware:%20[What%20you%20can%20provide]%0D%0AContact:%20[Your%20contact%20information]%0D%0A%0D%0ABest%20regards,"
+            class="block bg-gray-100 p-4 rounded-lg text-center  hover:bg-gray-200 hover:border-gray-400 transition-colors"
+          >
+            <div class="w-40 h-24 mx-auto flex items-center justify-center">
+              <span class="text-4xl font-mono text-gray-400">+</span>
+            </div>
+          </a>
+        </div>
+        
+
+      <!-- Contact Section -->
+      <div class="text-center fade-in">
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
+          <div class="bg-indigo-600 h-fit translate-0.5">
+            <a 
+              href="https://discord.gg/5MEu6njksN" 
+              class="bg-indigo-50 text-indigo-600 inline-flex px-6 py-3 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono hover:bg-indigo-100 transition-colors"
+            >
+              Join Us
+            </a>
+          </div>
+          <div class="bg-gray-600 h-fit translate-0.5">
+            <a 
+              href="mailto:milana@thinkinrocks.com" 
+              class="bg-gray-50 text-gray-600 inline-flex px-6 py-3 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono hover:bg-gray-100 transition-colors"
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

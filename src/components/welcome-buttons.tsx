@@ -13,13 +13,6 @@ export default function WelcomeButtons() {
         <span className="font-mono">Discord</span>
       </EventButton>
       <ButtonLink
-        href="https://t.me/thinkinrocks"
-        onClick={() => track("telegram_button_click")}
-      >
-        <FaTelegram className="w-4 h-4 -mb-0.5" />
-        <span className="font-mono">Telegram channel</span>
-      </ButtonLink>
-      <ButtonLink
         href="https://t.me/+rxHNt6GA4-o1NWUy"
         onClick={() => track("telegram_button_click")}
       >
@@ -33,7 +26,6 @@ export default function WelcomeButtons() {
         <FaUserPlus className="w-4 h-4 -mb-0.5" />
         <span className="font-mono">Show interest</span>
       </ButtonLink>
-     
     </div>
   );
 }
