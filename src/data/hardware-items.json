@@ -42,7 +42,7 @@
   {
     "id": "jetson-orin-nano",
     "name": "NVIDIA Jetson Orin Nano Super",
-    "description": "67 TOPS Ampere (1024 CUDA, 32 Tensor), 6-core Arm A78AE, 8GB LPDDR5 (102 GB/s), 7-25W, $249. Runs LLMs/VLMs/transformers at the edge, with Pi-friendly onboarding via Jetson/Isaac docs and community; existing kits get the boost via software.",
+    "description": "67 TOPS Ampere (1024 CUDA, 32 Tensor), 6-core Arm A78AE, 8GB LPDDR5 (102 GB/s), 7-25W, Runs LLMs/VLMs/transformers at the edge, with Pi-friendly onboarding via Jetson/Isaac docs and community; existing kits get the boost via software.",
     "cloudinaryPublicId": "jetson-nano_dypbw9",
     "categories": ["AI", "Computer Vision"],
     "status": "available"
