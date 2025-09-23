@@ -110,7 +110,7 @@ const currentPath = Astro.url.pathname;
   }
 </style>
 
-<script>
+<script is:inline>
   // Center a specific nav item in mobile navigation
   function centerNavItem(item, animated = true) {
     const container = document.getElementById('mobile-nav-container');
@@ -136,7 +136,10 @@ const currentPath = Astro.url.pathname;
   // Center the active page in mobile navigation on load (no animation)
   function centerActiveNavItemOnLoad() {
     const container = document.getElementById('mobile-nav-container');
-    if (!container) return;
+    if (!container) {
+      console.warn('Mobile nav container not found');
+      return;
+    }
     
     // Find the active nav item (highlighted one)
     let activeItem = container.querySelector('.text-indigo-600');
@@ -146,10 +149,17 @@ const currentPath = Astro.url.pathname;
       const currentPath = window.location.pathname;
       if (currentPath === '/' || currentPath === '') {
         activeItem = container.querySelector('a[href="/"]');
+        if (!activeItem) {
+          // Additional fallback for home page
+          activeItem = container.querySelector('.nav-link:first-child');
+        }
       }
     }
     
-    if (!activeItem) return;
+    if (!activeItem) {
+      console.warn('No active nav item found for centering');
+      return;
+    }
     
     // Small delay to ensure styles are applied and layout is complete
     setTimeout(() => {
@@ -177,10 +187,18 @@ const currentPath = Astro.url.pathname;
     }, 250); // 250ms allows the scroll animation to be visible
   }
   
+  // Flag to prevent multiple initializations
+  let navInitialized = false;
+  
   // Set up event listeners
   function setupNavigation() {
+    if (navInitialized) return;
+    
     const container = document.getElementById('mobile-nav-container');
     if (!container) return;
+    
+    // Mark as initialized
+    navInitialized = true;
     
     // Add click event listener to the container (event delegation)
     container.addEventListener('click', handleNavClick);
@@ -189,11 +207,18 @@ const currentPath = Astro.url.pathname;
     centerActiveNavItemOnLoad();
   }
   
-  // Run on page load
-  document.addEventListener('DOMContentLoaded', setupNavigation);
+  // Simple initialization that works on both localhost and Vercel
+  function initNavigation() {
+    // Wait for DOM to be ready
+    if (document.readyState !== 'loading') {
+      setupNavigation();
+    } else {
+      document.addEventListener('DOMContentLoaded', setupNavigation);
+    }
+  }
   
-  // Run after page transitions (for SPAs, if applicable)
-  document.addEventListener('astro:page-load', setupNavigation);
+  // Initialize navigation
+  initNavigation();
 </script>
 
 <!-- Spacer to account for fixed navbar -->
