@@ -124,7 +124,7 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
               <AdvancedImage
                 cldImg={cloudinary
                   .image(item.cloudinaryPublicId)
-                  .resize(fit().width(128).height(128))}
+                  .resize(fit().width(256).height(256))}
                 alt={item.name}
                 className="w-32 h-32 object-contain"
               />
