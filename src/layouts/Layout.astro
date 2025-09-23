@@ -30,68 +30,6 @@ const { hideNavbar = false } = Astro.props;
       as="style"
     />
     
-    <!-- Preload navbar icons for immediate rendering -->
-    <link rel="modulepreload" href="/node_modules/react-icons/fa/index.js" />
-    
-    <!-- Preload critical navbar styles -->
-    <style id="navbar-critical-css">
-      /* Navbar critical CSS - renders immediately */
-      .navbar-preload {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 40;
-        background-color: #fff4fe;
-        height: 3rem;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
-      }
-      
-      .navbar-skeleton {
-        max-width: 96rem;
-        margin: 0 auto;
-        padding: 0 1rem;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      
-      .navbar-skeleton-links {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-family: "Source Code Pro", monospace;
-        font-size: 0.875rem;
-        color: #374151;
-      }
-      
-      .navbar-skeleton-social {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-      }
-      
-      /* Hide skeleton once real navbar loads */
-      .navbar-loaded .navbar-skeleton {
-        display: none;
-      }
-      
-      @media (max-width: 768px) {
-        .navbar-skeleton-links {
-          overflow-x: auto;
-          white-space: nowrap;
-          -webkit-overflow-scrolling: touch;
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-        }
-        
-        .navbar-skeleton-links::-webkit-scrollbar {
-          display: none;
-        }
-      }
-    </style>
-    
     <title>Thinkin' Rocks</title>
     <Analytics />
     <style>
@@ -193,115 +131,13 @@ const { hideNavbar = false } = Astro.props;
       .fade-in:nth-child(4) { transition-delay: 0.4s; }
       .fade-in:nth-child(5) { transition-delay: 0.5s; }
       
-      /* Critical Navbar Styles - Preloaded */
-      nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 40;
-        background-color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(229, 231, 235, 0.5);
-        height: 4rem;
-      }
-      
-      .navbar-container {
-        max-width: 56rem;
-        margin: 0 auto;
-        padding: 0 1rem;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      
-      .navbar-desktop {
-        display: none;
-      }
-      
-      .navbar-mobile {
-        display: flex;
-        width: 100%;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-      }
-      
-      .navbar-mobile::-webkit-scrollbar {
-        display: none;
-      }
-      
-      .navbar-links {
-        display: flex;
-        align-items: center;
-        gap: 0;
-        white-space: nowrap;
-        padding-left: calc(50vw - 1rem - 85px);
-        padding-right: 2rem;
-      }
-      
+      /* Smooth navigation transitions */
       .nav-item {
         transition: color 0.2s ease, opacity 0.2s ease;
-        padding: 0 0.75rem;
-        font-family: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        font-size: 0.875rem;
-        color: #374151;
       }
       
       .nav-item:hover {
         color: #4f46e5;
-      }
-      
-      .nav-item.active {
-        color: #4f46e5;
-        font-weight: 500;
-      }
-      
-      .navbar-social {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-left: 1rem;
-      }
-      
-      .social-icon {
-        color: #6b7280;
-        transition: color 0.2s ease;
-        display: flex;
-        align-items: center;
-        width: 1rem;
-        height: 1rem;
-      }
-      
-      .social-icon:hover {
-        color: #4f46e5;
-      }
-      
-      /* Desktop navbar */
-      @media (min-width: 768px) {
-        .navbar-desktop {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          width: 100%;
-        }
-        
-        .navbar-mobile {
-          display: none;
-        }
-        
-        .navbar-links {
-          padding-left: 0;
-          padding-right: 0;
-          gap: 2rem;
-        }
-        
-        .nav-item {
-          padding: 0;
-        }
       }
       
       /* Links */
@@ -326,40 +162,12 @@ const { hideNavbar = false } = Astro.props;
   </head>
   <body>
     
-    {!hideNavbar && (
-      <>
-        <!-- Navbar skeleton - renders immediately -->
-        <div class="navbar-preload" id="navbar-skeleton">
-          <div class="navbar-skeleton">
-            <div class="navbar-skeleton-links">
-              <span>Thinkin'Rocks | about | hardware | questions | team | log</span>
-            </div>
-            <div class="navbar-skeleton-social">
-              <span style="width: 1rem; height: 1rem; background: #9ca3af; border-radius: 2px;"></span>
-              <span style="width: 1rem; height: 1rem; background: #9ca3af; border-radius: 2px;"></span>
-              <span style="width: 1rem; height: 1rem; background: #9ca3af; border-radius: 2px;"></span>
-              <span style="width: 1rem; height: 1rem; background: #9ca3af; border-radius: 2px;"></span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Real navbar - hydrates and replaces skeleton -->
-        <Navbar />
-      </>
-    )}
+    {!hideNavbar && <Navbar />}
     <slot />
     
     <script>
       // Smooth page loading system
       function initSmoothLoading() {
-        // Hide navbar skeleton once real navbar is loaded
-        const skeleton = document.getElementById('navbar-skeleton');
-        if (skeleton) {
-          // Hide skeleton immediately since the real navbar has loaded
-          skeleton.style.display = 'none';
-          document.body.classList.add('navbar-loaded');
-        }
-        
         // Show page with smooth fade-in
         document.body.classList.add('loaded');
         
