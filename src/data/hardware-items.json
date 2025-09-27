@@ -9,11 +9,19 @@
   },
   {
     "id": "doublepoint-dev-kit",
-    "name": "Doublepoint Developer Kit",
+    "name": "Doublepoint Dev. Kit",
     "description": "Doublepoint Developer Kit enables precise wrist and finger gesture recognition through advanced sensors. It supports low-latency, natural input for XR, wearables, and mobile devices, making interactions more intuitive.",
     "cloudinaryPublicId": "doublepoint_imsl0w",
     "categories": ["Sensors"],
-    "status": "coming-soon"
+    "status": "available"
+  },
+  {
+    "id": "shelby-computer",
+    "name": "Shelby Computer",
+    "description": "Custom AI workstation with Tenstorrent Blackhole™ P100a GPU, AMD Ryzen 9 9950X3D CPU, 64GB DDR5 RAM, and 2TB NVMe SSD. Optimized for large-scale model training and prototyping.",
+    "cloudinaryPublicId": "shelby-computer_cndb2j",
+    "categories": ["Workstation", "AI"],
+    "status": "available"
   },
   {
     "id": "nexys-a7-fpga",
