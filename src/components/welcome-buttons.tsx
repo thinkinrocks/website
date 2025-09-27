@@ -6,12 +6,18 @@ export default function WelcomeButtons() {
   return (
     <div className="flex flex-wrap justify-center gap-2">
       <EventButton
+        href="https://tally.so/r/3NkdZG"
+        onClick={() => track("event_button_click")}
+      >
+        <span className="font-mono">Join build session</span>
+        </EventButton>
+      <ButtonLink
         href="https://discord.gg/gtncJfm85n"
         onClick={() => track("discord_button_click")}
       >
         <FaDiscord className="w-4 h-4 -mb-0.5" />
         <span className="font-mono">Discord</span>
-      </EventButton>
+      </ButtonLink>
       <ButtonLink
         href="https://t.me/+rxHNt6GA4-o1NWUy"
         onClick={() => track("telegram_button_click")}
