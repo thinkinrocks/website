@@ -15,12 +15,9 @@ import thinkinrocksCoworking from "../assets/thinkingrocks-coworking.png";
       <!-- Location Section -->
       <div class="mb-4 text-xl ">
        
-        We are located at Startup Sauna on the second floor. Just come inside of Aaltoes co-working space and ask how to get to Thinkin' Rocks playground or ping us on Discord.
-
-        <Image src={thinkinrocksCoworking} alt="Startup Sauna" class="h-auto mb-4 mx-auto" />
-
-        <div class="max-w-none mt-12">
-          <p class="text-xl font-sans text-gray-700 ">
+        We are located at Startup Sauna on the second floor. Just come to Aaltoes co-working space and ask how to get to Thinkin' Rocks playground or ping us on Discord.
+        <div class="max-w-none mt-8">
+          <p class="text-xl font-sans text-indigo-600">
             <a 
               href="https://maps.google.com/?q=Startup+Sauna,+Puumiehenkuja+5,+02150+Espoo,+Finland" 
               target="_blank" 
@@ -32,6 +29,57 @@ import thinkinrocksCoworking from "../assets/thinkingrocks-coworking.png";
           </p>
         </div>
       </div>
+        <Image src={thinkinrocksCoworking} alt="Startup Sauna" class="h-auto mb-2 mx-auto" />
+        <p class="text-center text-sm font-sans text-gray-600 mb-8">
+          Floor plan of Startup Sauna showing our location and workspace layout
+        </p>
+
+        <!-- Photo Gallery -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <!-- Whole Area -->
+          <div class="text-center">
+            <div class="aspect-[4/3] rounded-lg mb-3 overflow-hidden border border-gray-300">
+              <CldImage
+                src="whole-area_v4qg1y"
+                alt="Main Workspace"
+                class="w-full h-full object-cover"
+                width={400}
+                height={300}
+              />
+            </div>
+            <p class="text-center text-sm font-sans text-gray-600 mb-8">Our collaborative work area with desks, monitors, and all the tools you need for building.</p>
+          </div>
+
+          <!-- Shelf Area -->
+          <div class="text-center">
+            <div class="aspect-[4/3] rounded-lg mb-3 overflow-hidden border border-gray-300">
+              <CldImage
+                src="shelf-area_sfnum4"
+                alt="Hardware & Storage Area"
+                class="w-full h-full object-cover"
+                width={400}
+                height={300}
+              />
+            </div>
+            <p class="text-center text-sm font-sans text-gray-600 mb-8">Organized storage area with shelves for hardware, tools, and project materials.</p>
+          </div>
+
+           <!-- Chill Area -->
+           <div class="text-center">
+            <div class="aspect-[4/3] rounded-lg mb-3 overflow-hidden border border-gray-300">
+              <CldImage
+                src="chill-area_iz650y"
+                alt="Chill Area"
+                class="w-full h-full object-cover"
+                width={400}
+                height={300}
+              />
+            </div>
+            <p class="text-center text-sm font-sans text-gray-600 mb-8">Multi-purpose area for watching films, training pitches, playing games, and socializing with the community.</p>
+          </div>
+
+        </div>
+
     </div>
   </div>
 </Layout>
