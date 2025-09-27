@@ -1,5 +1,23 @@
 [
   {
+    "id": "011",
+    "title": "We have our own space at Startup Sauna!",
+    "content": "We organized our co-working space at Startup Sauna and invited people to join. A great chance to work together, share ideas, and build momentum for upcoming projects.",
+    "author": "Milana",
+    "timestamp": "2025-09-25T14:00:00Z",
+    "tags": ["community", "event", "coworking"],
+    "type": "announcement"
+  },
+  {
+    "id": "010",
+    "title": "Robot Battery Arrived",
+    "content": "The battery for our robot finally arrived! Now everyone can experiment hands-on with 'Lindy' and start testing new prototypes and interactions.",
+    "author": "Milana",
+    "timestamp": "2025-09-22T14:00:00Z",
+    "tags": ["robotics", "hardware", "update"],
+    "type": "announcement"
+  },
+  {
     "id": "009",
     "title": "Partnership with Alif Semiconductor",
     "content": "Held a meeting with Alif Semiconductor. They agreed to support us by providing development boards for our community projects.",
