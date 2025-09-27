@@ -2,16 +2,18 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { CldImage } from 'astro-cloudinary';
+import thinkinrocksCoworking from "../assets/thinkingrocks-coworking.png";
 ---
+
 
 <Layout>
   <div class="pt-24 md:pt-32 pb-16 px-4 md:px-16">
     <div class="max-w-4xl mx-auto">
-      <h1 class="text-5xl md:text-4xl font-mono tracking-tighter mb-4 text-center">
+      <h1 class="text-5xl md:text-4xl font-mono tracking-tighter mb-4 ">
         Team
       </h1>
-      <p class="text-xl font-sans text-center mb-6 max-w-3xl mx-auto text-gray-600">
-        Meet the people behind Thinkin' Rocks
+      <p class="text-xl font-sans mb-6 max-w-3xl text-gray-600">
+        Meet the people behind Thinkin' Rocks. 
       </p>
       
       <!-- Team Members -->
@@ -102,28 +104,16 @@ import { CldImage } from 'astro-cloudinary';
       </div>
 
       <!-- Location Section -->
-      <div class="text-center mb-4">
-        <h2 class="text-2xl font-mono mb-4 text-gray-900">
-          Our Location
-        </h2>
-        <div class="max-w-3xl mx-auto">
-          <p class="text-lg font-sans text-gray-700 mb-4">
-            <span class="font-mono text-indigo-800">📍</span> Puumiehenkuja 5, 02150 Espoo, Finland
+      <div class="mb-4 text-xl ">
+       
+        We are located at Startup Sauna on the second floor. Just come inside of Aaltoes co-working space and ask how to get to Thinkin' Rocks playground or ping us on Discord.
+
+        <Image src={thinkinrocksCoworking} alt="Startup Sauna" class="h-auto mb-4 mx-auto" />
+
+        <div class="max-w-none mt-12">
+          <p class="text-lg font-sans text-gray-700 ">
+             Puumiehenkuja 5, 02150 Espoo, Finland
           </p>
-          
-          <!-- Embedded Map -->
-          <div class="bg-gray-100 rounded-lg overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d992.5!2d24.8216183!3d60.1877326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468df58d0e541191%3A0x1d783914b8c6d695!2sStartup%20Sauna%2C%20Puumiehenkuja%205%2C%2002150%20Espoo!5e0!3m2!1sen!2sfi!4v1706789012345!5m2!1sen!2sfi"
-              width="100%"
-              height="300"
-              style="border:0; filter: hue-rotate(320deg) saturate(0.6) brightness(0.95) contrast(0.9);"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Startup Sauna Location - Puumiehenkuja 5"
-            ></iframe>
-          </div>
         </div>
       </div>
     </div>
