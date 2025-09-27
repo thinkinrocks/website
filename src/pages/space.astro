@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { CldImage } from 'astro-cloudinary';
+import thinkinrocksCoworking from "../assets/thinkingrocks-coworking.png";
+---
+<Layout>
+  <div class="pt-24 md:pt-32 pb-16 px-4 md:px-16">
+    <div class="max-w-4xl mx-auto">
+
+      <h1 class="text-5xl md:text-4xl font-mono tracking-tighter mb-6">
+        Our space
+      </h1>
+      
+      <!-- Location Section -->
+      <div class="mb-4 text-xl ">
+       
+        We are located at Startup Sauna on the second floor. Just come inside of Aaltoes co-working space and ask how to get to Thinkin' Rocks playground or ping us on Discord.
+
+        <Image src={thinkinrocksCoworking} alt="Startup Sauna" class="h-auto mb-4 mx-auto" />
+
+        <div class="max-w-none mt-12">
+          <p class="text-xl font-sans text-gray-700 ">
+            <a 
+              href="https://maps.google.com/?q=Startup+Sauna,+Puumiehenkuja+5,+02150+Espoo,+Finland" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="font-mono"
+            >
+              Puumiehenkuja 5, 02150 Espoo, Finland
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

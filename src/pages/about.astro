@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
+import { Image } from "astro:assets";   
+import { CldImage } from 'astro-cloudinary';
 ---
 
 <Layout>
@@ -65,7 +66,100 @@ import { Image } from "astro:assets";
           prototypes.
         </p>
       </div>
- 
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-4xl font-mono tracking-tighter mb-4 ">
+          Team
+        </h1>
+        <p class="text-xl font-sans mb-6 max-w-3xl text-gray-600">
+          Meet the people behind Thinkin' Rocks. 
+        </p>
+        
+        <!-- Team Members -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 mb-10">
+          <div class="text-center">
+            <div class="w-32 h-32 bg-gray-200 rounded-lg mx-auto mb-2 overflow-hidden border border-gray-300">
+              <CldImage
+                src="milana-min_yrnyld"
+                alt="Milana"
+                class="w-32 h-32 object-cover"
+                width={256}
+                height={256}
+                priority
+              />
+            </div>
+            <h3 class="text-xs font-mono mb-0.5 text-gray-900">Milana</h3>
+            <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto"><span class="font-mono text-indigo-500">disc: @foxivil</span><br>can't live without coffee and anime. watched one piece twice.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-32 h-32 bg-gray-200 rounded-lg mx-auto mb-2 overflow-hidden border border-gray-300">
+              <CldImage
+                src="yerzhan-min_gl7gur"
+                alt="Yerzhan"
+                class="w-32 h-32 object-cover"
+                width={256}
+                height={256}
+                priority
+              />
+            </div>
+            <h3 class="text-xs font-mono mb-0.5 text-gray-900">Yerzhan</h3>
+            <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto"> <span class="font-mono text-indigo-500">disc: @yerzham</span><br>applied for Y-combinator before it became mainstream.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-32 h-32 bg-gray-200 rounded-lg mx-auto mb-2 overflow-hidden border border-gray-300">
+              <CldImage
+                src="robert-min_lllwnc"
+                alt="Robert"
+                class="w-32 h-32 object-cover"
+                width={256}
+                height={256}
+                priority
+              />
+            </div>
+            <h3 class="text-xs font-mono mb-0.5 text-gray-900">Robert</h3>
+            <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto"><span class="font-mono text-indigo-500">disc: @oxrinz</span><br>Muramasa.<br>Milana: "too short".<br>Robert: "it's perfect"</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-32 h-32 bg-gray-200 rounded-lg mx-auto mb-2 overflow-hidden border border-gray-300">
+              <CldImage
+                src="daniyar-min_kok519"
+                alt="Daniyar"
+                class="w-32 h-32 object-cover"
+                width={256}
+                height={256}
+                priority
+              />
+            </div>
+            <h3 class="text-xs font-mono mb-0.5 text-gray-900">Daniyar</h3>
+            <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto"><span class="font-mono text-indigo-500">disc: @.blocky7</span><br>coding since 7th grade, still pretending to know what hardware is.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-32 h-32 bg-gray-200 rounded-lg mx-auto mb-2 overflow-hidden border border-gray-300">
+              <CldImage
+                src="alex-min_ypkkz2"
+                alt="Alex"
+                class="w-32 h-32 object-cover"
+                width={256}
+                height={256}
+                priority
+              />
+            </div>
+            <h3 class="text-xs font-mono mb-0.5 text-gray-900">Alex</h3>
+            <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto"><span class="font-mono text-indigo-500">disc: @al.ex.</span><br>started learning english to understand computer errors.</p>
+          </div>
+          
+          <div class="text-center">
+            <a href="mailto:milana.begantsova@aaltoes.com" class="block">
+              <div class="w-32 h-32 bg-gray-200 rounded-lg mx-auto mb-2 flex items-center justify-center hover:bg-gray-300 transition-colors">
+                <span class="text-2xl font-mono text-gray-500">+</span>
+              </div>
+              <h3 class="text-xs font-mono mb-0.5 text-gray-900 hover:text-indigo-600 transition-colors">Join Us</h3>
+            </a>
+          </div>
+        </div>
 
         <!-- Partners Section -->
       <div class="mb-16 fade-in">
