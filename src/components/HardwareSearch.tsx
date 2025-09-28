@@ -71,6 +71,11 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
     return `/images/${imageName}`;
   };
 
+  const truncateDescription = (text: string, wordLimit: number = 25) => {
+    const words = text.split(' ');
+    return words.slice(0, wordLimit).join(' ') + (words.length > wordLimit ? '...' : '');
+  };
+
   return (
     <div>
       {/* Search and Filter Controls */}
@@ -117,7 +122,7 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
         {filteredItems.map((item, index) => (
           <div 
             key={item.id} 
-            className="border border-gray-200 rounded-lg p-6 fade-in"
+            className="border border-gray-200 rounded-lg p-6 fade-in flex flex-col"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div className="flex items-center justify-center mb-4">
@@ -135,9 +140,19 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
                 {getStatusBadge(item.status)}
               </div>
             )}
-            <p className="font-sans text-sm text-gray-700 leading-relaxed">
-              {item.description}
+            <p className="font-sans text-sm text-gray-700 leading-relaxed mb-4 flex-grow">
+              {truncateDescription(item.description)}
             </p>
+            <div className="flex justify-center mt-auto">
+              <div className="bg-indigo-600 h-fit translate-0.5">
+                <a 
+                  href={`/hardware/${item.id}`}
+                  className="bg-indigo-50 text-indigo-600 inline-flex px-4 py-2 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono"
+                >
+                  read more
+                </a>
+              </div>
+            </div>
           </div>
         ))}
       </div>

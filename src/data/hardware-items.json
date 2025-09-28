@@ -2,89 +2,206 @@
   {
     "id": "varjo-xr3",
     "name": "Varjo XR-3",
-    "description": "Varjo XR-3 is a pro headset with photorealistic 12 MP pass-through, LiDAR depth sensing, and human-eye resolution (70+ PPD) across a 115° FOV. It adds 200 Hz eye tracking, Ultraleap hand tracking, and enterprise-grade ergonomics and security.",
+    "description": "The Varjo XR-3 is a professional mixed reality headset offering human-eye resolution (over 70 PPD), dual 12 MP pass-through cameras, LiDAR depth sensing, 200 Hz eye tracking, Ultraleap hand tracking, and a 115° field of view.",
     "cloudinaryPublicId": "varjo-xr3_t353nm",
     "categories": ["XR/VR", "Computer Vision"],
-    "status": "available"
-  },
+    "status": "available",
+    "details": [
+      "The [Varjo XR-3](https://varjo.com/products/varjo-xr-3/) is designed for enterprise and research applications where accuracy and immersion are paramount. It delivers over 70 PPD in the focus area, with a wide 115° FOV and photorealistic dual 12 MP pass-through combined with LiDAR depth sensing.",
+      "It features 200 Hz eye tracking with sub-degree accuracy and integrated [Ultraleap Gemini](https://www.ultraleap.com/tracking/) hand tracking, making it suitable for precision-intensive workflows like industrial training, medical simulation, and architectural visualization.",
+      "System setup requires a powerful workstation that meets [Varjo’s requirements](https://varjo.com/use-center/system-requirements/). You must install [Varjo Base](https://developer.varjo.com/docs/getting-started/installing-varjo-base) and follow the official [headset setup guide](https://developer.varjo.com/docs/getting-started/setting-up-varjo-headset). Calibration is critical to ensure optimal image quality and tracking performance.",
+      "Development typically uses [Unity XR](https://docs.unity3d.com/Manual/xr.html) or [Unreal Engine XR](https://docs.unrealengine.com/en-US/ARXR/index.html) frameworks, together with Varjo SDKs and plugins. Start with sample projects, then optimize performance using foveated rendering and efficient rendering pipelines.",
+      "Applications include AR-assisted manufacturing workflows, digital twin control rooms, and gaze-driven analytics in medical training. Researchers use its precise tracking for human–computer interaction and neuroscience studies.",
+      "The XR-3 is not a consumer device: it requires external tracking (SteamVR 2.0 recommended), a high-end GPU workstation, and professional setup. It is optimized for dedicated labs and enterprise environments rather than portable use.",
+      "**Essential Resources:**<br/>- [Varjo Developer Portal](https://developer.varjo.com/)<br/>- [Varjo Base Software](https://developer.varjo.com/docs/getting-started/installing-varjo-base)<br/>- [Unity XR Docs](https://docs.unity3d.com/Manual/xr.html)<br/>- [Unreal AR/VR Guide](https://docs.unrealengine.com/en-US/ARXR/index.html)"
+    ],
+    "related": ["shelby-computer", "lenovo-legion-t5", "doublepoint-dev-kit"]
+  },  
   {
     "id": "doublepoint-dev-kit",
-    "name": "Doublepoint Dev. Kit",
-    "description": "Doublepoint Developer Kit enables precise wrist and finger gesture recognition through advanced sensors. It supports low-latency, natural input for XR, wearables, and mobile devices, making interactions more intuitive.",
+    "name": "Doublepoint Dev Kit",
+    "description": "The Doublepoint Developer Kit is a wearable sensor that enables precise wrist and finger gesture recognition. It supports low-latency, natural input for XR, wearables, and mobile devices, making interactions more intuitive.",
     "cloudinaryPublicId": "doublepoint_imsl0w",
-    "categories": ["Sensors"],
-    "status": "available"
+    "categories": ["Sensors", "XR/VR"],
+    "status": "available",
+    "details": [
+      "The [Doublepoint Developer Kit](https://www.doublepoint.com/) provides advanced gesture recognition through a compact wrist-worn device. It captures subtle finger and wrist movements—such as taps, pinches, flicks, and rotations—with low latency, enabling natural, controller-free input for XR headsets, wearables, and mobile applications.",
+      "Developers can access SDKs and sample apps via the [Doublepoint developer portal](https://www.doublepoint.com/developers). Setup involves pairing the device, running calibration, and integrating gesture events into Unity, Unreal Engine, or mobile frameworks. Calibration ensures accuracy, but also means per-user setup is recommended for optimal performance.",
+      "The device is particularly suited for XR interfaces, accessibility applications, and hands-busy environments like healthcare or manufacturing. It also enables projects like gesture-based smart home remotes, or experimental sign-language interpretation systems.",
+      "Designing intuitive gesture-to-action mappings is key: start with simple, reliable gestures and expand gradually. Provide clear feedback and tune thresholds to reduce false positives. Since gestures vary between users, testing across diverse participants is essential.",
+      "Limitations include the need for calibration, limited gesture vocabulary compared to full optical hand tracking, and battery life constraints—best suited for intermittent rather than continuous use.",
+      "**Key Resources:**<br/>- [Doublepoint Developer Docs](https://www.doublepoint.com/developers)<br/>- [Unity Input System](https://docs.unity3d.com/Packages/com.unity.inputsystem@latest)<br/>- [Apple Accessibility Guidelines](https://developer.apple.com/accessibility/)"
+    ],
+    "related": ["varjo-xr3", "booster-t1"]
   },
   {
     "id": "shelby-computer",
     "name": "Shelby Computer",
-    "description": "Custom AI workstation with Tenstorrent Blackhole™ P100a GPU, AMD Ryzen 9 9950X3D CPU, 64GB DDR5 RAM, and 2TB NVMe SSD. Optimized for large-scale model training and prototyping.",
+    "description": "Custom AI workstation with Tenstorrent Blackhole™ P100a accelerator, AMD Ryzen 9 9950X3D CPU, 64GB DDR5 RAM, and 2TB NVMe SSD. Optimized for large-scale model training, reinforcement learning, and prototyping.",
     "cloudinaryPublicId": "shelby-computer_cndb2j",
     "categories": ["Workstation", "AI"],
-    "status": "available"
+    "status": "available",
+    "details": [
+      "Shelby is a high-performance AI workstation designed for machine learning, reinforcement learning, and computational research. Built with an AMD Ryzen 9 9950X3D CPU, 64GB of DDR5 RAM, fast NVMe storage, and the [Tenstorrent Blackhole™ P100a](https://tenstorrent.com/) accelerator, it provides a balanced platform for both conventional GPU workflows and RISC-V–based accelerator research.",
+      "The system excels at training and fine-tuning large models such as LLMs, vision transformers, and diffusion architectures. Its combination of CPU, memory bandwidth, and the Tenstorrent accelerator makes it suitable for reinforcement learning simulations, large-scale data processing, and collaborative multi-user workloads.",
+      "Setup is best done on Linux for compatibility with the Tenstorrent stack. After OS installation, configure the accelerator drivers and standard ML frameworks like [PyTorch](https://pytorch.org/) or [TensorFlow](https://www.tensorflow.org/). The Tenstorrent SDK provides tools and documentation for running models on the Blackhole hardware.",
+      "Containerization is strongly recommended. Use [Conda](https://docs.conda.io/) or virtualenv for environment isolation, and [Docker](https://docs.docker.com/) for reproducible experiments. Start with smaller models to validate performance, then scale to larger workloads once the stack is stable.",
+      "Potential applications include domain-specific LLM training, robotics control with reinforcement learning, real-time vision inference pipelines, and experimental AI compiler research targeting RISC-V accelerators.",
+      "Keep in mind the infrastructure requirements: high power draw, heat output, and the need for robust cooling. The Tenstorrent ecosystem is newer compared to CUDA, so expect to spend time on debugging and optimization. Advanced users may benefit from compiler-level tuning and performance profiling.",
+      "**Essential Resources:**<br/>- [Tenstorrent Software Stack](https://tenstorrent.com/)<br/>- [PyTorch](https://pytorch.org/) and [TensorFlow](https://www.tensorflow.org/)<br/>- [Docker](https://docs.docker.com/) and [Conda](https://docs.conda.io/)"
+    ],
+    "related": ["tenstorrent-blackhole", "booster-t1", "jetson-orin-nano"]
   },
   {
     "id": "nexys-a7-fpga",
     "name": "Nexys A7 FPGA Trainer Board",
-    "description": "Nexys A7 is an FPGA trainer board built on the AMD Artix-7, featuring a high-performance programmable logic platform with abundant I/O, DDR2 memory, and built-in peripherals, ideal for digital design, embedded systems, and hardware prototyping.",
+    "description": "The Nexys A7 is an FPGA trainer board built on the AMD Artix-7 architecture. It features abundant I/O, DDR2 memory, and built-in peripherals, making it ideal for digital design, embedded systems, and hardware prototyping.",
     "cloudinaryPublicId": "nexys-a7_g2jiyh",
     "categories": ["FPGA"],
-    "status": "available"
+    "status": "available",
+    "details": [
+      "The [Nexys A7](https://digilent.com/shop/nexys-a7-fpga-trainer-board-recommended-for-ece-curriculum/) is built around the AMD Artix-7 XC7A100T or XC7A50T FPGA. It provides a rich set of peripherals including LEDs, switches, buttons, VGA output, audio codec, USB-UART, Ethernet, and DDR2 memory, making it an ideal entry point for FPGA education and hardware prototyping.",
+      "The board supports projects ranging from basic digital logic to full CPU architectures, DSP pipelines, and custom peripheral interfaces. It is widely used in ECE curricula for teaching FPGA design, embedded systems, and computer architecture.",
+      "Development begins with [Vivado Design Suite](https://www.xilinx.com/products/design-tools/vivado.html), AMD’s FPGA toolchain. Create a new project targeting the Nexys A7 to automatically configure the correct device and constraint files. Start with simple designs in Verilog or VHDL, simulate them, then synthesize and implement for deployment to the board via JTAG.",
+      "A typical workflow includes: HDL design entry, functional simulation, synthesis, place & route, and hardware programming. Begin with small designs (combinational logic, counters) before scaling to sequential systems, processors, or real-time signal processing.",
+      "Project ideas include implementing a RISC-V soft-core CPU with custom I/O, developing audio processing pipelines with the onboard codec, VGA/HDMI video controllers, or LED matrix drivers. Advanced users can experiment with FPGA-based accelerators for real-time machine learning inference.",
+      "While excellent for education, the Nexys A7 has resource limitations compared to larger FPGAs, which may constrain high-complexity designs. Timing closure can be challenging and requires good understanding of FPGA architecture and optimization techniques.",
+      "To succeed, learners need a foundation in digital logic, proficiency in Verilog or VHDL, and skills in simulation and verification. Testbenches, timing analysis, and constraint management are essential as projects scale.",
+      "**Key Resources:**<br/>- [Digilent Nexys A7 Reference](https://digilent.com/reference/programmable-logic/nexys-a7/start)<br/>- [Vivado Documentation](https://docs.xilinx.com/)<br/>- [FPGA4Student](https://www.fpga4student.com/)"
+    ],
+    "related": ["amd-kria-kr260", "amd-kria-kv260"]
   },
   {
     "id": "booster-t1",
     "name": "Booster_T1",
-    "description": "Provided by Aaltoes, it is a humanoid with full-force joints and Jetson AGX Orin (200 TOPS) for onboard AI. With RGB-D vision, mic array, 9-axis IMU, ROS2, and a mobile app, it suits research, education, and custom perception/navigation development.",
+    "description": "Booster_T1 is a humanoid robot with full-force joints and onboard NVIDIA Jetson AGX Orin (200 TOPS). Equipped with RGB-D vision, microphone array, 9-axis IMU, and ROS2 integration, it supports research, education, and advanced AI-driven perception and navigation projects.",
     "cloudinaryPublicId": "booster-t1_b7pyud",
-    "categories": ["Robotics", "AI"],
-    "status": "available"
+    "categories": ["Robotics", "AI", "Computer Vision"],
+    "status": "available",
+    "details": [
+      "Booster_T1 is a humanoid robotics platform provided by Aaltoes, designed for research, prototyping, and education. It features high-torque joints, an NVIDIA Jetson AGX Orin (≈200 TOPS), RGB-D cameras, a microphone array, and a 9-axis IMU, making it suitable for navigation, perception, and interaction tasks.",
+      "Its sensor suite supports advanced applications like SLAM (Simultaneous Localization and Mapping), obstacle avoidance, and gesture recognition. The humanoid form factor makes it valuable for human–robot interaction studies and social navigation research, while the Jetson AGX Orin enables real-time AI inference on-device.",
+      "To begin development, set up [ROS2](https://docs.ros.org/en/rolling/) and the Jetson software stack. You can connect via the companion mobile app or SSH to verify sensors and joint control. Proper calibration and system checks are essential before deploying autonomous behaviors.",
+      "Development typically builds on ROS2’s modular ecosystem. Start with [Navigation2](https://navigation.ros.org/) for path planning and obstacle avoidance, and expand with [Isaac ROS](https://developer.nvidia.com/isaac-ros) for GPU-accelerated perception. Custom nodes in Python or C++ can be added for specialized behaviors such as gesture-controlled operation or mixed reality telepresence (e.g., combined with Varjo XR headsets).",
+      "Research opportunities include human–robot interaction studies, digital twin integration, reinforcement learning for locomotion, and robotics education. The platform is also suitable for experimenting with sensor fusion, control strategies, and AI-driven decision-making in humanoid systems.",
+      "Operational safety is critical: Booster_T1’s mass and high-torque joints require defined safety zones, an accessible emergency stop, and supervision during use. Battery runtime is limited, so plan experiments around charging cycles or tethered operation for long sessions.",
+      "Successful development requires ROS2 proficiency, familiarity with control systems, computer vision, and machine learning concepts. Understanding safe operation procedures for human-scale robots is essential for effective and secure deployment.",
+      "**Essential Resources:**<br/>- [ROS2 Documentation](https://docs.ros.org/en/rolling/)<br/>- [Jetson Developer Portal](https://developer.nvidia.com/embedded/jetson-developer)<br/>- [Navigation2](https://navigation.ros.org/)<br/>- [Isaac ROS](https://developer.nvidia.com/isaac-ros)"
+    ],
+    "related": ["jetson-orin-nano", "shelby-computer", "tenstorrent-blackhole"]
   },
   {
     "id": "tenstorrent-blackhole",
     "name": "Tenstorrent Blackhole™ p100a",
-    "description": "PCIe board for high performance AI processing with 16 big RISC-V cores and 28 GB of GDDR6 operating at up to 300W in an active-cooled form factor geared for desktop workstations. Supported by Tenstorrent's open source software stack.",
+    "description": "The Tenstorrent Blackhole™ p100a is a PCIe accelerator card with 16 RISC-V cores and 28 GB of GDDR6 memory. Designed for AI training and inference, it operates at up to 300W in an active-cooled desktop form factor and is supported by Tenstorrent's open-source software stack.",
     "cloudinaryPublicId": "tenstorrent_igxdgh",
     "categories": ["AI"],
-    "status": "available"
+    "status": "available",
+    "details": [
+      "The [Tenstorrent Blackhole™ p100a](https://tenstorrent.com/) introduces a new approach to AI acceleration, built on a RISC-V architecture with 16 high-performance cores and 28 GB of GDDR6 memory. Packaged as a PCIe board with active cooling, it delivers up to 300W of compute performance for workstations and research environments.",
+      "It is designed for both training and inference of neural networks, offering an alternative to traditional GPU-based solutions. The architecture is particularly effective for large memory-intensive models such as LLMs, vision transformers, and reinforcement learning pipelines, while also enabling research into non-GPU compute paradigms.",
+      "Setup requires Linux, a robust power supply, and adequate cooling capacity. Begin by installing the Tenstorrent software stack and drivers. Integration with frameworks like [PyTorch](https://pytorch.org/) and [TensorFlow](https://www.tensorflow.org/) is supported through bridge interfaces, allowing developers to port existing models with minimal changes.",
+      "Development should start with vendor-provided benchmarks and examples to validate performance. Profiling workloads is essential to identify optimization opportunities, with iterative tuning often required to maximize throughput. The open-source nature of the stack also allows developers to customize compilers and runtime behavior.",
+      "Use cases include efficient inference of large language models, quantization experiments, compiler and RISC-V accelerator research, and hybrid CPU/GPU/accelerator computing architectures. Researchers exploring next-generation ML hardware stacks benefit from its openness and programmability.",
+      "The card’s ~300W power draw demands careful infrastructure planning. Adequate airflow, PSU capacity, and chassis compatibility are prerequisites. Compared to CUDA-based ecosystems, the Tenstorrent developer community is smaller, requiring developers to be comfortable with hands-on integration and contributing to open-source efforts.",
+      "Success requires strong Linux skills, familiarity with ML frameworks, and experience in performance optimization. Knowledge of profiling, kernel tuning, and accelerator programming models will help unlock the hardware’s full potential.",
+      "**Key Resources:**<br/>- [Tenstorrent Official Site](https://tenstorrent.com/)<br/>- [PyTorch](https://pytorch.org/) and [TensorFlow](https://www.tensorflow.org/)<br/>- Tenstorrent Community (forums, GitHub) for open-source tools and developer discussions"
+    ],
+    "related": ["shelby-computer", "booster-t1"]
   },
   {
     "id": "jetson-orin-nano",
     "name": "NVIDIA Jetson Orin Nano Super",
-    "description": "67 TOPS Ampere (1024 CUDA, 32 Tensor), 6-core Arm A78AE, 8GB LPDDR5 (102 GB/s), 7-25W, Runs LLMs/VLMs/transformers at the edge, with Pi-friendly onboarding via Jetson/Isaac docs and community; existing kits get the boost via software.",
+    "description": "Compact edge AI module delivering 67 TOPS with Ampere GPU (1024 CUDA, 32 Tensor cores), 6-core Arm A78AE CPU, 8GB LPDDR5 (102 GB/s), and 7–25W configurable power. Optimized for running LLMs, vision models, and robotics workloads directly at the edge.",
     "cloudinaryPublicId": "jetson-nano_dypbw9",
-    "categories": ["AI", "Computer Vision"],
-    "status": "available"
-  },
+    "categories": ["AI", "Computer Vision", "Robotics"],
+    "status": "available",
+    "details": [
+      "The [Jetson Orin Nano](https://developer.nvidia.com/embedded/jetson-orin) is NVIDIA’s smallest and most efficient Orin-based module. It provides up to 67 TOPS of AI compute via an Ampere GPU with 1024 CUDA cores and 32 Tensor cores, a 6-core Arm Cortex-A78AE CPU, and 8GB of LPDDR5 memory with 102 GB/s bandwidth. Its 7–25W configurable TDP enables deployment in compact, power-sensitive robotics and edge AI systems.",
+      "The module runs real-time inference for computer vision, natural language, and transformer-based models through TensorRT acceleration. Applications include autonomous robots, drones, and smart vision systems that require on-device intelligence with low latency and no dependency on cloud services.",
+      "Development begins with flashing JetPack OS using NVIDIA’s [SDK Manager](https://developer.nvidia.com/nvidia-sdk-manager). JetPack provides CUDA, cuDNN, TensorRT, and other optimized libraries for ML/DL workloads. Once installed, you can run PyTorch, TensorFlow, and NVIDIA sample applications to validate setup and benchmark performance.",
+      "The [Isaac ROS](https://developer.nvidia.com/isaac-ros) ecosystem further accelerates robotics development. It provides GPU-optimized ROS2 packages for perception, SLAM, and navigation. These prebuilt nodes can be combined with custom ROS2 code to build complex robotics stacks quickly.",
+      "Practical project examples include on-device object detection and semantic segmentation, SLAM-based navigation for mobile robots, multimodal assistants (voice + vision), and privacy-preserving smart camera systems. Edge inference removes latency and privacy issues tied to cloud offloading.",
+      "Developers should account for thermal and memory constraints. Adequate cooling prevents throttling under sustained workloads, and the 8GB memory cap requires careful optimization of large models. Techniques like quantization, pruning, and batching strategies are recommended for transformer and vision models.",
+      "Effective use of Jetson Orin Nano requires Linux experience, Python/ROS2 development skills, and knowledge of edge AI deployment practices. Leveraging TensorRT for model optimization and the Isaac ROS ecosystem for robotics pipelines maximizes the hardware’s potential.",
+      "**Essential Resources:**<br/>- [Jetson Orin Developer Guide](https://developer.nvidia.com/embedded/jetson-orin)<br/>- [NVIDIA SDK Manager](https://developer.nvidia.com/nvidia-sdk-manager)<br/>- [Isaac ROS](https://developer.nvidia.com/isaac-ros)<br/>- [TensorRT Docs](https://docs.nvidia.com/deeplearning/tensorrt/)<br/>- [Jetson Developer Forums](https://forums.developer.nvidia.com/c/agx-jetson/)"
+    ],
+    "related": ["booster-t1", "oak-d-pro"]
+  },  
   {
     "id": "lenovo-legion-t5",
     "name": "Lenovo Legion Tower 5 Gen 10",
-    "description": "Ryzen 7 7700X + RTX 5070 (12GB), 32GB DDR5-5600, 1TB PCIe 4.0 NVMe on AMD B650 with PCIe 4.0 x16 and M.2. Built for high-FPS 1440p/4K graphics, AI inference, 3D content creation, and streaming/compiling/rendering multitask workflows.",
+    "description": "A balanced workstation built with AMD Ryzen 7 7700X and NVIDIA RTX 5070 (12GB), 32GB DDR5-5600, and 1TB PCIe 4.0 NVMe. Suitable for gaming, AI inference, 3D content creation, XR prototyping, and multitasking workflows like rendering, compiling, and streaming.",
     "cloudinaryPublicId": "lenovo-legion-t5_ilvqhw",
-    "categories": ["Workstation", "AI"],
-    "status": "available"
+    "categories": ["Workstation"],
+    "status": "available",
+    "details": [
+      "The Lenovo Legion Tower 5 Gen 10 bridges gaming-grade performance with professional creative and AI development needs. Powered by an AMD Ryzen 7 7700X CPU and an NVIDIA RTX 5070 GPU with 12GB VRAM, it combines 32GB of DDR5-5600 memory and a 1TB PCIe 4.0 NVMe SSD on the AMD B650 platform. This makes it a strong performer for 1440p/4K gaming, 3D creation, and GPU-accelerated machine learning tasks.",
+      "The system is well-suited for 3D modeling, rendering, and video editing workflows, with GPU acceleration enabling smooth handling of large scenes. It also supports AI inference and small-to-medium training jobs, making it useful for ML experimentation and development. With strong multitasking performance, it can handle hybrid creative/technical workloads like XR demos, compiling, and streaming simultaneously.",
+      "To start development, install the [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) and configure NVIDIA drivers for GPU workloads. For creative pipelines, set up [Blender](https://www.blender.org/) for 3D content creation and engines like [Unreal Engine](https://www.unrealengine.com/) or [Unity](https://unity.com/) for interactive development. For AI work, configure ML frameworks via [Anaconda](https://www.anaconda.com/) or Docker to maintain clean and isolated environments.",
+      "The workflow benefits from containerization and environment management, as different projects may require unique versions of CUDA, Python, or libraries. This ensures reproducibility and avoids conflicts across domains (AI, graphics, XR).",
+      "Potential applications include independent game development, XR/VR prototypes, Stable Diffusion image generation, small LLM experiments, and CAD/architectural visualization. Its GPU/CPU balance enables fast iteration cycles in both creative and research-oriented contexts.",
+      "Limitations include the 12GB VRAM ceiling, which can constrain very large AI models or extremely complex 3D projects. Thermal design is tuned for consumer workloads—continuous 100% utilization over extended periods may cause throttling, so planning for adequate cooling and monitoring is recommended.",
+      "Effective use requires familiarity with CUDA concepts, GPU driver management, and content creation or ML frameworks. Combining creative and technical skills will maximize productivity with this workstation.",
+      "**Key Development Tools:**<br/>- [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit)<br/>- [Blender](https://www.blender.org/)<br/>- [Unreal Engine](https://www.unrealengine.com/) and [Unity](https://unity.com/)<br/>- [Anaconda](https://www.anaconda.com/)"
+    ],
+    "related": ["varjo-xr3", "shelby-computer"]
   },
   {
     "id": "amd-kria-kr260",
     "name": "AMD Kria KR260 Robotics",
-    "description": "Built for robotics and industrial applications, it combines high-performance interfaces, native ROS 2 support, and integrated FPGA fabric, enabling roboticists and embedded developers to build adaptive hardware solutions with ease.",
+    "description": "FPGA-based robotics and industrial platform with ROS 2 acceleration, industrial interfaces, and low-latency processing. Built for developers building adaptive robotics and embedded AI solutions.",
     "cloudinaryPublicId": "amd-robotics_x3a9q3",
     "categories": ["Robotics", "FPGA"],
-    "status": "available"
+    "status": "available",
+    "details": [
+      "The [AMD Kria KR260 Robotics Starter Kit](https://www.amd.com/en/products/system-on-modules/kria/kr260) is a robotics-focused platform built on AMD/Xilinx adaptive SoC technology. It integrates FPGA fabric, a quad-core Arm Cortex-A53 processor, and industrial-grade interfaces for robotics, automation, and embedded AI applications.",
+      "It delivers deterministic, low-latency control loops with hardware-accelerated ROS 2 nodes, enabling microsecond-level response times not achievable with CPU-only solutions. Developers can offload compute-heavy tasks (e.g., perception, sensor fusion, control algorithms) to the FPGA fabric while keeping ROS 2 software components running on Linux.",
+      "Development starts with the [Kria Applications Documentation](https://xilinx.github.io/kria-apps-docs/), which includes prebuilt acceleration examples. Install the [Vitis](https://www.xilinx.com/products/design-tools/vitis.html) and [Vivado](https://www.xilinx.com/products/design-tools/vivado.html) toolchains for FPGA development and system integration. Provided reference pipelines let developers quickly test vision and control workloads before moving to custom hardware acceleration.",
+      "A typical workflow involves deploying FPGA-accelerated pipelines alongside ROS 2 nodes for hybrid hardware/software systems. The modularity allows robotics developers to accelerate bottlenecks like image processing or real-time control while keeping higher-level autonomy in software.",
+      "Example applications include factory automation, robotic arm control, high-speed inspection systems, and autonomous mobile robots with deterministic SLAM or vision pipelines. The platform is particularly suited for environments requiring reliable timing and industrial-grade interfaces.",
+      "Challenges include the steeper learning curve of FPGA development, the need for specialized toolchains (Vitis/Vivado), and resource constraints compared to large FPGAs. Effective use requires familiarity with both embedded Linux and FPGA workflows, as debugging and optimization span hardware and software domains.",
+      "Success with KR260 requires skills in ROS 2, embedded Linux, and FPGA design (HDL/HLS). Knowledge of real-time systems and industrial communication protocols is also valuable for fully leveraging the platform’s robotics and automation capabilities.",
+      "**Essential Development Resources:**<br/>- [Kria Applications Docs](https://xilinx.github.io/kria-apps-docs/)<br/>- [ROS 2 Documentation](https://docs.ros.org/en/rolling/)<br/>- [Vitis Development Platform](https://www.xilinx.com/products/design-tools/vitis.html)<br/>- [Vivado Design Suite](https://www.xilinx.com/products/design-tools/vivado.html)"
+    ],
+    "related": ["booster-t1", "nexys-a7-fpga"]
   },
   {
     "id": "amd-kria-kv260",
     "name": "AMD Kria KV260 Vision",
-    "description": "Designed for advanced vision applications, it combines powerful processing with integrated FPGA fabric, making it ideal for prototyping smart city, machine vision, security, retail analytics, and industrial solutions.",
+    "description": "FPGA-based vision AI platform designed for edge video analytics. Combines ARM processing with FPGA acceleration for real-time computer vision in smart city, industrial, and security applications.",
     "cloudinaryPublicId": "amd-vision_d4flw0",
-    "categories": ["Computer Vision", "FPGA"],
-    "status": "available"
+    "categories": ["Computer Vision", "FPGA", "AI"],
+    "status": "available",
+    "details": [
+      "The [AMD Kria KV260 Vision AI Starter Kit](https://www.amd.com/en/products/system-on-modules/kria/kv260) is optimized for advanced computer vision applications. It integrates a quad-core Arm Cortex-A53 processor with FPGA fabric to accelerate real-time video analytics, deep neural network inference, and edge vision pipelines.",
+      "The platform excels in smart city infrastructure, retail analytics, industrial inspection, and security systems. By running inference locally on the FPGA, it provides low-latency responses while maintaining privacy through on-premises data processing.",
+      "Development begins with [Vitis](https://www.xilinx.com/products/design-tools/vitis.html) and [Vivado](https://www.xilinx.com/products/design-tools/vivado.html) for FPGA workflows. The [Vitis AI](https://www.xilinx.com/products/design-tools/vitis/vitis-ai.html) stack provides pre-optimized DNN models and reference applications for vision use cases. Developers can start with these pipelines and extend them by customizing FPGA kernels and integrating new algorithms.",
+      "Applications can be deployed as ROS 2 nodes for robotics systems or as [GStreamer](https://gstreamer.freedesktop.org/) pipelines for traditional multimedia and vision workflows. This flexibility allows the KV260 to fit both robotics and standalone edge vision deployments.",
+      "Example projects include traffic monitoring with object detection and incident response, industrial inspection systems for defect detection, retail analytics for customer behavior, and privacy-preserving healthcare or security monitoring systems.",
+      "While powerful for deterministic, real-time workloads, FPGA development requires specialized skills. The learning curve of HLS/RTL and FPGA workflows is higher than GPU-centric approaches, and resource limitations compared to larger devices should be considered when planning projects.",
+      "Successful development requires skills in computer vision (OpenCV, deep learning models), FPGA acceleration workflows (HLS, Vitis AI), and real-time systems. Combining domain knowledge across these areas enables efficient custom vision pipelines at the edge.",
+      "**Key Development Resources:**<br/>- [Vitis AI](https://www.xilinx.com/products/design-tools/vitis/vitis-ai.html)<br/>- [Kria Documentation](https://xilinx.github.io/kria-apps-docs/)<br/>- [ROS 2](https://docs.ros.org/en/rolling/)<br/>- [GStreamer](https://gstreamer.freedesktop.org/)"
+    ],
+    "related": ["oak-d-pro", "jetson-orin-nano"]
   },
   {
     "id": "oak-d-pro",
     "name": "OAK-D Pro",
-    "description": "Camera equipped with IR illumination and an on-device Neural Network inferencing and Computer Vision capabilities. Good for applications that require high-quality and reliable stereo depth perception in any kind of environment.",
+    "description": "Stereo depth AI camera with onboard neural inference, integrated IR illumination, and reliable 3D perception across varied lighting conditions. Designed for robotics, AR/VR, and computer vision applications.",
     "cloudinaryPublicId": "camera_g2vijm",
-    "categories": ["Computer Vision"],
-    "status": "available"
+    "categories": ["Computer Vision", "Robotics"],
+    "status": "available",
+    "details": [
+      "The [OAK-D Pro](https://docs.luxonis.com/projects/hardware/en/latest/pages/DM9095.html) is an advanced computer vision camera that integrates stereo depth sensing with onboard AI inference. It includes IR illumination for consistent depth performance in low-light environments, making it useful for robotics, SLAM, and interactive applications across indoor and outdoor contexts.",
+      "It produces stereo depth maps and point clouds while running neural networks for object detection, classification, and tracking directly on-device. This reduces the need for external compute, enabling efficient edge AI deployments in robotics, AR/VR, and embedded systems.",
+      "Development starts with the [DepthAI SDK](https://docs.luxonis.com/projects/api/en/latest/), which provides Python and C++ APIs. Example pipelines include stereo depth, object detection, and gesture recognition. These serve as practical starting points before customizing applications for specific robotics or vision workflows.",
+      "Calibration and tuning are essential. Adjust exposure, IR illumination, and stereo depth parameters to optimize performance for your environment. Processed data can be streamed to Jetson modules, PCs, or other hosts, combining onboard inference with external compute when needed.",
+      "Applications include autonomous robotics navigation, SLAM, people-tracking systems, gesture-based HMI, and mixed reality scene understanding. The OAK-D Pro’s depth accuracy and integrated inference make it a strong fit for perception-driven systems that need local processing.",
+      "Limitations include reduced depth accuracy under strong sunlight (which interferes with IR illumination) and compute limits that restrict very large or complex neural networks. Applications requiring heavy models may need hybrid processing strategies (part onboard, part external).",
+      "Effective use requires Python or C++ skills, experience with OpenCV, and knowledge of camera calibration and 3D geometry. Understanding trade-offs between onboard and external inference helps optimize system performance.",
+      "**Essential Development Resources:**<br/>- [DepthAI Docs](https://docs.luxonis.com/)<br/>- [DepthAI Model Zoo](https://github.com/luxonis/depthai-experiments)<br/>- [OpenCV Docs](https://docs.opencv.org/)<br/>- [DepthAI Community Forum](https://discuss.luxonis.com/)"
+    ],
+    "related": ["jetson-orin-nano", "varjo-xr3"]
   }
 ]

@@ -5,6 +5,8 @@ export interface HardwareItem {
   cloudinaryPublicId: string;
   categories: string[];
   status: 'available' | 'coming-soon' | 'maintenance';
+  details: string[];
+  related: string[];
 }
 
 export type HardwareStatus = HardwareItem['status'];
