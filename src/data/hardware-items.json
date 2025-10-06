@@ -35,6 +35,25 @@
     "related": ["varjo-xr3", "booster-t1"]
   },
   {
+    "id": "alifensemble",
+    "name": "Alif Ensemble DevKit",
+    "description": "The Alif Ensemble DevKit Gen 2 is a powerful development board built on the Ensemble E7 fusion processor. It enables rapid prototyping for embedded AI, real-time control, and ultra-low-power edge computing applications.",
+    "cloudinaryPublicId": "alif_semi_flnyws",
+    "categories": ["AI", "Edge Computing", "Embedded Systems"],
+    "status": "available",
+    "details": [
+      "The [Alif Ensemble E7 DevKit Gen 2 (DK-E7)](https://alifsemi.com/support/kits/ensemble-e7devkit) is a flexible single-board platform supporting configuration as E1, E3, E5, or E7-class devices. It showcases Alif’s Ensemble fusion processor family, designed for intelligent edge applications that combine AI acceleration, real-time control, and ultra-low-power operation.",
+      "The SoC integrates dual Cortex-A32 application cores, dual Cortex-M55 real-time cores (HE and HP variants), and dual Ethos-U55 microNPUs, offering up to 480 MHz compute frequency for mixed workloads. This heterogeneous architecture enables efficient distribution of tasks between AI inference and deterministic control. [User Guide (PDF)](https://alifsemi.com/download/AUGD0010)",
+      "Connectivity and peripherals include Ethernet, dual USB (host/device), SDMMC/SDIO, MIPI-DSI display, MIPI-CSI camera, UARTs, SPI, I²C, ADC, PWM, and extensive GPIO headers. The board also features on-board power regulation, debug interfaces (JTAG/SWD), and a camera expansion port for vision applications. [Mouser Product Page](https://www.mouser.com/new/alif-semiconductor/alif-semi-dk-e7-development-kit/)",
+      "Development is supported via the [Alif Ensemble SDK](https://github.com/alifsemi/ensemble_SDK), which includes BSPs, sample apps, and support for FreeRTOS, Azure RTOS, and Zephyr. Toolchains include GCC and Arm Clang, with integration examples for Edge Impulse ML workflows.",
+      "To get started, connect power via micro-USB, configure jumpers for power and boot options, and install the SETools for secure firmware handling. Applications can be flashed or debugged using standard UART or JTAG interfaces. The SDK provides templates for sensor data collection, gesture recognition, and keyword spotting AI demos.",
+      "The DevKit is officially supported by [Edge Impulse](https://www.edgeimpulse.com/blog/announcing-official-support-for-the-alif-ensemble-e7-development-kit), enabling data capture, model training, and deployment directly onto the Ensemble E7 cores. This makes it ideal for always-on AI applications like predictive maintenance, environmental sensing, and gesture or speech recognition at the edge.",
+      "Advantages include efficient multi-core AI processing, strong peripheral support, and scalable architecture from low-power microcontrollers to application-class processors. Limitations include the need for manual configuration for multi-core scheduling, a moderate learning curve for new SDK users, and unsuitability for high-end vision or large-model inference workloads.",
+      "**Key Resources:**<br/> - [Alif Ensemble SDK (GitHub)](https://github.com/alifsemi/ensemble_SDK)<br/> - [Ensemble E7 User Guide (PDF)](https://alifsemi.com/download/AUGD0010)<br/> - [Edge Impulse Integration Guide](https://www.edgeimpulse.com/blog/announcing-official-support-for-the-alif-ensemble-e7-development-kit)"
+    ],
+    "related": ["jetson-orin-nano", "nexys-a7-fpga", "amd-kria-kv260", "shelby-computer"]
+  },  
+  {
     "id": "shelby-computer",
     "name": "Shelby Computer",
     "description": "Custom AI workstation with Tenstorrent Blackhole™ P100a accelerator, AMD Ryzen 9 9950X3D CPU, 64GB DDR5 RAM, and 2TB NVMe SSD. Optimized for large-scale model training, reinforcement learning, and prototyping.",
