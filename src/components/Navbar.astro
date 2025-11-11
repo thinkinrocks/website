@@ -15,13 +15,11 @@ const currentPath = Astro.url.pathname;
         <div class="flex items-center space-x-2">
           <a href="/" class={`font-mono nav-item hover:text-indigo-600 ${(currentPath === '/' || currentPath === '') ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>Thinkin'Rocks</a>
           <span class="text-gray-700">|</span>
-          <a href="/about" class={`font-mono nav-item hover:text-indigo-600 ${currentPath === '/about' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>about</a>
-          <span class="text-gray-700">|</span>
           <a href="/hardware" class={`font-mono nav-item hover:text-indigo-600 ${currentPath === '/hardware' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>hardware</a>
           <span class="text-gray-700">|</span>
-          <a href="/questions" class={`font-mono nav-item hover:text-indigo-600 ${currentPath === '/questions' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>questions</a>
-          <span class="text-gray-700">|</span>
           <a href="/space" class={`font-mono nav-item hover:text-indigo-600 ${currentPath === '/space' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>space</a>
+          <span class="text-gray-700">|</span>
+          <a href="/questions" class={`font-mono nav-item hover:text-indigo-600 ${currentPath === '/questions' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>questions</a>
           <span class="text-gray-700">|</span>
           <a href="/log" class={`font-mono nav-item hover:text-indigo-600 ${currentPath === '/log' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>log</a>
           <span class="text-gray-700">|</span>
@@ -61,16 +59,14 @@ const currentPath = Astro.url.pathname;
     <!-- Scrollable navigation -->
     <div class="overflow-x-auto scrollbar-hide">
       <div class="flex items-center h-12 px-4" style="width: max-content;">
-        
+
         <a href="/" data-page="home" class={`font-mono nav-item hover:text-indigo-600 px-3 ${(currentPath === '/' || currentPath === '') ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>Thinkin'Rocks</a>
-        <span class="text-gray-700 px-1">|</span>
-        <a href="/about" data-page="about" class={`font-mono nav-item hover:text-indigo-600 px-3 ${currentPath === '/about' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>about</a>
         <span class="text-gray-700 px-1">|</span>
         <a href="/hardware" data-page="hardware" class={`font-mono nav-item hover:text-indigo-600 px-3 ${currentPath === '/hardware' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>hardware</a>
         <span class="text-gray-700 px-1">|</span>
-        <a href="/questions" data-page="questions" class={`font-mono nav-item hover:text-indigo-600 px-3 ${currentPath === '/questions' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>questions</a>
-        <span class="text-gray-700 px-1">|</span>
         <a href="/space" data-page="space" class={`font-mono nav-item hover:text-indigo-600 px-3 ${currentPath === '/space' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>space</a>
+        <span class="text-gray-700 px-1">|</span>
+        <a href="/questions" data-page="questions" class={`font-mono nav-item hover:text-indigo-600 px-3 ${currentPath === '/questions' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>questions</a>
         <span class="text-gray-700 px-1">|</span>
         <a href="/log" data-page="log" class={`font-mono nav-item hover:text-indigo-600 px-3 ${currentPath === '/log' ? 'text-indigo-600 font-medium' : 'text-gray-700'}`}>log</a>
         <span class="text-gray-700 px-1">|</span>

@@ -1,28 +1,220 @@
 ---
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import Timeline from "../components/Timeline.astro";
-import BackgroundWave from "../components/BackgroundWave.tsx";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Background from "../components/background.astro";
+import Welcome from "../components/Welcome.astro";
+import { Image } from "astro:assets";   
+import { CldImage } from 'astro-cloudinary';
 ---
 
 <Layout>
+  <Background />
   <Welcome />  <!-- Footer-like contact section at bottom -->
-  <div class="relative mt-auto fade-in" id="contact">
-    <div class="relative px-4 md:px-16 py-16 max-w-4xl mx-auto z-10">
-      <div class="relative w-full h-full flex flex-col justify-center p-4">
-        <p class="text-base text-center md:text-xl font-sans z-20">
-          for questions and partnerships, <br />
-          contact at
-          <a
-            href="mailto:milana@thinkinrocks.com"
-            class="text-indigo-600 underline hover:text-indigo-800 transition-colors"
-          >
-            milana@thinkinrocks.com
-          </a>
+
+  <div class="pt-24 md:pt-32 pb-8 px-4 md:px-16">
+    <div class="max-w-4xl mx-auto">
+      <!-- Main Content -->
+      <div class="mb-16 fade-in">
+        <p class="font-sans text-lg text-gray-700 mb-4 leading-relaxed">
+          Thinkin' Rocks is where deep-tech ideas become working prototypes.
         </p>
+      
+        <p class="font-sans text-lg text-gray-700 mb-4 leading-relaxed">
+          Brilliant engineers are not limited by imagination - they're limited by access.  
+          Access to hardware, compute, labs, and experts. We are fixing that. Think of us as a <a href="/space" class="text-indigo-600 hover:text-indigo-800 transition-colors">hardware library + build ecosystem</a>.  
+          A place filled with cutting-edge tools - from neurowearables and humanoid
+          robots to edge AI compute and FPGAs - where anyone can experiment, test ideas,
+          and build real prototypes with real hardware.
+          By opening access to advanced tooling and engineering mentors, we accelerate the
+          deep-tech pipeline. 
+          Our goal is clear: become Finland’s hub for applied innovation.</b>
+        </p>
+        <p class="font-sans text-lg text-gray-700 mb-4 leading-relaxed">
+          Since our launch in 2025, we've built partnerships with world-class tech
+          companies — including Varjo, Tenstorrent, Doublepoint, Alif Semiconductor,
+          and Booster Robotics. We host hands-on build sessions where engineers learn
+          new tools, share knowledge, and turn ideas into functioning prototypes.
+        </p>
+      
+        <p class="font-sans text-lg text-gray-700 mb-4 leading-relaxed">
+          Next: more hardware, more build cycles, more prototypes shipped.
+        </p>
+        
+        <p class="font-sans text-lg text-gray-700 mb-4 leading-relaxed">
+          Built by engineers, for engineers.
+        </p>
+      </div>
+      <div class="mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 mb-10">
+          <div class="text-center">
+            <div class="w-32 h-32  mx-auto mb-2 overflow-hidden ">
+              <CldImage
+                src="milana-min_yrnyld"
+                alt="Milana"
+                class="w-32 h-32 object-cover"
+                width={256}
+                height={256}
+                priority
+              />
+            </div>
+            <h3 class="text-xs font-mono mb-0.5 text-gray-900">Milana</h3>
+            <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto"><span class="font-mono text-indigo-500">disc: @foxivil</span><br>can't live without coffee and anime. watched one piece twice.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-32 h-32 bg-gray-200  mx-auto mb-2 overflow-hidden ">
+              <CldImage
+                src="yerzhan-min_gl7gur"
+                alt="Yerzhan"
+                class="w-32 h-32 object-cover"
+                width={256}
+                height={256}
+                priority
+              />
+            </div>
+            <h3 class="text-xs font-mono mb-0.5 text-gray-900">Yerzhan</h3>
+            <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto"> <span class="font-mono text-indigo-500">disc: @yerzham</span><br>applied for Y-combinator before it became mainstream.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-32 h-32 bg-gray-200  mx-auto mb-2 overflow-hidden ">
+              <CldImage
+                src="robert-min_lllwnc"
+                alt="Robert"
+                class="w-32 h-32 object-cover"
+                width={256}
+                height={256}
+                priority
+              />
+            </div>
+            <h3 class="text-xs font-mono mb-0.5 text-gray-900">Robert</h3>
+            <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto"><span class="font-mono text-indigo-500">disc: @oxrinz</span><br>Muramasa.<br>Milana: "too short".<br>Robert: "it's perfect"</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-32 h-32 bg-gray-200  mx-auto mb-2 overflow-hidden ">
+              <CldImage
+                src="daniyar-min_kok519"
+                alt="Daniyar"
+                class="w-32 h-32 object-cover"
+                width={256}
+                height={256}
+                priority
+              />
+            </div>
+            <h3 class="text-xs font-mono mb-0.5 text-gray-900">Daniyar</h3>
+            <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto"><span class="font-mono text-indigo-500">disc: @.blocky7</span><br>coding since 7th grade, still pretending to know what hardware is.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-32 h-32 bg-gray-200 mx-auto mb-2 overflow-hidden ">
+              <CldImage
+                src="alex-min_ypkkz2"
+                alt="Alex"
+                class="w-32 h-32 object-cover"
+                width={256}
+                height={256}
+                priority
+              />
+            </div>
+            <h3 class="text-xs font-mono mb-0.5 text-gray-900">Alex</h3>
+            <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto"><span class="font-mono text-indigo-500">disc: @al.ex.</span><br>started learning english to understand computer errors.</p>
+          </div>
+          
+          <div class="text-center">
+            <a href="mailto:milana.begantsova@aaltoes.com" class="block">
+              <div class="w-32 h-32 bg-gray-200 mx-auto mb-2 flex items-center justify-center hover:bg-gray-300 transition-colors">
+                <span class="text-2xl font-mono text-gray-500">+</span>
+              </div>
+              <h3 class="text-xs font-mono mb-0.5 text-gray-900 hover:text-indigo-600 transition-colors">Join Us</h3>
+            </a>
+          </div>
+        </div>
+
+        <!-- Partners Section -->
+      <div class="mb-16 fade-in">
+        <p class="font-sans text-lg text-gray-700 mb-8 leading-relaxed">
+          We work with industry leaders to bring cutting-edge technology directly to students:
+        </p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 mb-8">
+          <div class="bg-gray-50 p-3 md:p-4  text-center">
+            <a href="https://varjo.com/" target="_blank">
+            <div class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center">
+              <img 
+                src="/images/companies-logo/varjo.png" 
+                alt="Varjo" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+            </a>
+          </div>
+          <div class="bg-gray-50 p-3 md:p-4 text-center">
+            <a href="https://doublepoint.com/" target="_blank"> 
+            <div class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center">
+                <img 
+                  src="/images/companies-logo/doublepoint.png" 
+                  alt="Doublepoint" 
+                  class="w-full h-full object-contain"
+                />
+              
+            </div>
+          </a>
+          </div>
+          <div class="bg-gray-50 p-3 md:p-4 text-center">
+            <a href="https://alifsemi.com/" target="_blank">
+            <div class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center">
+              <img 
+                src="/images/companies-logo/Alif_Semiconductor_logo.webp" 
+                alt="Alif Semiconductor" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+            </a>
+          </div>
+          <div class="bg-gray-50 p-3 md:p-4  text-center">
+            <a href="https://booster.ai/" target="_blank"> 
+            <div class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center">
+              <img 
+                src="/images/companies-logo/booster-robotics.webp" 
+                alt="Booster Robotics" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+            </a>
+
+          </div>
+          <a 
+            href="mailto:milana@thinkinrocks.com?subject=Partnership%20Opportunity&body=Hi%20Milana,%0D%0A%0D%0AI'm%20interested%20in%20exploring%20a%20partnership%20opportunity%20with%20Thinkin'%20Rocks.%0D%0A%0D%0ACompany:%20[Your%20Company]%0D%0ATechnology/Hardware:%20[What%20you%20can%20provide]%0D%0AContact:%20[Your%20contact%20information]%0D%0A%0D%0ABest%20regards,"
+            class="block bg-gray-100 p-3 md:p-4 text-center hover:bg-gray-200 hover:border-gray-400 transition-colors"
+          >
+            <div class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center">
+              <span class="text-2xl sm:text-3xl md:text-4xl font-mono text-gray-400">+</span>
+            </div>
+          </a>
+        </div>
+        
+
+      <!-- Contact Section -->
+      <div class="text-center fade-in">
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
+          <div class="bg-indigo-600 h-fit translate-0.5">
+            <a 
+              href="https://discord.gg/5MEu6njksN" 
+              class="bg-indigo-50 text-indigo-600 inline-flex px-6 py-3 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono hover:bg-indigo-100 transition-colors"
+            >
+              Join Us
+            </a>
+          </div>
+          <div class="bg-gray-600 h-fit translate-0.5">
+            <a 
+              href="mailto:milana@thinkinrocks.com" 
+              class="bg-gray-50 text-gray-600 inline-flex px-6 py-3 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono hover:bg-gray-100 transition-colors"
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

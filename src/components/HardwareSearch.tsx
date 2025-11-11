@@ -50,13 +50,13 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
     switch (status) {
       case 'coming-soon':
         return (
-          <span className="text-xs font-mono text-indigo-600 bg-indigo-50 px-2 py-1 rounded">
+          <span className="text-xs font-mono text-indigo-600 bg-indigo-50 px-2 py-1">
             coming soon
           </span>
         );
       case 'maintenance':
         return (
-          <span className="text-xs font-mono text-orange-600 bg-orange-50 px-2 py-1 rounded">
+          <span className="text-xs font-mono text-orange-600 bg-orange-50 px-2 py-1">
             maintenance
           </span>
         );
@@ -86,7 +86,7 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-3 font-mono text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            className="w-full px-4 py-3 font-mono text-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
           />
           {searchQuery && (
             <button
@@ -104,7 +104,7 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
             <button
               key={category}
               onClick={() => toggleCategory(category)}
-              className={`px-3 py-1 text-xs font-mono rounded transition-colors ${
+              className={`px-3 py-1 text-xs font-mono  transition-colors ${
                 selectedCategories.includes(category)
                   ? 'bg-indigo-600 text-white'
                   : 'bg-gray-100 text-gray-700'
@@ -122,7 +122,7 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
         {filteredItems.map((item, index) => (
           <div 
             key={item.id} 
-            className="border border-gray-200 rounded-lg p-6 fade-in flex flex-col"
+            className="border border-gray-200  p-6 fade-in flex flex-col"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div className="flex items-center justify-center mb-4">
@@ -166,7 +166,7 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
               setSearchQuery('');
               setSelectedCategories([]);
             }}
-            className="mt-4 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded font-mono text-sm transition-colors"
+            className="mt-4 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-mono text-sm transition-colors"
           >
             Clear filters
           </button>
