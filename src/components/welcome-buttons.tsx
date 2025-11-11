@@ -9,7 +9,7 @@ export default function WelcomeButtons() {
         href="https://tally.so/r/3NkdZG"
         onClick={() => track("event_button_click")}
       >
-        <span className="font-mono">Join build session</span>
+        <span className="font-mono">Join builders</span>
         </EventButton>
       <ButtonLink
         href="https://discord.gg/gtncJfm85n"
@@ -24,13 +24,6 @@ export default function WelcomeButtons() {
       >
         <FaTelegram className="w-4 h-4 -mb-0.5" />
         <span className="font-mono">Telegram chat</span>
-      </ButtonLink>
-      <ButtonLink
-        href="https://tally.so/r/mBrVg7"
-        onClick={() => track("signup_button_click")}
-      >
-        <FaUserPlus className="w-4 h-4 -mb-0.5" />
-        <span className="font-mono">Show interest</span>
       </ButtonLink>
     </div>
   );
