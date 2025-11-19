@@ -1,12 +1,57 @@
 [
   {
-    "id": "011",
+    "id": "016",
+    "title": "Robotics & AI Hackathon",
+    "content": "A collaborative Robotics & AI hackathon with Robotics Nation brought together more than 45 participants for a full weekend of building, testing ideas, and working in teams. Awesome vibes and lots of cool prototypes.",
+    "author": "Daniyar",
+    "timestamp": "2025-10-24T14:00:00Z",
+    "tags": ["community", "networking", "prototyping", "event", "hardware"],
+    "type": "event"
+  },
+  {
+    "id": "015",
+    "title": "Alif DevKits Added",
+    "content": "Several Alif Ensemble DevKits joined the hardware library, opening up new possibilities for low-power AI/ML and embedded system experiments.",
+    "author": "Daniyar",
+    "timestamp": "2025-10-02T14:00:00Z",
+    "tags": ["semiconductor", "hardware", "update", "AI", "embedded"],
+    "type": "update"
+  },
+  {
+    "id": "014",
+    "title": "First Build Session",
+    "content": "The first weekly build session kicked off with 20+ participants. Relaxed and creative atmosphere, with people tinkering, chatting, and starting small spontaneous projects together.",
+    "author": "Daniyar",
+    "timestamp": "2025-10-01T14:00:00Z",
+    "tags": ["community", "networking", "prototyping", "event"],
+    "type": "event"
+  },
+  {
+    "id": "013",
+    "title": "TUAS Booth",
+    "content": "A booth at TUAS introduced the organization and its activities to a wider crowd. Many students stopped by to explore the hardware, learn about upcoming build sessions, and share their own ideas.",
+    "author": "Daniyar",
+    "timestamp": "2025-09-30T14:00:00Z",
+    "tags": ["community", "networking"],
+    "type": "event"
+  },
+  {
+    "id": "012",
     "title": "We have our own space at Startup Sauna!",
     "content": "We organized our co-working space at Startup Sauna and invited people to join. A great chance to work together, share ideas, and build momentum for upcoming projects.",
     "author": "Milana",
     "timestamp": "2025-09-25T14:00:00Z",
     "tags": ["community", "event", "coworking"],
     "type": "announcement"
+  },
+  {
+    "id": "011",
+    "title": "Doublepoint Dev Kits Arrive",
+    "content": "Doublepoint developer kits were added to the hardware collection, giving everyone a chance to try out wrist-based gesture and hand-tracking tech. Great for anyone curious about new interaction ideas.",
+    "author": "Daniyar",
+    "timestamp": "2025-09-24T14:00:00Z",
+    "tags": ["doublepoint", "hardware", "update"],
+    "type": "update"
   },
   {
     "id": "010",
