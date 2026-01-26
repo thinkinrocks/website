@@ -4,6 +4,7 @@ import type { HardwareItem } from "../../types/hardware";
 import { AdvancedImage } from '@cloudinary/react';
 import { fit } from "@cloudinary/url-gen/actions/resize";
 import { cloudinary } from "../../data/cloudinary";
+import { HardwareCarousel } from "../../components/HardwareCarousel";
 
 export async function getStaticPaths() {
   const hardwareItemsData = await import("../../data/hardware-items.json");
@@ -55,17 +56,22 @@ const getStatusBadge = (status: string) => {
 
       <!-- Hardware Details -->
       <div class="mb-16">
-        <!-- Image -->
-        <div class="flex items-center justify-center mb-8">
-          <AdvancedImage
-            cldImg={cloudinary
-              .image(item.cloudinaryPublicId)
-              .resize(fit().width(500).height(500))}
-            alt={item.name}
-            className="w-96 h-96 object-contain"
-            client:load
-          />
-        </div>
+        <!-- Image or Carousel -->
+        {item.images && item.images.length > 0 ? (
+          <HardwareCarousel images={item.images} name={item.name} captions={item.imageCaptions} client:load />
+        ) : item.cloudinaryPublicId && (
+          <div class="flex flex-col items-center justify-center mb-8">
+            <AdvancedImage
+              cldImg={cloudinary
+                .image(item.cloudinaryPublicId)
+                .resize(fit().width(500).height(500))}
+              alt={item.name}
+              className="w-96 h-96 object-contain"
+              client:load
+            />
+            <p class="text-gray-400 text-sm mt-2 font-mono">{item.name}</p>
+          </div>
+        )}
 
         <!-- Details -->
         <div class="space-y-6">
@@ -73,18 +79,6 @@ const getStatusBadge = (status: string) => {
             <h1 class="text-5xl md:text-4xl font-mono tracking-tighter mb-4">
               {item.name}
             </h1>
-            
-            {item.status !== 'available' && (
-              <div class="mb-4">
-                <span class={`text-xs font-mono px-3 py-1  ${
-                  item.status === 'coming-soon' 
-                    ? 'text-indigo-600 bg-indigo-50' 
-                    : 'text-orange-600 bg-orange-50'
-                }`}>
-                  {getStatusBadge(item.status)}
-                </span>
-              </div>
-            )}
           </div>
 
          
@@ -120,14 +114,22 @@ const getStatusBadge = (status: string) => {
             {relatedItems.map((relatedItem) => (
               <div class="border border-gray-200 p-4 flex flex-col">
                 <div class="flex items-center justify-center mb-4">
-                  <AdvancedImage
-                    cldImg={cloudinary
-                      .image(relatedItem.cloudinaryPublicId)
-                      .resize(fit().width(128).height(128))}
-                    alt={relatedItem.name}
-                    className="w-16 h-16 object-contain"
-                    client:load
-                  />
+                  {relatedItem.images && relatedItem.images.length > 0 ? (
+                    <img
+                      src={relatedItem.images[0]}
+                      alt={relatedItem.name}
+                      class="w-16 h-16 object-contain"
+                    />
+                  ) : relatedItem.cloudinaryPublicId && (
+                    <AdvancedImage
+                      cldImg={cloudinary
+                        .image(relatedItem.cloudinaryPublicId)
+                        .resize(fit().width(128).height(128))}
+                      alt={relatedItem.name}
+                      className="w-16 h-16 object-contain"
+                      client:load
+                    />
+                  )}
                 </div>
                 <h3 class="font-mono text-lg text-gray-900 mb-2 text-center">{relatedItem.name}</h3>
                 {relatedItem.status !== 'available' && (

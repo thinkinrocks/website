@@ -1,5 +1,32 @@
 [
   {
+    "id": "019",
+    "title": "IoT & Embedded Systems Expansion",
+    "content": "Added Raspberry Pi 5 (8GB), multiple ESP32 development boards (ESP32-C6, ESP32-S3), and comprehensive starter kits to the hardware collection. Complete ecosystem now available for prototyping IoT sensors, edge computing, and embedded systems projects with cross-platform accessories.",
+    "author": "Milana",
+    "timestamp": "2026-01-15T12:00:00Z",
+    "tags": ["IoT", "embedded", "hardware", "prototyping", "update"],
+    "type": "update"
+  },
+  {
+    "id": "018",
+    "title": "Hardware Catalog Optimization",
+    "content": "Completely revised hardware categories and related items across the entire catalog. Consolidated biosensing categories, added FPGA tags to AMD Kria boards, introduced new 'Prototyping' category, and optimized cross-linking between similar hardware for better discoverability.",
+    "author": "Milana",
+    "timestamp": "2026-01-26T14:00:00Z",
+    "tags": ["hardware", "update", "website"],
+    "type": "update"
+  },
+  {
+    "id": "017",
+    "title": "Biosensing Hardware Expansion",
+    "content": "Added OpenBCI Biosensing Starter Bundle and EmotiBit Bundle to the hardware collection. Both platforms coming soon for physiological data acquisition, enabling research in neuroscience, affective computing, and human-computer interaction.",
+    "author": "Milana",
+    "timestamp": "2026-01-16T13:00:00Z",
+    "tags": ["biosensing", "hardware", "neuroscience", "update"],
+    "type": "announcement"
+  },
+  {
     "id": "016",
     "title": "Robotics & AI Hackathon",
     "content": "A collaborative Robotics & AI hackathon with Robotics Nation brought together more than 45 participants for a full weekend of building, testing ideas, and working in teams. Awesome vibes and lots of cool prototypes.",

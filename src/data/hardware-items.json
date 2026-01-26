@@ -22,7 +22,7 @@
     "name": "Doublepoint Dev Kit",
     "description": "The Doublepoint Developer Kit is a wearable sensor that enables precise wrist and finger gesture recognition. It supports low-latency, natural input for XR, wearables, and mobile devices, making interactions more intuitive.",
     "cloudinaryPublicId": "doublepoint_imsl0w",
-    "categories": ["Sensors", "XR/VR"],
+    "categories": ["XR/VR", "Sensors"],
     "status": "available",
     "details": [
       "The [Doublepoint Developer Kit](https://www.doublepoint.com/) provides advanced gesture recognition through a compact wrist-worn device. It captures subtle finger and wrist movements—such as taps, pinches, flicks, and rotations—with low latency, enabling natural, controller-free input for XR headsets, wearables, and mobile applications.",
@@ -32,14 +32,14 @@
       "Limitations include the need for calibration, limited gesture vocabulary compared to full optical hand tracking, and battery life constraints—best suited for intermittent rather than continuous use.",
       "**Key Resources:**<br/>- [Doublepoint Github](https://github.com/doublepointlab)<br/>- [Unity Input System](https://docs.unity3d.com/Packages/com.unity.inputsystem@latest)<br/>- [Apple Accessibility Guidelines](https://developer.apple.com/accessibility/)"
     ],
-    "related": ["varjo-xr3", "booster-t1"]
+    "related": ["varjo-xr3", "emotibit-bundle", "openbci-biosensing-bundle"]
   },
   {
     "id": "alifensemble",
     "name": "Alif Ensemble DevKit",
     "description": "The Alif Ensemble DevKit Gen 2 is a powerful development board built on the Ensemble E7 fusion processor. It enables rapid prototyping for embedded AI, real-time control, and ultra-low-power edge computing applications.",
     "cloudinaryPublicId": "alif_semi_flnyws",
-    "categories": ["AI", "Edge Computing", "Embedded Systems"],
+    "categories": ["AI", "Embedded Systems"],
     "status": "available",
     "details": [
       "The [Alif Ensemble E7 DevKit Gen 2 (DK-E7)](https://alifsemi.com/support/kits/ensemble-e7devkit) is a flexible single-board platform supporting configuration as E1, E3, E5, or E7-class devices. It showcases Alif’s Ensemble fusion processor family, designed for intelligent edge applications that combine AI acceleration, real-time control, and ultra-low-power operation.",
@@ -51,7 +51,7 @@
       "Advantages include efficient multi-core AI processing, strong peripheral support, and scalable architecture from low-power microcontrollers to application-class processors. Limitations include the need for manual configuration for multi-core scheduling, a moderate learning curve for new SDK users, and unsuitability for high-end vision or large-model inference workloads.",
       "**Key Resources:**<br/> - [Alif Ensemble SDK (GitHub)](https://github.com/alifsemi/ensemble_SDK)<br/> - [Ensemble E7 User Guide (PDF)](https://alifsemi.com/download/AUGD0010)<br/> - [Edge Impulse Integration Guide](https://www.edgeimpulse.com/blog/announcing-official-support-for-the-alif-ensemble-e7-development-kit)"
     ],
-    "related": ["jetson-orin-nano", "nexys-a7-fpga", "amd-kria-kv260", "shelby-computer"]
+    "related": ["jetson-orin-nano", "esp-dev-boards", "raspberry-pi-5"]
   },  
   {
     "id": "shelby-computer",
@@ -68,7 +68,7 @@
       "There are important limitations to keep in mind. The system has a high power draw and heat output, requiring proper ventilation and cooling. The Tenstorrent ecosystem is less mature than CUDA, so expect a steeper learning curve, additional debugging, and performance tuning. Advanced projects may require compiler-level optimization for full efficiency.",
       "Before using Shelby, users should be comfortable with Linux, Docker or Conda environments, and at least one deep learning framework (PyTorch or TensorFlow). Familiarity with containerized workflows and debugging hardware-accelerated ML environments will make onboarding smoother and reduce time spent on setup issues."
     ],
-    "related": ["tenstorrent-blackhole", "booster-t1", "jetson-orin-nano"]
+    "related": ["tenstorrent-blackhole", "jetson-orin-nano", "lenovo-legion-t5"]
   },
   {
     "id": "nexys-a7-fpga",
@@ -90,25 +90,6 @@
     "related": ["amd-kria-kr260", "amd-kria-kv260"]
   },
   {
-    "id": "booster-t1",
-    "name": "Booster_T1",
-    "description": "Booster_T1 is a humanoid robot with full-force joints and onboard NVIDIA Jetson AGX Orin (200 TOPS). Equipped with RGB-D vision, microphone array, 9-axis IMU, and ROS2 integration, it supports research, education, and advanced AI-driven perception and navigation projects.",
-    "cloudinaryPublicId": "booster-t1_b7pyud",
-    "categories": ["Robotics", "AI", "Computer Vision"],
-    "status": "available",
-    "details": [
-      "Booster_T1 is a humanoid robotics platform provided by Aaltoes, designed for research, prototyping, and education. It features high-torque joints, an NVIDIA Jetson AGX Orin (≈200 TOPS), RGB-D cameras, a microphone array, and a 9-axis IMU, making it suitable for navigation, perception, and interaction tasks.",
-      "Its sensor suite supports advanced applications like SLAM (Simultaneous Localization and Mapping), obstacle avoidance, and gesture recognition. The humanoid form factor makes it valuable for human–robot interaction studies and social navigation research, while the Jetson AGX Orin enables real-time AI inference on-device.",
-      "To begin development, set up [ROS2](https://docs.ros.org/en/rolling/) and the Jetson software stack. You can connect via the companion mobile app or SSH to verify sensors and joint control. Proper calibration and system checks are essential before deploying autonomous behaviors.",
-      "Development typically builds on ROS2’s modular ecosystem. Start with [Navigation2](https://wiki.ros.org/navigation) for path planning and obstacle avoidance, and expand with [Isaac ROS](https://developer.nvidia.com/isaac-ros) for GPU-accelerated perception. Custom nodes in Python or C++ can be added for specialized behaviors such as gesture-controlled operation or mixed reality telepresence (e.g., combined with Varjo XR headsets).",
-      "Research opportunities include human–robot interaction studies, digital twin integration, reinforcement learning for locomotion, and robotics education. The platform is also suitable for experimenting with sensor fusion, control strategies, and AI-driven decision-making in humanoid systems.",
-      "Operational safety is critical: Booster_T1’s mass and high-torque joints require defined safety zones, an accessible emergency stop, and supervision during use. Battery runtime is limited, so plan experiments around charging cycles or tethered operation for long sessions.",
-      "Successful development requires ROS2 proficiency, familiarity with control systems, computer vision, and machine learning concepts. Understanding safe operation procedures for human-scale robots is essential for effective and secure deployment.",
-      "**Essential Resources:**<br/>- [ROS2 Documentation](https://docs.ros.org/en/rolling/)<br/>- [Jetson Docs](https://jetson-docs.com)<br/>- [Navigation2](https://wiki.ros.org/navigation)<br/>- [Isaac ROS](https://developer.nvidia.com/isaac-ros)"
-    ],
-    "related": ["jetson-orin-nano", "shelby-computer", "tenstorrent-blackhole"]
-  },
-  {
     "id": "tenstorrent-blackhole",
     "name": "Tenstorrent Blackhole™ p100a",
     "description": "The Tenstorrent Blackhole™ p100a is a PCIe accelerator card with 16 RISC-V cores and 28 GB of GDDR6 memory. Designed for AI training and inference, it operates at up to 300W in an active-cooled desktop form factor and is supported by Tenstorrent's open-source software stack.",
@@ -125,7 +106,7 @@
       "Success requires strong Linux skills, familiarity with ML frameworks, and experience in performance optimization. Knowledge of profiling, kernel tuning, and accelerator programming models will help unlock the hardware’s full potential.",
       "**Key Resources:**<br/>- [Tenstorrent Official Site](https://tenstorrent.com/)<br/>- [PyTorch](https://pytorch.org/) and [TensorFlow](https://www.tensorflow.org/)<br/>- Tenstorrent Community (forums, GitHub) for open-source tools and developer discussions"
     ],
-    "related": ["shelby-computer", "booster-t1"]
+    "related": ["shelby-computer"]
   },
   {
     "id": "jetson-orin-nano",
@@ -144,7 +125,7 @@
       "Effective use of Jetson Orin Nano requires Linux experience, Python/ROS2 development skills, and knowledge of edge AI deployment practices. Leveraging TensorRT for model optimization and the Isaac ROS ecosystem for robotics pipelines maximizes the hardware’s potential.",
       "**Essential Resources:**<br/>- [Jetson Orin Developer Guide](https://developer.nvidia.com/embedded/jetson-orin)<br/>- [NVIDIA SDK Manager](https://developer.nvidia.com/nvidia-sdk-manager)<br/>- [Isaac ROS](https://developer.nvidia.com/isaac-ros)<br/>- [TensorRT Docs](https://docs.nvidia.com/deeplearning/tensorrt/)"
     ],
-    "related": ["booster-t1", "oak-d-pro"]
+    "related": ["oak-d-pro", "amd-kria-kv260", "raspberry-pi-5"]
   },  
   {
     "id": "lenovo-legion-t5",
@@ -182,14 +163,14 @@
       "Success with KR260 requires skills in ROS 2, embedded Linux, and FPGA design (HDL/HLS). Knowledge of real-time systems and industrial communication protocols is also valuable for fully leveraging the platform’s robotics and automation capabilities.",
       "**Essential Development Resources:**<br/>- [Kria Applications Docs](https://xilinx.github.io/kria-apps-docs/)<br/>- [ROS 2 Documentation](https://docs.ros.org/en/rolling/)<br/>- [Vitis Development Platform](https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vitis.html)<br/>- [Vivado Design Suite](https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vivado.html)"
     ],
-    "related": ["booster-t1", "nexys-a7-fpga"]
+    "related": ["nexys-a7-fpga", "amd-kria-kv260"]
   },
   {
     "id": "amd-kria-kv260",
     "name": "AMD Kria KV260 Vision",
     "description": "FPGA-based vision AI platform designed for edge video analytics. Combines ARM processing with FPGA acceleration for real-time computer vision in smart city, industrial, and security applications.",
     "cloudinaryPublicId": "amd-vision_d4flw0",
-    "categories": ["Computer Vision", "FPGA", "AI"],
+    "categories": ["Computer Vision", "AI", "FPGA"],
     "status": "available",
     "details": [
       "The [AMD Kria KV260 Vision AI Starter Kit](https://www.amd.com/en/products/system-on-modules/kria/k26/kv260-vision-starter-kit.html) is optimized for advanced computer vision applications. It integrates a quad-core Arm Cortex-A53 processor with FPGA fabric to accelerate real-time video analytics, deep neural network inference, and edge vision pipelines.",
@@ -201,7 +182,7 @@
       "Successful development requires skills in computer vision (OpenCV, deep learning models), FPGA acceleration workflows (HLS, Vitis AI), and real-time systems. Combining domain knowledge across these areas enables efficient custom vision pipelines at the edge.",
       "**Key Development Resources:**<br/>- [Vitis AI](https://www.xilinx.com/products/design-tools/vitis/vitis-ai.html)<br/>- [Kria Documentation](https://xilinx.github.io/kria-apps-docs/)<br/>- [ROS 2](https://docs.ros.org/en/rolling/)<br/>- [GStreamer](https://gstreamer.freedesktop.org/)"
     ],
-    "related": ["oak-d-pro", "jetson-orin-nano"]
+    "related": ["oak-d-pro", "jetson-orin-nano", "amd-kria-kr260"]
   },
   {
     "id": "oak-d-pro",
@@ -215,11 +196,152 @@
       "It produces stereo depth maps and point clouds while running neural networks for object detection, classification, and tracking directly on-device. This reduces the need for external compute, enabling efficient edge AI deployments in robotics, AR/VR, and embedded systems.",
       "Development starts with the [DepthAI SDK](https://docs.luxonis.com/software-v3/depthai/), which provides Python and C++ APIs. Example pipelines include stereo depth, object detection, and gesture recognition. These serve as practical starting points before customizing applications for specific robotics or vision workflows.",
       "Calibration and tuning are essential. Adjust exposure, IR illumination, and stereo depth parameters to optimize performance for your environment. Processed data can be streamed to Jetson modules, PCs, or other hosts, combining onboard inference with external compute when needed.",
-      "Applications include autonomous robotics navigation, SLAM, people-tracking systems, gesture-based HMI, and mixed reality scene understanding. The OAK-D Pro’s depth accuracy and integrated inference make it a strong fit for perception-driven systems that need local processing.",
+      "Applications include autonomous robotics navigation, SLAM, people-tracking systems, gesture-based HMI, and mixed reality scene understanding. The OAK-D Pro's depth accuracy and integrated inference make it a strong fit for perception-driven systems that need local processing.",
       "Limitations include reduced depth accuracy under strong sunlight (which interferes with IR illumination) and compute limits that restrict very large or complex neural networks. Applications requiring heavy models may need hybrid processing strategies (part onboard, part external).",
       "Effective use requires Python or C++ skills, experience with OpenCV, and knowledge of camera calibration and 3D geometry. Understanding trade-offs between onboard and external inference helps optimize system performance.",
       "**Essential Development Resources:**<br/>- [DepthAI Docs](https://docs.luxonis.com/)<br/>- [DepthAI Model Zoo](https://github.com/luxonis/depthai-experiments)<br/>- [OpenCV Docs](https://docs.opencv.org/)<br/>- [DepthAI Community Forum](https://discuss.luxonis.com/)"
     ],
-    "related": ["jetson-orin-nano", "varjo-xr3"]
+    "related": ["jetson-orin-nano", "varjo-xr3", "amd-kria-kv260"]
+  },
+  {
+    "id": "raspberry-pi-5",
+    "name": "Raspberry Pi 5",
+    "description": "Compact, high-performance single-board computers designed for education, prototyping, and production-ready embedded systems. Raspberry Pi boards offer powerful processing, rich connectivity, and a mature ecosystem suitable for robotics, IoT gateways, media systems, and edge computing.",
+    "images": [
+      "https://mm.digikey.com/Volume0/opasdata/d220001/derivates/6/002/156/728/MFG_PI_5_HERO_web%28640x640%29.jpg"
+    ],
+    "imageCaptions": [
+      "Raspberry Pi 5 (8GB)"
+    ],
+    "categories": ["Embedded Systems", "IoT", "Prototyping"],
+    "status": "available",
+    "isNew": true,
+    "details": [
+      "The [Raspberry Pi 5](https://www.raspberrypi.com/products/raspberry-pi-5/) features a quad-core Arm Cortex-A76 processor (2.4GHz), 8GB RAM, dual 4Kp60 HDMI outputs, PCIe 2.0, Wi-Fi 802.11ac, Bluetooth 5.0/BLE, Gigabit Ethernet, and USB 3.0.",
+      "**Key Features:** PCIe 2.0 interface supports NVMe SSDs, AI accelerators (Coral TPU), and network cards. Power button and real-time clock included. Use official 27W USB-C adapter to avoid power issues.",
+      "**Use Cases:** IoT gateways, edge computing with lightweight ML, 4K media centers, home automation, robotics with vision, and educational projects. Mature ecosystem with extensive community support.",
+      "**Getting Started:** Flash [Raspberry Pi OS](https://www.raspberrypi.com/software/) to microSD using [Raspberry Pi Imager](https://www.raspberrypi.com/software/), connect peripherals, boot. Enable SSH/VNC for remote access. Use Python with GPIO libraries or [Docker](https://docs.docker.com/) for containerized apps.",
+      "**Prerequisites:** Basic Linux CLI skills, Python for GPIO/sensors. Consider heatsink or active cooling for sustained loads. Requires basic understanding of power management and thermal design.",
+      "**Compatible Accessories:** Raspberry Pi 5 works with our [starter kits, sensors, Camera Module 3, and displays](/hardware/raspberry-pi-accessories). The GPIO pins are compatible with sensors from all SunFounder kits, and the CSI interface supports the official camera module.",
+      "**Available:** Raspberry Pi 5 (8GB RAM) - [Datasheet](https://www.raspberrypi.com/documentation/)",
+      "**Essential Resources:**<br/>- [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/)<br/>- [Raspberry Pi OS](https://www.raspberrypi.com/software/)<br/>- [GPIO Zero Library](https://gpiozero.readthedocs.io/)<br/>- [Raspberry Pi Forums](https://forums.raspberrypi.com/)"
+    ],
+    "related": ["jetson-orin-nano", "esp-dev-boards", "raspberry-pi-accessories"]
+  },
+  {
+    "id": "esp-dev-boards",
+    "name": "ESP Development Boards",
+    "description": "Wireless-first development platforms optimized for IoT and connected hardware. ESP boards combine Wi-Fi, Bluetooth, and low-power communication technologies, enabling rapid prototyping and scalable deployment of smart devices and sensors.",
+    "images": [
+      "https://mm.digikey.com/Volume0/opasdata/d220001/medias/images/6253/MFG_DFR1117.jpg",
+      "https://mm.digikey.com/Volume0/opasdata/d220001/medias/images/4899/ESP32-C6-DEVKITC-1-N8.jpg",
+      "https://mm.digikey.com/Volume0/opasdata/d220001/derivates/6/003/231/483/MFG_ESP32-S3-DevKitC-1-N32R16V_web%28640x640%29.jpg"
+    ],
+    "imageCaptions": [
+      "DFRobot Beetle ESP32-C6 Mini",
+      "ESP32-C6 DevKitC-1 (N8)",
+      "ESP32-S3-WROOM-2-N32R16V"
+    ],
+    "categories": ["IoT", "Embedded Systems", "Prototyping"],
+    "status": "available",
+    "isNew": true,
+    "details": [
+      "ESP32 boards integrate Wi-Fi, Bluetooth LE, Wi-Fi 6, and Thread/Zigbee (802.15.4) for wireless IoT prototyping. Ideal for battery-powered sensors, smart home devices, wearables, and industrial monitoring.",
+      "**Three Boards Available:** **DFRobot Beetle ESP32-C6** - ultra-compact with Wi-Fi 6, BLE, 802.15.4 for wearables. **ESP32-C6 DevKitC-1 (N8)** - general-purpose, Matter-compatible. **ESP32-S3-WROOM-2-N32R16V** - 32MB flash, 16MB PSRAM, native USB for AI inference and camera apps.",
+      "**Key Features:** ESP32-C6 adds Wi-Fi 6 and IEEE 802.15.4 for Matter smart home integration. ESP32-S3 focuses on AI/HMI with enhanced processing and memory. Low power modes enable years of battery life.",
+      "**Use Cases:** Environmental sensors, BLE beacons, Wi-Fi actuators, battery-powered loggers, edge AI (TensorFlow Lite) for keyword spotting/gesture recognition. Rich peripherals: I2C, SPI, UART, ADC, PWM, I2S.",
+      "**Getting Started:** Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/), add ESP32 board support, upload sketches. For production, use [ESP-IDF](https://docs.espressif.com/projects/esp-idf/) for power management and security. Cloud integrations: AWS IoT, Google Cloud IoT, Azure IoT Hub.",
+      "**Prerequisites:** C/C++ programming, embedded systems (interrupts, timers, DMA), wireless protocols (Wi-Fi, BLE, MQTT), low-power design. FreeRTOS knowledge helpful for advanced projects.",
+      "**Compatible Accessories:** ESP32 boards work with our [cross-platform sensor kits and displays](/hardware/raspberry-pi-accessories). The SunFounder Sensor Kit includes example code specifically for ESP32, and e-ink displays connect via SPI.",
+      "**Available Boards:**<br/>- DFRobot Beetle ESP32-C6 Mini (Wi-Fi 6, BLE, 802.15.4) - [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/5528/ESP32-C6-DEVKITC-1-N8.pdf)<br/>- ESP32-C6 DevKitC-1-N8 (Wi-Fi 6, BLE, 802.15.4) - [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/5528/ESP32-C6-DEVKITC-1-N8.pdf)<br/>- ESP32-S3-WROOM-2-N32R16V (32MB Flash, 16MB PSRAM, USB) - [Datasheet](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/esp-dev-kits-en-master-esp32s3.pdf)",
+      "**Essential Resources:**<br/>- [ESP-IDF Documentation](https://docs.espressif.com/projects/esp-idf/)<br/>- [Arduino Core for ESP32](https://github.com/espressif/arduino-esp32)<br/>- [PlatformIO](https://platformio.org/)<br/>- [Espressif Developer Portal](https://developer.espressif.com/)"
+    ],
+    "related": ["raspberry-pi-5", "raspberry-pi-accessories", "alifensemble"]
+  },
+  {
+    "id": "openbci-biosensing-bundle",
+    "name": "OpenBCI Biosensing Starter Bundle",
+    "description": "Complete starter bundle for electro-physiological data acquisition. Includes Ganglion board, electrodes, and headband kit for real-time EEG, ECG, and EMG recording with open-source software.",
+    "images": [
+      "https://shop.openbci.com/cdn/shop/files/GANG_39b78a60-781d-480d-bd10-ab15f0fdb972.png?v=1700591381&width=1962",
+      "https://shop.openbci.com/cdn/shop/files/Headband-kit-full.webp?v=1708550401&width=1418"
+    ],
+    "imageCaptions": [
+      "OpenBCI Ganglion Board",
+      "OpenBCI EEG Headband Kit"
+    ],
+    "categories": ["Biosensing", "Neuroscience"],
+    "status": "coming-soon",
+    "details": [
+      "The [OpenBCI Biosensing Starter Bundle](https://shop.openbci.com/) is a complete system for recording EEG (brain), ECG (heart), and EMG (muscle) signals using open-source software and hardware.",
+      "**Bundle Contents:**<br/>- Ganglion Board (4-channel, 32-bit biosensing board with Bluetooth LE)<br/>- Battery and USB charger<br/>- Ganglion USB Dongle (wireless connectivity)<br/>- EMG/ECG Gel Snap Electrodes<br/>- EMG/ECG Snap Cables<br/>- OpenBCI EEG Headband Kit (adjustable with dry electrode holders)",
+      "**Technical Specs:** 4-channel acquisition, up to 1600 Hz sampling per channel, >1 GΩ input impedance, onboard microSD storage, wireless Bluetooth operation. Headband supports standard 10-20 electrode placement for frontal lobe monitoring.",
+      "**Applications:** Brain-computer interfaces, neurofeedback, cognitive research, emotion detection, heart rate variability, muscle activation studies, rehabilitation monitoring, and HCI prototyping.",
+      "**Software & Development:** Use the free [OpenBCI GUI](https://openbci.com/downloads) for real-time visualization. Stream data via LSL, OSC, or UDP to custom applications. Open-source libraries available for Python, Java, Node.js. Compatible with MATLAB, Python (MNE, SciPy), and EEGLab.",
+      "**Expansion Options:** Add Gold Cup Electrodes with Ten20 Paste for research-grade wet EEG. Upgrade to Cyton (8-channel) or add multiple Ganglion boards for higher-density recordings.",
+      "**Prerequisites:** Understanding of biosignal acquisition, electrode placement, signal processing. Python or similar for custom pipelines. Basic knowledge of experimental design for physiological research.",
+      "**Essential Resources:**<br/>- [OpenBCI Documentation](https://docs.openbci.com/)<br/>- [OpenBCI GUI Software](https://openbci.com/downloads)<br/>- [OpenBCI GitHub](https://github.com/OpenBCI)<br/>- [OpenBCI Community Forum](https://openbci.com/forum/)"
+    ],
+    "related": ["emotibit-bundle", "doublepoint-dev-kit", "varjo-xr3"]
+  },
+  {
+    "id": "emotibit-bundle",
+    "name": "EmotiBit Bundle",
+    "description": "Wearable biometric sensor platform for capturing physiological and emotional data. Measures PPG, EDA, temperature, accelerometer, and more for research, health monitoring, and human-computer interaction applications.",
+    "images": [
+      "https://www.emotibit.com/wp-content/uploads/2024/07/squ_EmotiBit_Montgomery_01_754x_e6935b79-598d-4ff7-b7a0-68918811fdf4.webp",
+      "https://www.emotibit.com/wp-content/uploads/2024/06/squ_01All-in-OneEmotiBitBundle01.png"
+    ],
+    "imageCaptions": [
+      "EmotiBit Sensor Module",
+      "EmotiBit All-in-One Bundle"
+    ],
+    "categories": ["Biosensing", "Wearables"],
+    "status": "coming-soon",
+    "details": [
+      "The [EmotiBit All-in-One Bundle](https://www.emotibit.com/) is a wearable multi-sensor platform for capturing physiological and emotional data in real-time. Designed for research, health monitoring, and affective computing applications.",
+      "**Bundle Contents:**<br/>- EmotiBit Sensor Module (wearable biometric sensor)<br/>- Battery and charging cable<br/>- Wearable straps and mounting accessories<br/>- SD card for local data storage<br/>- EmotiBit software suite and visualization tools",
+      "**Integrated Sensors:** PPG (heart rate, HRV), EDA (skin conductance, arousal), thermopile (skin temperature), 9-axis IMU (3-axis accelerometer, gyroscope, magnetometer). All sensors stream simultaneously at research-grade resolution.",
+      "**Connectivity & Data:** WiFi and Bluetooth wireless streaming. Onboard SD card logging for untethered field studies. Battery-powered for hours of continuous operation. Real-time data transmission to custom applications.",
+      "**Applications:** Affective computing, stress and emotion monitoring, HCI research, biofeedback systems, UX research, health and wellness tracking, sports performance, VR/AR physiological integration.",
+      "**Software & Development:** EmotiBit Oscilloscope for real-time visualization. Stream data via OSC (Open Sound Control) to Python, Unity, and other environments. Compatible with Python data analysis pipelines and third-party visualization tools.",
+      "**Prerequisites:** Understanding of biometric signals, signal processing basics, physiological measurement principles. Python or similar programming for custom analysis and integration.",
+      "**Essential Resources:**<br/>- [EmotiBit Documentation](https://www.emotibit.com/)<br/>- [EmotiBit GitHub](https://github.com/EmotiBit)<br/>- [Getting Started Guide](https://www.emotibit.com/)<br/>- [EmotiBit Community](https://www.emotibit.com/)"
+    ],
+    "related": ["openbci-biosensing-bundle", "doublepoint-dev-kit", "varjo-xr3"]
+  },
+  {
+    "id": "raspberry-pi-accessories",
+    "name": "Kits & Accessories for RPi, Arduino & ESP32",
+    "description": "Starter kits, sensor kits, cameras, and displays designed to extend and enhance ESP, Arduino, and Raspberry Pi projects. These accessories support learning, experimentation, and rapid system expansion.",
+    "images": [
+      "https://mm.digikey.com/Volume0/opasdata/d220001/derivates/6/003/227/919/MFG_CN0434D_web%28640x640%29.jpg",
+      "https://mm.digikey.com/Volume0/opasdata/d220001/medias/images/4412/MFG_CN0348D.jpg",
+      "https://mm.digikey.com/Volume0/opasdata/d220001/derivates/6/003/227/919/MFG_CN0349D_web%28640x640%29.jpg",
+      "https://mm.digikey.com/Volume0/opasdata/d220001/derivates/6/003/214/269/MFG_CN0450D_web%28640x640%29.jpg",
+      "https://mm.digikey.com/Volume0/opasdata/d220001/medias/images/5014/MFG_SC0872.jpg",
+      "https://mm.digikey.com/Volume0/opasdata/d220001/derivates/6/003/238/180/MFG_6373-00_web%28640x640%29.jpg"
+    ],
+    "imageCaptions": [
+      "SunFounder Ultimate Starter Kit (CN0434D)",
+      "SunFounder RPi Starter Kit #1 (CN0348D)",
+      "SunFounder RPi Starter Kit #2 (CN0349D)",
+      "SunFounder Sensor Kit (CN0450D)",
+      "Raspberry Pi Camera Module 3",
+      "Adafruit 2.13\" E-Ink Display"
+    ],
+    "categories": ["Accessories", "Prototyping"],
+    "status": "available",
+    "isNew": true,
+    "details": [
+      "Starter kits, sensors, cameras, and displays for Raspberry Pi, Arduino, and ESP32 projects.",
+      "**Four Distinct Kits (Different Components):** **SunFounder Ultimate Starter Kit (CN0434D)** - comprehensive sensors and projects. **SunFounder RPi Starter Kits** (CN0348D and CN0349D) - two separate kits with different components for GPIO basics. **SunFounder Sensor Kit (CN0450D)** - cross-platform sensors for Arduino/ESP32/RPi.",
+      "**Camera:** **Raspberry Pi Camera Module 3** - 12MP, autofocus, HDR. For computer vision and AI detection. Use [picamera2](https://github.com/raspberrypi/picamera2) library.",
+      "**Displays:** **Adafruit 2.13\" E-Ink (6373)** - ultra-low power, 4-color display. **E-Ink Breakout Friend (4224)** - buffering and logic shifting for e-ink displays.",
+      "Check datasheets to compare kit contents—each has different components. Kits include wiring guides and example code. Requires basic electronics and Python/C++ knowledge.",
+      "**Available Accessories:**<br/>**Four Kits (different components):**<br/>- SunFounder Ultimate Starter Kit (CN0434D) - [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/5561/Raphael%20Kit.pdf)<br/>- SunFounder RPi Starter Kit #1 (CN0348D)<br/>- SunFounder RPi Starter Kit #2 (CN0349D) - [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/5561/DaVinci%20Kit.pdf)<br/>- SunFounder Sensor Kit (CN0450D) - [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6448/CN0450D%20datasheet.pdf)<br/>**Other:**<br/>- RPi Camera Module 3 (SC1223) - [Docs](https://www.raspberrypi.com/documentation/accessories/camera.html)<br/>- Adafruit E-Ink Display (6373) - [Datasheet](https://cdn-shop.adafruit.com/product-files/6373/C22164-001_datasheet__ZJY122250-0213AJH-E5______.pdf)<br/>- Adafruit E-Ink Breakout (4224)",
+      "**Essential Resources:**<br/>- [Raspberry Pi GPIO Documentation](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html)<br/>- [Arduino Documentation](https://docs.arduino.cc/)<br/>- [Adafruit Learning System](https://learn.adafruit.com/)<br/>- [SunFounder Learning Platform](https://docs.sunfounder.com/)"
+    ],
+    "related": ["raspberry-pi-5", "esp-dev-boards", "jetson-orin-nano"]
   }
 ]

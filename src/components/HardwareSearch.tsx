@@ -19,9 +19,9 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
     return uniqueCategories.sort();
   }, [items]);
 
-  // Filter items based on search query and categories
+  // Filter items based on search query and categories, then sort with new items first
   const filteredItems = useMemo(() => {
-    return items.filter(item => {
+    const filtered = items.filter(item => {
       const matchesSearch = searchQuery === '' || 
         item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -35,6 +35,19 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
         );
       
       return matchesSearch && matchesCategory;
+    });
+
+    // Sort: coming-soon first, then new items, then others
+    return filtered.sort((a, b) => {
+      // Coming soon items first
+      if (a.status === 'coming-soon' && b.status !== 'coming-soon') return -1;
+      if (a.status !== 'coming-soon' && b.status === 'coming-soon') return 1;
+      
+      // Then new items
+      if (a.isNew && !b.isNew) return -1;
+      if (!a.isNew && b.isNew) return 1;
+      
+      return 0;
     });
   }, [items, searchQuery, selectedCategories]);
 
@@ -120,40 +133,49 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
       {/* Hardware Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredItems.map((item, index) => (
-          <div 
-            key={item.id} 
-            className="border border-gray-200  p-6 fade-in flex flex-col"
+          <a 
+            key={item.id}
+            href={`/hardware/${item.id}`}
+            className="border border-gray-200 p-6 fade-in flex flex-col relative cursor-pointer hover:border-indigo-600 transition-colors"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
+            {item.status === 'coming-soon' && (
+              <span className="absolute top-4 right-4 text-xs font-mono text-indigo-600 bg-indigo-50 px-2 py-1">
+                coming soon
+              </span>
+            )}
+            {item.status === 'maintenance' && (
+              <span className="absolute top-4 right-4 text-xs font-mono text-orange-600 bg-orange-50 px-2 py-1">
+                maintenance
+              </span>
+            )}
+            {item.isNew && (
+              <span className="absolute top-4 right-4 text-xs font-mono text-green-600 bg-green-50 px-2 py-1">
+                new
+              </span>
+            )}
             <div className="flex items-center justify-center mb-4">
-              <AdvancedImage
-                cldImg={cloudinary
-                  .image(item.cloudinaryPublicId)
-                  .resize(fit().width(256).height(256))}
-                alt={item.name}
-                className="w-32 h-32 object-contain"
-              />
+              {item.images && item.images.length > 0 ? (
+                <img
+                  src={item.images[0]}
+                  alt={item.name}
+                  className="w-32 h-32 object-contain"
+                />
+              ) : item.cloudinaryPublicId ? (
+                <AdvancedImage
+                  cldImg={cloudinary
+                    .image(item.cloudinaryPublicId)
+                    .resize(fit().width(256).height(256))}
+                  alt={item.name}
+                  className="w-32 h-32 object-contain"
+                />
+              ) : null}
             </div>
             <h3 className="font-mono text-lg text-gray-900 mb-3 text-center">{item.name}</h3>
-            {item.status !== 'available' && (
-              <div className="text-center mb-2">
-                {getStatusBadge(item.status)}
-              </div>
-            )}
             <p className="font-sans text-sm text-gray-700 leading-relaxed mb-4 flex-grow">
               {truncateDescription(item.description)}
             </p>
-            <div className="flex justify-center mt-auto">
-              <div className="bg-indigo-600 h-fit translate-0.5">
-                <a 
-                  href={`/hardware/${item.id}`}
-                  className="bg-indigo-50 text-indigo-600 inline-flex px-4 py-2 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono"
-                >
-                  read more
-                </a>
-              </div>
-            </div>
-          </div>
+          </a>
         ))}
       </div>
 
