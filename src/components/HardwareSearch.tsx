@@ -131,7 +131,7 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
 
 
       {/* Hardware Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {filteredItems.map((item, index) => (
           <a 
             key={item.id}
