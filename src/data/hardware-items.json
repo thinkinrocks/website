@@ -271,7 +271,8 @@
       "OpenBCI EEG Headband Kit"
     ],
     "categories": ["Biosensing", "Neuroscience"],
-    "status": "coming-soon",
+    "status": "available",
+    "isNew": true,
     "details": [
       "The [OpenBCI Biosensing Starter Bundle](https://shop.openbci.com/) is a complete system for recording EEG (brain), ECG (heart), and EMG (muscle) signals using open-source software and hardware.",
       "**Bundle Contents:**<br/>- Ganglion Board (4-channel, 32-bit biosensing board with Bluetooth LE)<br/>- Battery and USB charger<br/>- Ganglion USB Dongle (wireless connectivity)<br/>- EMG/ECG Gel Snap Electrodes<br/>- EMG/ECG Snap Cables<br/>- OpenBCI EEG Headband Kit (adjustable with dry electrode holders)",
