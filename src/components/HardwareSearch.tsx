@@ -37,7 +37,7 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
       return matchesSearch && matchesCategory;
     });
 
-    // Sort: coming-soon first, then new items, then others
+    // Sort: coming-soon first, then new items, then by availableSince (newest first)
     return filtered.sort((a, b) => {
       // Coming soon items first
       if (a.status === 'coming-soon' && b.status !== 'coming-soon') return -1;
@@ -46,6 +46,11 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
       // Then new items
       if (a.isNew && !b.isNew) return -1;
       if (!a.isNew && b.isNew) return 1;
+      
+      // Then sort by availableSince (newest first)
+      if (a.availableSince && b.availableSince) {
+        return new Date(b.availableSince).getTime() - new Date(a.availableSince).getTime();
+      }
       
       return 0;
     });

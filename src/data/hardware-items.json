@@ -6,6 +6,7 @@
     "cloudinaryPublicId": "varjo-xr3_t353nm",
     "categories": ["XR/VR", "Computer Vision"],
     "status": "available",
+    "availableSince": "2025-09-08",
     "details": [
       "The [Varjo XR-3](https://varjo.com/products/varjo-xr-3/) is designed for enterprise and research applications where accuracy and immersion are paramount. It delivers over 70 PPD in the focus area, with a wide 115° FOV and photorealistic dual 12 MP pass-through combined with LiDAR depth sensing.",
       "It features 200 Hz eye tracking with sub-degree accuracy and integrated Ultraleap Geminihand tracking, making it suitable for precision-intensive workflows like industrial training, medical simulation, and architectural visualization.",
@@ -22,8 +23,9 @@
     "name": "Doublepoint Dev Kit",
     "description": "The Doublepoint Developer Kit is a wearable sensor that enables precise wrist and finger gesture recognition. It supports low-latency, natural input for XR, wearables, and mobile devices, making interactions more intuitive.",
     "cloudinaryPublicId": "doublepoint_imsl0w",
-    "categories": ["XR/VR", "Sensors"],
+    "categories": ["XR/VR"],
     "status": "available",
+    "availableSince": "2025-09-24",
     "details": [
       "The [Doublepoint Developer Kit](https://www.doublepoint.com/) provides advanced gesture recognition through a compact wrist-worn device. It captures subtle finger and wrist movements—such as taps, pinches, flicks, and rotations—with low latency, enabling natural, controller-free input for XR headsets, wearables, and mobile applications.",
       "Developers can access SDKs and sample apps via the [Doublepoint Github page](https://github.com/doublepointlab). Setup involves pairing the device, running calibration, and integrating gesture events into Unity, Unreal Engine, or mobile frameworks. Calibration ensures accuracy, but also means per-user setup is recommended for optimal performance.",
@@ -41,6 +43,7 @@
     "cloudinaryPublicId": "alif_semi_flnyws",
     "categories": ["AI", "Embedded Systems"],
     "status": "available",
+    "availableSince": "2025-10-02",
     "details": [
       "The [Alif Ensemble E7 DevKit Gen 2 (DK-E7)](https://alifsemi.com/support/kits/ensemble-e7devkit) is a flexible single-board platform supporting configuration as E1, E3, E5, or E7-class devices. It showcases Alif’s Ensemble fusion processor family, designed for intelligent edge applications that combine AI acceleration, real-time control, and ultra-low-power operation.",
       "The SoC integrates dual Cortex-A32 application cores, dual Cortex-M55 real-time cores (HE and HP variants), and dual Ethos-U55 microNPUs, offering up to 480 MHz compute frequency for mixed workloads. This heterogeneous architecture enables efficient distribution of tasks between AI inference and deterministic control. [User Guide (PDF)](https://alifsemi.com/download/AUGD0010)",
@@ -60,6 +63,7 @@
     "cloudinaryPublicId": "shelby-computer_cndb2j",
     "categories": ["Workstation", "AI"],
     "status": "available",
+    "availableSince": "2025-09-18",
     "details": [
       "Shelby is a custom-built AI workstation designed for computationally demanding research and prototyping. At its core is an AMD Ryzen 9 9950X3D CPU paired with the [Tenstorrent Blackhole™ P100a](https://tenstorrent.com/) accelerator, supported by 64GB of high-speed DDR5 RAM and a Samsung 990 PRO 2TB NVMe SSD for fast data access. The system is housed in a Blackstorm Artemis A711G ATX case with liquid cooling and a 1200W PSU, ensuring stable performance during sustained workloads.",
       "With this setup, Shelby can train and fine-tune large AI models such as LLMs, vision transformers, and diffusion architectures. It is well-suited for reinforcement learning experiments, real-time vision inference, robotics control, and compiler research for emerging RISC-V accelerators. Compared to conventional GPU workstations, it offers a unique blend of CPU power and accelerator efficiency for both mainstream and experimental AI workflows.",
@@ -77,6 +81,7 @@
     "cloudinaryPublicId": "nexys-a7_g2jiyh",
     "categories": ["FPGA"],
     "status": "available",
+    "availableSince": "2025-09-17",
     "details": [
       "The [Nexys A7](https://digilent.com/shop/nexys-a7-fpga-trainer-board-recommended-for-ece-curriculum/) is built around the AMD Artix-7 XC7A100T or XC7A50T FPGA. It provides a rich set of peripherals including LEDs, switches, buttons, VGA output, audio codec, USB-UART, Ethernet, and DDR2 memory, making it an ideal entry point for FPGA education and hardware prototyping.",
       "The board supports projects ranging from basic digital logic to full CPU architectures, DSP pipelines, and custom peripheral interfaces. It is widely used in ECE curricula for teaching FPGA design, embedded systems, and computer architecture.",
@@ -96,6 +101,7 @@
     "cloudinaryPublicId": "tenstorrent_igxdgh",
     "categories": ["AI"],
     "status": "available",
+    "availableSince": "2025-09-01",
     "details": [
       "The [Tenstorrent Blackhole™ p100a](https://tenstorrent.com/) introduces a new approach to AI acceleration, built on a RISC-V architecture with 16 high-performance cores and 28 GB of GDDR6 memory. Packaged as a PCIe board with active cooling, it delivers up to 300W of compute performance for workstations and research environments.",
       "It is designed for both training and inference of neural networks, offering an alternative to traditional GPU-based solutions. The architecture is particularly effective for large memory-intensive models such as LLMs, vision transformers, and reinforcement learning pipelines, while also enabling research into non-GPU compute paradigms.",
@@ -115,6 +121,7 @@
     "cloudinaryPublicId": "jetson-nano_dypbw9",
     "categories": ["AI", "Computer Vision", "Robotics"],
     "status": "available",
+    "availableSince": "2025-09-01",
     "details": [
       "The [Jetson Orin Nano](https://developer.nvidia.com/embedded/jetson-orin) is NVIDIA’s smallest and most efficient Orin-based module. It provides up to 67 TOPS of AI compute via an Ampere GPU with 1024 CUDA cores and 32 Tensor cores, a 6-core Arm Cortex-A78AE CPU, and 8GB of LPDDR5 memory with 102 GB/s bandwidth. Its 7–25W configurable TDP enables deployment in compact, power-sensitive robotics and edge AI systems.",
       "The module runs real-time inference for computer vision, natural language, and transformer-based models through TensorRT acceleration. Applications include autonomous robots, drones, and smart vision systems that require on-device intelligence with low latency and no dependency on cloud services.",
@@ -134,6 +141,7 @@
     "cloudinaryPublicId": "lenovo-legion-t5_ilvqhw",
     "categories": ["Workstation"],
     "status": "available",
+    "availableSince": "2025-09-10",
     "details": [
       "The Lenovo Legion Tower 5 Gen 10 bridges gaming-grade performance with professional creative and AI development needs. Powered by an AMD Ryzen 7 7700X CPU and an NVIDIA RTX 5070 GPU with 12GB VRAM, it combines 32GB of DDR5-5600 memory and a 1TB PCIe 4.0 NVMe SSD on the AMD B650 platform. This makes it a strong performer for 1440p/4K gaming, 3D creation, and GPU-accelerated machine learning tasks.",
       "The system is well-suited for 3D modeling, rendering, and video editing workflows, with GPU acceleration enabling smooth handling of large scenes. It also supports AI inference and small-to-medium training jobs, making it useful for ML experimentation and development. With strong multitasking performance, it can handle hybrid creative/technical workloads like XR demos, compiling, and streaming simultaneously.",
@@ -153,6 +161,7 @@
     "cloudinaryPublicId": "amd-robotics_x3a9q3",
     "categories": ["Robotics", "FPGA"],
     "status": "available",
+    "availableSince": "2025-09-01",
     "details": [
       "The [AMD Kria KR260 Robotics Starter Kit](https://www.amd.com/en/products/system-on-modules/kria/k26/kr260-robotics-starter-kit.html) is a robotics-focused platform built on AMD/Xilinx adaptive SoC technology. It integrates FPGA fabric, a quad-core Arm Cortex-A53 processor, and industrial-grade interfaces for robotics, automation, and embedded AI applications.",
       "It delivers deterministic, low-latency control loops with hardware-accelerated ROS 2 nodes, enabling microsecond-level response times not achievable with CPU-only solutions. Developers can offload compute-heavy tasks (e.g., perception, sensor fusion, control algorithms) to the FPGA fabric while keeping ROS 2 software components running on Linux.",
@@ -172,6 +181,7 @@
     "cloudinaryPublicId": "amd-vision_d4flw0",
     "categories": ["Computer Vision", "AI", "FPGA"],
     "status": "available",
+    "availableSince": "2025-09-01",
     "details": [
       "The [AMD Kria KV260 Vision AI Starter Kit](https://www.amd.com/en/products/system-on-modules/kria/k26/kv260-vision-starter-kit.html) is optimized for advanced computer vision applications. It integrates a quad-core Arm Cortex-A53 processor with FPGA fabric to accelerate real-time video analytics, deep neural network inference, and edge vision pipelines.",
       "The platform excels in smart city infrastructure, retail analytics, industrial inspection, and security systems. By running inference locally on the FPGA, it provides low-latency responses while maintaining privacy through on-premises data processing.",
@@ -191,6 +201,7 @@
     "cloudinaryPublicId": "camera_g2vijm",
     "categories": ["Computer Vision", "Robotics"],
     "status": "available",
+    "availableSince": "2025-09-01",
     "details": [
       "The [OAK-D Pro](https://docs.luxonis.com/projects/hardware/en/latest/pages/DM9095.html) is an advanced computer vision camera that integrates stereo depth sensing with onboard AI inference. It includes IR illumination for consistent depth performance in low-light environments, making it useful for robotics, SLAM, and interactive applications across indoor and outdoor contexts.",
       "It produces stereo depth maps and point clouds while running neural networks for object detection, classification, and tracking directly on-device. This reduces the need for external compute, enabling efficient edge AI deployments in robotics, AR/VR, and embedded systems.",
@@ -215,7 +226,7 @@
     ],
     "categories": ["Embedded Systems", "IoT", "Prototyping"],
     "status": "available",
-    "isNew": true,
+    "availableSince": "2026-01-15",
     "details": [
       "The [Raspberry Pi 5](https://www.raspberrypi.com/products/raspberry-pi-5/) features a quad-core Arm Cortex-A76 processor (2.4GHz), 8GB RAM, dual 4Kp60 HDMI outputs, PCIe 2.0, Wi-Fi 802.11ac, Bluetooth 5.0/BLE, Gigabit Ethernet, and USB 3.0.",
       "**Key Features:** PCIe 2.0 interface supports NVMe SSDs, AI accelerators (Coral TPU), and network cards. Power button and real-time clock included. Use official 27W USB-C adapter to avoid power issues.",
@@ -244,7 +255,7 @@
     ],
     "categories": ["IoT", "Embedded Systems", "Prototyping"],
     "status": "available",
-    "isNew": true,
+    "availableSince": "2026-01-15",
     "details": [
       "ESP32 boards integrate Wi-Fi, Bluetooth LE, Wi-Fi 6, and Thread/Zigbee (802.15.4) for wireless IoT prototyping. Ideal for battery-powered sensors, smart home devices, wearables, and industrial monitoring.",
       "**Three Boards Available:** **DFRobot Beetle ESP32-C6** - ultra-compact with Wi-Fi 6, BLE, 802.15.4 for wearables. **ESP32-C6 DevKitC-1 (N8)** - general-purpose, Matter-compatible. **ESP32-S3-WROOM-2-N32R16V** - 32MB flash, 16MB PSRAM, native USB for AI inference and camera apps.",
@@ -270,7 +281,7 @@
       "OpenBCI Ganglion Board",
       "OpenBCI EEG Headband Kit"
     ],
-    "categories": ["Biosensing", "Neuroscience"],
+    "categories": ["Biosensing"],
     "status": "available",
     "isNew": true,
     "details": [
@@ -297,8 +308,10 @@
       "EmotiBit Sensor Module",
       "EmotiBit All-in-One Bundle"
     ],
-    "categories": ["Biosensing", "Wearables"],
-    "status": "coming-soon",
+    "categories": ["Biosensing"],
+    "status": "available",
+    "availableSince": "2026-01-28",
+    "isNew": true,
     "details": [
       "The [EmotiBit All-in-One Bundle](https://www.emotibit.com/) is a wearable multi-sensor platform for capturing physiological and emotional data in real-time. Designed for research, health monitoring, and affective computing applications.",
       "**Bundle Contents:**<br/>- EmotiBit Sensor Module (wearable biometric sensor)<br/>- Battery and charging cable<br/>- Wearable straps and mounting accessories<br/>- SD card for local data storage<br/>- EmotiBit software suite and visualization tools",
@@ -331,9 +344,9 @@
       "Raspberry Pi Camera Module 3",
       "Adafruit 2.13\" E-Ink Display"
     ],
-    "categories": ["Accessories", "Prototyping"],
+    "categories": ["Prototyping"],
     "status": "available",
-    "isNew": true,
+    "availableSince": "2026-01-15",
     "details": [
       "A comprehensive collection of starter kits, sensors, cameras, and displays compatible with Raspberry Pi, Arduino, and ESP32 platforms. Designed for learning, prototyping, and building complete embedded systems.",
       "**Kit Collection:**<br/>- SunFounder Ultimate Starter Kit (CN0434D) - comprehensive sensor collection and project tutorials<br/>- SunFounder RPi Starter Kit #1 (CN0348D) - GPIO basics and essential components<br/>- SunFounder RPi Starter Kit #2 (CN0349D) - intermediate GPIO projects<br/>- SunFounder Sensor Kit (CN0450D) - cross-platform sensors for Arduino, ESP32, and Raspberry Pi",

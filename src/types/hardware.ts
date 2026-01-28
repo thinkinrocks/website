@@ -7,6 +7,7 @@ export interface HardwareItem {
   imageCaptions?: string[];
   categories: string[];
   status: 'available' | 'coming-soon' | 'maintenance';
+  availableSince?: string;
   isNew?: boolean;
   details: string[];
   related: string[];
