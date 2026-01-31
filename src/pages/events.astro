@@ -73,13 +73,70 @@ function truncateDescription(description: string, maxLength: number = 400): { te
               const { text: shortDescription, wasTruncated } = truncateDescription(item.event.description || '');
               return (
                 <div class="border-l-4 border-purple-600 pl-4 py-2">
-                  <div class="flex gap-4">
+                  {/* Mobile Layout */}
+                  <div class="md:hidden">
+                    <div class="flex gap-3 mb-3 items-center">
+                      {item.event.cover_url && (
+                        <div class="flex-shrink-0">
+                          <img 
+                            src={item.event.cover_url} 
+                            alt={item.event.name}
+                            class="w-20 h-20 object-cover rounded"
+                          />
+                        </div>
+                      )}
+                      <div class="flex-1 min-w-0">
+                        <h3 class="text-base font-mono text-gray-900 mb-2">
+                          {item.event.name}
+                        </h3>
+                        <div class="flex flex-wrap items-center gap-1.5 text-xs">
+                          <span class="font-mono text-gray-700">
+                            {formatEventDate(item.event.start_at, item.event.timezone)}
+                          </span>
+                          <span class="font-mono text-gray-400">|</span>
+                          <span class="bg-purple-100 text-purple-700 px-2 py-0.5 rounded font-mono font-semibold">
+                            {formatEventTime(item.event.start_at, item.event.timezone)}
+                          </span>
+                          {item.event.geo_address_json?.address && (
+                            <>
+                              <span class="font-mono text-gray-400">|</span>
+                              <span class="font-mono text-gray-600">
+                                {item.event.geo_address_json.address}
+                              </span>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="space-y-2">
+                      {shortDescription && (
+                        <p class="font-sans text-sm text-gray-700">{shortDescription}</p>
+                      )}
+                      {item.event.url && (
+                        <div class="flex justify-center">
+                          <div class="bg-purple-600 h-fit translate-0.5">
+                            <a
+                              href={item.event.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              class="bg-purple-50 text-purple-600 inline-flex px-4 py-2 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono text-sm hover:bg-purple-100 transition-colors"
+                            >
+                              Register
+                            </a>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Desktop Layout */}
+                  <div class="hidden md:flex gap-4">
                     {item.event.cover_url && (
                       <div class="flex-shrink-0">
                         <img 
                           src={item.event.cover_url} 
                           alt={item.event.name}
-                          class="w-32 h-32 md:w-40 md:h-40 object-cover rounded"
+                          class="w-40 h-40 object-cover rounded"
                         />
                       </div>
                     )}
@@ -87,10 +144,23 @@ function truncateDescription(description: string, maxLength: number = 400): { te
                       <h3 class="text-lg font-mono text-gray-900 mb-2">
                         {item.event.name}
                       </h3>
-                      <p class="text-sm font-mono text-gray-600 mb-2">
-                        {formatEventDate(item.event.start_at, item.event.timezone)} | {formatEventTime(item.event.start_at, item.event.timezone)}
-                        {item.event.geo_address_json?.address && ` | ${item.event.geo_address_json.address}`}
-                      </p>
+                      <div class="flex flex-wrap items-center gap-2 mb-2">
+                        <span class="text-sm font-mono text-gray-700">
+                          {formatEventDate(item.event.start_at, item.event.timezone)}
+                        </span>
+                        <span class="text-sm font-mono text-gray-400">|</span>
+                        <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded font-mono text-sm font-semibold">
+                          {formatEventTime(item.event.start_at, item.event.timezone)}
+                        </span>
+                        {item.event.geo_address_json?.address && (
+                          <>
+                            <span class="text-sm font-mono text-gray-400">|</span>
+                            <span class="text-sm font-mono text-gray-700">
+                              {item.event.geo_address_json.address}
+                            </span>
+                          </>
+                        )}
+                      </div>
                       {shortDescription && (
                         <p class="font-sans text-gray-700">{shortDescription}</p>
                       )}
@@ -128,13 +198,70 @@ function truncateDescription(description: string, maxLength: number = 400): { te
               const { text: shortDescription, wasTruncated } = truncateDescription(item.event.description || '');
               return (
                 <div class="border-l-4 border-gray-400 pl-4 py-2">
-                  <div class="flex gap-4">
+                  {/* Mobile Layout */}
+                  <div class="md:hidden">
+                    <div class="flex gap-3 mb-3 items-center">
+                      {item.event.cover_url && (
+                        <div class="flex-shrink-0">
+                          <img 
+                            src={item.event.cover_url} 
+                            alt={item.event.name}
+                            class="w-20 h-20 object-cover rounded"
+                          />
+                        </div>
+                      )}
+                      <div class="flex-1 min-w-0">
+                        <h3 class="text-base font-mono text-gray-900 mb-2">
+                          {item.event.name}
+                        </h3>
+                        <div class="flex flex-wrap items-center gap-1.5 text-xs">
+                          <span class="font-mono text-gray-700">
+                            {formatEventDate(item.event.start_at, item.event.timezone)}
+                          </span>
+                          <span class="font-mono text-gray-400">|</span>
+                          <span class="bg-gray-200 text-gray-700 px-2 py-0.5 rounded font-mono font-semibold">
+                            {formatEventTime(item.event.start_at, item.event.timezone)}
+                          </span>
+                          {item.event.geo_address_json?.address && (
+                            <>
+                              <span class="font-mono text-gray-400">|</span>
+                              <span class="font-mono text-gray-600">
+                                {item.event.geo_address_json.address}
+                              </span>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="space-y-2">
+                      {shortDescription && (
+                        <p class="font-sans text-sm text-gray-700">{shortDescription}</p>
+                      )}
+                      {item.event.url && (
+                        <div class="flex justify-center">
+                          <div class="bg-gray-600 h-fit translate-0.5">
+                            <a
+                              href={item.event.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              class="bg-gray-50 text-gray-600 inline-flex px-4 py-2 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono text-sm hover:bg-gray-100 transition-colors"
+                            >
+                              View
+                            </a>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Desktop Layout */}
+                  <div class="hidden md:flex gap-4">
                     {item.event.cover_url && (
                       <div class="flex-shrink-0">
                         <img 
                           src={item.event.cover_url} 
                           alt={item.event.name}
-                          class="w-32 h-32 md:w-40 md:h-40 object-cover rounded"
+                          class="w-40 h-40 object-cover rounded"
                         />
                       </div>
                     )}
