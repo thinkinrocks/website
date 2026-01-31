@@ -68,7 +68,7 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
     switch (status) {
       case 'coming-soon':
         return (
-          <span className="text-xs font-mono text-indigo-600 bg-indigo-50 px-2 py-1">
+          <span className="text-xs font-mono text-purple-600 bg-purple-50 px-2 py-1">
             coming soon
           </span>
         );
@@ -104,7 +104,7 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-3 font-mono text-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            className="w-full px-4 py-3 font-mono text-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
           />
           {searchQuery && (
             <button
@@ -124,7 +124,7 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
               onClick={() => toggleCategory(category)}
               className={`px-3 py-1 text-xs font-mono  transition-colors ${
                 selectedCategories.includes(category)
-                  ? 'bg-indigo-600 text-white'
+                  ? 'bg-purple-600 text-white'
                   : 'bg-gray-100 text-gray-700'
               }`}
             >
@@ -141,11 +141,11 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
           <a 
             key={item.id}
             href={`/hardware/${item.id}`}
-            className="border border-gray-200 p-6 fade-in flex flex-col relative cursor-pointer hover:border-indigo-600 transition-colors"
+            className="border border-gray-200 p-6 fade-in flex flex-col relative cursor-pointer hover:border-purple-600 transition-colors"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             {item.status === 'coming-soon' && (
-              <span className="absolute top-4 right-4 text-xs font-mono text-indigo-600 bg-indigo-50 px-2 py-1">
+              <span className="absolute top-4 right-4 text-xs font-mono text-purple-600 bg-purple-50 px-2 py-1">
                 coming soon
               </span>
             )}
