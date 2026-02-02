@@ -55,10 +55,10 @@ export function EventButton({
   onClick?: () => void;
 }) {
   return (
-    <div className="bg-emerald-600 h-fit translate-0.5">
+    <div className="bg-teal-600 h-fit translate-0.5">
       <a
         href={href}
-        className="bg-emerald-50 text-emerald-600 inline-flex px-4 py-2 -translate-0.5 items-center gap-2 whitespace-nowrap"
+        className="bg-teal-50 text-teal-600 inline-flex px-4 py-2 -translate-0.5 items-center gap-2 whitespace-nowrap"
         target="_blank"
         onClick={onClick}
       >
