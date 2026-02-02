@@ -31,24 +31,11 @@ export interface LumaApiResponse {
   next_cursor?: string;
 }
 
-// Simple in-memory cache
-let cachedEvents: LumaEvent[] | null = null;
-let cacheTimestamp: number = 0;
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
-
 /**
  * Fetch all events from Luma Calendar API (2026+)
- * Results are cached for 5 minutes to improve performance
  */
 export async function fetchAllLumaEvents(calendarId: string): Promise<LumaEvent[]> {
   const apiKey = import.meta.env.LUMA_API_KEY;
-
-  // Check cache first
-  const now = Date.now();
-  if (cachedEvents && (now - cacheTimestamp) < CACHE_DURATION) {
-    console.log('Using cached events');
-    return cachedEvents;
-  }
 
   // Check if API key and calendar ID are properly configured
   if (!apiKey || apiKey === "your-luma-api-key-here") {
@@ -115,10 +102,6 @@ export async function fetchAllLumaEvents(calendarId: string): Promise<LumaEvent[
     });
 
     console.log(`Fetched ${thinkinRocksEvents.length} Thinkin' Rocks events from 2026+`);
-    
-    // Cache the results
-    cachedEvents = thinkinRocksEvents;
-    cacheTimestamp = now;
     
     return thinkinRocksEvents;
   } catch (error) {
