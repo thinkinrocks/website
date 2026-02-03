@@ -63,11 +63,21 @@ export default function EventsList() {
           <div className="flex gap-3 mb-3 items-center">
             {item.event.cover_url && (
               <div className="flex-shrink-0">
-                <img 
-                  src={item.event.cover_url} 
-                  alt={item.event.name}
-                  className="w-16 h-16 object-cover rounded"
-                />
+                {item.event.url ? (
+                  <a href={item.event.url} target="_blank" rel="noopener noreferrer">
+                    <img 
+                      src={item.event.cover_url} 
+                      alt={item.event.name}
+                      className="w-16 h-16 object-cover rounded hover:opacity-90 transition-opacity cursor-pointer"
+                    />
+                  </a>
+                ) : (
+                  <img 
+                    src={item.event.cover_url} 
+                    alt={item.event.name}
+                    className="w-16 h-16 object-cover rounded"
+                  />
+                )}
               </div>
             )}
             <div className="flex-1 min-w-0">
@@ -124,11 +134,21 @@ export default function EventsList() {
         <div className="hidden md:flex gap-4 items-center">
           {item.event.cover_url && (
             <div className="flex-shrink-0">
-              <img 
-                src={item.event.cover_url} 
-                alt={item.event.name}
-                className="w-32 h-32 object-cover rounded"
-              />
+              {item.event.url ? (
+                <a href={item.event.url} target="_blank" rel="noopener noreferrer">
+                  <img 
+                    src={item.event.cover_url} 
+                    alt={item.event.name}
+                    className="w-32 h-32 object-cover rounded hover:opacity-90 transition-opacity cursor-pointer"
+                  />
+                </a>
+              ) : (
+                <img 
+                  src={item.event.cover_url} 
+                  alt={item.event.name}
+                  className="w-32 h-32 object-cover rounded"
+                />
+              )}
             </div>
           )}
           <div className="flex-1 min-w-0">
