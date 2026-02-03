@@ -66,7 +66,7 @@ export default function EventsList() {
                 <img 
                   src={item.event.cover_url} 
                   alt={item.event.name}
-                  className="w-20 h-20 object-cover rounded"
+                  className="w-16 h-16 object-cover rounded"
                 />
               </div>
             )}
@@ -99,18 +99,18 @@ export default function EventsList() {
               </div>
             </div>
           </div>
-          <div className="space-y-2 overflow-hidden">
+          <div className="space-y-2">
             {shortDescription && (
-              <p className="font-sans text-sm text-gray-700">{shortDescription}</p>
+              <p className="font-sans text-sm text-gray-700 break-words">{shortDescription}</p>
             )}
             {item.event.url && (
-              <div className="flex justify-center">
-                <div className={`${isPastEvent ? 'bg-gray-600' : 'bg-purple-600'} h-fit translate-0.5`}>
+              <div className="flex justify-center pt-2">
+                <div className={`${isPastEvent ? 'bg-gray-600' : 'bg-purple-600'} h-fit translate-y-0.5`}>
                   <a
                     href={item.event.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${isPastEvent ? 'bg-gray-50 text-gray-600 hover:bg-gray-100' : 'bg-purple-50 text-purple-600 hover:bg-purple-100'} inline-flex px-4 py-2 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono text-sm transition-colors`}
+                    className={`${isPastEvent ? 'bg-gray-50 text-gray-600 hover:bg-gray-100' : 'bg-purple-50 text-purple-600 hover:bg-purple-100'} inline-flex px-4 py-2 -translate-y-0.5 items-center gap-2 whitespace-nowrap font-mono text-sm transition-colors`}
                   >
                     {isPastEvent ? 'View' : 'Join'}
                   </a>
@@ -127,11 +127,11 @@ export default function EventsList() {
               <img 
                 src={item.event.cover_url} 
                 alt={item.event.name}
-                className="w-40 h-40 object-cover rounded"
+                className="w-32 h-32 object-cover rounded"
               />
             </div>
           )}
-          <div className="flex-1 min-w-0 max-w-3xl">
+          <div className="flex-1 min-w-0">
             <h3 className="text-lg font-mono mb-2">
               {item.event.url ? (
                 <a href={item.event.url} target="_blank" rel="noopener noreferrer" className="text-gray-900 transition-colors hover:text-purple-600">
@@ -188,7 +188,7 @@ export default function EventsList() {
           {[1, 2, 3].map(i => (
             <div key={i} className="border-l-4 border-gray-300 pl-4 py-2">
               <div className="flex gap-4">
-                <div className="w-40 h-40 bg-gray-200 rounded"></div>
+                <div className="w-32 h-32 bg-gray-200 rounded"></div>
                 <div className="flex-1 space-y-3">
                   <div className="h-6 bg-gray-200 rounded w-3/4"></div>
                   <div className="h-4 bg-gray-200 rounded w-1/2"></div>
@@ -213,7 +213,7 @@ export default function EventsList() {
   const events = activeTab === 'upcoming' ? upcomingEvents : pastEvents;
 
   return (
-    <div>
+    <div className="w-full">
       {/* Tabs */}
       <div className="mb-8">
         <nav className="flex space-x-8" aria-label="Tabs">
@@ -265,7 +265,7 @@ export default function EventsList() {
       </div>
 
       {/* Events List */}
-      <div className="space-y-6 overflow-x-hidden">
+      <div className="space-y-6">
         {events.length === 0 ? (
           <p className="font-sans text-lg text-gray-700">
             {activeTab === 'upcoming' 
