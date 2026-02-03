@@ -8,7 +8,7 @@ import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "hybrid", // Allows mixing static and SSR pages
+  output: "server", // Server mode with selective prerendering
   vite: {
     plugins: [tailwindcss()],
   },
