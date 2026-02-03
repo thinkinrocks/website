@@ -156,6 +156,7 @@ export function formatEventDate(dateString: string, timezone?: string): string {
       month: 'short',
       day: 'numeric',
       year: 'numeric',
+      timeZone: timezone || 'Europe/Helsinki', // Default to Helsinki timezone
     });
   } catch (error) {
     return 'Date TBA';
@@ -172,6 +173,7 @@ export function formatEventTime(dateString: string, timezone?: string): string {
       hour: 'numeric',
       minute: '2-digit',
       hour12: true,
+      timeZone: timezone || 'Europe/Helsinki', // Default to Helsinki timezone
     });
   } catch (error) {
     return 'Time TBA';
