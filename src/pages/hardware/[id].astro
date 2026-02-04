@@ -1,4 +1,6 @@
 ---
+export const prerender = true;
+
 import Layout from "../../layouts/Layout.astro";
 import type { HardwareItem } from "../../types/hardware";
 import { AdvancedImage } from '@cloudinary/react';
@@ -19,8 +21,8 @@ export async function getStaticPaths() {
 const { item, allItems } = Astro.props as { item: HardwareItem; allItems: HardwareItem[] };
 
 // Get related hardware items
-const relatedItems = item.related
-  ? allItems.filter(hardwareItem => item.related.includes(hardwareItem.id))
+const relatedItems = item?.related
+  ? allItems.filter(hardwareItem => item.related!.includes(hardwareItem.id))
   : [];
 
 // Function to truncate description by word count
