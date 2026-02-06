@@ -1,4 +1,22 @@
 [
+    {
+      "id": "020",
+      "title": "Mobile Motion Capture & Eye Tracking Added",
+      "content": "Added Sony mocopi Pro Kit and SeeTrue Technologies ST ONE mobile eye tracker to the hardware catalog. These new systems expand our capabilities in full-body motion capture, gaze tracking, and multimodal human-sensing, supporting XR embodiment, HCI research, and naturalistic user studies. Both devices are marked as coming soon.",
+      "author": "Milana",
+      "timestamp": "2026-02-06T12:00:00Z",
+      "tags": ["XR", "motion-capture", "eye-tracking", "hardware", "update"],
+      "type": "update"
+    },
+    {
+      "id": "021",
+      "title": "XR & Human Sensing Capabilities Expanded",
+      "content": "The hardware collection now includes wearable motion capture and mobile eye tracking systems. Sony mocopi Pro Kit enables fast, portable full-body capture, while the ST ONE eye tracker supports robust gaze tracking in real-world and XR scenarios. Together, they strengthen our toolkit for embodied interaction, XR research, and multimodal experiments.",
+      "author": "Milana",
+      "timestamp": "2026-02-05T10:00:00Z",
+      "tags": ["XR", "HCI", "research", "hardware", "announcement"],
+      "type": "announcement"
+    },
   {
     "id": "019",
     "title": "IoT & Embedded Systems Expansion",
