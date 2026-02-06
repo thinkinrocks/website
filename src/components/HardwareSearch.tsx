@@ -177,7 +177,7 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
               ) : null}
             </div>
             <h3 className="font-mono text-lg text-gray-900 mb-3 text-center">{item.name}</h3>
-            <p className="font-sans text-sm text-gray-700 leading-relaxed mb-4 flex-grow">
+            <p className="font-sans text-sm text-gray-700 leading-relaxed mb-2 flex-grow">
               {truncateDescription(item.description)}
             </p>
           </a>

@@ -358,5 +358,53 @@
       "**Essential Resources:**<br/>- [Raspberry Pi GPIO Documentation](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html)<br/>- [Arduino Documentation](https://docs.arduino.cc/)<br/>- [Adafruit Learning System](https://learn.adafruit.com/)<br/>- [SunFounder Learning Platform](https://docs.sunfounder.com/)"
     ],
     "related": ["raspberry-pi-5", "esp-dev-boards", "jetson-orin-nano"]
+  },
+  {
+    "id": "seetrue-eye-tracker",
+    "name": "Mobile eye tracker ST ONE",
+    "description": "Research-grade wearable eye-tracking glasses delivering robust, slip-tolerant, and recalibration-free gaze tracking for mobile, real-world, and XR research scenarios.",
+    "cloudinaryPublicId": "st-one-eye-tracker",
+    "categories": ["Biosensing", "XR/VR"],
+    "status": "coming-soon",
+    "availableSince": "2026-02-06",
+    "details": [
+      "ST ONE is a wearable, glasses-form-factor eye-tracking system designed for collecting high-quality eye-movement data in real-world and mobile conditions where head motion, device slippage, and interruptions are expected. Unlike many eye trackers optimized for static lab setups, ST ONE is built for naturalistic behavior, allowing rapid head movement, re-wearing between sessions, and use with corrective eyewear.",
+      "The system relies on infrared cameras and a binocular, truly 3D eye model to measure real eye movements directly, rather than estimating gaze via end-to-end deep learning. This approach improves robustness across diverse users and environments and supports consistent accuracy without frequent recalibration. A key feature is persistent calibration: once calibrated, users can remove and re-don the device without repeating calibration procedures.",
+      "ST ONE records eye-tracking data synchronized with a forward-facing scene camera, enabling contextual gaze analysis in real-world tasks. Captured signals include eye position and orientation (x, y, z), gaze point coordinates, pupil size (in millimeters), blink events, fixation events, and validity codes. Data can be streamed live or recorded for offline analysis.",
+      "For development and integration, recorded data can be exported in standard formats such as CSV and gaze video, allowing straightforward use in Python, MATLAB, or R analysis pipelines. Real-time streaming enables multimodal experiments combining eye tracking with EEG, physiological signals, motion capture, or XR systems.",
+      "Typical applications include cognitive and behavioral science, usability and UX research, XR interaction studies, training and performance analysis, and human–computer interaction experiments that require unrestricted head and body movement.",
+      "**Development & Research Advice:** Validate calibration stability and data quality under your expected motion conditions before running full experiments. When combining ST ONE with XR headsets or motion capture, use a shared timestamping or synchronization strategy. For real-time applications, prototype first with recorded data to tune latency and filtering before deploying live pipelines."
+    ],
+    "related": ["varjo-xr3", "mobile-mocap-pro-xyn", "openbci-biosensing-bundle"]
+  },
+  {
+    "id": "mobile-mocap-pro-xyn",
+    "name": "Sony mocopi Pro Kit",
+    "description": "Portable professional motion capture system combining Sony mocopi wearable sensors with XYN Motion Studio software for fast, full-body motion capture in XR, animation, and research workflows.",
+    "cloudinaryPublicId": "sony-mocopi-Pro-Kit",
+    "categories": ["Motion Capture", "XR/VR", "Computer Vision"],
+    "status": "coming-soon",
+    "availableSince": "2026-02-06",
+    "images": [
+    "https://d1ncau8tqf99kp.cloudfront.net/converted/114935_original_local_1200x1050_v3_converted.webp",
+    "https://d1ncau8tqf99kp.cloudfront.net/converted/124226_original_local_1200x1050_v3_converted.webp",
+    "https://d1ncau8tqf99kp.cloudfront.net/converted/124039_original_local_1200x1050_v3_converted.webp",
+    "https://d1ncau8tqf99kp.cloudfront.net/converted/124041_original_local_1200x1050_v3_converted.webp"
+  ],
+  "imageCaptions": [
+    "Sony mocopi Pro Kit",
+    "Sony mocopi Pro Kit – full wearable set",
+    "Wearable sensor placement on the body",
+    "Demonstration of the Sony mocopi Pro Kit software in action"
+  ],
+    "details": [
+      "The Sony mocopi Pro Kit is a lightweight, wearable motion capture system designed for rapid full-body motion capture without the need for external cameras or fixed studio installations. The system uses multiple compact IMU-based sensors worn on the body, enabling fast setup and portable capture in labs, studios, classrooms, or field environments.",
+      "Motion data is processed using XYN Motion Studio, which provides tools for pose reconstruction, motion cleanup, retargeting, and export. The software supports common animation and real-time engines, allowing captured motion to be applied directly to digital characters, avatars, or simulation models with minimal post-processing.",
+      "Captured motion can be exported in standard formats such as FBX and BVH, enabling integration with Unity, Unreal Engine, Blender, and custom biomechanics or robotics pipelines. This makes the system suitable for both real-time XR embodiment and offline analysis workflows.",
+      "Typical use cases include character animation, XR embodiment and avatar control, virtual production prototyping, biomechanics and movement studies, sports and performance analysis, and human–computer interaction research.",
+      "Compared to camera-based optical systems, mocopi prioritizes mobility and fast iteration. While IMU-based capture may exhibit drift or reduced absolute accuracy over long sessions, it enables motion capture in environments where optical systems are impractical or impossible.",
+      "**Development & Research Advice:** Validate sensor placement consistency before long recordings and test retargeting with simple avatar rigs before moving to complex characters. When combining mocopi with eye tracking or biosensing, synchronize data streams at the software level using timestamps or a shared clock rather than relying on post-hoc alignment."
+    ],
+    "related": ["varjo-xr3", "doublepoint-dev-kit", "oak-d-pro"]
   }
 ]
