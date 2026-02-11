@@ -5,11 +5,11 @@ import { FaDiscord, FaLinkedin, FaTelegram, FaInstagram } from "react-icons/fa";
 const currentPath = Astro.url.pathname;
 ---
 
-<!-- Navigation positioned across full width -->
+<!-- Navigation: same horizontal padding and max-width as page content -->
 <div class="fixed top-0 left-0 right-0 z-40 bg-[#fff4fe]">
   <!-- Desktop Navigation -->
-  <div class="hidden md:block px-4 md:px-16">
-    <div class="max-w-5xl mx-auto">
+  <div class="hidden md:block w-full px-4 md:px-16">
+    <div class="max-w-5xl mx-auto w-full">
       <div class="flex items-center justify-between h-12 w-full">
         <!-- Navigation Links -->
         <div class="flex items-center space-x-2">
