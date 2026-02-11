@@ -9,11 +9,11 @@ const currentPath = Astro.url.pathname;
 <div class="fixed top-0 left-0 right-0 z-40 bg-[#fff4fe]">
   <!-- Desktop Navigation -->
   <div class="hidden md:block px-4 md:px-16">
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-5xl mx-auto">
       <div class="flex items-center justify-between h-12 w-full">
         <!-- Navigation Links -->
         <div class="flex items-center space-x-2">
-          <a href="/" class={`font-mono nav-item hover:text-purple-600 ${(currentPath === '/' || currentPath === '') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>Thinkin'Rocks</a>
+          <a href="/" class={`font-mono nav-item hover:text-purple-600 ${(currentPath === '/' || currentPath === '') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>Thinkin' Rocks</a>
           <span class="text-gray-700">|</span>
           <a href="/hardware" class={`font-mono nav-item hover:text-purple-600 ${currentPath === '/hardware' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>hardware</a>
           <span class="text-gray-700">|</span>

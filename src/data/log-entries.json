@@ -1,5 +1,14 @@
 [
     {
+      "id": "022",
+      "title": "3D Printing, EEG & Biosensing Experiment Kits Added",
+      "content": "Added Bambu Lab P1S + AMS 2 Pro Combo for multi-material 3D printing and rapid prototyping; Ultracortex Mark IV EEG Headset with Cyton biosensing board for BCI and neurotech research; and OpenBCI EXG Experiment Bundle for hands-on EEG/EMG/ECG workshops and education. These expand our digital fabrication and biosensing capabilities for labs and student projects.",
+      "author": "Milana",
+      "timestamp": "2026-02-11T12:00:00Z",
+      "tags": ["hardware", "update", "biosensing", "3D-printing", "BCI", "education"],
+      "type": "update"
+    },
+    {
       "id": "020",
       "title": "Mobile Motion Capture & Eye Tracking Added",
       "content": "Added Sony mocopi Pro Kit and SeeTrue Technologies ST ONE mobile eye tracker to the hardware catalog. These new systems expand our capabilities in full-body motion capture, gaze tracking, and multimodal human-sensing, supporting XR embodiment, HCI research, and naturalistic user studies. Both devices are marked as coming soon.",

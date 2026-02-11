@@ -4,7 +4,10 @@
     "name": "Varjo XR-3",
     "description": "The Varjo XR-3 is a professional mixed reality headset offering human-eye resolution (over 70 PPD), dual 12 MP pass-through cameras, LiDAR depth sensing, 200 Hz eye tracking, Ultraleap hand tracking, and a 115° field of view.",
     "cloudinaryPublicId": "varjo-xr3_t353nm",
-    "categories": ["XR/VR", "Computer Vision"],
+    "categories": [
+      "XR/VR",
+      "Computer Vision"
+    ],
     "status": "available",
     "availableSince": "2025-09-08",
     "details": [
@@ -16,14 +19,20 @@
       "The XR-3 is not a consumer device: it requires external tracking (SteamVR 2.0 recommended), a high-end GPU workstation, and professional setup. It is optimized for dedicated labs and enterprise environments rather than portable use.",
       "**Essential Resources:**<br/>- [Varjo Developer Portal](https://developer.varjo.com/)<br/>- [Varjo Base Software](https://varjo.com/products/varjo-base/)<br/>- [Unity XR Docs](https://docs.unity3d.com/6000.2/Documentation/Manual/XR.html)<br/>- [Unreal AR/VR Guide](https://dev.epicgames.com/documentation/en-us/unreal-engine/developing-for-xr-experiences-in-unreal-engine?application_version=5.0)"
     ],
-    "related": ["shelby-computer", "lenovo-legion-t5", "doublepoint-dev-kit"]
-  },  
+    "related": [
+      "shelby-computer",
+      "lenovo-legion-t5",
+      "doublepoint-dev-kit"
+    ]
+  },
   {
     "id": "doublepoint-dev-kit",
     "name": "Doublepoint Dev Kit",
     "description": "The Doublepoint Developer Kit is a wearable sensor that enables precise wrist and finger gesture recognition. It supports low-latency, natural input for XR, wearables, and mobile devices, making interactions more intuitive.",
     "cloudinaryPublicId": "doublepoint_imsl0w",
-    "categories": ["XR/VR"],
+    "categories": [
+      "XR/VR"
+    ],
     "status": "available",
     "availableSince": "2025-09-24",
     "details": [
@@ -34,14 +43,21 @@
       "Limitations include the need for calibration, limited gesture vocabulary compared to full optical hand tracking, and battery life constraints—best suited for intermittent rather than continuous use.",
       "**Key Resources:**<br/>- [Doublepoint Github](https://github.com/doublepointlab)<br/>- [Unity Input System](https://docs.unity3d.com/Packages/com.unity.inputsystem@latest)<br/>- [Apple Accessibility Guidelines](https://developer.apple.com/accessibility/)"
     ],
-    "related": ["varjo-xr3", "emotibit-bundle", "openbci-biosensing-bundle"]
+    "related": [
+      "varjo-xr3",
+      "emotibit-bundle",
+      "openbci-biosensing-bundle"
+    ]
   },
   {
     "id": "alifensemble",
     "name": "Alif Ensemble DevKit",
     "description": "The Alif Ensemble DevKit Gen 2 is a powerful development board built on the Ensemble E7 fusion processor. It enables rapid prototyping for embedded AI, real-time control, and ultra-low-power edge computing applications.",
     "cloudinaryPublicId": "alif_semi_flnyws",
-    "categories": ["AI", "Embedded Systems"],
+    "categories": [
+      "AI",
+      "Embedded Systems"
+    ],
     "status": "available",
     "availableSince": "2025-10-02",
     "details": [
@@ -54,14 +70,21 @@
       "Advantages include efficient multi-core AI processing, strong peripheral support, and scalable architecture from low-power microcontrollers to application-class processors. Limitations include the need for manual configuration for multi-core scheduling, a moderate learning curve for new SDK users, and unsuitability for high-end vision or large-model inference workloads.",
       "**Key Resources:**<br/> - [Alif Ensemble SDK (GitHub)](https://github.com/alifsemi/ensemble_SDK)<br/> - [Ensemble E7 User Guide (PDF)](https://alifsemi.com/download/AUGD0010)<br/> - [Edge Impulse Integration Guide](https://www.edgeimpulse.com/blog/announcing-official-support-for-the-alif-ensemble-e7-development-kit)"
     ],
-    "related": ["jetson-orin-nano", "esp-dev-boards", "raspberry-pi-5"]
-  },  
+    "related": [
+      "jetson-orin-nano",
+      "esp-dev-boards",
+      "raspberry-pi-5"
+    ]
+  },
   {
     "id": "shelby-computer",
     "name": "Shelby Computer",
     "description": "Custom AI workstation with Tenstorrent Blackhole™ P100a accelerator, AMD Ryzen 9 9950X3D CPU, 64GB DDR5 RAM, and 2TB NVMe SSD. Optimized for large-scale model training, reinforcement learning, and prototyping.",
     "cloudinaryPublicId": "shelby-computer_cndb2j",
-    "categories": ["Workstation", "AI"],
+    "categories": [
+      "Workstation",
+      "AI"
+    ],
     "status": "available",
     "availableSince": "2025-09-18",
     "details": [
@@ -72,14 +95,20 @@
       "There are important limitations to keep in mind. The system has a high power draw and heat output, requiring proper ventilation and cooling. The Tenstorrent ecosystem is less mature than CUDA, so expect a steeper learning curve, additional debugging, and performance tuning. Advanced projects may require compiler-level optimization for full efficiency.",
       "Before using Shelby, users should be comfortable with Linux, Docker or Conda environments, and at least one deep learning framework (PyTorch or TensorFlow). Familiarity with containerized workflows and debugging hardware-accelerated ML environments will make onboarding smoother and reduce time spent on setup issues."
     ],
-    "related": ["tenstorrent-blackhole", "jetson-orin-nano", "lenovo-legion-t5"]
+    "related": [
+      "tenstorrent-blackhole",
+      "jetson-orin-nano",
+      "lenovo-legion-t5"
+    ]
   },
   {
     "id": "nexys-a7-fpga",
     "name": "Nexys A7 FPGA Trainer Board",
     "description": "The Nexys A7 is an FPGA trainer board built on the AMD Artix-7 architecture. It features abundant I/O, DDR2 memory, and built-in peripherals, making it ideal for digital design, embedded systems, and hardware prototyping.",
     "cloudinaryPublicId": "nexys-a7_g2jiyh",
-    "categories": ["FPGA"],
+    "categories": [
+      "FPGA"
+    ],
     "status": "available",
     "availableSince": "2025-09-17",
     "details": [
@@ -92,14 +121,19 @@
       "To succeed, learners need a foundation in digital logic, proficiency in Verilog or VHDL, and skills in simulation and verification. Testbenches, timing analysis, and constraint management are essential as projects scale.",
       "**Key Resources:**<br/>- [Digilent Nexys A7 Reference](https://digilent.com/reference/programmable-logic/nexys-a7/start)<br/>- [Vivado Documentation](https://docs.xilinx.com/)<br/>- [FPGA4Student](https://www.fpga4student.com/)"
     ],
-    "related": ["amd-kria-kr260", "amd-kria-kv260"]
+    "related": [
+      "amd-kria-kr260",
+      "amd-kria-kv260"
+    ]
   },
   {
     "id": "tenstorrent-blackhole",
     "name": "Tenstorrent Blackhole™ p100a",
     "description": "The Tenstorrent Blackhole™ p100a is a PCIe accelerator card with 16 RISC-V cores and 28 GB of GDDR6 memory. Designed for AI training and inference, it operates at up to 300W in an active-cooled desktop form factor and is supported by Tenstorrent's open-source software stack.",
     "cloudinaryPublicId": "tenstorrent_igxdgh",
-    "categories": ["AI"],
+    "categories": [
+      "AI"
+    ],
     "status": "available",
     "availableSince": "2025-09-01",
     "details": [
@@ -112,14 +146,20 @@
       "Success requires strong Linux skills, familiarity with ML frameworks, and experience in performance optimization. Knowledge of profiling, kernel tuning, and accelerator programming models will help unlock the hardware’s full potential.",
       "**Key Resources:**<br/>- [Tenstorrent Official Site](https://tenstorrent.com/)<br/>- [PyTorch](https://pytorch.org/) and [TensorFlow](https://www.tensorflow.org/)<br/>- Tenstorrent Community (forums, GitHub) for open-source tools and developer discussions"
     ],
-    "related": ["shelby-computer"]
+    "related": [
+      "shelby-computer"
+    ]
   },
   {
     "id": "jetson-orin-nano",
     "name": "NVIDIA Jetson Orin Nano Super",
     "description": "Compact edge AI module delivering 67 TOPS with Ampere GPU (1024 CUDA, 32 Tensor cores), 6-core Arm A78AE CPU, 8GB LPDDR5 (102 GB/s), and 7–25W configurable power. Optimized for running LLMs, vision models, and robotics workloads directly at the edge.",
     "cloudinaryPublicId": "jetson-nano_dypbw9",
-    "categories": ["AI", "Computer Vision", "Robotics"],
+    "categories": [
+      "AI",
+      "Computer Vision",
+      "Robotics"
+    ],
     "status": "available",
     "availableSince": "2025-09-01",
     "details": [
@@ -132,14 +172,20 @@
       "Effective use of Jetson Orin Nano requires Linux experience, Python/ROS2 development skills, and knowledge of edge AI deployment practices. Leveraging TensorRT for model optimization and the Isaac ROS ecosystem for robotics pipelines maximizes the hardware’s potential.",
       "**Essential Resources:**<br/>- [Jetson Orin Developer Guide](https://developer.nvidia.com/embedded/jetson-orin)<br/>- [NVIDIA SDK Manager](https://developer.nvidia.com/nvidia-sdk-manager)<br/>- [Isaac ROS](https://developer.nvidia.com/isaac-ros)<br/>- [TensorRT Docs](https://docs.nvidia.com/deeplearning/tensorrt/)"
     ],
-    "related": ["oak-d-pro", "amd-kria-kv260", "raspberry-pi-5"]
-  },  
+    "related": [
+      "oak-d-pro",
+      "amd-kria-kv260",
+      "raspberry-pi-5"
+    ]
+  },
   {
     "id": "lenovo-legion-t5",
     "name": "Lenovo Legion Tower 5 Gen 10",
     "description": "A balanced workstation built with AMD Ryzen 7 7700X and NVIDIA RTX 5070 (12GB), 32GB DDR5-5600, and 1TB PCIe 4.0 NVMe. Suitable for gaming, AI inference, 3D content creation, XR prototyping, and multitasking workflows like rendering, compiling, and streaming.",
     "cloudinaryPublicId": "lenovo-legion-t5_ilvqhw",
-    "categories": ["Workstation"],
+    "categories": [
+      "Workstation"
+    ],
     "status": "available",
     "availableSince": "2025-09-10",
     "details": [
@@ -152,14 +198,20 @@
       "Effective use requires familiarity with CUDA concepts, GPU driver management, and content creation or ML frameworks. Combining creative and technical skills will maximize productivity with this workstation.",
       "**Key Development Tools:**<br/>- [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit)<br/>- [Blender](https://www.blender.org/)<br/>- [Unreal Engine](https://www.unrealengine.com/) and [Unity](https://unity.com/)<br/>- [Anaconda](https://www.anaconda.com/)"
     ],
-    "related": ["varjo-xr3", "shelby-computer"]
+    "related": [
+      "varjo-xr3",
+      "shelby-computer"
+    ]
   },
   {
     "id": "amd-kria-kr260",
     "name": "AMD Kria KR260 Robotics",
     "description": "FPGA-based robotics and industrial platform with ROS 2 acceleration, industrial interfaces, and low-latency processing. Built for developers building adaptive robotics and embedded AI solutions.",
     "cloudinaryPublicId": "amd-robotics_x3a9q3",
-    "categories": ["Robotics", "FPGA"],
+    "categories": [
+      "Robotics",
+      "FPGA"
+    ],
     "status": "available",
     "availableSince": "2025-09-01",
     "details": [
@@ -172,14 +224,21 @@
       "Success with KR260 requires skills in ROS 2, embedded Linux, and FPGA design (HDL/HLS). Knowledge of real-time systems and industrial communication protocols is also valuable for fully leveraging the platform’s robotics and automation capabilities.",
       "**Essential Development Resources:**<br/>- [Kria Applications Docs](https://xilinx.github.io/kria-apps-docs/)<br/>- [ROS 2 Documentation](https://docs.ros.org/en/rolling/)<br/>- [Vitis Development Platform](https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vitis.html)<br/>- [Vivado Design Suite](https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vivado.html)"
     ],
-    "related": ["nexys-a7-fpga", "amd-kria-kv260"]
+    "related": [
+      "nexys-a7-fpga",
+      "amd-kria-kv260"
+    ]
   },
   {
     "id": "amd-kria-kv260",
     "name": "AMD Kria KV260 Vision",
     "description": "FPGA-based vision AI platform designed for edge video analytics. Combines ARM processing with FPGA acceleration for real-time computer vision in smart city, industrial, and security applications.",
     "cloudinaryPublicId": "amd-vision_d4flw0",
-    "categories": ["Computer Vision", "AI", "FPGA"],
+    "categories": [
+      "Computer Vision",
+      "AI",
+      "FPGA"
+    ],
     "status": "available",
     "availableSince": "2025-09-01",
     "details": [
@@ -192,14 +251,21 @@
       "Successful development requires skills in computer vision (OpenCV, deep learning models), FPGA acceleration workflows (HLS, Vitis AI), and real-time systems. Combining domain knowledge across these areas enables efficient custom vision pipelines at the edge.",
       "**Key Development Resources:**<br/>- [Vitis AI](https://www.xilinx.com/products/design-tools/vitis/vitis-ai.html)<br/>- [Kria Documentation](https://xilinx.github.io/kria-apps-docs/)<br/>- [ROS 2](https://docs.ros.org/en/rolling/)<br/>- [GStreamer](https://gstreamer.freedesktop.org/)"
     ],
-    "related": ["oak-d-pro", "jetson-orin-nano", "amd-kria-kr260"]
+    "related": [
+      "oak-d-pro",
+      "jetson-orin-nano",
+      "amd-kria-kr260"
+    ]
   },
   {
     "id": "oak-d-pro",
     "name": "OAK-D Pro",
     "description": "Stereo depth AI camera with onboard neural inference, integrated IR illumination, and reliable 3D perception across varied lighting conditions. Designed for robotics, AR/VR, and computer vision applications.",
     "cloudinaryPublicId": "camera_g2vijm",
-    "categories": ["Computer Vision", "Robotics"],
+    "categories": [
+      "Computer Vision",
+      "Robotics"
+    ],
     "status": "available",
     "availableSince": "2025-09-01",
     "details": [
@@ -212,7 +278,11 @@
       "Effective use requires Python or C++ skills, experience with OpenCV, and knowledge of camera calibration and 3D geometry. Understanding trade-offs between onboard and external inference helps optimize system performance.",
       "**Essential Development Resources:**<br/>- [DepthAI Docs](https://docs.luxonis.com/)<br/>- [DepthAI Model Zoo](https://github.com/luxonis/depthai-experiments)<br/>- [OpenCV Docs](https://docs.opencv.org/)<br/>- [DepthAI Community Forum](https://discuss.luxonis.com/)"
     ],
-    "related": ["jetson-orin-nano", "varjo-xr3", "amd-kria-kv260"]
+    "related": [
+      "jetson-orin-nano",
+      "varjo-xr3",
+      "amd-kria-kv260"
+    ]
   },
   {
     "id": "raspberry-pi-5",
@@ -224,7 +294,11 @@
     "imageCaptions": [
       "Raspberry Pi 5 (8GB)"
     ],
-    "categories": ["Embedded Systems", "IoT", "Prototyping"],
+    "categories": [
+      "Embedded Systems",
+      "IoT",
+      "Prototyping"
+    ],
     "status": "available",
     "availableSince": "2026-01-15",
     "details": [
@@ -237,7 +311,11 @@
       "**Available:** Raspberry Pi 5 (8GB RAM) - [Datasheet](https://www.raspberrypi.com/documentation/)",
       "**Essential Resources:**<br/>- [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/)<br/>- [Raspberry Pi OS](https://www.raspberrypi.com/software/)<br/>- [GPIO Zero Library](https://gpiozero.readthedocs.io/)<br/>- [Raspberry Pi Forums](https://forums.raspberrypi.com/)"
     ],
-    "related": ["jetson-orin-nano", "esp-dev-boards", "raspberry-pi-accessories"]
+    "related": [
+      "jetson-orin-nano",
+      "esp-dev-boards",
+      "raspberry-pi-accessories"
+    ]
   },
   {
     "id": "esp-dev-boards",
@@ -253,7 +331,11 @@
       "ESP32-C6 DevKitC-1 (N8)",
       "ESP32-S3-WROOM-2-N32R16V"
     ],
-    "categories": ["IoT", "Embedded Systems", "Prototyping"],
+    "categories": [
+      "IoT",
+      "Embedded Systems",
+      "Prototyping"
+    ],
     "status": "available",
     "availableSince": "2026-01-15",
     "details": [
@@ -267,7 +349,11 @@
       "**Available Boards:**<br/>- DFRobot Beetle ESP32-C6 Mini (Wi-Fi 6, BLE, 802.15.4) - [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/5528/ESP32-C6-DEVKITC-1-N8.pdf)<br/>- ESP32-C6 DevKitC-1-N8 (Wi-Fi 6, BLE, 802.15.4) - [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/5528/ESP32-C6-DEVKITC-1-N8.pdf)<br/>- ESP32-S3-WROOM-2-N32R16V (32MB Flash, 16MB PSRAM, USB) - [Datasheet](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/esp-dev-kits-en-master-esp32s3.pdf)",
       "**Essential Resources:**<br/>- [ESP-IDF Documentation](https://docs.espressif.com/projects/esp-idf/)<br/>- [Arduino Core for ESP32](https://github.com/espressif/arduino-esp32)<br/>- [PlatformIO](https://platformio.org/)<br/>- [Espressif Developer Portal](https://developer.espressif.com/)"
     ],
-    "related": ["raspberry-pi-5", "raspberry-pi-accessories", "alifensemble"]
+    "related": [
+      "raspberry-pi-5",
+      "raspberry-pi-accessories",
+      "alifensemble"
+    ]
   },
   {
     "id": "openbci-biosensing-bundle",
@@ -281,9 +367,11 @@
       "OpenBCI Ganglion Board",
       "OpenBCI EEG Headband Kit"
     ],
-    "categories": ["Biosensing"],
+    "categories": [
+      "Biosensing"
+    ],
     "status": "available",
-    "isNew": true,
+    "availableSince": "2026-01-28",
     "details": [
       "The [OpenBCI Biosensing Starter Bundle](https://shop.openbci.com/) is a complete system for recording EEG (brain), ECG (heart), and EMG (muscle) signals using open-source software and hardware.",
       "**Bundle Contents:**<br/>- Ganglion Board (4-channel, 32-bit biosensing board with Bluetooth LE)<br/>- Battery and USB charger<br/>- Ganglion USB Dongle (wireless connectivity)<br/>- EMG/ECG Gel Snap Electrodes<br/>- EMG/ECG Snap Cables<br/>- OpenBCI EEG Headband Kit (adjustable with dry electrode holders)",
@@ -294,7 +382,11 @@
       "**Prerequisites:** Understanding of biosignal acquisition, electrode placement, signal processing. Python or similar for custom pipelines. Basic knowledge of experimental design for physiological research.",
       "**Essential Resources:**<br/>- [OpenBCI Documentation](https://docs.openbci.com/)<br/>- [OpenBCI GUI Software](https://openbci.com/downloads)<br/>- [OpenBCI GitHub](https://github.com/OpenBCI)<br/>- [OpenBCI Community Forum](https://openbci.com/forum/)"
     ],
-    "related": ["emotibit-bundle", "doublepoint-dev-kit", "varjo-xr3"]
+    "related": [
+      "emotibit-bundle",
+      "doublepoint-dev-kit",
+      "varjo-xr3"
+    ]
   },
   {
     "id": "emotibit-bundle",
@@ -308,10 +400,11 @@
       "EmotiBit Sensor Module",
       "EmotiBit All-in-One Bundle"
     ],
-    "categories": ["Biosensing"],
+    "categories": [
+      "Biosensing"
+    ],
     "status": "available",
     "availableSince": "2026-01-28",
-    "isNew": true,
     "details": [
       "The [EmotiBit All-in-One Bundle](https://www.emotibit.com/) is a wearable multi-sensor platform for capturing physiological and emotional data in real-time. Designed for research, health monitoring, and affective computing applications.",
       "**Bundle Contents:**<br/>- EmotiBit Sensor Module (wearable biometric sensor)<br/>- Battery and charging cable<br/>- Wearable straps and mounting accessories<br/>- SD card for local data storage<br/>- EmotiBit software suite and visualization tools",
@@ -322,7 +415,11 @@
       "**Prerequisites:** Understanding of biometric signals, signal processing basics, physiological measurement principles. Python or similar programming for custom analysis and integration.",
       "**Essential Resources:**<br/>- [EmotiBit Documentation](https://www.emotibit.com/)<br/>- [EmotiBit GitHub](https://github.com/EmotiBit)<br/>- [Getting Started Guide](https://www.emotibit.com/)<br/>- [EmotiBit Community](https://www.emotibit.com/)"
     ],
-    "related": ["openbci-biosensing-bundle", "doublepoint-dev-kit", "varjo-xr3"]
+    "related": [
+      "openbci-biosensing-bundle",
+      "doublepoint-dev-kit",
+      "varjo-xr3"
+    ]
   },
   {
     "id": "raspberry-pi-accessories",
@@ -344,7 +441,9 @@
       "Raspberry Pi Camera Module 3",
       "Adafruit 2.13\" E-Ink Display"
     ],
-    "categories": ["Prototyping"],
+    "categories": [
+      "Prototyping"
+    ],
     "status": "available",
     "availableSince": "2026-01-15",
     "details": [
@@ -357,14 +456,21 @@
       "**Available Items:**<br/>- SunFounder Ultimate Starter Kit (CN0434D) - [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/5561/Raphael%20Kit.pdf)<br/>- SunFounder RPi Starter Kit #1 (CN0348D)<br/>- SunFounder RPi Starter Kit #2 (CN0349D) - [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/5561/DaVinci%20Kit.pdf)<br/>- SunFounder Sensor Kit (CN0450D) - [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6448/CN0450D%20datasheet.pdf)<br/>- Raspberry Pi Camera Module 3 (SC1223) - [Docs](https://www.raspberrypi.com/documentation/accessories/camera.html)<br/>- Adafruit 2.13\" E-Ink Display (6373) - [Datasheet](https://cdn-shop.adafruit.com/product-files/6373/C22164-001_datasheet__ZJY122250-0213AJH-E5______.pdf)<br/>- Adafruit E-Ink Breakout Friend (4224)",
       "**Essential Resources:**<br/>- [Raspberry Pi GPIO Documentation](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html)<br/>- [Arduino Documentation](https://docs.arduino.cc/)<br/>- [Adafruit Learning System](https://learn.adafruit.com/)<br/>- [SunFounder Learning Platform](https://docs.sunfounder.com/)"
     ],
-    "related": ["raspberry-pi-5", "esp-dev-boards", "jetson-orin-nano"]
+    "related": [
+      "raspberry-pi-5",
+      "esp-dev-boards",
+      "jetson-orin-nano"
+    ]
   },
   {
     "id": "seetrue-eye-tracker",
     "name": "Mobile eye tracker ST ONE",
     "description": "Research-grade wearable eye-tracking glasses delivering robust, slip-tolerant, and recalibration-free gaze tracking for mobile, real-world, and XR research scenarios.",
     "cloudinaryPublicId": "st-one-eye-tracker",
-    "categories": ["Biosensing", "XR/VR"],
+    "categories": [
+      "Biosensing",
+      "XR/VR"
+    ],
     "status": "coming-soon",
     "availableSince": "2026-02-06",
     "details": [
@@ -375,28 +481,37 @@
       "Typical applications include cognitive and behavioral science, usability and UX research, XR interaction studies, training and performance analysis, and human–computer interaction experiments that require unrestricted head and body movement.",
       "**Development & Research Advice:** Validate calibration stability and data quality under your expected motion conditions before running full experiments. When combining ST ONE with XR headsets or motion capture, use a shared timestamping or synchronization strategy. For real-time applications, prototype first with recorded data to tune latency and filtering before deploying live pipelines."
     ],
-    "related": ["varjo-xr3", "mobile-mocap-pro-xyn", "openbci-biosensing-bundle"]
+    "related": [
+      "varjo-xr3",
+      "mobile-mocap-pro-xyn",
+      "openbci-biosensing-bundle"
+    ]
   },
   {
     "id": "mobile-mocap-pro-xyn",
     "name": "Sony mocopi Pro Kit",
     "description": "Portable professional motion capture system combining Sony mocopi wearable sensors with XYN Motion Studio software for fast, full-body motion capture in XR, animation, and research workflows.",
     "cloudinaryPublicId": "sony-mocopi-Pro-Kit",
-    "categories": ["Motion Capture", "XR/VR", "Computer Vision"],
-    "status": "coming-soon",
+    "categories": [
+      "Motion Capture",
+      "XR/VR",
+      "Computer Vision"
+    ],
+    "isNew": true,
+    "status": "available",
     "availableSince": "2026-02-06",
     "images": [
-    "https://d1ncau8tqf99kp.cloudfront.net/converted/114935_original_local_1200x1050_v3_converted.webp",
-    "https://d1ncau8tqf99kp.cloudfront.net/converted/124226_original_local_1200x1050_v3_converted.webp",
-    "https://d1ncau8tqf99kp.cloudfront.net/converted/124039_original_local_1200x1050_v3_converted.webp",
-    "https://d1ncau8tqf99kp.cloudfront.net/converted/124041_original_local_1200x1050_v3_converted.webp"
-  ],
-  "imageCaptions": [
-    "Sony mocopi Pro Kit",
-    "Sony mocopi Pro Kit – full wearable set",
-    "Wearable sensor placement on the body",
-    "Demonstration of the Sony mocopi Pro Kit software in action"
-  ],
+      "https://d1ncau8tqf99kp.cloudfront.net/converted/114935_original_local_1200x1050_v3_converted.webp",
+      "https://d1ncau8tqf99kp.cloudfront.net/converted/124226_original_local_1200x1050_v3_converted.webp",
+      "https://d1ncau8tqf99kp.cloudfront.net/converted/124039_original_local_1200x1050_v3_converted.webp",
+      "https://d1ncau8tqf99kp.cloudfront.net/converted/124041_original_local_1200x1050_v3_converted.webp"
+    ],
+    "imageCaptions": [
+      "Sony mocopi Pro Kit",
+      "Sony mocopi Pro Kit – full wearable set",
+      "Wearable sensor placement on the body",
+      "Demonstration of the Sony mocopi Pro Kit software in action"
+    ],
     "details": [
       "The Sony mocopi Pro Kit is a lightweight, wearable motion capture system designed for rapid full-body motion capture without the need for external cameras or fixed studio installations. The system uses multiple compact IMU-based sensors worn on the body, enabling fast setup and portable capture in labs, studios, classrooms, or field environments.",
       "Motion data is processed using XYN Motion Studio, which provides tools for pose reconstruction, motion cleanup, retargeting, and export. The software supports common animation and real-time engines, allowing captured motion to be applied directly to digital characters, avatars, or simulation models with minimal post-processing.",
@@ -405,6 +520,75 @@
       "Compared to camera-based optical systems, mocopi prioritizes mobility and fast iteration. While IMU-based capture may exhibit drift or reduced absolute accuracy over long sessions, it enables motion capture in environments where optical systems are impractical or impossible.",
       "**Development & Research Advice:** Validate sensor placement consistency before long recordings and test retargeting with simple avatar rigs before moving to complex characters. When combining mocopi with eye tracking or biosensing, synchronize data streams at the software level using timestamps or a shared clock rather than relying on post-hoc alignment."
     ],
-    "related": ["varjo-xr3", "doublepoint-dev-kit", "oak-d-pro"]
+    "related": [
+      "varjo-xr3",
+      "doublepoint-dev-kit",
+      "oak-d-pro"
+    ]
+  },
+  { "id": "bambu-lab-p1s-ams2-pro", "name": "Bambu Lab P1S + AMS 2 Pro Combo", "description": "Enclosed high-speed CoreXY 3D printer with AMS 2 Pro for multi-material printing and rapid prototyping of functional parts, enclosures, and mechanical components.", "cloudinaryPublicId": "bambu-p1s-ams2-pro", "categories": ["Digital Fabrication", "Prototyping", "Robotics"], "status": "coming-soon", "availableSince": "2026-02-11", "images": [ "https://3d.nice-cdn.com/upload/image/product/large/default/bambu-lab-p1s-combo-826635-fi.png" ], "imageCaptions": [ "Bambu Lab P1S (P1 series image)" ], "details": [ "Bambu Lab P1S is an enclosed CoreXY 3D printer optimized for fast, repeatable printing of prototypes and functional parts. The enclosure improves reliability for temperature-sensitive filaments and reduces warping for larger parts.", "The AMS 2 Pro enables automatic filament switching for multi-material and multi-color prints, supports faster iteration for mechanical assemblies, and simplifies workflows like printing soluble supports or multi-part prototypes in one job.", "Typical use cases include robotics brackets, sensor mounts, custom enclosures, quick mechanical iterations, and fixtures/jigs for lab setups.", "**Development & Lab Advice:** For functional parts, validate tolerances with quick calibration prints (holes, press-fits) before long jobs. Prefer PETG/ABS/ASA for durable prototypes; plan ventilation when printing higher-temperature materials." ], "related": ["raspberry-pi-5", "esp-dev-boards", "amd-kria-kr260"] },  
+  {
+    "id": "ultracortex-mark-iv-cyton",
+    "name": "Ultracortex Mark IV EEG Headset + Cyton Biosensing Board",
+    "description": "Open-source EEG setup combining the Ultracortex Mark IV headset with the Cyton 8-channel biosensing board for EEG/EMG/ECG acquisition, BCI prototyping, and neurotech research.",
+    "cloudinaryPublicId": "ultracortex-mark-iv-cyton",
+    "categories": [
+      "Biosensing",
+      "BCI",
+      "Neurotechnology"
+    ],
+    "status": "coming-soon",
+    "availableSince": "2026-02-11",
+    "images": [
+      "https://shop.openbci.com/cdn/shop/products/DSC02861.jpg?v=1703102384&width=1080",
+      "https://shop.openbci.com/cdn/shop/files/CYTON.png?v=1700590601&width=1260"
+    ],
+    "imageCaptions": [
+      "ULTRACORTEX MARK IV EEG HEADSET",
+      "CYTON BIOSENSING BOARD (8-CHANNELS)"
+    ],
+    "details": [
+      "Ultracortex Mark IV is a modular EEG headset architecture designed for flexible electrode placement and repeatable positioning, suitable for student projects as well as research prototypes.",
+      "Cyton is an 8-channel biosensing board commonly used for EEG, EMG, and ECG experiments. It supports real-time streaming workflows and integration with OpenBCI tooling and open-source analysis stacks.",
+      "Common applications include neurofeedback prototypes, EEG-based interaction experiments, BCI pipelines (filtering → features → classification), and multimodal research when synchronized with XR or motion capture.",
+      "**Development & Research Advice:** Prioritize electrode contact quality (impedance checks) and motion artifact mitigation. If combining with XR/eye tracking, implement shared timestamping early (e.g., LSL) to avoid painful post-hoc alignment."
+    ],
+    "related": [
+      "openbci-biosensing-bundle",
+      "openbci-exg-experiment-bundle",
+      "seetrue-eye-tracker"
+    ]
+  },
+  {
+    "id": "openbci-exg-experiment-bundle",
+    "name": "OpenBCI EXG Experiment Bundle",
+    "description": "Hands-on experiment bundle for recording and learning from electrophysiology signals (EEG/EMG/ECG), designed for education, workshops, and rapid biosensing prototyping.",
+    "cloudinaryPublicId": "openbci-exg-experiment-bundle",
+    "categories": [
+      "Biosensing",
+      "Education",
+      "Prototyping"
+    ],
+    "status": "coming-soon",
+    "availableSince": "2026-02-11",
+    "images": [
+      "https://shop.openbci.com/cdn/shop/files/ExperimentBundleProductImage.png?v=1762555145&width=1080",
+      "https://shop.openbci.com/cdn/shop/files/ganglion-experiment-bundle-photo-WHITE.png?v=1762554493&width=1080"
+    ],
+    "imageCaptions": [
+      "OpenBCI EXG Experiment Bundle (overview)",
+      "Experiment bundle (Ganglion-based photo)"
+    ],
+    "details": [
+      "The EXG Experiment Bundle is assembled for quick-start electrophysiology experiments and workshops, reducing setup friction for first-time users and student teams.",
+      "It supports introductory-to-intermediate experiments across EEG/EMG/ECG, and is well-suited for building reproducible lab demos, hackathon tracks, and teaching signal processing fundamentals.",
+      "Data can be streamed to OpenBCI tools and exported for analysis in Python/MATLAB pipelines (filtering, artifact removal, feature extraction, and classification).",
+      "**Development & Research Advice:** Start with controlled conditions (minimal movement) for baseline recordings, then deliberately introduce motion/interaction to characterize artifacts. For ML demos, collect more labeled data than you think you need—especially across multiple users."
+    ],
+    "related": [
+      "openbci-biosensing-bundle",
+      "ultracortex-mark-iv-cyton",
+      "emotibit-bundle"
+    ]
   }
 ]

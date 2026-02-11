@@ -261,7 +261,7 @@ export default function EventsList() {
       </div>
 
       {/* Color Coding Legend */}
-      <div className="mb-6 md:mb-8 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+      <div className="mb-6 md:mb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
         <div className="flex items-start gap-2 md:gap-3">
           <div className="w-3 h-3 md:w-4 md:h-4 bg-purple-600 rounded flex-shrink-0 mt-1"></div>
           <div>
