@@ -4,6 +4,7 @@ import "../styles/global.css";
 import "../styles/fonts.css";
 import Analytics from "@vercel/analytics/astro";
 import Navbar from "../components/Navbar.astro";
+import { ClientRouter } from "astro:transitions";
 
 export interface Props {
   hideNavbar?: boolean;
@@ -22,6 +23,7 @@ const { hideNavbar = false } = Astro.props;
     <script defer async src="https://umami.thinkinrocks.com/script.js" data-website-id="7aa0774d-19ef-4a1a-b4b9-e30d27ac469c"></script>
     <title>Thinkin' Rocks</title>
     <Analytics />
+    <ClientRouter />
   </head>
   <body>
     
@@ -29,17 +31,10 @@ const { hideNavbar = false } = Astro.props;
     <slot />
     
     <script>
-      // Smooth page loading system
-      function initSmoothLoading() {
-        // Show page with smooth fade-in
+      function initPage() {
         document.body.classList.add('loaded');
-        
-        // Set up intersection observer for content animations
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-        };
-        
+
+        // Intersection observer for fade-in animations
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -47,46 +42,23 @@ const { hideNavbar = false } = Astro.props;
               observer.unobserve(entry.target);
             }
           });
-        }, observerOptions);
-        
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-          observer.observe(el);
-        });
-        
-        // Handle image loading
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        images.forEach(img => {
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Handle lazy loaded images
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
           const imageEl = img as HTMLImageElement;
-          imageEl.addEventListener('load', () => {
-            imageEl.classList.add('loaded');
-          });
-          
-          // If image is already loaded (from cache)
           if (imageEl.complete) {
             imageEl.classList.add('loaded');
+          } else {
+            imageEl.addEventListener('load', () => imageEl.classList.add('loaded'));
           }
         });
-        
-        // Basic hydration support
-        const pendingElements = document.querySelectorAll('.hydration-pending');
-        pendingElements.forEach(el => {
-          el.classList.remove('hydration-pending');
-          el.classList.add('hydration-ready');
-        });
       }
-      
-      // Initialize when DOM is ready
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initSmoothLoading);
-      } else {
-        initSmoothLoading();
-      }
-      
-      // Smooth page transitions on navigation
-      window.addEventListener('beforeunload', () => {
-        document.body.style.opacity = '0';
-      });
+
+      // Run on initial load and after view transitions
+      document.addEventListener('astro:page-load', initPage);
     </script>
   </body>
 </html>
