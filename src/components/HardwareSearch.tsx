@@ -135,51 +135,139 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
       </div>
 
 
-      {/* Hardware Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredItems.map((item, index) => (
-          <a 
+      {/* Hardware List */}
+      <div className="space-y-6">
+        {filteredItems.map((item) => (
+          <a
             key={item.id}
             href={`/hardware/${item.id}`}
-            className="border border-gray-200 p-6 fade-in flex flex-col relative cursor-pointer hover:border-purple-600 transition-colors"
-            style={{ animationDelay: `${index * 0.1}s` }}
+            className="block group"
           >
-            {item.status === 'coming-soon' && (
-              <span className="absolute top-4 right-4 text-xs font-mono text-purple-600 bg-purple-50 px-2 py-1">
-                coming soon
-              </span>
-            )}
-            {item.status === 'maintenance' && (
-              <span className="absolute top-4 right-4 text-xs font-mono text-orange-600 bg-orange-50 px-2 py-1">
-                maintenance
-              </span>
-            )}
-            {item.isNew && (
-              <span className="absolute top-4 right-4 text-xs font-mono text-green-600 bg-green-50 px-2 py-1">
-                new
-              </span>
-            )}
-            <div className="flex items-center justify-center mb-4">
-              {item.images && item.images.length > 0 ? (
-                <img
-                  src={item.images[0]}
-                  alt={item.name}
-                  className="w-32 h-32 object-contain"
-                />
-              ) : item.cloudinaryPublicId ? (
-                <AdvancedImage
-                  cldImg={cloudinary
-                    .image(item.cloudinaryPublicId)
-                    .resize(fit().width(256).height(256))}
-                  alt={item.name}
-                  className="w-32 h-32 object-contain"
-                />
-              ) : null}
+            <div className="py-2">
+              {/* Mobile Layout */}
+              <div className="md:hidden">
+                <div className="flex gap-3 mb-3 items-center">
+                  {(item.images && item.images.length > 0) || item.cloudinaryPublicId ? (
+                    <div className="flex-shrink-0">
+                      {item.images && item.images.length > 0 ? (
+                        <img
+                          src={item.images[0]}
+                          alt={item.name}
+                          className="w-16 h-16 object-contain rounded"
+                        />
+                      ) : item.cloudinaryPublicId ? (
+                        <AdvancedImage
+                          cldImg={cloudinary
+                            .image(item.cloudinaryPublicId)
+                            .resize(fit().width(128).height(128))}
+                          alt={item.name}
+                          className="w-16 h-16 object-contain rounded"
+                        />
+                      ) : null}
+                    </div>
+                  ) : null}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-base font-display mb-2 text-gray-900 group-hover:text-purple-600 transition-colors">
+                      {item.name}
+                    </h3>
+                    <div className="flex flex-wrap items-center gap-1.5 text-xs">
+                      {item.categories.map((category, idx) => (
+                        <span key={category}>
+                          <span className="font-mono text-gray-600 bg-gray-100 px-2 py-0.5">
+                            {category}
+                          </span>
+                          {idx < item.categories.length - 1 && (
+                            <span className="font-mono text-gray-400 ml-1.5">|</span>
+                          )}
+                        </span>
+                      ))}
+                      {(item.status === 'coming-soon' || item.status === 'maintenance' || item.isNew) && (
+                        <>
+                          {item.categories.length > 0 && <span className="font-mono text-gray-400">|</span>}
+                          {item.status === 'coming-soon' && (
+                            <span className="bg-purple-100 text-purple-700 px-2 py-0.5 font-mono font-semibold">
+                              coming soon
+                            </span>
+                          )}
+                          {item.status === 'maintenance' && (
+                            <span className="bg-orange-100 text-orange-700 px-2 py-0.5 font-mono font-semibold">
+                              maintenance
+                            </span>
+                          )}
+                          {item.isNew && (
+                            <span className="bg-green-100 text-green-700 px-2 py-0.5 font-mono font-semibold">
+                              new
+                            </span>
+                          )}
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <p className="font-sans text-sm text-gray-700 break-words">{truncateDescription(item.description)}</p>
+              </div>
+
+              {/* Desktop Layout */}
+              <div className="hidden md:flex gap-4 items-center">
+                {(item.images && item.images.length > 0) || item.cloudinaryPublicId ? (
+                  <div className="flex-shrink-0">
+                    {item.images && item.images.length > 0 ? (
+                      <img
+                        src={item.images[0]}
+                        alt={item.name}
+                        className="w-32 h-32 object-contain rounded"
+                      />
+                    ) : item.cloudinaryPublicId ? (
+                      <AdvancedImage
+                        cldImg={cloudinary
+                          .image(item.cloudinaryPublicId)
+                          .resize(fit().width(256).height(256))}
+                        alt={item.name}
+                        className="w-32 h-32 object-contain rounded"
+                      />
+                    ) : null}
+                  </div>
+                ) : null}
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-3xl font-display mb-2 text-gray-900 group-hover:text-purple-600 transition-colors">
+                    {item.name}
+                  </h3>
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    {item.categories.map((category, idx) => (
+                      <span key={category}>
+                        <span className="text-sm font-mono text-gray-600 bg-gray-100 px-2 py-1">
+                          {category}
+                        </span>
+                        {idx < item.categories.length - 1 && (
+                          <span className="text-sm font-mono text-gray-400 ml-2">|</span>
+                        )}
+                      </span>
+                    ))}
+                    {(item.status === 'coming-soon' || item.status === 'maintenance' || item.isNew) && (
+                      <>
+                        {item.categories.length > 0 && <span className="text-sm font-mono text-gray-400">|</span>}
+                        {item.status === 'coming-soon' && (
+                          <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded font-mono text-sm font-semibold">
+                            coming soon
+                          </span>
+                        )}
+                        {item.status === 'maintenance' && (
+                          <span className="bg-orange-100 text-orange-700 px-2 py-1 rounded font-mono text-sm font-semibold">
+                            maintenance
+                          </span>
+                        )}
+                        {item.isNew && (
+                          <span className="bg-green-100 text-green-700 px-2 py-1 rounded font-mono text-sm font-semibold">
+                            new
+                          </span>
+                        )}
+                      </>
+                    )}
+                  </div>
+                  <p className="font-sans text-gray-700">{truncateDescription(item.description)}</p>
+                </div>
+              </div>
             </div>
-            <h3 className="font-mono text-lg text-gray-900 mb-3 text-center">{item.name}</h3>
-            <p className="font-sans text-sm text-gray-700 leading-relaxed mb-2 flex-grow">
-              {truncateDescription(item.description)}
-            </p>
           </a>
         ))}
       </div>
