@@ -1,0 +1,385 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { CldImage } from "astro-cloudinary";
+import thinkinrocksCoworking from "../assets/thinkingrocks-coworking.png";
+---
+
+<Layout>
+  <div class="pt-8 md:pt-16 pb-16 px-4 md:px-16">
+    <div class="mx-auto max-w-5xl">
+      <h1
+        class="text-3xl md:text-5xl font-display font-bold tracking-tighter mb-6"
+      >
+        Team and partners
+      </h1>
+
+      <div class="mb-8 text-xl">
+        We are a group of researchers and experts who like building things. Our
+        partners help us access industry-grade hardware and stay connected with
+        the tech world.
+      </div>
+
+      <div class="flex flex-wrap justify-between w-full mb-10">
+        <div class="text-center">
+          <div class="w-32 h-32 mx-auto mb-2 overflow-hidden">
+            <CldImage
+              src="milana-min_yrnyld"
+              alt="Milana"
+              class="w-32 h-32 object-cover"
+              width={256}
+              height={256}
+              priority
+            />
+          </div>
+          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Milana</h3>
+          <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto">
+            <span class="font-mono text-purple-500"
+              >tg: <a
+                href="https://t.me/katteelsker"
+                target="_blank"
+                class="hover:underline">@katteelsker</a
+              ></span
+            ><br />can't live without coffee and anime. watched one piece twice.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-32 h-32 bg-gray-200 mx-auto mb-2 overflow-hidden">
+            <CldImage
+              src="yerzhan-min_gl7gur"
+              alt="Yerzhan"
+              class="w-32 h-32 object-cover"
+              width={256}
+              height={256}
+              priority
+            />
+          </div>
+          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Yerzhan</h3>
+          <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto">
+            <span class="font-mono text-purple-500"
+              >tg: <a
+                href="https://t.me/yerzham"
+                target="_blank"
+                class="hover:underline">@yerzham</a
+              ></span
+            ><br />works on things that are not suppose to work
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-32 h-32 bg-gray-200 mx-auto mb-2 overflow-hidden">
+            <CldImage
+              src="alex-min_ypkkz2"
+              alt="Alex"
+              class="w-32 h-32 object-cover"
+              width={256}
+              height={256}
+              priority
+            />
+          </div>
+          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Alex</h3>
+          <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto">
+            <span class="font-mono text-purple-500"
+              >tg: <a
+                href="https://t.me/alexocc"
+                target="_blank"
+                class="hover:underline">@alexocc</a
+              ></span
+            ><br />started learning english to understand computer errors.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-32 h-32 bg-gray-200 mx-auto mb-2 overflow-hidden">
+            <CldImage
+              src="daniyar-min_kok519"
+              alt="Daniyar"
+              class="w-32 h-32 object-cover"
+              width={256}
+              height={256}
+              priority
+            />
+          </div>
+          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Daniyar</h3>
+          <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto">
+            <span class="font-mono text-purple-500"
+              >tg: <a
+                href="https://t.me/UhOhOhNo"
+                target="_blank"
+                class="hover:underline">@UhOhOhNo</a
+              ></span
+            ><br />coding since 7th grade, still pretending to know what
+            hardware is.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div
+            class="w-32 h-32 bg-gray-200 mx-auto mb-2 overflow-hidden flex items-center justify-center"
+          >
+            <span class="text-4xl font-mono text-gray-400">A</span>
+          </div>
+          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Arthur</h3>
+          <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto">
+            <span class="font-mono text-purple-500"
+              >tg: <a
+                href="https://t.me/ktnlvr"
+                target="_blank"
+                class="hover:underline">@ktnlvr</a
+              ></span
+            ><br />knows just enough math to be dangerous.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div
+            class="w-32 h-32 bg-gray-200 mx-auto mb-2 overflow-hidden flex items-center justify-center"
+          >
+            <span class="text-4xl font-mono text-gray-400">V</span>
+          </div>
+          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Vlad</h3>
+          <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto">
+            <span class="font-mono text-purple-500"
+              >tg: <a
+                href="https://t.me/VladyslavBM"
+                target="_blank"
+                class="hover:underline">@VladyslavBM</a
+              ></span
+            ><br />solving things nobody wants to deal with.
+          </p>
+        </div>
+      </div>
+
+      <!-- Partners Section -->
+      <div class="mb-16 fade-in max-w-5xl mx-auto">
+        <p class="font-sans text-lg text-gray-700 mb-8 leading-relaxed">
+          We work with industry leaders to bring cutting-edge technology
+          directly to you:
+        </p>
+
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6 mb-8"
+        >
+          <div class="bg-gray-50 p-3 md:p-4 text-center">
+            <a href="https://varjo.com/" target="_blank">
+              <div
+                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
+              >
+                <img
+                  src="/images/companies-logo/varjo.png"
+                  alt="Varjo"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </a>
+          </div>
+          <div class="bg-gray-50 p-3 md:p-4 text-center">
+            <a href="https://doublepoint.com/" target="_blank">
+              <div
+                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
+              >
+                <img
+                  src="/images/companies-logo/doublepoint.png"
+                  alt="Doublepoint"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </a>
+          </div>
+          <div class="bg-gray-50 p-3 md:p-4 text-center">
+            <a href="https://alifsemi.com/" target="_blank">
+              <div
+                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
+              >
+                <img
+                  src="/images/companies-logo/Alif_Semiconductor_logo.webp"
+                  alt="Alif Semiconductor"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </a>
+          </div>
+          <div class="bg-gray-50 p-3 md:p-4 text-center">
+            <a href="https://www.seetruetechnologies.com/" target="_blank">
+              <div
+                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
+              >
+                <img
+                  src="/images/companies-logo/seetrue-technologies.png"
+                  alt="SeeTrue Technologies"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-5xl mx-auto">
+      <h1
+        class="text-3xl md:text-5xl font-display font-bold tracking-tighter mb-6"
+      >
+        Our space
+      </h1>
+
+      <!-- Location Section -->
+      <div class="mb-4 text-xl">
+        We are located at <a
+          href="https://maps.google.com/?q=Startup+Sauna,+Puumiehenkuja+5,+02150+Espoo,+Finland"
+          class="text-purple-600 hover:text-purple-800 transition-colors"
+          >Startup Sauna</a
+        > on the second floor. Just come to Aaltoes co-working space and ask how to
+        get to Thinkin' Rocks playground or ping us on Discord. Our space is open
+        for everyone on any day, just make sure there is someoone in the space to
+        let you in. If you are working on some particular project, you can get access
+        card to the space. Just contact us on Discord.
+      </div>
+      <Image
+        src={thinkinrocksCoworking}
+        alt="Startup Sauna"
+        class="h-auto mb-2 mx-auto"
+      />
+      <p class="text-center text-sm font-sans text-gray-600 mb-8">
+        Floor plan of Thinkin' Rocks area at Startup Sauna showing workspace
+        layout
+      </p>
+
+      <!-- Photo Gallery -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12">
+        <!-- Whole Area -->
+        <div class="text-center">
+          <div class="aspect-[4/3] mb-3 overflow-hidden">
+            <CldImage
+              src="whole-area_v4qg1y"
+              alt="Main Workspace"
+              class="w-full h-full object-cover"
+              width={400}
+              height={300}
+            />
+          </div>
+          <p class="text-center text-sm font-sans text-gray-600 mb-8">
+            Our collaborative work area with desks, monitors, and all the tools
+            you need for building.
+          </p>
+        </div>
+
+        <!-- Shelf Area -->
+        <div class="text-center">
+          <div class="aspect-[4/3] mb-3 overflow-hidden">
+            <CldImage
+              src="shelf-area_sfnum4"
+              alt="Hardware & Storage Area"
+              class="w-full h-full object-cover"
+              width={400}
+              height={300}
+            />
+          </div>
+          <p class="text-center text-sm font-sans text-gray-600 mb-8">
+            Organized storage area with shelves for hardware, tools, and project
+            materials.
+          </p>
+        </div>
+
+        <!-- Chill Area -->
+        <div class="text-center">
+          <div class="aspect-[4/3] mb-3 overflow-hidden">
+            <CldImage
+              src="chill-area_iz650y"
+              alt="Chill Area"
+              class="w-full h-full object-cover"
+              width={400}
+              height={300}
+            />
+          </div>
+          <p class="text-center text-sm font-sans text-gray-600 mb-8">
+            Multi-purpose area for watching films, training pitches, playing
+            games, and socializing with the community.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="max-w-5xl mx-auto">
+      <h1
+        class="text-3xl md:text-5xl font-display font-bold tracking-tighter mb-6"
+      >
+        FAQ
+      </h1>
+
+      <div class="space-y-8 mb-12">
+        <div>
+          <h3 class="text-xl font-mono mb-2 text-gray-900">
+            How can I access the equipment?
+          </h3>
+          <p class="font-sans text-gray-700">
+            Join our Telegram community first, then attend one of our meetups or
+            workshops. We provide training and access to community members who
+            are working on interesting projects. Equipment usage is based on
+            availability and project requirements.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-mono mb-2 text-gray-900">
+            What kind of projects can I work on?
+          </h3>
+          <p class="font-sans text-gray-700">
+            We support a wide range of projects including AI/ML research,
+            robotics development, computer vision, hardware prototyping, and
+            educational initiatives. Priority is given to open-source projects
+            and those that benefit the broader community.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-mono mb-2 text-gray-900">
+            Is there a cost to use the equipment?
+          </h3>
+          <p class="font-sans text-gray-700">
+            We operate as a community-driven lab. While basic access is free for
+            community members, we may ask for contributions to cover maintenance
+            costs for intensive usage or longer-term projects. Contact us to
+            discuss your specific needs.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-mono mb-2 text-gray-900">
+            Can I collaborate with other members?
+          </h3>
+          <p class="font-sans text-gray-700">
+            Absolutely! Collaboration is at the heart of what we do. Our
+            Telegram community and regular meetups are great places to find
+            collaborators, share knowledge, and work together on exciting
+            projects.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-mono mb-2 text-gray-900">
+            Do you offer training or workshops?
+          </h3>
+          <p class="font-sans text-gray-700">
+            Yes! We regularly host workshops, build sessions, and training
+            events. These cover topics like AI/ML development, robotics
+            programming, hardware design, and using specific equipment. Check
+            our Telegram for upcoming events.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-mono mb-2 text-gray-900">
+            How do I stay updated on events and opportunities?
+          </h3>
+          <p class="font-sans text-gray-700">
+            Join our Telegram chat for real-time updates, discussions, and event
+            announcements. You can also follow our Telegram channel to receive
+            important updates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
