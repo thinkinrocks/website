@@ -136,3 +136,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Anti-FOUC: show page once styles are loaded */
+html {
+  visibility: visible;
+}
