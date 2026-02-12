@@ -1,24 +1,39 @@
 ---
 import BackgroundWave from "./BackgroundWave.tsx";
 import WelcomeButtons from "./welcome-buttons.tsx";
+import logo from "../assets/TR-LOGO.svg";
+import { Image } from "astro:assets";
 ---
 
 <div
-  class="relative mx-auto flex flex-col justify-center pt-32 md:pt-56 pb-8 px-4 md:px-16"
+  class="relative mx-auto flex flex-col justify-center pt-32 pb-8 px-4 md:px-16"
 >
   <BackgroundWave client:load colorFront="#fff4fe" rotation={180} pxSize={18} />
-  <div class="relative z-10 flex flex-col items-center justify-center">
-    <h1
-      class="text-6xl md:text-8xl text-purple-800 font-mono mb-4 text-center tracking-tighter fade-in"
-    >
-      <span class="-mr-5">Thinkin'</span> <span class="-ml-5">Rocks*</span>
-    </h1>
-    <h2
-      class="text-2xl w-full mb-8 md:text-2xl font-sans text-center tracking-tight md:leading-10 fade-in"
-    >
-      *cutting-edge technology is just a rock until you make it move 
-    </h2>
-    <div class="fade-in">
+  <div
+    class="relative z-10 max-w-5xl mx-auto w-full flex flex-wrap justify-between gap-x-8"
+  >
+    <div>
+      <h1
+        class="text-6xl mb-2 md:text-7xl text-purple-800 font-display font-bold leading-tighter tracking-normal fade-in"
+      >
+        Turn white papers into <br /> working products
+      </h1>
+      <!-- <div class="w-full mb-18 md:w-1/2 md:mb-8 text-purple-800">
+      <Image
+        src={logo}
+        alt="Thinkin' Rocks"
+        class="w-full h-full object-contain"
+      />
+    </div> -->
+      <h2
+        class="text-lg w-full mb-4 md:text-xl font-mono tracking-tight md:leading-10 fade-in"
+      >
+        <span class="whitespace-nowrap">frontier hardware</span> • <span
+          class="whitespace-nowrap">faster build cycles</span
+        > • <span class="whitespace-nowrap">more aura</span>
+      </h2>
+    </div>
+    <div class="fade-in pt-4 -mr-2">
       <WelcomeButtons client:load />
     </div>
   </div>

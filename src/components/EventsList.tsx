@@ -81,7 +81,7 @@ export default function EventsList() {
               </div>
             )}
             <div className="flex-1 min-w-0">
-              <h3 className="text-base font-mono mb-2">
+              <h3 className="text-base font-display mb-2">
                 {item.event.url ? (
                   <a href={item.event.url} target="_blank" rel="noopener noreferrer" className="text-gray-900 transition-colors hover:text-purple-600">
                     {item.event.name}
@@ -152,7 +152,7 @@ export default function EventsList() {
             </div>
           )}
           <div className="flex-1 min-w-0">
-            <h3 className="text-lg font-mono mb-2">
+            <h3 className="text-3xl font-display mb-2">
               {item.event.url ? (
                 <a href={item.event.url} target="_blank" rel="noopener noreferrer" className="text-gray-900 transition-colors hover:text-purple-600">
                   {item.event.name}

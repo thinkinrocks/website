@@ -20,18 +20,9 @@ importers:
       '@cloudinary/url-gen':
         specifier: ^1.22.0
         version: 1.22.0
-      '@fontsource-variable/alkatra':
-        specifier: ^5.2.6
-        version: 5.2.6
-      '@fontsource-variable/handjet':
-        specifier: ^5.2.6
-        version: 5.2.6
-      '@fontsource-variable/inter':
+      '@fontsource-variable/instrument-sans':
         specifier: ^5.2.8
         version: 5.2.8
-      '@fontsource/source-code-pro':
-        specifier: ^5.2.7
-        version: 5.2.7
       '@paper-design/shaders-react':
         specifier: ^0.0.47
         version: 0.0.47(@types/react@19.1.12)(react@19.1.1)
@@ -403,17 +394,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource-variable/alkatra@5.2.6':
-    resolution: {integrity: sha512-tUUVJnmAFz2gTq1VyKdOJBEVMbzuflEmRmG94HNdRjJW/nGH5ZFQdHbaRG2arnlRglCRn9quIGcpMeDIiGtIxg==}
-
-  '@fontsource-variable/handjet@5.2.6':
-    resolution: {integrity: sha512-935pm8jCb0awj+7AX/B1JjHfZAi50rYvN4M6KefUhu9iicHnDUheNuaV9w1387PrDoG1BzFEFHMagtn4U8GZBQ==}
-
-  '@fontsource-variable/inter@5.2.8':
-    resolution: {integrity: sha512-kOfP2D+ykbcX/P3IFnokOhVRNoTozo5/JxhAIVYLpea/UBmCQ/YWPBfWIDuBImXX/15KH+eKh4xpEUyS2sQQGQ==}
-
-  '@fontsource/source-code-pro@5.2.7':
-    resolution: {integrity: sha512-7papq9TH94KT+S5VSY8cU7tFmwuGkIe3qxXRMscuAXH6AjMU+KJI75f28FzgBVDrlMfA0jjlTV4/x5+H5o/5EQ==}
+  '@fontsource-variable/instrument-sans@5.2.8':
+    resolution: {integrity: sha512-mTCaukbdIjjoipj2E3Q5XoZM3ZxJWdzyHevf/LG/0PHlfF9Q85pxOM7B7A9MerFyxmRzz5kVlumgIvgDSG4CPg==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -2780,13 +2762,7 @@ snapshots:
   '@esbuild/win32-x64@0.25.9':
     optional: true
 
-  '@fontsource-variable/alkatra@5.2.6': {}
-
-  '@fontsource-variable/handjet@5.2.6': {}
-
-  '@fontsource-variable/inter@5.2.8': {}
-
-  '@fontsource/source-code-pro@5.2.7': {}
+  '@fontsource-variable/instrument-sans@5.2.8': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
