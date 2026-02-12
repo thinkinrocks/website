@@ -1,61 +1,68 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Welcome from "../components/Welcome.astro";
-import { Image } from "astro:assets";   
-import { CldImage } from 'astro-cloudinary';
+import { Image } from "astro:assets";
+import { CldImage } from "astro-cloudinary";
 ---
 
 <Layout>
-  <Welcome />  <!-- Footer-like contact section at bottom -->
+  <Welcome />
+  <!-- Footer-like contact section at bottom -->
 
   <div class="pt-16 pb-8 px-4 md:px-16">
     <div class="max-w-5xl mx-auto">
       <!-- Main Content -->
-      <div class="mb-16 fade-in font-sans text-lg text-gray-700 leading-relaxed max-w-prose">
+      <div
+        class="mb-16 fade-in font-sans text-lg text-gray-700 leading-relaxed max-w-prose"
+      >
         <p class="mb-4">
-          <span class="tracking-wide">Thinkin' Rocks</span> is where deep-tech ideas become working prototypes.
+          Brilliant engineering shouldn't stop at a blueprint. Thinkin'Rocks
+          bridges the gap between concept and reality by providing managed
+          access to the cutting-edge
+          <a
+            href="/hardware"
+            class="text-purple-600 hover:text-purple-800 transition-colors"
+            >hardware</a
+          >—from neurowearables and FPGAs to humanoid robots—that usually sit
+          behind corporate firewalls.
         </p>
-      
+
         <p class="mb-4">
-          Brilliant engineers are not limited by imagination - they're limited by access.  
-          Access to hardware, compute, labs, and experts. We are fixing that. Think of us as a <a href="/space" class="text-purple-600 hover:text-purple-800 transition-colors">hardware library + build ecosystem</a>.  
-          A place filled with cutting-edge tools - from neurowearables and humanoid
-          robots to edge AI compute and FPGAs - where anyone can experiment, test ideas,
-          and build real prototypes with real hardware.
-          By opening access to advanced tooling and engineering mentors, we accelerate the
-          deep-tech pipeline. 
-          Our goal is clear: become Finland’s hub for applied innovation.</b>
+          The tools are only as powerful as the hands wielding them. We amplify
+          raw compute with human expertise, anchoring our facility within a
+          network of deep-tech leaders like Varjo, Alif Semiconductor, and
+          Doublepoint. Explore the <a
+            href="/about"
+            class="text-purple-600 hover:text-purple-800 transition-colors"
+            >partners and team</a
+          > driving this ecosystem.
         </p>
+
         <p class="mb-4">
-          Since our launch in 2025, we've built partnerships with world-class tech
-          companies — including Varjo, Tenstorrent, Doublepoint, Alif Semiconductor, and SeeTrue Technologies.
-          We host hands-on build sessions where engineers learn new tools, share knowledge,
-          and turn ideas into functioning prototypes.
-        </p>
-      
-        <p class="mb-4">
-          Next: more hardware, more build cycles, more prototypes shipped.
-        </p>
-        
-        <p class="mb-4">
-          Built by engineers, for engineers.
+          Ideas creates noise; we capture the signal. Our facility is a living
+          record of continuous testing, breaking, and shipping. To see the raw
+          engineering process and what is currently on our workbenches, read the <a
+            href="/log"
+            class="text-purple-600 hover:text-purple-800 transition-colors"
+            >logs</a
+          >.
         </p>
       </div>
 
       <!-- Contact Section -->
-      <div class="text-center fade-in">
-        <div class="flex flex-wrap justify-center gap-4 mb-6">
+      <div class="fade-in">
+        <div class="flex flex-wrap gap-4 mb-6">
           <div class="bg-purple-600 h-fit translate-0.5">
-            <a 
-              href="https://discord.gg/5MEu6njksN" 
+            <a
+              href="https://tally.so/r/mBrVg7"
               class="bg-purple-50 text-purple-600 inline-flex px-6 py-3 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono hover:bg-purple-100 transition-colors"
             >
               Join Us
             </a>
           </div>
           <div class="bg-gray-600 h-fit translate-0.5">
-            <a 
-              href="mailto:milana@thinkinrocks.com" 
+            <a
+              href="mailto:milana@thinkinrocks.com"
               class="bg-gray-50 text-gray-600 inline-flex px-6 py-3 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono hover:bg-gray-100 transition-colors"
             >
               Contact Us

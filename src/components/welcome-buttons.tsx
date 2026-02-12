@@ -20,7 +20,7 @@ export default function WelcomeButtons() {
         <span className="font-mono">Join our chat</span>
       </TealButtonLink><br/>
       <ButtonLink
-        href="https://t.me/+rxHNt6GA4-o1NWUy?text=Hello,%20I%20am%20"
+        href="https://github.com/thinkinrocks/"
         onClick={() => track("event_button_click")}
       >
         <FaGithub className="w-4 h-4 -mb-0.5" />
