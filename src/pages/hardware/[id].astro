@@ -118,70 +118,34 @@ const getStatusBadge = (status: string) => {
                 href={`/hardware/${relatedItem.id}`}
                 class="block group"
               >
-                <div class="py-1">
-                  <!-- Mobile: compact row -->
-                  <div class="md:hidden">
-                    <div class="flex gap-2 mb-1.5 items-center">
-                      {(relatedItem.images && relatedItem.images.length > 0) || relatedItem.cloudinaryPublicId ? (
-                        <div class="flex-shrink-0">
-                          {relatedItem.images && relatedItem.images.length > 0 ? (
-                            <img
-                              src={relatedItem.images[0]}
-                              alt={relatedItem.name}
-                              class="w-20 h-20 object-contain rounded"
-                            />
-                          ) : relatedItem.cloudinaryPublicId ? (
-                            <AdvancedImage
-                              cldImg={cloudinary
-                                .image(relatedItem.cloudinaryPublicId)
-                                .resize(fit().width(160).height(160))}
-                              alt={relatedItem.name}
-                              className="w-20 h-20 object-contain rounded"
-                              client:load
-                            />
-                          ) : null}
-                        </div>
+                <div class="py-1 flex gap-2 md:gap-3 items-center">
+                  {(relatedItem.images && relatedItem.images.length > 0) || relatedItem.cloudinaryPublicId ? (
+                    <div class="flex-shrink-0">
+                      {relatedItem.images && relatedItem.images.length > 0 ? (
+                        <img
+                          src={relatedItem.images[0]}
+                          alt={relatedItem.name}
+                          class="w-20 h-20 md:w-28 md:h-28 object-contain rounded"
+                        />
+                      ) : relatedItem.cloudinaryPublicId ? (
+                        <AdvancedImage
+                          cldImg={cloudinary
+                            .image(relatedItem.cloudinaryPublicId)
+                            .resize(fit().width(224).height(224))}
+                          alt={relatedItem.name}
+                          className="w-20 h-20 md:w-28 md:h-28 object-contain rounded"
+                          client:load
+                        />
                       ) : null}
-                      <div class="flex-1 min-w-0">
-                        <h3 class="text-sm font-display mb-1 text-gray-900 group-hover:text-purple-600 transition-colors">
-                          {relatedItem.name}
-                        </h3>
-                      </div>
                     </div>
-                    <p class="font-sans text-sm text-gray-600 break-words">
+                  ) : null}
+                  <div class="flex-1 min-w-0">
+                    <h3 class="text-sm md:text-lg font-display mb-1 text-gray-900 group-hover:text-purple-600 transition-colors">
+                      {relatedItem.name}
+                    </h3>
+                    <p class="font-sans text-sm md:text-base text-gray-600 break-words">
                       {truncateDescription(relatedItem.description, 35)}
                     </p>
-                  </div>
-                  <!-- Desktop: row -->
-                  <div class="hidden md:flex gap-3 items-center">
-                    {(relatedItem.images && relatedItem.images.length > 0) || relatedItem.cloudinaryPublicId ? (
-                      <div class="flex-shrink-0">
-                        {relatedItem.images && relatedItem.images.length > 0 ? (
-                          <img
-                            src={relatedItem.images[0]}
-                            alt={relatedItem.name}
-                            class="w-28 h-28 object-contain rounded"
-                          />
-                        ) : relatedItem.cloudinaryPublicId ? (
-                          <AdvancedImage
-                            cldImg={cloudinary
-                              .image(relatedItem.cloudinaryPublicId)
-                              .resize(fit().width(224).height(224))}
-                            alt={relatedItem.name}
-                            className="w-28 h-28 object-contain rounded"
-                            client:load
-                          />
-                        ) : null}
-                      </div>
-                    ) : null}
-                    <div class="flex-1 min-w-0">
-                      <h3 class="text-lg font-display mb-1 text-gray-900 group-hover:text-purple-600 transition-colors">
-                        {relatedItem.name}
-                      </h3>
-                      <p class="font-sans text-base text-gray-600">
-                        {truncateDescription(relatedItem.description, 35)}
-                      </p>
-                    </div>
                   </div>
                 </div>
               </a>
