@@ -12,8 +12,8 @@ const BRANCH = 'main';
 // source: path inside the repo (e.g., 'assets/fonts/my-font.woff2')
 // dest: filename to save in public/fonts (e.g., 'my-font.woff2')
 const FONTS = [
-    { source: 'PPMondwest-Regular.woff2', dest: 'BrandFont-Regular.woff2' },
-    { source: 'PPMondwest-Bold.woff2', dest: 'BrandFont-Bold.woff2' }
+    { source: 'PPMondwest-Regular.woff2', dest: 'PPMondwest-Regular.woff2' },
+    { source: 'PPMondwest-Bold.woff2', dest: 'PPMondwest-Bold.woff2' }
 ];
 
 // --- 2. SETUP ---
