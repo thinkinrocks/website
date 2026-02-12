@@ -143,7 +143,10 @@ const getStatusBadge = (status: string) => {
                     <h3 class="text-sm md:text-lg font-display mb-1 text-gray-900 group-hover:text-purple-600 transition-colors">
                       {relatedItem.name}
                     </h3>
-                    <p class="font-sans text-sm md:text-base text-gray-600 break-words">
+                    <p class="md:hidden font-sans text-sm text-gray-600 break-words">
+                      {truncateDescription(relatedItem.description, 18)}
+                    </p>
+                    <p class="hidden md:block font-sans text-base text-gray-600 break-words">
                       {truncateDescription(relatedItem.description, 35)}
                     </p>
                   </div>
