@@ -1,6 +1,5 @@
 import { FaCalendarAlt, FaGithub, FaUserPlus } from "react-icons/fa";
 import { TealButtonLink, PurpleButtonLink, ButtonLink } from "./buttons.tsx";
-const track = (name: string, data?: Record<string, any>) => {
 
 export default function WelcomeButtons() {
    const track = (name: string, data?: Record<string, any>) => {
