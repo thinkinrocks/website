@@ -116,6 +116,8 @@ function EventCard({ item, isPast }: EventCardProps) {
         target="_blank"
         rel="noopener noreferrer"
         className="block group"
+        data-umami-event="event-luma-open"
+        data-umami-event-url={item.event.url}
       >
         {cardContent}
       </a>
