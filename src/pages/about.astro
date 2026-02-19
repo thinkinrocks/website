@@ -1,8 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
 import { CldImage } from "astro-cloudinary";
-import thinkinrocksCoworking from "../assets/thinkingrocks-coworking.png";
+import { SpaceCarousel } from "../components/SpaceCarousel";
 ---
 
 <Layout>
@@ -11,13 +10,39 @@ import thinkinrocksCoworking from "../assets/thinkingrocks-coworking.png";
       <h1
         class="text-4xl md:text-5xl font-display font-bold tracking-tighter mb-6"
       >
-        Team and partners
+        About
       </h1>
 
-      <div class="mb-8 text-xl">
-        We are a group of researchers and experts who like building things. Our
-        partners help us access industry-grade hardware and stay connected with
-        the tech world.
+      <!-- Main Content -->
+      <div class="mb-12 font-sans text-lg text-gray-700 leading-relaxed max-w-prose space-y-4">
+        <p>
+          Thinkin'Rocks is a student-run deep-tech lab at Aalto University. We maintain a space where people build AI systems, robotics projects, XR applications, embedded devices, and experimental hardware—the kind of stuff that needs actual equipment and other builders around.
+        </p>
+        <p>
+          Most technical education teaches theory. Labs are locked behind bureaucracy. Makerspaces have 3D printers but not oscilloscopes. Hardware startups can't afford gear until funding arrives. Researchers work in isolation. Hackathon projects die on Monday. We saw people with skills and drive but nowhere to actually build serious tech.
+        </p>
+        <p>
+          So we made a place where the default is "yes, try it." Where you can start on Tuesday and have a working prototype by Friday. Where breaking things is learning, and someone in the room has probably solved your exact problem before. Equipment is communal, knowledge transfer is built in, and access comes from showing up and contributing. We also run Nerd Outs—sessions where people share what they're obsessed with, whether it's a circuit they debugged for weeks or an algorithm that won't leave their head.
+        </p>
+        <p>
+          Join our <a
+            href="https://t.me/thinkinrocks"
+            class="text-purple-600 hover:text-purple-800 transition-colors"
+            target="_blank"
+            >Telegram chat</a>, come to a build session, start working on something. That's how it works. Check our <a
+            href="/events"
+            class="text-purple-600 hover:text-purple-800 transition-colors"
+            >events page</a> for upcoming sessions and our <a
+            href="/hardware"
+            class="text-purple-600 hover:text-purple-800 transition-colors"
+            >hardware page</a
+          > to see what's available.
+        </p>
+      </div>
+
+      <!-- Team Section -->
+      <div class="mb-8 font-sans text-lg text-gray-700 leading-relaxed max-w-prose">
+        <p class="font-mono text-gray-900">The people who keep this place running:</p>
       </div>
 
       <div class="flex flex-wrap gap-8 w-full mb-10">
@@ -158,11 +183,18 @@ import thinkinrocksCoworking from "../assets/thinkingrocks-coworking.png";
       </div>
 
       <!-- Partners Section -->
-      <div class="mb-16 fade-in max-w-5xl mx-auto">
-        <p class="font-sans text-lg text-gray-700 mb-8 leading-relaxed">
-          We work with industry leaders to bring cutting-edge technology
-          directly to you:
+      <div class="mb-8 font-sans text-lg text-gray-700 leading-relaxed max-w-prose">
+        <p class="font-mono text-gray-900 mb-4">Backed by people who get it:</p>
+        <p>
+          Industry partners and universities support the lab with equipment, knowledge, and connections to real-world challenges. This lets builders access industry-grade hardware and stay connected to the broader technology ecosystem. Check out our <a
+            href="/hardware"
+            class="text-purple-600 hover:text-purple-800 transition-colors"
+            >hardware page</a
+          > to see what's available.
         </p>
+      </div>
+      
+      <div class="mb-16 fade-in max-w-5xl mx-auto">
 
         <div
           class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6 mb-8"
@@ -219,171 +251,162 @@ import thinkinrocksCoworking from "../assets/thinkingrocks-coworking.png";
               </div>
             </a>
           </div>
+          <div class="bg-gray-50 p-3 md:p-4 text-center">
+            <a href="https://www.aalto.fi/" target="_blank" data-umami-event="partner-aalto">
+              <div
+                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
+              >
+                <img
+                  src="/images/companies-logo/aalto-logo.png"
+                  alt="Aalto University"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </a>
+          </div>
+          <div class="bg-gray-50 p-3 md:p-4 text-center">
+            <a href="https://www.kyutech.ac.jp/" target="_blank" data-umami-event="partner-kyutech">
+              <div
+                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
+              >
+                <img
+                  src="/images/companies-logo/kyutech-logo.png"
+                  alt="Kyushu Institute of Technology"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </a>
+          </div>
+          <div class="bg-gray-50 p-3 md:p-4 text-center">
+            <a href="https://ignite.aaltoes.com" target="_blank" data-umami-event="partner-ignite">
+              <div
+                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
+              >
+                <img
+                  src="/images/companies-logo/ignite-logo.png"
+                  alt="Ignite"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </a>
+          </div>
+          <div class="bg-gray-50 p-3 md:p-4 text-center">
+            <a href="https://wihurinrahasto.fi" target="_blank" data-umami-event="partner-wihuri">
+              <div
+                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
+              >
+                <img
+                  src="/images/companies-logo/wihuri-logo.png"
+                  alt="Wihuri"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="max-w-5xl mx-auto">
-      <h1
-        class="text-3xl md:text-5xl font-display font-bold tracking-tighter mb-6"
-      >
-        Our space
-      </h1>
 
-      <!-- Location Section -->
-      <div class="mb-4 text-xl">
-        We are located at <a
-          href="https://maps.google.com/?q=Startup+Sauna,+Puumiehenkuja+5,+02150+Espoo,+Finland"
-          class="text-purple-600 hover:text-purple-800 transition-colors"
-          data-umami-event="location-sus"
-          >Startup Sauna</a
-        > on the second floor. Just come to Aaltoes co-working space and ask how to
-        get to Thinkin' Rocks playground or ping us on Discord. Our space is open
-        for everyone on any day, just make sure there is someoone in the space to
-        let you in. If you are working on some particular project, you can get access
-        card to the space. Just contact us on Discord.
+      <!-- Space Section -->
+      <div class="mb-8 font-sans text-lg text-gray-700 leading-relaxed max-w-prose">
+        <p>
+          We're located at <a
+            href="https://maps.google.com/?q=Startup+Sauna,+Puumiehenkuja+5,+02150+Espoo,+Finland"
+            class="text-purple-600 hover:text-purple-800 transition-colors"
+            data-umami-event="location-sus"
+            >Startup Sauna</a
+          > at Aalto University, second floor. Come to Aaltoes co-working space and ask for Thinkin' Rocks, or ping us on <a
+            href="https://t.me/thinkinrocks"
+            class="text-purple-600 hover:text-purple-800 transition-colors"
+            target="_blank"
+            >Telegram</a
+          >. The space is open when someone's there to let you in. For regular access, join the community and start building.
+        </p>
       </div>
-      <Image
-        src={thinkinrocksCoworking}
-        alt="Startup Sauna"
-        class="h-auto mb-2 mx-auto"
+
+      <!-- Space Photos Carousel -->
+      <SpaceCarousel
+        images={[
+          {
+            src: "whole-area_v4qg1y",
+            alt: "Main Workspace",
+            caption: "Collaborative work area with desks, monitors, and tools."
+          },
+          {
+            src: "shelf-area_sfnum4",
+            alt: "Hardware & Storage Area",
+            caption: "Storage area with shelves for hardware and materials."
+          },
+          {
+            src: "chill-area_iz650y",
+            alt: "Chill Area",
+            caption: "Multi-purpose area for demos, talks, and hanging out."
+          }
+        ]}
+        cloudName={import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME}
+        client:load
       />
-      <p class="text-center text-sm font-sans text-gray-600 mb-8">
-        Floor plan of Thinkin' Rocks area at Startup Sauna showing workspace
-        layout
-      </p>
-
-      <!-- Photo Gallery -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12">
-        <!-- Whole Area -->
-        <div class="text-center">
-          <div class="aspect-[4/3] mb-3 overflow-hidden">
-            <CldImage
-              src="whole-area_v4qg1y"
-              alt="Main Workspace"
-              class="w-full h-full object-cover"
-              width={400}
-              height={300}
-            />
-          </div>
-          <p class="text-center text-sm font-sans text-gray-600 mb-8">
-            Our collaborative work area with desks, monitors, and all the tools
-            you need for building.
-          </p>
-        </div>
-
-        <!-- Shelf Area -->
-        <div class="text-center">
-          <div class="aspect-[4/3] mb-3 overflow-hidden">
-            <CldImage
-              src="shelf-area_sfnum4"
-              alt="Hardware & Storage Area"
-              class="w-full h-full object-cover"
-              width={400}
-              height={300}
-            />
-          </div>
-          <p class="text-center text-sm font-sans text-gray-600 mb-8">
-            Organized storage area with shelves for hardware, tools, and project
-            materials.
-          </p>
-        </div>
-
-        <!-- Chill Area -->
-        <div class="text-center">
-          <div class="aspect-[4/3] mb-3 overflow-hidden">
-            <CldImage
-              src="chill-area_iz650y"
-              alt="Chill Area"
-              class="w-full h-full object-cover"
-              width={400}
-              height={300}
-            />
-          </div>
-          <p class="text-center text-sm font-sans text-gray-600 mb-8">
-            Multi-purpose area for watching films, training pitches, playing
-            games, and socializing with the community.
-          </p>
-        </div>
-      </div>
     </div>
 
     <!-- FAQ Section -->
     <div class="max-w-5xl mx-auto">
-      <h1
-        class="text-3xl md:text-5xl font-display font-bold tracking-tighter mb-6"
+      <h2
+        class="text-3xl md:text-4xl font-display font-bold tracking-tighter mb-6"
       >
         FAQ
-      </h1>
+      </h2>
 
       <div class="space-y-8 mb-12">
         <div>
           <h3 class="text-xl font-mono mb-2 text-gray-900">
-            How can I access the equipment?
+            How do I join?
           </h3>
           <p class="font-sans text-gray-700">
-            Join our Telegram community first, then attend one of our meetups or
-            workshops. We provide training and access to community members who
-            are working on interesting projects. Equipment usage is based on
-            availability and project requirements.
+            Join our Telegram chat, introduce yourself, and come by the lab. Start working on something. Access deepens as you build.
           </p>
         </div>
 
         <div>
           <h3 class="text-xl font-mono mb-2 text-gray-900">
-            What kind of projects can I work on?
+            What can I build here?
           </h3>
           <p class="font-sans text-gray-700">
-            We support a wide range of projects including AI/ML research,
-            robotics development, computer vision, hardware prototyping, and
-            educational initiatives. Priority is given to open-source projects
-            and those that benefit the broader community.
+            AI experiments, robotics systems, hardware prototypes, research projects, creative technology. Priority goes to active, collaborative projects that share knowledge with the community.
           </p>
         </div>
 
         <div>
           <h3 class="text-xl font-mono mb-2 text-gray-900">
-            Is there a cost to use the equipment?
+            Does it cost anything?
           </h3>
           <p class="font-sans text-gray-700">
-            We operate as a community-driven lab. While basic access is free for
-            community members, we may ask for contributions to cover maintenance
-            costs for intensive usage or longer-term projects. Contact us to
-            discuss your specific needs.
+            Basic participation is free. For intensive equipment use or long-term projects, we may ask for contributions to cover maintenance. We keep barriers low while maintaining sustainability.
           </p>
         </div>
 
         <div>
           <h3 class="text-xl font-mono mb-2 text-gray-900">
-            Can I collaborate with other members?
+            Can I find collaborators?
           </h3>
           <p class="font-sans text-gray-700">
-            Absolutely! Collaboration is at the heart of what we do. Our
-            Telegram community and regular meetups are great places to find
-            collaborators, share knowledge, and work together on exciting
-            projects.
+            Yes. Many arrive without a team and find one here. Skills overlap, ideas collide, unexpected things emerge. The Telegram chat and build sessions are where collaboration starts.
           </p>
         </div>
 
         <div>
           <h3 class="text-xl font-mono mb-2 text-gray-900">
-            Do you offer training or workshops?
+            When are workshops held?
           </h3>
           <p class="font-sans text-gray-700">
-            Yes! We regularly host workshops, build sessions, and training
-            events. These cover topics like AI/ML development, robotics
-            programming, hardware design, and using specific equipment. Check
-            our Telegram for upcoming events.
+            Regularly. Structured trainings on specific tools, open build nights where everyone works on their own projects. Both matter. Check Telegram for schedules.
           </p>
         </div>
 
         <div>
           <h3 class="text-xl font-mono mb-2 text-gray-900">
-            How do I stay updated on events and opportunities?
+            How do I stay updated?
           </h3>
           <p class="font-sans text-gray-700">
-            Join our Telegram chat for real-time updates, discussions, and event
-            announcements. You can also follow our Telegram channel to receive
-            important updates.
+            Join the Telegram chat. Events, workshops, and spontaneous build sessions are announced there. It's also where questions get answered and ideas find collaborators.
           </p>
         </div>
       </div>
