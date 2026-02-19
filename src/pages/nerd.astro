@@ -33,24 +33,24 @@ try {
     
     console.log('Found nerd out events:', nerdOutEvents.length);
     
-    // Sort by start date to ensure chronological order
+    // Sort by start date to ensure chronological order (closest first)
     nerdOutEvents.sort((a, b) => 
       new Date(a.event.start_at).getTime() - new Date(b.event.start_at).getTime()
     );
     
     if (nerdOutEvents.length > 0) {
-      // Get the LAST (most distant future) upcoming event
-      const lastEvent = nerdOutEvents[nerdOutEvents.length - 1];
+      // Get the FIRST (closest/soonest) upcoming event
+      const nextEvent = nerdOutEvents[0];
       
       console.log('Nerd out events dates:', nerdOutEvents.map(e => 
         `${e.event.name} - ${new Date(e.event.start_at).toISOString()}`
       ));
-      console.log('Redirecting to last event:', lastEvent.event.name);
-      console.log('Event URL:', lastEvent.event.url);
+      console.log('Redirecting to next event:', nextEvent.event.name);
+      console.log('Event URL:', nextEvent.event.url);
       
-      // Redirect to the last event
-      if (lastEvent.event.url) {
-        return Astro.redirect(lastEvent.event.url, 302);
+      // Redirect to the next upcoming event
+      if (nextEvent.event.url) {
+        return Astro.redirect(nextEvent.event.url, 302);
       }
     } else {
       // Log all event names to help debug
