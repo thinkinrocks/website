@@ -24,6 +24,11 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
 
+  // Scroll to top of page
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // Get unique categories from all items
   const categories = useMemo(() => {
     const allCategories = items.flatMap(item => item.categories);
@@ -306,7 +311,10 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
-                    if (currentPage > 1) setCurrentPage(currentPage - 1);
+                    if (currentPage > 1) {
+                      setCurrentPage(currentPage - 1);
+                      scrollToTop();
+                    }
                   }}
                   className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
                 />
@@ -325,6 +333,7 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
                         onClick={(e) => {
                           e.preventDefault();
                           setCurrentPage(page);
+                          scrollToTop();
                         }}
                         isActive={page === currentPage}
                       >
@@ -350,7 +359,10 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
-                    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+                    if (currentPage < totalPages) {
+                      setCurrentPage(currentPage + 1);
+                      scrollToTop();
+                    }
                   }}
                   className={currentPage === totalPages ? 'pointer-events-none opacity-50' : ''}
                 />
