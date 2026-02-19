@@ -16,12 +16,19 @@ interface SpaceImage {
 
 interface SpaceCarouselProps {
   images: SpaceImage[];
-  cloudName?: string;
 }
 
-export const SpaceCarousel: React.FC<SpaceCarouselProps> = ({ images, cloudName = "dlzxrzthe" }) => {
+export const SpaceCarousel: React.FC<SpaceCarouselProps> = ({ images }) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
+
+  // Preload all images
+  React.useEffect(() => {
+    images.forEach((image) => {
+      const img = new Image();
+      img.src = image.src;
+    });
+  }, [images]);
 
   React.useEffect(() => {
     if (!api) {
@@ -52,7 +59,7 @@ export const SpaceCarousel: React.FC<SpaceCarouselProps> = ({ images, cloudName 
             <CarouselItem key={index} className="pl-4">
               <div className="aspect-[4/3] overflow-hidden rounded">
                 <img
-                  src={`https://res.cloudinary.com/${cloudName}/image/upload/w_800,h_600,c_fill/${image.src}`}
+                  src={image.src}
                   alt={image.alt}
                   className="w-full h-full object-cover"
                   loading="eager"
