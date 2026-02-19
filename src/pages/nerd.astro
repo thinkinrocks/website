@@ -1,0 +1,124 @@
+---
+import { fetchLumaEvents, type LumaEvent } from '../utils/luma';
+
+export const prerender = false;
+
+// Get the calendar ID from environment variables
+const calendarId = import.meta.env.LUMA_CALENDAR_ID || '';
+
+// Fetch upcoming events
+let redirectUrl = '';
+let errorMessage = '';
+
+try {
+  if (!calendarId || calendarId === 'your-calendar-id') {
+    errorMessage = 'Calendar ID not configured';
+  } else {
+    // Fetch all upcoming events
+    const upcomingEvents = await fetchLumaEvents(calendarId, true);
+    
+    console.log('Total upcoming events:', upcomingEvents.length);
+    
+    // Filter for "nerd out" events (case-insensitive, search in name and description)
+    const nerdOutEvents = upcomingEvents.filter((item: LumaEvent) => {
+      const eventName = item.event.name?.toLowerCase() || '';
+      const eventDescription = item.event.description?.toLowerCase() || '';
+      const searchText = eventName + ' ' + eventDescription;
+      
+      // Look for various variations
+      return searchText.includes('nerd out') || 
+             searchText.includes('nerdout') ||
+             searchText.includes('nerd-out');
+    });
+    
+    console.log('Found nerd out events:', nerdOutEvents.length);
+    
+    // Sort by start date to ensure chronological order
+    nerdOutEvents.sort((a, b) => 
+      new Date(a.event.start_at).getTime() - new Date(b.event.start_at).getTime()
+    );
+    
+    if (nerdOutEvents.length > 0) {
+      // Get the LAST (most distant future) upcoming event
+      const lastEvent = nerdOutEvents[nerdOutEvents.length - 1];
+      
+      console.log('Nerd out events dates:', nerdOutEvents.map(e => 
+        `${e.event.name} - ${new Date(e.event.start_at).toISOString()}`
+      ));
+      console.log('Redirecting to last event:', lastEvent.event.name);
+      console.log('Event URL:', lastEvent.event.url);
+      
+      // Redirect to the last event
+      if (lastEvent.event.url) {
+        return Astro.redirect(lastEvent.event.url, 302);
+      }
+    } else {
+      // Log all event names to help debug
+      console.log('All event names:', upcomingEvents.map(e => e.event.name));
+      errorMessage = 'No upcoming Nerd Out events found';
+    }
+  }
+} catch (error) {
+  console.error('Error fetching nerd out event:', error);
+  errorMessage = 'Failed to fetch events';
+}
+
+// If we reach here, there was an error or no event found
+redirectUrl = '/events';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nerd Out - Redirecting...</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #0a0a0a;
+      color: #fff;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      color: #999;
+      margin-bottom: 1.5rem;
+    }
+    a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    {errorMessage ? (
+      <>
+        <h1>🤓 Nerd Out</h1>
+        <p>{errorMessage}</p>
+        <a href="/events">View all events</a>
+      </>
+    ) : (
+      <>
+        <h1>Redirecting to Nerd Out...</h1>
+        <p>If you're not redirected, <a href={redirectUrl}>click here</a></p>
+      </>
+    )}
+  </div>
+</body>
+</html>
