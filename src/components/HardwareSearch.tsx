@@ -3,14 +3,26 @@ import type { HardwareItem } from '../types/hardware';
 import {AdvancedImage} from '@cloudinary/react';
 import {fit} from "@cloudinary/url-gen/actions/resize";
 import {cloudinary} from "../data/cloudinary";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 
 interface HardwareSearchProps {
   items: HardwareItem[];
 }
 
+const ITEMS_PER_PAGE = 10;
+
 const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Get unique categories from all items
   const categories = useMemo(() => {
@@ -62,7 +74,19 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
         ? prev.filter(c => c !== category)
         : [...prev, category]
     );
+    setCurrentPage(1); // Reset to first page when filter changes
   };
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedItems = filteredItems.slice(startIndex, endIndex);
+
+  // Reset to page 1 when search changes
+  React.useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, selectedCategories]);
 
   const getStatusBadge = (status: string) => {
     switch (status) {
@@ -137,7 +161,7 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
 
       {/* Hardware List */}
       <div className="space-y-6">
-        {filteredItems.map((item) => (
+        {paginatedItems.map((item) => (
           <a
             key={item.id}
             href={`/hardware/${item.id}`}
@@ -271,6 +295,70 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
           </a>
         ))}
       </div>
+
+      {/* Pagination */}
+      {filteredItems.length > 0 && totalPages > 1 && (
+        <div className="mt-8">
+          <Pagination>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (currentPage > 1) setCurrentPage(currentPage - 1);
+                  }}
+                  className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
+                />
+              </PaginationItem>
+              
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                if (
+                  page === 1 ||
+                  page === totalPages ||
+                  (page >= currentPage - 1 && page <= currentPage + 1)
+                ) {
+                  return (
+                    <PaginationItem key={page}>
+                      <PaginationLink
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setCurrentPage(page);
+                        }}
+                        isActive={page === currentPage}
+                      >
+                        {page}
+                      </PaginationLink>
+                    </PaginationItem>
+                  );
+                } else if (
+                  page === currentPage - 2 ||
+                  page === currentPage + 2
+                ) {
+                  return (
+                    <PaginationItem key={page}>
+                      <PaginationEllipsis />
+                    </PaginationItem>
+                  );
+                }
+                return null;
+              })}
+              
+              <PaginationItem>
+                <PaginationNext
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+                  }}
+                  className={currentPage === totalPages ? 'pointer-events-none opacity-50' : ''}
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </div>
+      )}
 
       {/* No Results */}
       {filteredItems.length === 0 && (

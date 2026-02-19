@@ -471,7 +471,8 @@
       "Biosensing",
       "XR/VR"
     ],
-    "status": "coming-soon",
+    "isNew": true,
+    "status": "available",
     "availableSince": "2026-02-06",
     "details": [
       "ST ONE is a wearable, glasses-form-factor eye-tracking system designed for collecting high-quality eye-movement data in real-world and mobile conditions where head motion, device slippage, and interruptions are expected. Unlike many eye trackers optimized for static lab setups, ST ONE is built for naturalistic behavior, allowing rapid head movement, re-wearing between sessions, and use with corrective eyewear.",
@@ -493,7 +494,6 @@
     "description": "Portable professional motion capture system combining Sony mocopi wearable sensors with XYN Motion Studio software for fast, full-body motion capture in XR, animation, and research workflows.",
     "cloudinaryPublicId": "sony-mocopi-Pro-Kit",
     "categories": ["XR/VR", "Computer Vision"],
-    "isNew": true,
     "status": "available",
     "availableSince": "2026-02-06",
     "images": [
@@ -522,7 +522,7 @@
       "oak-d-pro"
     ]
   },
-  { "id": "bambu-lab-p1s-ams2-pro", "name": "Bambu Lab P1S + AMS 2 Pro Combo", "description": "Enclosed high-speed CoreXY 3D printer with AMS 2 Pro for multi-material printing and rapid prototyping of functional parts, enclosures, and mechanical components.", "cloudinaryPublicId": "bambu-p1s-ams2-pro", "categories": ["Prototyping", "Robotics"], "status": "coming-soon", "availableSince": "2026-02-11", "images": [ "https://3d.nice-cdn.com/upload/image/product/large/default/bambu-lab-p1s-combo-826635-fi.png" ], "imageCaptions": [ "Bambu Lab P1S (P1 series image)" ], "details": [ "Bambu Lab P1S is an enclosed CoreXY 3D printer optimized for fast, repeatable printing of prototypes and functional parts. The enclosure improves reliability for temperature-sensitive filaments and reduces warping for larger parts.", "The AMS 2 Pro enables automatic filament switching for multi-material and multi-color prints, supports faster iteration for mechanical assemblies, and simplifies workflows like printing soluble supports or multi-part prototypes in one job.", "Typical use cases include robotics brackets, sensor mounts, custom enclosures, quick mechanical iterations, and fixtures/jigs for lab setups.", "**Development & Lab Advice:** For functional parts, validate tolerances with quick calibration prints (holes, press-fits) before long jobs. Prefer PETG/ABS/ASA for durable prototypes; plan ventilation when printing higher-temperature materials." ], "related": ["raspberry-pi-5", "esp-dev-boards", "amd-kria-kr260"] },  
+  { "id": "bambu-lab-p1s-ams2-pro", "name": "Bambu Lab P1S + AMS 2 Pro Combo", "description": "Enclosed high-speed CoreXY 3D printer with AMS 2 Pro for multi-material printing and rapid prototyping of functional parts, enclosures, and mechanical components.", "cloudinaryPublicId": "bambu-p1s-ams2-pro", "categories": ["Prototyping", "Robotics"], "isNew": true, "status": "available", "availableSince": "2026-02-11", "images": [ "https://3d.nice-cdn.com/upload/image/product/large/default/bambu-lab-p1s-combo-826635-fi.png" ], "imageCaptions": [ "Bambu Lab P1S (P1 series image)" ], "details": [ "Bambu Lab P1S is an enclosed CoreXY 3D printer optimized for fast, repeatable printing of prototypes and functional parts. The enclosure improves reliability for temperature-sensitive filaments and reduces warping for larger parts.", "The AMS 2 Pro enables automatic filament switching for multi-material and multi-color prints, supports faster iteration for mechanical assemblies, and simplifies workflows like printing soluble supports or multi-part prototypes in one job.", "Typical use cases include robotics brackets, sensor mounts, custom enclosures, quick mechanical iterations, and fixtures/jigs for lab setups.", "**Development & Lab Advice:** For functional parts, validate tolerances with quick calibration prints (holes, press-fits) before long jobs. Prefer PETG/ABS/ASA for durable prototypes; plan ventilation when printing higher-temperature materials." ], "related": ["raspberry-pi-5", "esp-dev-boards", "amd-kria-kr260"] },  
   {
     "id": "ultracortex-mark-iv-cyton",
     "name": "Ultracortex Mark IV EEG Headset + Cyton Biosensing Board",
