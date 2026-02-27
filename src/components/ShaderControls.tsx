@@ -123,8 +123,14 @@ function downloadSnapshot() {
   const canvas = preview.querySelector("canvas");
   if (!canvas) return;
 
+  const srcW = canvas.width || canvas.clientWidth;
+  const srcH = canvas.height || canvas.clientHeight;
+  if (!srcW || !srcH) return;
+
+  const scale = 1920 / srcW;
   const w = 1920;
-  const h = 1080;
+  const h = Math.round(srcH * scale);
+
   const offscreen = document.createElement("canvas");
   offscreen.width = w;
   offscreen.height = h;
