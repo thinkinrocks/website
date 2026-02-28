@@ -6,7 +6,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <!-- Navigation: same horizontal padding and max-width as page content -->
-<div class="fixed top-0 left-0 right-0 z-40">
+<div id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-colors duration-300">
   <!-- Desktop Navigation -->
   <div class="hidden md:block w-full px-4 md:px-16">
     <div class="max-w-5xl mx-auto w-full">
@@ -131,11 +131,33 @@ const currentPath = Astro.url.pathname;
     }
   }
 
+  // Handle navbar background on scroll
+  function setupNavbarScroll() {
+    const navbar = document.getElementById('navbar');
+    if (!navbar) return;
+
+    function handleScroll() {
+      if (window.scrollY > 0) {
+        navbar.style.backgroundColor = '#ffffff';
+      } else {
+        navbar.style.backgroundColor = 'transparent';
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    // Set initial state
+    handleScroll();
+  }
+
   // Run on page load
   setupTRLinks();
+  setupNavbarScroll();
 
   // Re-run on Astro page transitions (if View Transitions are enabled)
-  document.addEventListener('astro:page-load', setupTRLinks);
+  document.addEventListener('astro:page-load', () => {
+    setupTRLinks();
+    setupNavbarScroll();
+  });
 </script>
 
 

@@ -17,7 +17,7 @@ export default function PresetBackground() {
   const params = {
     flowField: {
       detail: 0.9,
-      speed: 1.2,
+      speed: 0.6,
       strength: 0.11,
     },
     image: {
