@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 
 export default function PresetBackground() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [shouldShow, setShouldShow] = useState(false);
   
   // Preset parameters
   const imageUrl = "https://res.cloudinary.com/dby6mmmff/image/upload/u8219894999_marble_graphics_on_a_white_background_technology_--_154f16c6-cd0a-4b56-bc11-ed9d553d6f29_tgxx31";
@@ -44,8 +45,15 @@ export default function PresetBackground() {
   useEffect(() => {
     const img = new Image();
     img.src = imageUrl;
-    img.onload = () => setIsLoaded(true);
-    img.onerror = () => setIsLoaded(true); // Show even if image fails to prevent blocking
+    img.onload = () => {
+      setIsLoaded(true);
+      // Small delay to ensure smooth rendering
+      setTimeout(() => setShouldShow(true), 50);
+    };
+    img.onerror = () => {
+      setIsLoaded(true);
+      setTimeout(() => setShouldShow(true), 50);
+    };
   }, []);
 
   return (
@@ -55,12 +63,14 @@ export default function PresetBackground() {
         backgroundColor: "#ffffff"
       }}
     >
-      {isLoaded && (
+      {shouldShow && (
         <div 
           style={{ 
             width: "100%", 
             height: "100%",
-            animation: "fadeIn 1s ease-in"
+            animation: "fadeIn 1.2s ease-in",
+            opacity: 0,
+            animationFillMode: "forwards"
           }}
         >
           <Shader style={{ width: "100%", height: "100%" }}>

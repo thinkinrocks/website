@@ -4,6 +4,7 @@ import { Shader, Dither, ImageTexture, BrightnessContrast } from "shaders/react"
 export default function StatueAnimation() {
   const [currentFrame, setCurrentFrame] = useState(84);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [shouldShow, setShouldShow] = useState(false);
   const minFrame = 29;
   const maxFrame = 84;
   const reactionDistance = 800; // Distance in pixels when statue starts reacting
@@ -24,6 +25,8 @@ export default function StatueAnimation() {
       }
       await Promise.all(promises);
       setIsLoaded(true);
+      // Small delay to ensure smooth rendering
+      setTimeout(() => setShouldShow(true), 50);
     };
     preloadImages();
   }, []);
@@ -80,12 +83,14 @@ export default function StatueAnimation() {
         backgroundColor: "#ffffff"
       }}
     >
-      {isLoaded && (
+      {shouldShow && (
         <div 
           style={{ 
             width: "100%", 
             height: "100%",
-            animation: "fadeIn 1s ease-in"
+            animation: "fadeIn 1.2s ease-in",
+            opacity: 0,
+            animationFillMode: "forwards"
           }}
         >
           <Shader style={{ width: "100%", height: "100%" }}>

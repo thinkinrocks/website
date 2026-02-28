@@ -6,7 +6,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <!-- Navigation: same horizontal padding and max-width as page content -->
-<div id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-colors duration-300">
+<div id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
   <!-- Desktop Navigation -->
   <div class="hidden md:block w-full px-4 md:px-16">
     <div class="max-w-5xl mx-auto w-full">
@@ -105,6 +105,21 @@ const currentPath = Astro.url.pathname;
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+  
+  /* Apple-style glass morphism effect */
+  #navbar.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px) saturate(120%) brightness(110%);
+    -webkit-backdrop-filter: blur(20px) saturate(120%) brightness(110%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Firefox fallback (doesn't support backdrop-filter well) */
+  @supports not (backdrop-filter: blur(20px)) {
+    #navbar.navbar-scrolled {
+      background-color: rgba(255, 255, 255, 0.75);
+    }
+  }
 </style>
 
 <script>
@@ -137,10 +152,27 @@ const currentPath = Astro.url.pathname;
     if (!navbar) return;
 
     function handleScroll() {
-      if (window.scrollY > 0) {
-        navbar.style.backgroundColor = '#ffffff';
+      // Find the title element (h1)
+      const title = document.querySelector('h1');
+      if (!title) {
+        // Fallback to simple scroll check if title not found
+        if (window.scrollY > 0) {
+          navbar.classList.add('navbar-scrolled');
+        } else {
+          navbar.classList.remove('navbar-scrolled');
+        }
+        return;
+      }
+
+      // Get the position of the title
+      const titleRect = title.getBoundingClientRect();
+      const navbarHeight = navbar.offsetHeight;
+
+      // Add class when navbar reaches the title
+      if (titleRect.top <= navbarHeight) {
+        navbar.classList.add('navbar-scrolled');
       } else {
-        navbar.style.backgroundColor = 'transparent';
+        navbar.classList.remove('navbar-scrolled');
       }
     }
 
