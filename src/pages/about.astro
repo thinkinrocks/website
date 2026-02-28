@@ -24,7 +24,12 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
         <p>
           So we made a place where the default is "yes, try it." Where you can start on Tuesday and have a working prototype by Friday. Where breaking things is learning, and someone in the room has probably solved your exact problem before. Equipment is communal, knowledge transfer is built in, and access comes from showing up and contributing. We also run Nerd Outs—sessions where people share what they're obsessed with, whether it's a circuit they debugged for weeks or an algorithm that won't leave their head.
         </p>
-        <p>
+        <p>We're located at <a
+            href="https://maps.google.com/?q=Startup+Sauna,+Puumiehenkuja+5,+02150+Espoo,+Finland"
+            class="text-purple-600 hover:text-purple-800 transition-colors"
+            data-umami-event="location-sus"
+            >Startup Sauna</a
+          > at Aalto University, second floor.  
           Join our <a
             href="https://t.me/+rxHNt6GA4-o1NWUy"
             class="text-purple-600 hover:text-purple-800 transition-colors"
@@ -40,147 +45,44 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
         </p>
       </div>
 
-      <!-- Team Section -->
-      <div class="mb-8 font-sans text-lg text-gray-700 leading-relaxed max-w-prose">
-        <p class="font-mono text-gray-900">The people who keep this place running:</p>
-      </div>
+       
 
-      <div class="flex flex-wrap gap-8 w-full mb-10">
-        <div class="text-center">
-          <div class="w-32 h-32 mx-auto mb-2 overflow-hidden">
-            <CldImage
-              src="milana-min_yrnyld"
-              alt="Milana"
-              class="w-32 h-32 object-cover"
-              width={256}
-              height={256}
-              priority
-            />
-          </div>
-          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Milana</h3>
-          <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto">
-            <span class="font-mono text-purple-500"
-              >tg: <a
-                href="https://t.me/foxivil"
-                target="_blank"
-                data-umami-event="telegram-milana"
-                class="hover:underline">@foxivilr</a
-              ></span
-            ><br />can't live without coffee and anime. watched one piece twice.
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div class="w-32 h-32 bg-gray-200 mx-auto mb-2 overflow-hidden">
-            <CldImage
-              src="yerzhan-min_gl7gur"
-              alt="Yerzhan"
-              class="w-32 h-32 object-cover"
-              width={256}
-              height={256}
-              priority
-            />
-          </div>
-          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Yerzhan</h3>
-          <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto">
-            <span class="font-mono text-purple-500"
-              >tg: <a
-                data-umami-event="telegram-yerzhan"
-                href="https://t.me/yerzham"
-                target="_blank"
-                class="hover:underline">@yerzham</a
-              ></span
-            ><br />works on things that are not suppose to work
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div class="w-32 h-32 bg-gray-200 mx-auto mb-2 overflow-hidden">
-            <CldImage
-              src="alex-min_ypkkz2"
-              alt="Alex"
-              class="w-32 h-32 object-cover"
-              width={256}
-              height={256}
-              priority
-            />
-          </div>
-          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Alex</h3>
-          <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto">
-            <span class="font-mono text-purple-500"
-              >tg: <a
-                data-umami-event="telegram-alex"
-                href="https://t.me/alexocc"
-                target="_blank"
-                class="hover:underline">@alexocc</a
-              ></span
-            ><br />started learning english to understand computer errors.
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div class="w-32 h-32 bg-gray-200 mx-auto mb-2 overflow-hidden">
-            <CldImage
-              src="daniyar-min_kok519"
-              alt="Daniyar"
-              class="w-32 h-32 object-cover"
-              width={256}
-              height={256}
-              priority
-            />
-          </div>
-          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Daniyar</h3>
-          <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto">
-            <span class="font-mono text-purple-500"
-              >tg: <a
-                href="https://t.me/UhOhOhNo"
-                data-umami-event="telegram-daniyar"
-                target="_blank"
-                class="hover:underline">@UhOhOhNo</a
-              ></span
-            ><br />coding since 7th grade, still pretending to know what
-            hardware is.
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div
-            class="w-32 h-32 bg-gray-200 mx-auto mb-2 overflow-hidden flex items-center justify-center"
-          >
-            <span class="text-4xl font-mono text-gray-400">A</span>
-          </div>
-          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Arthur</h3>
-          <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto">
-            <span class="font-mono text-purple-500"
-              >tg: <a
-                href="https://t.me/ktnlvr"
-                data-umami-event="telegram-artur"
-                target="_blank"
-                class="hover:underline">@ktnlvr</a
-              ></span
-            ><br />knows just enough math to be dangerous.
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div
-            class="w-32 h-32 bg-gray-200 mx-auto mb-2 overflow-hidden flex items-center justify-center"
-          >
-            <span class="text-4xl font-mono text-gray-400">V</span>
-          </div>
-          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Vlad</h3>
-          <p class="font-sans text-xs text-gray-600 leading-tight w-32 mx-auto">
-            <span class="font-mono text-purple-500"
-              >tg: <a
-                href="https://t.me/VladyslavBM"
-                data-umami-event="telegram-vlad"
-                target="_blank"
-                class="hover:underline">@VladyslavBM</a
-              ></span
-            ><br />solving things nobody wants to deal with.
-          </p>
-        </div>
-      </div>
+      <!-- Space Photos Carousel -->
+      <SpaceCarousel
+        images={[
+          {
+            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/photo_2026-02-28_19.44.04_o1ovgk",
+            alt: "Workspace View",
+            caption: "Where ideas turn into prototypes. Desks filled with ongoing projects, screens showing code and schematics, coffee cups that fuel late-night debugging sessions. (February 2026)"
+          },
+          {
+            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/photo_2026-02-28_19.44.06_pzzzhp",
+            alt: "Lab Interior",
+            caption: "A space designed for builders. Every corner tells a story of something being made, tested, broken, and rebuilt better. This is where experiments happen daily. (February 2026)"
+          },
+          {
+            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/photo_2026-02-28_19.44.11_ucz7pf",
+            alt: "Lab Space",
+            caption: "This is where the magic happens. Hardware meets software, theory meets practice, and strangers become collaborators. A space that runs on curiosity and caffeine. (February 2026)"
+          },
+          {
+            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/whole-area_v4qg1y",
+            alt: "Main Workspace",
+            caption: "The main collaborative area. Multiple projects happening simultaneously, knowledge flowing freely between tables. Everyone's working on something different, yet somehow connected. (Early 2025)"
+          },
+          {
+            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/shelf-area_sfnum4",
+            alt: "Hardware & Storage Area",
+            caption: "Our hardware library. From GPUs and robotics kits to sensors and dev boards—tools that would normally be out of reach, now accessible to anyone with an idea. (Early 2025)"
+          },
+          {
+            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/chill-area_iz650y",
+            alt: "Chill Area",
+            caption: "Not everything happens at a desk. This is where demos turn into discussions, where you grab lunch between build sessions, where the best ideas often start. (Early 2025)"
+          }
+        ]}
+        client:load
+      />
 
       <!-- Partners Section -->
       <div class="mb-6 font-sans text-base md:text-lg text-gray-700 leading-relaxed max-w-prose">
@@ -194,8 +96,7 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
         </p>
       </div>
       
-      <div class="mb-16 fade-in max-w-5xl mx-auto">
-
+      <div class="mb-16 fade-in">
         <div
           class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-8"
         >
@@ -306,60 +207,222 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
         </div>
       </div>
 
-      <!-- Space Section -->
+      <!-- Team Section -->
       <div class="mb-8 font-sans text-lg text-gray-700 leading-relaxed max-w-prose">
-        <p>
-          We're located at <a
-            href="https://maps.google.com/?q=Startup+Sauna,+Puumiehenkuja+5,+02150+Espoo,+Finland"
-            class="text-purple-600 hover:text-purple-800 transition-colors"
-            data-umami-event="location-sus"
-            >Startup Sauna</a
-          > at Aalto University, second floor. Come to Aaltoes co-working space and ask for Thinkin' Rocks, or ping us on <a
-            href="https://t.me/+rxHNt6GA4-o1NWUy"
-            class="text-purple-600 hover:text-purple-800 transition-colors"
-            target="_blank"
-            >Telegram</a
-          >. The space is open when someone's there to let you in. For regular access, join the community and start building.
-        </p>
+        <p class="font-mono text-gray-900">The people who keep this place running:</p>
       </div>
 
-      <!-- Space Photos Carousel -->
-      <SpaceCarousel
-        images={[
-          {
-            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_800,h_600,c_fill/whole-area_v4qg1y",
-            alt: "Main Workspace",
-            caption: "Collaborative work area with desks, monitors, and tools."
-          },
-          {
-            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_800,h_600,c_fill/shelf-area_sfnum4",
-            alt: "Hardware & Storage Area",
-            caption: "Storage area with shelves for hardware and materials."
-          },
-          {
-            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_800,h_600,c_fill/chill-area_iz650y",
-            alt: "Chill Area",
-            caption: "Multi-purpose area for demos, talks, and hanging out."
-          }
-        ]}
-        client:load
-      />
-    </div>
+      <div class="mb-16 fade-in">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 mb-8">
+        <div class="text-center">
+          <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded">
+            <CldImage
+              src="milana-min_yrnyld"
+              alt="Milana"
+              class="w-40 h-40 object-cover"
+              width={256}
+              height={256}
+              priority
+            />
+          </div>
+          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Milana</h3>
+          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
+            <span class="font-mono text-purple-500"
+              >tg: <a
+                href="https://t.me/foxivil"
+                target="_blank"
+                data-umami-event="telegram-milana"
+                class="hover:underline">@foxivilr</a
+              ></span
+            ><br />can't live without coffee and anime. watched one piece twice.
+          </p>
+        </div>
 
-    <!-- FAQ Section -->
-    <div class="max-w-5xl mx-auto">
+        <div class="text-center">
+          <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
+            <CldImage
+              src="yerzhan-min_gl7gur"
+              alt="Yerzhan"
+              class="w-40 h-40 object-cover"
+              width={256}
+              height={256}
+              priority
+            />
+          </div>
+          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Yerzhan</h3>
+          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
+            <span class="font-mono text-purple-500"
+              >tg: <a
+                data-umami-event="telegram-yerzhan"
+                href="https://t.me/yerzham"
+                target="_blank"
+                class="hover:underline">@yerzham</a
+              ></span
+            ><br />works on things that are not suppose to work
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
+            <CldImage
+              src="alex-min_ypkkz2"
+              alt="Alex"
+              class="w-40 h-40 object-cover"
+              width={256}
+              height={256}
+              priority
+            />
+          </div>
+          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Alex</h3>
+          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
+            <span class="font-mono text-purple-500"
+              >tg: <a
+                data-umami-event="telegram-alex"
+                href="https://t.me/alexocc"
+                target="_blank"
+                class="hover:underline">@alexocc</a
+              ></span
+            ><br />started learning english to understand computer errors.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
+            <CldImage
+              src="daniyar-min_kok519"
+              alt="Daniyar"
+              class="w-40 h-40 object-cover"
+              width={256}
+              height={256}
+              priority
+            />
+          </div>
+          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Daniyar</h3>
+          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
+            <span class="font-mono text-purple-500"
+              >tg: <a
+                href="https://t.me/UhOhOhNo"
+                data-umami-event="telegram-daniyar"
+                target="_blank"
+                class="hover:underline">@UhOhOhNo</a
+              ></span
+            ><br />coding since 7th grade, still pretending to know what
+            hardware is.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded">
+            <CldImage
+              src="photo_2026-02-28_13.35.24_utmlwr"
+              alt="Arthur"
+              class="w-40 h-40 object-cover"
+              width={256}
+              height={256}
+              priority
+            />
+          </div>
+          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Arthur</h3>
+          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
+            <span class="font-mono text-purple-500"
+              >tg: <a
+                href="https://t.me/ktnlvr"
+                data-umami-event="telegram-artur"
+                target="_blank"
+                class="hover:underline">@ktnlvr</a
+              ></span
+            ><br />knows just enough math to be dangerous.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded">
+            <CldImage
+              src="1738858718555_ghqvgp"
+              alt="Vlad"
+              class="w-40 h-40 object-cover"
+              width={256}
+              height={256}
+              priority
+            />
+          </div>
+          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Vlad</h3>
+          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
+            <span class="font-mono text-purple-500"
+              >tg: <a
+                href="https://t.me/VladyslavBM"
+                data-umami-event="telegram-vlad"
+                target="_blank"
+                class="hover:underline">@VladyslavBM</a
+              ></span
+            ><br />solving things nobody wants to deal with.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded">
+            <CldImage
+              src="photo_2026-02-28_20.19.07_j1tzdc"
+              alt="Karim"
+              class="w-40 h-40 object-cover"
+              width={256}
+              height={256}
+              priority
+            />
+          </div>
+          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Karim</h3>
+          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
+            <span class="font-mono text-purple-500"
+              >tg: <a
+                href="https://t.me/Goldixan"
+                data-umami-event="telegram-karim"
+                target="_blank"
+                class="hover:underline">@Goldixan</a
+              ></span
+            >
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded">
+            <CldImage
+              src="2026_01_viktor_solianoi_0_p63ypw"
+              alt="Viktor"
+              class="w-40 h-40 object-cover"
+              width={256}
+              height={256}
+              priority
+            />
+          </div>
+          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Viktor</h3>
+          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
+            <span class="font-mono text-purple-500"
+              >tg: <a
+                href="https://t.me/srviktorian"
+                data-umami-event="telegram-viktor"
+                target="_blank"
+                class="hover:underline">@srviktorian</a
+              ></span
+            >
+          </p>
+        </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="mb-12 max-w-prose">
       <h2
         class="text-3xl md:text-4xl font-display font-bold tracking-tighter mb-6"
       >
         FAQ
       </h2>
 
-      <div class="space-y-8 mb-12">
+      <div class="space-y-8">
         <div>
           <h3 class="text-xl font-mono mb-2 text-gray-900">
             How do I join?
           </h3>
-          <p class="font-sans text-gray-700">
+          <p class="font-sans text-lg text-gray-700 leading-relaxed">
             Join our Telegram chat, introduce yourself, and come by the lab. Start working on something. Access deepens as you build.
           </p>
         </div>
@@ -368,7 +431,7 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
           <h3 class="text-xl font-mono mb-2 text-gray-900">
             What can I build here?
           </h3>
-          <p class="font-sans text-gray-700">
+          <p class="font-sans text-lg text-gray-700 leading-relaxed">
             AI experiments, robotics systems, hardware prototypes, research projects, creative technology. Priority goes to active, collaborative projects that share knowledge with the community.
           </p>
         </div>
@@ -377,7 +440,7 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
           <h3 class="text-xl font-mono mb-2 text-gray-900">
             Does it cost anything?
           </h3>
-          <p class="font-sans text-gray-700">
+          <p class="font-sans text-lg text-gray-700 leading-relaxed">
             Basic participation is free. For intensive equipment use or long-term projects, we may ask for contributions to cover maintenance. We keep barriers low while maintaining sustainability.
           </p>
         </div>
@@ -386,7 +449,7 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
           <h3 class="text-xl font-mono mb-2 text-gray-900">
             Can I find collaborators?
           </h3>
-          <p class="font-sans text-gray-700">
+          <p class="font-sans text-lg text-gray-700 leading-relaxed">
             Yes. Many arrive without a team and find one here. Skills overlap, ideas collide, unexpected things emerge. The Telegram chat and build sessions are where collaboration starts.
           </p>
         </div>
@@ -395,7 +458,7 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
           <h3 class="text-xl font-mono mb-2 text-gray-900">
             When are workshops held?
           </h3>
-          <p class="font-sans text-gray-700">
+          <p class="font-sans text-lg text-gray-700 leading-relaxed">
             Regularly. Structured trainings on specific tools, open build nights where everyone works on their own projects. Both matter. Check Telegram for schedules.
           </p>
         </div>
@@ -404,11 +467,12 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
           <h3 class="text-xl font-mono mb-2 text-gray-900">
             How do I stay updated?
           </h3>
-          <p class="font-sans text-gray-700">
+          <p class="font-sans text-lg text-gray-700 leading-relaxed">
             Join the Telegram chat. Events, workshops, and spontaneous build sessions are announced there. It's also where questions get answered and ideas find collaborators.
           </p>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </Layout>
