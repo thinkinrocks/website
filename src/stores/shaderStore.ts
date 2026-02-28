@@ -35,7 +35,11 @@ export interface ShaderState {
     angle: number;
   };
   aspectRatio: string;
+  scale: number;
 }
+
+// Detect mobile device for responsive scaling
+const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
 const defaults: ShaderState = {
   flowField: { detail: 1.2, speed: 0, strength: 0.25 },
@@ -56,6 +60,7 @@ const defaults: ShaderState = {
   imageTexture: { url: null, objectFit: "cover", brightness: 0, contrast: 0 },
   chromaticAberration: { strength: 0.2, angle: 0 },
   aspectRatio: "16:9",
+  scale: isMobile ? 5 : 1, // Scale shader much larger on mobile for visibility
 };
 
 interface ShaderActions {
@@ -66,6 +71,7 @@ interface ShaderActions {
   setImageTexture: (v: Partial<ShaderState["imageTexture"]>) => void;
   setChromaticAberration: (v: Partial<ShaderState["chromaticAberration"]>) => void;
   setAspectRatio: (v: string) => void;
+  setScale: (v: number) => void;
   reset: () => void;
 }
 
@@ -78,5 +84,6 @@ export const useShaderStore = create<ShaderState & ShaderActions>((set) => ({
   setImageTexture: (v) => set((s) => ({ imageTexture: { ...s.imageTexture, ...v } })),
   setChromaticAberration: (v) => set((s) => ({ chromaticAberration: { ...s.chromaticAberration, ...v } })),
   setAspectRatio: (v) => set({ aspectRatio: v }),
+  setScale: (v) => set({ scale: v }),
   reset: () => set(defaults),
 }));

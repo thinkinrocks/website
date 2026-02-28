@@ -26,6 +26,7 @@ export default function ShaderPreview() {
   const di = useShaderStore((s) => s.dither);
   const ca = useShaderStore((s) => s.chromaticAberration);
   const aspectRatio = useShaderStore((s) => s.aspectRatio);
+  const scale = useShaderStore((s) => s.scale);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
@@ -72,6 +73,8 @@ export default function ShaderPreview() {
           style={{
             width: `${Math.floor(shaderW)}px`,
             height: `${Math.floor(shaderH)}px`,
+            transform: `scale(${scale})`,
+            transformOrigin: 'center',
           }}
         >
           <FlowField detail={ff.detail} speed={ff.speed} strength={ff.strength}>

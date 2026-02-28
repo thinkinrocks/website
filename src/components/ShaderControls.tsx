@@ -163,6 +163,8 @@ export default function ShaderControls() {
   const setCa = useShaderStore((s) => s.setChromaticAberration);
   const aspectRatio = useShaderStore((s) => s.aspectRatio);
   const setAspectRatio = useShaderStore((s) => s.setAspectRatio);
+  const scale = useShaderStore((s) => s.scale);
+  const setScale = useShaderStore((s) => s.setScale);
   const reset = useShaderStore((s) => s.reset);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -281,6 +283,10 @@ export default function ShaderControls() {
             </Button>
           ))}
         </div>
+      </Section>
+
+      <Section title="Scale">
+        <SliderField label="Zoom" value={scale} min={0.5} max={2} step={0.1} onChange={setScale} />
       </Section>
 
       <div className="flex flex-col gap-2 mt-2">
