@@ -51,13 +51,15 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- Mobile Navigation -->
-  <div class="md:hidden relative">
+  <div class="md:hidden relative" id="mobile-navbar">
     
     <!-- Scrollable navigation -->
-    <div class="overflow-x-auto scrollbar-hide">
-      <div class="flex items-center h-12 px-4" style="width: max-content;">
-
-        <a href="/" id="tr-link-mobile" data-page="home" class={`font-mono nav-item hover:text-purple-600 px-3 ${(currentPath === '/' || currentPath === '') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>Thinkin' Rocks</a>
+    <div class="overflow-x-auto scrollbar-hide" id="mobile-nav-scroll">
+      <div class="flex items-center h-12" style="width: max-content;">
+        <!-- Left padding to center first item -->
+        <div style="width: 50vw;"></div>
+        
+        <a href="/" id="tr-link-mobile" data-page="home" class={`font-mono nav-item hover:text-purple-600 px-3 ${(currentPath === '/' || currentPath === '') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>TR*</a>
         <span class="text-gray-700 px-1">|</span>
         <a href="/hardware" data-page="hardware" class={`font-mono nav-item hover:text-purple-600 px-3 ${currentPath === '/hardware' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>hardware</a>
         <span class="text-gray-700 px-1">|</span>
@@ -67,7 +69,7 @@ const currentPath = Astro.url.pathname;
         <span class="text-gray-700 px-1">|</span>
         <a href="/log" data-page="log" class={`font-mono nav-item hover:text-purple-600 px-3 ${currentPath === '/log' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>log</a>
         <span class="text-gray-700 px-1">|</span>
-        <a href="/code-of-conduct" data-page="code-of-conduct" class={`font-mono nav-item hover:text-purple-600 px-3 ${currentPath === '/code-of-conduct' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>code</a>
+        <a href="/code-of-conduct" data-page="code-of-conduct" class={`font-mono nav-item hover:text-purple-600 px-3 ${currentPath === '/code-of-conduct' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>conduct</a>
         
         <!-- Social Media Icons -->
         <div class="flex items-center space-x-3 ml-6">
@@ -90,8 +92,8 @@ const currentPath = Astro.url.pathname;
           </a>
         </div>
         
-        <!-- Extra padding on right for balance -->
-        <div class="w-16"></div>
+        <!-- Right padding to allow last items to center -->
+        <div style="width: 50vw;"></div>
       </div>
     </div>
   </div>
@@ -104,6 +106,16 @@ const currentPath = Astro.url.pathname;
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+  
+  /* Hide page content until navbar is positioned */
+  body:not(.nav-ready) {
+    opacity: 0;
+  }
+  
+  body.nav-ready {
+    opacity: 1;
+    transition: opacity 0.1s ease-in;
   }
   
   /* Apple-style glass morphism effect */
@@ -121,6 +133,51 @@ const currentPath = Astro.url.pathname;
     }
   }
 </style>
+
+<script is:inline>
+  // Position mobile nav before showing page
+  window.positionMobileNavImmediate = function() {
+    if (window.innerWidth >= 768) {
+      document.body.classList.add('nav-ready');
+      return;
+    }
+    
+    const mobileNav = document.getElementById('mobile-nav-scroll');
+    if (!mobileNav) {
+      document.body.classList.add('nav-ready');
+      return;
+    }
+    
+    const activeLink = mobileNav.querySelector('a.text-purple-600');
+    if (!activeLink) {
+      document.body.classList.add('nav-ready');
+      return;
+    }
+    
+    // Calculate scroll position
+    const navWidth = mobileNav.clientWidth;
+    const linkRect = activeLink.getBoundingClientRect();
+    const navRect = mobileNav.getBoundingClientRect();
+    const linkCenter = linkRect.left - navRect.left + linkRect.width / 2;
+    const viewportCenter = navWidth / 2;
+    const scrollOffset = mobileNav.scrollLeft + linkCenter - viewportCenter;
+    
+    // Position instantly
+    mobileNav.scrollLeft = scrollOffset;
+    
+    // Show page after positioning
+    document.body.classList.add('nav-ready');
+  };
+  
+  // Run as soon as DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      requestAnimationFrame(window.positionMobileNavImmediate);
+    });
+  } else {
+    requestAnimationFrame(window.positionMobileNavImmediate);
+  }
+</script>
 
 <script>
   // Handle TR button clicks to reload homepage animations
@@ -181,14 +238,79 @@ const currentPath = Astro.url.pathname;
     handleScroll();
   }
 
+  // Center a nav item on mobile
+  function centerNavItem(link: Element, instant: boolean = false) {
+    // Only run on mobile
+    if (window.innerWidth >= 768) return;
+
+    const mobileNav = document.querySelector('.md\\:hidden .overflow-x-auto') as HTMLElement;
+    if (!mobileNav || !link) return;
+
+    // Calculate scroll position to center the link
+    const navWidth = mobileNav.clientWidth;
+    const linkRect = link.getBoundingClientRect();
+    const navRect = mobileNav.getBoundingClientRect();
+    const linkCenter = linkRect.left - navRect.left + linkRect.width / 2;
+    const viewportCenter = navWidth / 2;
+    const scrollOffset = mobileNav.scrollLeft + linkCenter - viewportCenter;
+
+    if (instant) {
+      // Set scroll position directly without animation
+      mobileNav.scrollLeft = scrollOffset;
+    } else {
+      // Smooth scroll for user interactions
+      mobileNav.scrollTo({
+        left: scrollOffset,
+        behavior: 'smooth'
+      });
+    }
+  }
+
+  // Center active nav item on mobile
+  function centerActiveNavItem(instant: boolean = false) {
+    // Only run on mobile
+    if (window.innerWidth >= 768) return;
+
+    const mobileNav = document.querySelector('.md\\:hidden .overflow-x-auto');
+    if (!mobileNav) return;
+
+    // Find the active link (has text-purple-600 class)
+    const activeLink = mobileNav.querySelector('a.text-purple-600');
+    if (!activeLink) return;
+
+    centerNavItem(activeLink, instant);
+  }
+
+  // Setup click handlers for mobile nav links
+  function setupMobileNavClicks() {
+    const mobileNav = document.querySelector('.md\\:hidden .overflow-x-auto');
+    if (!mobileNav) return;
+
+    const navLinks = mobileNav.querySelectorAll('a[data-page], a#tr-link-mobile');
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        // Center the clicked link
+        centerNavItem(link);
+      });
+    });
+  }
+
   // Run on page load
   setupTRLinks();
   setupNavbarScroll();
+  setupMobileNavClicks();
 
   // Re-run on Astro page transitions (if View Transitions are enabled)
   document.addEventListener('astro:page-load', () => {
+    // Position immediately on page transition
+    if (typeof (window as any).positionMobileNavImmediate === 'function') {
+      requestAnimationFrame(() => {
+        (window as any).positionMobileNavImmediate();
+      });
+    }
     setupTRLinks();
     setupNavbarScroll();
+    setupMobileNavClicks();
   });
 </script>
 
