@@ -61,15 +61,15 @@ const currentPath = Astro.url.pathname;
         
         <a href="/" id="tr-link-mobile" data-page="home" class={`font-mono nav-item hover:text-purple-600 px-3 ${(currentPath === '/' || currentPath === '') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>TR*</a>
         <span class="text-gray-700 px-1">|</span>
-        <a href="/hardware" data-page="hardware" class={`font-mono nav-item hover:text-purple-600 px-3 ${currentPath === '/hardware' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>hardware</a>
+        <a href="/hardware" data-page="hardware" class={`font-mono nav-item hover:text-purple-600 px-3 ${currentPath.startsWith('/hardware') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>hardware</a>
         <span class="text-gray-700 px-1">|</span>
-        <a href="/about" data-page="space" class={`font-mono nav-item hover:text-purple-600 px-3 ${currentPath === '/about' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>about</a>
+        <a href="/about" data-page="space" class={`font-mono nav-item hover:text-purple-600 px-3 ${currentPath.startsWith('/about') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>about</a>
         <span class="text-gray-700 px-1">|</span>
-        <a href="/events" data-page="events" class={`font-mono nav-item hover:text-purple-600 px-3 ${currentPath === '/events' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>events</a>
+        <a href="/events" data-page="events" class={`font-mono nav-item hover:text-purple-600 px-3 ${currentPath.startsWith('/events') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>events</a>
         <span class="text-gray-700 px-1">|</span>
-        <a href="/log" data-page="log" class={`font-mono nav-item hover:text-purple-600 px-3 ${currentPath === '/log' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>log</a>
+        <a href="/log" data-page="log" class={`font-mono nav-item hover:text-purple-600 px-3 ${currentPath.startsWith('/log') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>log</a>
         <span class="text-gray-700 px-1">|</span>
-        <a href="/code-of-conduct" data-page="code-of-conduct" class={`font-mono nav-item hover:text-purple-600 px-3 ${currentPath === '/code-of-conduct' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>conduct</a>
+        <a href="/code-of-conduct" data-page="code-of-conduct" class={`font-mono nav-item hover:text-purple-600 px-3 ${currentPath.startsWith('/code-of-conduct') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>conduct</a>
         
         <!-- Social Media Icons -->
         <div class="flex items-center space-x-3 ml-6">
@@ -154,28 +154,45 @@ const currentPath = Astro.url.pathname;
       return;
     }
     
-    // Calculate scroll position
-    const navWidth = mobileNav.clientWidth;
-    const linkRect = activeLink.getBoundingClientRect();
-    const navRect = mobileNav.getBoundingClientRect();
-    const linkCenter = linkRect.left - navRect.left + linkRect.width / 2;
-    const viewportCenter = navWidth / 2;
-    const scrollOffset = mobileNav.scrollLeft + linkCenter - viewportCenter;
+    let attempts = 0;
+    const maxAttempts = 3;
     
-    // Position instantly
-    mobileNav.scrollLeft = scrollOffset;
+    function tryPosition() {
+      attempts++;
+      
+      // Calculate scroll position
+      const navWidth = mobileNav.clientWidth;
+      const linkRect = activeLink.getBoundingClientRect();
+      const navRect = mobileNav.getBoundingClientRect();
+      
+      // Check if layout is ready (elements have dimensions)
+      if (navWidth === 0 || linkRect.width === 0) {
+        if (attempts < maxAttempts) {
+          setTimeout(tryPosition, 50);
+          return;
+        }
+      }
+      
+      const linkCenter = linkRect.left - navRect.left + linkRect.width / 2;
+      const viewportCenter = navWidth / 2;
+      const scrollOffset = mobileNav.scrollLeft + linkCenter - viewportCenter;
+      
+      // Position instantly
+      mobileNav.scrollLeft = scrollOffset;
+      
+      // Show page after positioning
+      document.body.classList.add('nav-ready');
+    }
     
-    // Show page after positioning
-    document.body.classList.add('nav-ready');
+    // Start positioning with a small delay
+    setTimeout(tryPosition, 50);
   };
   
-  // Run as soon as DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      requestAnimationFrame(window.positionMobileNavImmediate);
-    });
+  // Run when page is fully loaded
+  if (document.readyState === 'complete') {
+    window.positionMobileNavImmediate();
   } else {
-    requestAnimationFrame(window.positionMobileNavImmediate);
+    window.addEventListener('load', window.positionMobileNavImmediate);
   }
 </script>
 
@@ -302,11 +319,12 @@ const currentPath = Astro.url.pathname;
 
   // Re-run on Astro page transitions (if View Transitions are enabled)
   document.addEventListener('astro:page-load', () => {
+    // Reset nav-ready for new page
+    document.body.classList.remove('nav-ready');
+    
     // Position immediately on page transition
     if (typeof (window as any).positionMobileNavImmediate === 'function') {
-      requestAnimationFrame(() => {
-        (window as any).positionMobileNavImmediate();
-      });
+      (window as any).positionMobileNavImmediate();
     }
     setupTRLinks();
     setupNavbarScroll();
