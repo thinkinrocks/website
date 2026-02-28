@@ -6,14 +6,14 @@ const currentPath = Astro.url.pathname;
 ---
 
 <!-- Navigation: same horizontal padding and max-width as page content -->
-<div class="fixed top-0 left-0 right-0 z-40 bg-[#fff4fe]">
+<div class="fixed top-0 left-0 right-0 z-40">
   <!-- Desktop Navigation -->
   <div class="hidden md:block w-full px-4 md:px-16">
     <div class="max-w-5xl mx-auto w-full">
       <div class="flex items-center justify-between h-12 w-full">
         <!-- Navigation Links -->
         <div class="flex items-center space-x-2">
-          <a href="/" class={`font-mono nav-item hover:text-purple-600 ${(currentPath === '/' || currentPath === '') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>TR*</a>
+          <a href="/" id="tr-link-desktop" class={`font-mono nav-item hover:text-purple-600 ${(currentPath === '/' || currentPath === '') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>TR*</a>
           <span class="text-gray-700">|</span>
           <a href="/hardware" class={`font-mono nav-item hover:text-purple-600 ${currentPath === '/hardware' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>hardware</a>
           <span class="text-gray-700">|</span>
@@ -52,15 +52,12 @@ const currentPath = Astro.url.pathname;
 
   <!-- Mobile Navigation -->
   <div class="md:hidden relative">
-    <!-- Gradient overlays -->
-    <div class="absolute left-0 top-0 w-8 h-12 bg-gradient-to-r from-[#fff4fe] to-transparent z-10 pointer-events-none"></div>
-    <div class="absolute right-0 top-0 w-8 h-12 bg-gradient-to-l from-[#fff4fe] to-transparent z-10 pointer-events-none"></div>
     
     <!-- Scrollable navigation -->
     <div class="overflow-x-auto scrollbar-hide">
       <div class="flex items-center h-12 px-4" style="width: max-content;">
 
-        <a href="/" data-page="home" class={`font-mono nav-item hover:text-purple-600 px-3 ${(currentPath === '/' || currentPath === '') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>Thinkin' Rocks</a>
+        <a href="/" id="tr-link-mobile" data-page="home" class={`font-mono nav-item hover:text-purple-600 px-3 ${(currentPath === '/' || currentPath === '') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>Thinkin' Rocks</a>
         <span class="text-gray-700 px-1">|</span>
         <a href="/hardware" data-page="hardware" class={`font-mono nav-item hover:text-purple-600 px-3 ${currentPath === '/hardware' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>hardware</a>
         <span class="text-gray-700 px-1">|</span>
@@ -109,6 +106,37 @@ const currentPath = Astro.url.pathname;
     display: none;
   }
 </style>
+
+<script>
+  // Handle TR button clicks to reload homepage animations
+  function setupTRLinks() {
+    const trLinkDesktop = document.getElementById('tr-link-desktop');
+    const trLinkMobile = document.getElementById('tr-link-mobile');
+
+    function handleTRClick(e: Event) {
+      const currentPath = window.location.pathname;
+      // If we're already on the homepage, force reload to trigger animations
+      if (currentPath === '/' || currentPath === '') {
+        e.preventDefault();
+        window.location.reload();
+      }
+      // Otherwise, allow normal navigation
+    }
+
+    if (trLinkDesktop) {
+      trLinkDesktop.addEventListener('click', handleTRClick);
+    }
+    if (trLinkMobile) {
+      trLinkMobile.addEventListener('click', handleTRClick);
+    }
+  }
+
+  // Run on page load
+  setupTRLinks();
+
+  // Re-run on Astro page transitions (if View Transitions are enabled)
+  document.addEventListener('astro:page-load', setupTRLinks);
+</script>
 
 
 <!-- Spacer to account for fixed navbar -->

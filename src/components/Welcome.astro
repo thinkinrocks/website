@@ -1,5 +1,4 @@
 ---
-import BackgroundWave from "./BackgroundWave.tsx";
 import WelcomeButtons from "./welcome-buttons.tsx";
 import logo from "../assets/TR-LOGO.svg";
 import { Image } from "astro:assets";
@@ -8,7 +7,6 @@ import { Image } from "astro:assets";
 <div
   class="relative mx-auto flex flex-col justify-center pt-32 pb-8 px-4 md:px-16"
 >
-  <BackgroundWave client:load colorFront="#fff4fe" rotation={180} pxSize={18} />
   <div
     class="relative z-10 max-w-5xl mx-auto w-full flex flex-wrap justify-between gap-x-8"
   >
@@ -32,6 +30,30 @@ import { Image } from "astro:assets";
           class="whitespace-nowrap">faster build cycles</span
         > • <span class="whitespace-nowrap">stronger aura</span>
       </h2>
+      
+      <!-- Buttons Section -->
+      <div class="fade-in mt-10">
+        <div class="flex flex-wrap gap-4">
+          <div class="bg-purple-600 h-fit translate-0.5">
+            <a
+              href="https://tally.so/r/mBrVg7"
+              class="bg-purple-50 text-purple-600 inline-flex px-6 py-3 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono hover:bg-purple-100 transition-colors"
+              data-umami-event="join-us-click"
+            >
+              Join Us
+            </a>
+          </div>
+          <div class="bg-gray-600 h-fit translate-0.5">
+            <a
+              href="mailto:milana@thinkinrocks.com"
+              class="bg-gray-50 text-gray-600 inline-flex px-6 py-3 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono hover:bg-gray-100 transition-colors"
+              data-umami-event="contact-us-click"
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="fade-in pt-4 -mr-2">
       <WelcomeButtons client:load />

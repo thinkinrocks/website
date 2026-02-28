@@ -1,15 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Welcome from "../components/Welcome.astro";
+import PresetBackground from "../components/PresetBackground.tsx";
+import StatueAnimation from "../components/StatueAnimation.tsx";
 import { Image } from "astro:assets";
 import { CldImage } from "astro-cloudinary";
 ---
 
 <Layout>
+  <div class="fixed inset-0 -z-50">
+    <PresetBackground client:only="react" />
+  </div>
+  <StatueAnimation client:only="react" />
   <Welcome />
   <!-- Footer-like contact section at bottom -->
 
-  <div class="pt-16 pb-8 px-4 md:px-16">
+  <div class="pt-10 pb-8 px-4 md:px-16">
     <div class="max-w-5xl mx-auto">
       <!-- Main Content -->
       <div
@@ -41,30 +47,6 @@ import { CldImage } from "astro-cloudinary";
             >logs</a
           >.
         </p>
-      </div>
-
-      <!-- Contact Section -->
-      <div class="fade-in">
-        <div class="flex flex-wrap gap-4 mb-6">
-          <div class="bg-purple-600 h-fit translate-0.5">
-            <a
-              href="https://tally.so/r/mBrVg7"
-              class="bg-purple-50 text-purple-600 inline-flex px-6 py-3 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono hover:bg-purple-100 transition-colors"
-              data-umami-event="join-us-click"
-            >
-              Join Us
-            </a>
-          </div>
-          <div class="bg-gray-600 h-fit translate-0.5">
-            <a
-              href="mailto:milana@thinkinrocks.com"
-              class="bg-gray-50 text-gray-600 inline-flex px-6 py-3 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono hover:bg-gray-100 transition-colors"
-              data-umami-event="contact-us-click"
-            >
-              Contact Us
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   </div>
