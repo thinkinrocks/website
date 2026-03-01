@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Join Our Chat - Thinkin' Rocks">
+  <div class="pt-8 md:pt-16 pb-16 px-4 md:px-16">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-display font-bold tracking-tight mb-8">
+        Join Our Chat
+      </h1>
+
+      <p class="text-lg md:text-xl font-sans text-gray-700 leading-relaxed mb-12">
+        Scan the QR code to join our Telegram community
+      </p>
+
+      <div class="flex flex-col items-center space-y-8">
+        <div class="bg-white p-8">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://t.me/%2BrxHNt6GA4-o1NWUy"
+            alt="Telegram QR Code"
+            class="w-full max-w-[300px]"
+            width="300"
+            height="300"
+          />
+        </div>
+
+        <div class="text-center space-y-4">
+          <div class="bg-purple-600 h-fit translate-0.5 inline-block">
+            <a
+              href="https://t.me/+rxHNt6GA4-o1NWUy"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-purple-50 text-purple-600 inline-flex px-6 py-3 -translate-0.5 items-center gap-2 whitespace-nowrap font-mono hover:bg-purple-100 transition-colors block"
+            >
+              Open Telegram
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
