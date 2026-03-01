@@ -37,7 +37,7 @@ export default function MobileNav({ currentPath }: MobileNavProps) {
   };
 
   const navLinks = [
-    { href: "/", label: "Thinkin' Rocks*", path: "/" },
+    { href: "/", label: "home", path: "/" },
     { href: "/hardware", label: "hardware", path: "/hardware" },
     { href: "/about", label: "about", path: "/about" },
     { href: "/events", label: "events", path: "/events" },
@@ -49,17 +49,20 @@ export default function MobileNav({ currentPath }: MobileNavProps) {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <button
-          className="flex items-center justify-center text-gray-500 hover:text-purple-600 transition-colors duration-200"
+          className="flex items-center justify-center text-gray-500 hover:text-purple-600 transition-colors duration-200 focus:outline-none"
           aria-label="Open menu"
         >
           <FaBars className="w-[18px] h-[18px]" />
         </button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-80 sm:w-96 p-0" showCloseButton={false}>
+      <SheetContent side="right" className="w-full p-0" showCloseButton={true}>
         <SheetHeader className="sr-only">
           <SheetTitle>Navigation Menu</SheetTitle>
         </SheetHeader>
-        <nav className="pt-3 px-6 flex flex-col space-y-0.5">
+        <div className="h-14 px-4 flex items-center">
+          <a href="/" className="font-mono text-sm font-medium text-gray-900 hover:text-purple-600 transition-colors duration-200">Thinkin' Rocks*</a>
+        </div>
+        <nav className="px-6 flex flex-col space-y-0.5">
           {navLinks.map((link) => (
             <a
               key={link.path}
