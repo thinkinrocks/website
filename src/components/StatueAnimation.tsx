@@ -15,11 +15,12 @@ export default function StatueAnimation() {
       const promises = [];
       for (let i = minFrame; i <= maxFrame; i++) {
         const img = new Image();
-        img.src = `https://res.cloudinary.com/dby6mmmff/image/upload/f_auto,q_auto,w_600/statue-0-${i}`;
+        img.decoding = "async";
+        img.src = `https://res.cloudinary.com/dby6mmmff/image/upload/f_auto,q_auto,w_100/statue-0-${i}`;
         promises.push(
           new Promise((resolve) => {
             img.onload = resolve;
-            img.onerror = resolve; // Resolve even on error to prevent blocking
+            img.onerror = resolve;
           })
         );
       }
@@ -32,45 +33,59 @@ export default function StatueAnimation() {
   }, []);
 
   useEffect(() => {
+    let ticking = false;
+  
     const handleMouseMove = (e: MouseEvent) => {
-      // Find the "Join Us" button
-      const joinButton = document.querySelector('[data-umami-event="join-us-click"]');
-      
-      if (!joinButton) return;
-
-      // Get button's center position
-      const buttonRect = joinButton.getBoundingClientRect();
-      const buttonCenterX = buttonRect.left + buttonRect.width / 2;
-      const buttonCenterY = buttonRect.top + buttonRect.height / 2;
-
-      // Calculate distance from mouse to button center
-      const deltaX = e.clientX - buttonCenterX;
-      const deltaY = e.clientY - buttonCenterY;
-      const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-
-      // Only react if within reaction distance
-      if (distance > reactionDistance) {
-        setCurrentFrame(maxFrame);
-        return;
-      }
-
-      // Map distance to frame index (linear interpolation)
-      // Min distance (0) = min frame (29)
-      // Reaction distance = max frame (84)
-      const normalizedDistance = distance / reactionDistance;
-      const frame = Math.round(minFrame + normalizedDistance * (maxFrame - minFrame));
-
-      setCurrentFrame(frame);
+      if (ticking) return;
+  
+      ticking = true;
+  
+      requestAnimationFrame(() => {
+        const joinButton = document.querySelector(
+          '[data-umami-event="join-us-click"]'
+        );
+  
+        if (!joinButton) {
+          ticking = false;
+          return;
+        }
+  
+        const buttonRect = joinButton.getBoundingClientRect();
+        const buttonCenterX = buttonRect.left + buttonRect.width / 2;
+        const buttonCenterY = buttonRect.top + buttonRect.height / 2;
+  
+        const deltaX = e.clientX - buttonCenterX;
+        const deltaY = e.clientY - buttonCenterY;
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+  
+        if (distance > reactionDistance) {
+          setCurrentFrame(prev =>
+            prev === maxFrame ? prev : maxFrame
+          );
+          ticking = false;
+          return;
+        }
+  
+        const normalizedDistance = distance / reactionDistance;
+        const frame = Math.min(
+          maxFrame,
+          Math.max(
+            minFrame,
+            Math.round(minFrame + normalizedDistance * (maxFrame - minFrame))
+          )
+        );
+  
+        setCurrentFrame(prev => (prev === frame ? prev : frame));
+  
+        ticking = false;
+      });
     };
-
+  
     window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [minFrame, maxFrame, reactionDistance]);
 
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
-  const framePath = `https://res.cloudinary.com/dby6mmmff/image/upload/f_auto,q_auto,w_600/statue-0-${currentFrame}`;
+  const framePath = `https://res.cloudinary.com/dby6mmmff/image/upload/f_auto,q_auto,w_100/statue-0-${currentFrame}`;
 
   return (
     <div 
