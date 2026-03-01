@@ -20,12 +20,12 @@ const sortedEntries = logEntries.sort((a, b) => new Date(b.timestamp).getTime() 
         Log
       </h1>
       
-      <div class="mb-8 max-w-prose">
+      <div class="mb-8">
        
       </div>
       
       <!-- Log Entries -->
-      <div class="space-y-8 max-w-prose">
+      <div class="space-y-8">
         {sortedEntries.map((entry) => (
           <div class="fade-in">
             <div class="mb-2">
