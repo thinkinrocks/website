@@ -7,13 +7,14 @@ import {
   SimplexNoise,
 } from "shaders/react";
 import { useState, useEffect } from "react";
+import marbleImage from "../assets/marble graphics.png";
 
 export default function PresetBackground() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [shouldShow, setShouldShow] = useState(false);
   
   // Preset parameters
-  const imageUrl = "https://res.cloudinary.com/dby6mmmff/image/upload/u8219894999_marble_graphics_on_a_white_background_technology_--_154f16c6-cd0a-4b56-bc11-ed9d553d6f29_tgxx31";
+  const imageUrl = marbleImage.src;
   
   const params = {
     flowField: {
