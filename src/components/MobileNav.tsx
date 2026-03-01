@@ -52,7 +52,7 @@ export default function MobileNav({ currentPath }: MobileNavProps) {
           className="flex items-center justify-center text-gray-500 hover:text-purple-600 transition-colors duration-200 focus:outline-none"
           aria-label="Open menu"
         >
-          <FaBars className="w-[18px] h-[18px]" />
+          <FaBars className="w-5 h-5" />
         </button>
       </SheetTrigger>
       <SheetContent side="right" className="w-full p-0" showCloseButton={true}>
