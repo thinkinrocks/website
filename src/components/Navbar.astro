@@ -15,15 +15,15 @@ const currentPath = Astro.url.pathname;
         <div class="flex items-center space-x-2">
           <a href="/" id="tr-link-desktop" class={`font-mono nav-item hover:text-purple-600 ${(currentPath === '/' || currentPath === '') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>TR*</a>
           <span class="text-gray-700">|</span>
-          <a href="/hardware" class={`font-mono nav-item hover:text-purple-600 ${currentPath === '/hardware' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>hardware</a>
+          <a href="/hardware" class={`font-mono nav-item hover:text-purple-600 ${currentPath.startsWith('/hardware') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>hardware</a>
           <span class="text-gray-700">|</span>
-          <a href="/about" class={`font-mono nav-item hover:text-purple-600 ${currentPath === '/about' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>about</a>
+          <a href="/about" class={`font-mono nav-item hover:text-purple-600 ${currentPath.startsWith('/about') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>about</a>
           <span class="text-gray-700">|</span>
-          <a href="/events" class={`font-mono nav-item hover:text-purple-600 ${currentPath === '/events' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>events</a>
+          <a href="/events" class={`font-mono nav-item hover:text-purple-600 ${currentPath.startsWith('/events') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>events</a>
           <span class="text-gray-700">|</span>
-          <a href="/log" class={`font-mono nav-item hover:text-purple-600 ${currentPath === '/log' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>log</a>
+          <a href="/log" class={`font-mono nav-item hover:text-purple-600 ${currentPath.startsWith('/log') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>log</a>
           <span class="text-gray-700">|</span>
-          <a href="/code-of-conduct" class={`font-mono nav-item hover:text-purple-600 ${currentPath === '/code-of-conduct' ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>conduct</a>
+          <a href="/code-of-conduct" class={`font-mono nav-item hover:text-purple-600 ${currentPath.startsWith('/code-of-conduct') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>conduct</a>
         </div>
         
         <!-- Social Media Icons -->
@@ -108,8 +108,8 @@ const currentPath = Astro.url.pathname;
     display: none;
   }
   
-  /* Hide page content until navbar is positioned */
-  body:not(.nav-ready) {
+  /* Hide page content until navbar is positioned - only when navbar exists */
+  body:has(#navbar):not(.nav-ready) {
     opacity: 0;
   }
   

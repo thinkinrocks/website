@@ -28,6 +28,9 @@ const { hideNavbar = false } = Astro.props;
   </head>
   <body>
     
+    <!-- Add nav-ready class immediately if navbar is hidden -->
+    {hideNavbar && <script is:inline>document.body.classList.add('nav-ready');</script>}
+    
     {!hideNavbar && <Navbar />}
     <slot />
     
