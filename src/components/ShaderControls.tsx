@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const ditherPatterns = [
   "bayer2",
@@ -44,7 +44,7 @@ function SliderField({
       <div className="flex justify-between items-center">
         <Label>{label}</Label>
         <span className="text-xs text-muted-foreground font-mono">
-          {value.toFixed(2)}
+          {Number.isInteger(step) ? value : value.toFixed(2)}
         </span>
       </div>
       <Slider
@@ -117,7 +117,7 @@ function Section({
   );
 }
 
-function downloadSnapshot() {
+function downloadSnapshot(resolution: number) {
   const preview = document.getElementById("shader-preview");
   if (!preview) return;
   const canvas = preview.querySelector("canvas");
@@ -127,8 +127,8 @@ function downloadSnapshot() {
   const srcH = canvas.height || canvas.clientHeight;
   if (!srcW || !srcH) return;
 
-  const scale = 1920 / srcW;
-  const w = 1920;
+  const scale = resolution / srcW;
+  const w = resolution;
   const h = Math.round(srcH * scale);
 
   const offscreen = document.createElement("canvas");
@@ -167,6 +167,7 @@ export default function ShaderControls() {
   const setScale = useShaderStore((s) => s.setScale);
   const reset = useShaderStore((s) => s.reset);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [downloadRes, setDownloadRes] = useState(1920);
 
   function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -290,7 +291,8 @@ export default function ShaderControls() {
       </Section>
 
       <div className="flex flex-col gap-2 mt-2">
-        <Button onClick={downloadSnapshot} className="w-full">
+        <SliderField label="Resolution (px)" value={downloadRes} min={480} max={10000} step={1} onChange={setDownloadRes} />
+        <Button onClick={() => downloadSnapshot(downloadRes)} className="w-full">
           Download Snapshot
         </Button>
         <Button onClick={reset} variant="outline" className="w-full">
