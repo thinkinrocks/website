@@ -95,10 +95,19 @@ export async function fetchAllLumaEvents(calendarId: string): Promise<LumaEvent[
 
     // Filter for Thinkin' Rocks events
     const thinkinRocksEvents = events2026Plus.filter(item => {
-      const searchText = JSON.stringify(item).toLowerCase();
-      return searchText.includes("thinkin") || 
-             searchText.includes("rocks") ||
-             searchText.includes("thinkinrocks");
+      const eventName = (item.event.name || '').toLowerCase();
+      const eventDescription = (item.event.description || '').toLowerCase();
+      
+      // Check if name contains "Nerd Out" or "Build & Chill" / "Build&Chill"
+      const hasNerdOut = eventName.includes('nerd out');
+      const hasBuildChill = eventName.includes('build') && eventName.includes('chill');
+      
+      // Check if description contains "Thinkin' Rocks"
+      const hasThinkinRocksInDesc = eventDescription.includes("thinkin' rocks") || 
+                                     eventDescription.includes("thinkin rocks") ||
+                                     eventDescription.includes("thinkinrocks");
+      
+      return hasNerdOut || hasBuildChill || hasThinkinRocksInDesc;
     });
 
     console.log(`Fetched ${thinkinRocksEvents.length} Thinkin' Rocks events from 2026+`);
