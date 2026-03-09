@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { InitiativePreview } from "../components/InitiativePreview";
 import { getCollection } from "astro:content";
 
 const initiatives = await getCollection("initiatives");
@@ -29,7 +30,9 @@ const initiatives = await getCollection("initiatives");
             href={`/initiatives/${initiative.slug}`}
             class="fade-in border border-gray-200 rounded-lg p-4 md:p-5 bg-white flex flex-col hover:border-purple-300 hover:shadow-sm transition-colors transition-shadow group"
           >
-            <div class="w-full aspect-square rounded-md bg-gray-100 mb-4 group-hover:bg-purple-50" />
+            <div class="w-full aspect-square rounded-md overflow-hidden mb-4">
+              <InitiativePreview client:only="react" />
+            </div>
             <h2 class="text-xl font-display font-semibold tracking-tight mb-2 text-gray-900 group-hover:text-purple-700">
               {initiative.data.title}
             </h2>
