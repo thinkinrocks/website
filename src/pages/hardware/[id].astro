@@ -3,6 +3,7 @@ export const prerender = true;
 
 import Layout from "../../layouts/Layout.astro";
 import { HardwareCarousel } from "../../components/HardwareCarousel";
+import NerdBanner from "../../components/NerdBanner.astro";
 import { getCollection, getEntry } from "astro:content";
 import type { HardwareItem } from "../../types/hardware";
 
@@ -46,7 +47,9 @@ const getStatusBadge = (status: string) => {
 ---
 
 <Layout>
-  <div class="pt-16 md:pt-24 pb-16 px-4 md:px-16">
+  {item.nerd && <NerdBanner id="nerd-banner-hardware" />}
+
+  <div class="pt-20 md:pt-28 pb-16 px-4 md:px-16">
     <div class="max-w-5xl mx-auto">
       <!-- Back Button -->
       <div class="mb-8">

@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, getEntry } from "astro:content";
+import NerdBanner from "../../components/NerdBanner.astro";
 
 export async function getStaticPaths() {
   const initiatives = await getCollection("initiatives");
@@ -16,7 +17,9 @@ const { Content } = await initiative.render();
 ---
 
 <Layout>
-  <div class="pt-8 md:pt-16 pb-16 px-4 md:px-16">
+  {initiative.data.nerd && <NerdBanner id="nerd-banner-initiative" />}
+
+  <div class="pt-20 md:pt-28 pb-16 px-4 md:px-16">
     <div class="mx-auto max-w-3xl">
       <a
         href="/initiatives"

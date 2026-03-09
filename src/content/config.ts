@@ -5,6 +5,7 @@ const initiatives = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    nerd: z.boolean().optional(),
   }),
 });
 
@@ -26,6 +27,7 @@ const hardware = defineCollection({
     id: z.string(),
     name: z.string(),
     description: z.string(),
+    nerd: z.boolean().optional(),
     images: z.array(z.string()).optional(),
     imageCaptions: z.array(z.string()).optional(),
     categories: z.array(z.string()),
