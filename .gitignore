@@ -24,8 +24,6 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-*.woff2
-*.woff
 *.ttf
 *.eot
 *.otf
