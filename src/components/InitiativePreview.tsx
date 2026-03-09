@@ -23,7 +23,7 @@ export const InitiativePreview: React.FC = () => {
     scene.background = null;
 
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-    camera.position.set(0, 0.3, 2.4);
+    camera.position.set(0, 0.1, 2.4);
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);

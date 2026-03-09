@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, getEntry } from "astro:content";
 import NerdBanner from "../../components/NerdBanner.astro";
+import { InitiativePreview } from "../../components/InitiativePreview";
 
 export async function getStaticPaths() {
   const initiatives = await getCollection("initiatives");
@@ -27,6 +28,12 @@ const { Content } = await initiative.render();
       >
         ← All initiatives
       </a>
+
+      <div class="mb-8">
+        <div class="w-full aspect-square max-w-md mx-auto rounded-xl overflow-hidden">
+          <InitiativePreview client:only="react" />
+        </div>
+      </div>
 
       <h1 class="text-3xl md:text-4xl font-display font-bold tracking-tighter mb-4">
         {initiative.data.title}
