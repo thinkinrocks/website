@@ -14,7 +14,7 @@ const { id } = Astro.props;
     <div class="w-full max-w-sm md:max-w-md rounded-2xl bg-white/90 backdrop-blur-xl border border-purple-300 shadow-[0_18px_45px_rgba(88,28,135,0.35)] px-4 md:px-5 py-3.5 flex items-center gap-3 text-xs md:text-sm font-sans text-gray-900 pointer-events-auto">
       <div class="flex-1">
         <p class="text-center md:text-left leading-snug">
-          psst... you seem interested in cool tech. come hang out with us on{" "}
+          psst... You seem interested in cool tech. Come hang out with us on{" "}
           <a
             href="https://t.me/thinkinrocks"
             target="_blank"
@@ -40,6 +40,22 @@ const { id } = Astro.props;
 
 <script is:inline>
   (function () {
+    const STORAGE_KEY = "nerd-banner-dismissed-at";
+    const TEN_DAYS_MS = 10 * 24 * 60 * 60 * 1000;
+
+    try {
+      const raw = window.localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const ts = Number(raw);
+        if (!Number.isNaN(ts) && Date.now() - ts < TEN_DAYS_MS) {
+          // Recently dismissed; never show.
+          return;
+        }
+      }
+    } catch {
+      // localStorage might be unavailable; fail open and just show the banner.
+    }
+
     const script = document.currentScript;
     if (!script) return;
 
@@ -59,6 +75,12 @@ const { id } = Astro.props;
       closeBtn.addEventListener("click", () => {
         el.classList.add("opacity-0", "-translate-y-2");
         el.classList.remove("opacity-100", "translate-y-0");
+
+        try {
+          window.localStorage.setItem(STORAGE_KEY, String(Date.now()));
+        } catch {
+          // Ignore storage errors; just do not persist.
+        }
       });
     }
   })();
