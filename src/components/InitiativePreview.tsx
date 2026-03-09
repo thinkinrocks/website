@@ -65,6 +65,9 @@ export const InitiativePreview: React.FC = () => {
         model.position.sub(center);
         model.position.y -= 0.1;
 
+        // Start slightly offset in its rotation cycle
+        model.rotation.y = -Math.PI / 6;
+
         scene.add(model);
       },
       undefined,
@@ -87,7 +90,7 @@ export const InitiativePreview: React.FC = () => {
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
       if (model) {
-        model.rotation.y += 0.005;
+        model.rotation.y += 0.0075;
       }
       renderer.render(scene, camera);
     };
