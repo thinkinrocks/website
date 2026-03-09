@@ -2,10 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import { SpaceCarousel } from "../components/SpaceCarousel";
 
-const cloudName = "dby6mmmff";
-
 const avatarUrl = (publicId: string) =>
-  `https://res.cloudinary.com/${cloudName}/image/upload/w_256,h_256,c_fill/${publicId}`;
+  `/images/team/${publicId}.jpg`;
 ---
 
 <Layout>
@@ -55,32 +53,32 @@ const avatarUrl = (publicId: string) =>
       <SpaceCarousel
         images={[
           {
-            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/photo_2026-02-28_19.44.04_o1ovgk",
+            src: "/images/about/photo_2026-02-28_19.44.04_o1ovgk.jpg",
             alt: "Workspace View",
             caption: "Where ideas turn into prototypes. Desks filled with ongoing projects, screens showing code and schematics, coffee cups that fuel late-night debugging sessions. (February 2026)"
           },
           {
-            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/photo_2026-02-28_19.44.06_pzzzhp",
+            src: "/images/about/photo_2026-02-28_19.44.06_pzzzhp.jpg",
             alt: "Lab Interior",
             caption: "A space designed for builders. Every corner tells a story of something being made, tested, broken, and rebuilt better. This is where experiments happen daily. (February 2026)"
           },
           {
-            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/photo_2026-02-28_19.44.11_ucz7pf",
+            src: "/images/about/photo_2026-02-28_19.44.11_ucz7pf.jpg",
             alt: "Lab Space",
             caption: "This is where the magic happens. Hardware meets software, theory meets practice, and strangers become collaborators. A space that runs on curiosity and caffeine. (February 2026)"
           },
           {
-            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/whole-area_v4qg1y",
+            src: "/images/about/whole-area_v4qg1y.jpg",
             alt: "Main Workspace",
             caption: "The main collaborative area. Multiple projects happening simultaneously, knowledge flowing freely between tables. Everyone's working on something different, yet somehow connected. (Early 2025)"
           },
           {
-            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/shelf-area_sfnum4",
+            src: "/images/about/shelf-area_sfnum4.jpg",
             alt: "Hardware & Storage Area",
             caption: "Our hardware library. From GPUs and robotics kits to sensors and dev boards—tools that would normally be out of reach, now accessible to anyone with an idea. (Early 2025)"
           },
           {
-            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/chill-area_iz650y",
+            src: "/images/about/chill-area_iz650y.jpg",
             alt: "Chill Area",
             caption: "Not everything happens at a desk. This is where demos turn into discussions, where you grab lunch between build sessions, where the best ideas often start. (Early 2025)"
           }
