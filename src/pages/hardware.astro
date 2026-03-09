@@ -4,10 +4,11 @@ export const prerender = true;
 
 import Layout from "../layouts/Layout.astro";
 import HardwareSearch from "../components/HardwareSearch.tsx";
-import hardwareItemsData from "../data/hardware-items.json";
+import { getCollection } from "astro:content";
 import type { HardwareItem } from "../types/hardware";
 
-const hardwareItems = hardwareItemsData as HardwareItem[];
+const hardwareEntries = await getCollection("hardware");
+const hardwareItems = hardwareEntries.map((entry) => entry.data) as HardwareItem[];
 ---
 
 <Layout>

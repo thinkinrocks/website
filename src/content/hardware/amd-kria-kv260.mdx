@@ -1,0 +1,36 @@
+---
+id: "amd-kria-kv260"
+name: "AMD Kria KV260 Vision"
+description: "FPGA-based vision AI platform designed for edge video analytics. Combines ARM processing with FPGA acceleration for real-time computer vision in smart city, industrial, and security applications."
+categories:
+  - "Computer Vision"
+  - "AI"
+  - "FPGA"
+status: "available"
+availableSince: "2025-09-01"
+related:
+  - "oak-d-pro"
+  - "jetson-orin-nano"
+  - "amd-kria-kr260"
+---
+
+The [AMD Kria KV260 Vision AI Starter Kit](https://www.amd.com/en/products/system-on-modules/kria/k26/kv260-vision-starter-kit.html) is optimized for advanced computer vision applications. It integrates a quad-core Arm Cortex-A53 processor with FPGA fabric to accelerate real-time video analytics, deep neural network inference, and edge vision pipelines.
+
+The platform excels in smart city infrastructure, retail analytics, industrial inspection, and security systems. By running inference locally on the FPGA, it provides low-latency responses while maintaining privacy through on-premises data processing.
+
+Development begins with [Vitis](https://www.xilinx.com/products/design-tools/vitis.html) and [Vivado](https://www.xilinx.com/products/design-tools/vivado.html) for FPGA workflows. The [Vitis AI](https://www.xilinx.com/products/design-tools/vitis/vitis-ai.html) stack provides pre-optimized DNN models and reference applications for vision use cases. Developers can start with these pipelines and extend them by customizing FPGA kernels and integrating new algorithms.
+
+Applications can be deployed as ROS 2 nodes for robotics systems or as [GStreamer](https://gstreamer.freedesktop.org/) pipelines for traditional multimedia and vision workflows. This flexibility allows the KV260 to fit both robotics and standalone edge vision deployments.
+
+Example projects include traffic monitoring with object detection and incident response, industrial inspection systems for defect detection, retail analytics for customer behavior, and privacy-preserving healthcare or security monitoring systems.
+
+While powerful for deterministic, real-time workloads, FPGA development requires specialized skills. The learning curve of HLS/RTL and FPGA workflows is higher than GPU-centric approaches, and resource limitations compared to larger devices should be considered when planning projects.
+
+Successful development requires skills in computer vision (OpenCV, deep learning models), FPGA acceleration workflows (HLS, Vitis AI), and real-time systems. Combining domain knowledge across these areas enables efficient custom vision pipelines at the edge.
+
+**Key Development Resources:**  
+- [Vitis AI](https://www.xilinx.com/products/design-tools/vitis/vitis-ai.html)  
+- [Kria Documentation](https://xilinx.github.io/kria-apps-docs/)  
+- [ROS 2](https://docs.ros.org/en/rolling/)  
+- [GStreamer](https://gstreamer.freedesktop.org/)
+

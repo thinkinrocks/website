@@ -20,8 +20,25 @@ const log = defineCollection({
   }),
 });
 
+const hardware = defineCollection({
+  type: "content",
+  schema: z.object({
+    id: z.string(),
+    name: z.string(),
+    description: z.string(),
+    images: z.array(z.string()).optional(),
+    imageCaptions: z.array(z.string()).optional(),
+    categories: z.array(z.string()),
+    status: z.enum(["available", "coming-soon", "maintenance"]),
+    availableSince: z.string().optional(),
+    isNew: z.boolean().optional(),
+    related: z.array(z.string()),
+  }),
+});
+
 export const collections = {
   initiatives,
   log,
+  hardware,
 };
 

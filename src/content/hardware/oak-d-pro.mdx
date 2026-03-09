@@ -1,0 +1,35 @@
+---
+id: "oak-d-pro"
+name: "OAK-D Pro"
+description: "Stereo depth AI camera with onboard neural inference, integrated IR illumination, and reliable 3D perception across varied lighting conditions. Designed for robotics, AR/VR, and computer vision applications."
+categories:
+  - "Computer Vision"
+  - "Robotics"
+status: "available"
+availableSince: "2025-09-01"
+related:
+  - "jetson-orin-nano"
+  - "varjo-xr3"
+  - "amd-kria-kv260"
+---
+
+The [OAK-D Pro](https://docs.luxonis.com/projects/hardware/en/latest/pages/DM9095.html) is an advanced computer vision camera that integrates stereo depth sensing with onboard AI inference. It includes IR illumination for consistent depth performance in low-light environments, making it useful for robotics, SLAM, and interactive applications across indoor and outdoor contexts.
+
+It produces stereo depth maps and point clouds while running neural networks for object detection, classification, and tracking directly on-device. This reduces the need for external compute, enabling efficient edge AI deployments in robotics, AR/VR, and embedded systems.
+
+Development starts with the [DepthAI SDK](https://docs.luxonis.com/software-v3/depthai/), which provides Python and C++ APIs. Example pipelines include stereo depth, object detection, and gesture recognition. These serve as practical starting points before customizing applications for specific robotics or vision workflows.
+
+Calibration and tuning are essential. Adjust exposure, IR illumination, and stereo depth parameters to optimize performance for your environment. Processed data can be streamed to Jetson modules, PCs, or other hosts, combining onboard inference with external compute when needed.
+
+Applications include autonomous robotics navigation, SLAM, people-tracking systems, gesture-based HMI, and mixed reality scene understanding. The OAK-D Pro's depth accuracy and integrated inference make it a strong fit for perception-driven systems that need local processing.
+
+Limitations include reduced depth accuracy under strong sunlight (which interferes with IR illumination) and compute limits that restrict very large or complex neural networks. Applications requiring heavy models may need hybrid processing strategies (part onboard, part external).
+
+Effective use requires Python or C++ skills, experience with OpenCV, and knowledge of camera calibration and 3D geometry. Understanding trade-offs between onboard and external inference helps optimize system performance.
+
+**Essential Development Resources:**  
+- [DepthAI Docs](https://docs.luxonis.com/)  
+- [DepthAI Model Zoo](https://github.com/luxonis/depthai-experiments)  
+- [OpenCV Docs](https://docs.opencv.org/)  
+- [DepthAI Community Forum](https://discuss.luxonis.com/)
+

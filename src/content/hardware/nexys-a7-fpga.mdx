@@ -1,0 +1,32 @@
+---
+id: "nexys-a7-fpga"
+name: "Nexys A7 FPGA Trainer Board"
+description: "The Nexys A7 is an FPGA trainer board built on the AMD Artix-7 architecture. It features abundant I/O, DDR2 memory, and built-in peripherals, making it ideal for digital design, embedded systems, and hardware prototyping."
+categories:
+  - "FPGA"
+status: "available"
+availableSince: "2025-09-17"
+related:
+  - "amd-kria-kr260"
+  - "amd-kria-kv260"
+---
+
+The [Nexys A7](https://digilent.com/shop/nexys-a7-fpga-trainer-board-recommended-for-ece-curriculum/) is built around the AMD Artix-7 XC7A100T or XC7A50T FPGA. It provides a rich set of peripherals including LEDs, switches, buttons, VGA output, audio codec, USB-UART, Ethernet, and DDR2 memory, making it an ideal entry point for FPGA education and hardware prototyping.
+
+The board supports projects ranging from basic digital logic to full CPU architectures, DSP pipelines, and custom peripheral interfaces. It is widely used in ECE curricula for teaching FPGA design, embedded systems, and computer architecture.
+
+Development begins with [Vivado Design Suite](https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vivado.html), AMD’s FPGA toolchain. Create a new project targeting the Nexys A7 to automatically configure the correct device and constraint files. Start with simple designs in Verilog or VHDL, simulate them, then synthesize and implement for deployment to the board via JTAG.
+
+A typical workflow includes: HDL design entry, functional simulation, synthesis, place & route, and hardware programming. Begin with small designs (combinational logic, counters) before scaling to sequential systems, processors, or real-time signal processing.
+
+Project ideas include implementing a RISC-V soft-core CPU with custom I/O, developing audio processing pipelines with the onboard codec, VGA/HDMI video controllers, or LED matrix drivers. Advanced users can experiment with FPGA-based accelerators for real-time machine learning inference.
+
+While excellent for education, the Nexys A7 has resource limitations compared to larger FPGAs, which may constrain high-complexity designs. Timing closure can be challenging and requires good understanding of FPGA architecture and optimization techniques.
+
+To succeed, learners need a foundation in digital logic, proficiency in Verilog or VHDL, and skills in simulation and verification. Testbenches, timing analysis, and constraint management are essential as projects scale.
+
+**Key Resources:**  
+- [Digilent Nexys A7 Reference](https://digilent.com/reference/programmable-logic/nexys-a7/start)  
+- [Vivado Documentation](https://docs.xilinx.com/)  
+- [FPGA4Student](https://www.fpga4student.com/)
+
