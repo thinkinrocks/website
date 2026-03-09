@@ -1,7 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { CldImage } from "astro-cloudinary";
 import { SpaceCarousel } from "../components/SpaceCarousel";
+
+const cloudName = "dby6mmmff";
+
+const avatarUrl = (publicId: string) =>
+  `https://res.cloudinary.com/${cloudName}/image/upload/w_256,h_256,c_fill/${publicId}`;
 ---
 
 <Layout>
@@ -224,13 +228,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 mb-8">
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded">
-            <CldImage
-              src="milana-min_yrnyld"
+            <img
+              src={avatarUrl("milana-min_yrnyld")}
               alt="Milana"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Milana</h3>
@@ -248,13 +250,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
 
         <div class="text-center">
           <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
-            <CldImage
-              src="yerzhan-min_gl7gur"
+            <img
+              src={avatarUrl("yerzhan-min_gl7gur")}
               alt="Yerzhan"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Yerzhan</h3>
@@ -272,13 +272,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
 
         <div class="text-center">
           <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
-            <CldImage
-              src="alex-min_ypkkz2"
+            <img
+              src={avatarUrl("alex-min_ypkkz2")}
               alt="Alex"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Alex</h3>
@@ -296,13 +294,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
 
         <div class="text-center">
           <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
-            <CldImage
-              src="daniyar-min_kok519"
+            <img
+              src={avatarUrl("daniyar-min_kok519")}
               alt="Daniyar"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Daniyar</h3>
@@ -321,13 +317,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
 
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded" style="filter: saturate(0.7);">
-            <CldImage
-              src="photo_2026-02-28_13.35.24_utmlwr"
+            <img
+              src={avatarUrl("photo_2026-02-28_13.35.24_utmlwr")}
               alt="Arthur"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Arthur</h3>
@@ -345,13 +339,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
 
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded">
-            <CldImage
-              src="1738858718555_ghqvgp"
+            <img
+              src={avatarUrl("1738858718555_ghqvgp")}
               alt="Vlad"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Vlad</h3>
@@ -369,13 +361,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
 
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded" style="filter: saturate(0.7);">
-            <CldImage
-              src="photo_2026-02-28_20.19.07_j1tzdc"
+            <img
+              src={avatarUrl("photo_2026-02-28_20.19.07_j1tzdc")}
               alt="Karim"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Karim</h3>
@@ -393,13 +383,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
 
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded" style="filter: saturate(0.7);">
-            <CldImage
-              src="2026_01_viktor_solianoi_0_p63ypw"
+            <img
+              src={avatarUrl("2026_01_viktor_solianoi_0_p63ypw")}
               alt="Viktor"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Viktor</h3>

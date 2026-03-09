@@ -2,7 +2,6 @@ export interface HardwareItem {
   id: string;
   name: string;
   description: string;
-  cloudinaryPublicId?: string;
   images?: string[];
   imageCaptions?: string[];
   categories: string[];

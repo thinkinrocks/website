@@ -30,15 +30,18 @@ const initiatives = await getCollection("initiatives");
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
         {initiatives.map((initiative) => (
-          <article class="fade-in border border-gray-200 rounded-lg p-4 md:p-5 bg-white flex flex-col">
-            <div class="w-full aspect-square rounded-md bg-gray-100 mb-4" />
-            <h2 class="text-xl font-display font-semibold tracking-tight mb-2 text-gray-900">
+          <a
+            href={`/initiatives/${initiative.slug}`}
+            class="fade-in border border-gray-200 rounded-lg p-4 md:p-5 bg-white flex flex-col hover:border-purple-300 hover:shadow-sm transition-colors transition-shadow group"
+          >
+            <div class="w-full aspect-square rounded-md bg-gray-100 mb-4 group-hover:bg-purple-50" />
+            <h2 class="text-xl font-display font-semibold tracking-tight mb-2 text-gray-900 group-hover:text-purple-700">
               {initiative.data.title}
             </h2>
             <p class="font-sans text-sm md:text-base text-gray-700 leading-relaxed">
               {initiative.data.description}
             </p>
-          </article>
+          </a>
         ))}
       </div>
     </div>
