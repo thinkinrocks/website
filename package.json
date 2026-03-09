@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
     "@astrojs/react": "^4.3.0",
     "@astrojs/vercel": "^8.2.7",
     "@cloudinary/react": "^1.14.3",

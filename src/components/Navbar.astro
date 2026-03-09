@@ -20,6 +20,8 @@ const currentPath = Astro.url.pathname;
           <span class="text-gray-700">|</span>
           <a href="/about" class={`font-mono nav-item hover:text-purple-600 ${currentPath.startsWith('/about') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>about</a>
           <span class="text-gray-700">|</span>
+          <a href="/initiatives" class={`font-mono nav-item hover:text-purple-600 ${currentPath.startsWith('/initiatives') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>initiatives</a>
+          <span class="text-gray-700">|</span>
           <a href="/events" class={`font-mono nav-item hover:text-purple-600 ${currentPath.startsWith('/events') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>events</a>
           <span class="text-gray-700">|</span>
           <a href="/log" class={`font-mono nav-item hover:text-purple-600 ${currentPath.startsWith('/log') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>log</a>
