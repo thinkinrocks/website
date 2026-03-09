@@ -1,16 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import logEntries from "../data/log-entries.json";
+import { getCollection } from "astro:content";
 
 function formatTimestamp(timestamp: string) {
   const date = new Date(timestamp);
-  return `${date.getDate().toString().padStart(2, '0')}.${(date.getMonth() + 1).toString().padStart(2, '0')}.${date.getFullYear()}`;
+  return `${date.getDate().toString().padStart(2, "0")}.${(date.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}.${date.getFullYear()}`;
 }
 
+const rawEntries = await getCollection("log");
 
+const entries = rawEntries.sort(
+  (a, b) =>
+    new Date(b.data.timestamp).getTime() -
+    new Date(a.data.timestamp).getTime()
+);
 
-// Sort entries by timestamp, newest first
-const sortedEntries = logEntries.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+const renderedEntries = await Promise.all(
+  entries.map(async (entry) => {
+    const { Content } = await entry.render();
+    return { ...entry, Content };
+  })
+);
 ---
 
 <Layout>
@@ -19,22 +31,21 @@ const sortedEntries = logEntries.sort((a, b) => new Date(b.timestamp).getTime() 
       <h1 class="text-4xl md:text-5xl font-display font-bold tracking-tight mb-6">
         Log
       </h1>
-      
-      <div class="mb-8">
-       
-      </div>
-      
-      <!-- Log Entries -->
+
       <div class="space-y-8">
-        {sortedEntries.map((entry) => (
+        {renderedEntries.map((entry) => (
           <div class="fade-in">
             <div class="mb-2">
-              <span class="text-xs font-mono text-gray-500">{formatTimestamp(entry.timestamp)}</span>
+              <span class="text-xs font-mono text-gray-500">
+                {formatTimestamp(entry.data.timestamp)}
+              </span>
             </div>
-            <h3 class="text-lg font-mono text-gray-900 mb-2">{entry.title}</h3>
-            <p class="font-sans text-gray-800 leading-relaxed">
-              {entry.content}
-            </p>
+            <h3 class="text-lg font-mono text-gray-900 mb-2">
+              {entry.data.title}
+            </h3>
+            <div class="font-sans text-gray-800 leading-relaxed prose max-w-none">
+              <entry.Content />
+            </div>
           </div>
         ))}
       </div>
