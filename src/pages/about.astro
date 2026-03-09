@@ -2,8 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { SpaceCarousel } from "../components/SpaceCarousel";
 
-const avatarUrl = (publicId: string) =>
-  `/images/team/${publicId}.jpg`;
+const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
 ---
 
 <Layout>
@@ -53,32 +52,32 @@ const avatarUrl = (publicId: string) =>
       <SpaceCarousel
         images={[
           {
-            src: "/images/about/photo_2026-02-28_19.44.04_o1ovgk.jpg",
+            src: "/images/about/lab-workspace-desks.jpg",
             alt: "Workspace View",
             caption: "Where ideas turn into prototypes. Desks filled with ongoing projects, screens showing code and schematics, coffee cups that fuel late-night debugging sessions. (February 2026)"
           },
           {
-            src: "/images/about/photo_2026-02-28_19.44.06_pzzzhp.jpg",
+            src: "/images/about/lab-interior-main.jpg",
             alt: "Lab Interior",
             caption: "A space designed for builders. Every corner tells a story of something being made, tested, broken, and rebuilt better. This is where experiments happen daily. (February 2026)"
           },
           {
-            src: "/images/about/photo_2026-02-28_19.44.11_ucz7pf.jpg",
+            src: "/images/about/lab-space-overview.jpg",
             alt: "Lab Space",
             caption: "This is where the magic happens. Hardware meets software, theory meets practice, and strangers become collaborators. A space that runs on curiosity and caffeine. (February 2026)"
           },
           {
-            src: "/images/about/whole-area_v4qg1y.jpg",
+            src: "/images/about/lab-main-overview.jpg",
             alt: "Main Workspace",
             caption: "The main collaborative area. Multiple projects happening simultaneously, knowledge flowing freely between tables. Everyone's working on something different, yet somehow connected. (Early 2025)"
           },
           {
-            src: "/images/about/shelf-area_sfnum4.jpg",
+            src: "/images/about/lab-hardware-shelves.jpg",
             alt: "Hardware & Storage Area",
             caption: "Our hardware library. From GPUs and robotics kits to sensors and dev boards—tools that would normally be out of reach, now accessible to anyone with an idea. (Early 2025)"
           },
           {
-            src: "/images/about/chill-area_iz650y.jpg",
+            src: "/images/about/lab-chill-area.jpg",
             alt: "Chill Area",
             caption: "Not everything happens at a desk. This is where demos turn into discussions, where you grab lunch between build sessions, where the best ideas often start. (Early 2025)"
           }
@@ -227,7 +226,7 @@ const avatarUrl = (publicId: string) =>
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded">
             <img
-              src={avatarUrl("milana-min_yrnyld")}
+              src={avatarUrl("team-milana")}
               alt="Milana"
               class="w-40 h-40 object-cover"
               loading="lazy"
@@ -249,7 +248,7 @@ const avatarUrl = (publicId: string) =>
         <div class="text-center">
           <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
             <img
-              src={avatarUrl("yerzhan-min_gl7gur")}
+              src={avatarUrl("team-yerzhan")}
               alt="Yerzhan"
               class="w-40 h-40 object-cover"
               loading="lazy"
@@ -271,7 +270,7 @@ const avatarUrl = (publicId: string) =>
         <div class="text-center">
           <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
             <img
-              src={avatarUrl("alex-min_ypkkz2")}
+              src={avatarUrl("team-alex")}
               alt="Alex"
               class="w-40 h-40 object-cover"
               loading="lazy"
@@ -293,7 +292,7 @@ const avatarUrl = (publicId: string) =>
         <div class="text-center">
           <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
             <img
-              src={avatarUrl("daniyar-min_kok519")}
+              src={avatarUrl("team-daniyar")}
               alt="Daniyar"
               class="w-40 h-40 object-cover"
               loading="lazy"
@@ -316,7 +315,7 @@ const avatarUrl = (publicId: string) =>
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded" style="filter: saturate(0.7);">
             <img
-              src={avatarUrl("photo_2026-02-28_13.35.24_utmlwr")}
+              src={avatarUrl("team-arthur")}
               alt="Arthur"
               class="w-40 h-40 object-cover"
               loading="lazy"
@@ -338,7 +337,7 @@ const avatarUrl = (publicId: string) =>
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded">
             <img
-              src={avatarUrl("1738858718555_ghqvgp")}
+              src={avatarUrl("team-vlad")}
               alt="Vlad"
               class="w-40 h-40 object-cover"
               loading="lazy"
@@ -360,7 +359,7 @@ const avatarUrl = (publicId: string) =>
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded" style="filter: saturate(0.7);">
             <img
-              src={avatarUrl("photo_2026-02-28_20.19.07_j1tzdc")}
+              src={avatarUrl("team-karim")}
               alt="Karim"
               class="w-40 h-40 object-cover"
               loading="lazy"
@@ -382,7 +381,7 @@ const avatarUrl = (publicId: string) =>
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded" style="filter: saturate(0.7);">
             <img
-              src={avatarUrl("2026_01_viktor_solianoi_0_p63ypw")}
+              src={avatarUrl("team-viktor")}
               alt="Viktor"
               class="w-40 h-40 object-cover"
               loading="lazy"
