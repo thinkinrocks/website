@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import nerdballUrl from "../assets/3d/nerdball.gltf?url";
 
 export const InitiativePreview: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -39,8 +38,9 @@ export const InitiativePreview: React.FC = () => {
     const loader = new GLTFLoader();
     let model: THREE.Object3D | null = null;
 
+    // Load from /public so GLB/bin/texture paths work in production
     loader.load(
-      nerdballUrl,
+      "/assets/3d/nerdball.gltf",
       (gltf) => {
         model = gltf.scene;
         model.traverse((child) => {
