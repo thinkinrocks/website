@@ -137,10 +137,159 @@
   }
 }
 
-/* Hardware detail body copy spacing */
+/* Rich text typography (scoped to content only) */
+
+/* Paragraph spacing */
+.prose p {
+  margin-top: 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
+/* Headings */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-family: var(--font-display);
+  color: oklch(0.145 0 0);
+  letter-spacing: -0.02em;
+}
+
+.prose h1 {
+  font-size: 2rem;
+  line-height: 1.1;
+  margin-top: 2.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose h4 {
+  font-size: 1.1rem;
+  line-height: 1.3;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Lists */
+.prose ul,
+.hardware-copy ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
+.prose ol,
+.hardware-copy ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-top: 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
+.prose li,
+.hardware-copy li {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Nested lists: tighter spacing inside list items */
+.prose li > ul,
+.prose li > ol,
+.hardware-copy li > ul,
+.hardware-copy li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Inline code */
+.prose code,
+.hardware-copy code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
+  background-color: oklch(0.95 0 0);
+}
+
+/* Code blocks */
+.prose pre,
+.hardware-copy pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  background-color: oklch(0.93 0 0);
+  overflow-x: auto;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose pre code,
+.hardware-copy pre code {
+  padding: 0;
+  background: transparent;
+}
+
+/* Blockquotes */
+.prose blockquote,
+.hardware-copy blockquote {
+  border-left: 3px solid oklch(0.8 0 0);
+  padding-left: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: oklch(0.4 0 0);
+  font-style: italic;
+}
+
+/* Horizontal rules */
+.prose hr,
+.hardware-copy hr {
+  border: 0;
+  border-top: 1px solid oklch(0.9 0 0);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Links inside rich text */
+.prose a,
+.hardware-copy a {
+  color: oklch(0.5 0.2 300);
+  text-decoration: none;
+}
+
+.prose a:hover,
+.hardware-copy a:hover {
+  text-decoration: underline;
+}
+
+/* Images */
+.prose img,
+.hardware-copy img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-radius: 0.5rem;
+}
+
+/* Hardware detail body copy spacing (match prose spacing) */
 .hardware-copy p {
-  margin-top: 0.9rem;
-  margin-bottom: 0.9rem;
+  margin-top: 1.1rem;
+  margin-bottom: 1.1rem;
 }
 
 
