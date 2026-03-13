@@ -2,27 +2,30 @@
 export const prerender = true;
 
 import Layout from "../../layouts/Layout.astro";
-import type { HardwareItem } from "../../types/hardware";
-import { AdvancedImage } from '@cloudinary/react';
-import { fit } from "@cloudinary/url-gen/actions/resize";
-import { cloudinary } from "../../data/cloudinary";
 import { HardwareCarousel } from "../../components/HardwareCarousel";
+import NerdBanner from "../../components/NerdBanner.astro";
+import { getCollection, getEntry } from "astro:content";
+import type { HardwareItem } from "../../types/hardware";
 
 export async function getStaticPaths() {
-  const hardwareItemsData = await import("../../data/hardware-items.json");
-  const hardwareItems = hardwareItemsData.default as HardwareItem[];
+  const hardwareEntries = await getCollection("hardware");
   
-  return hardwareItems.map((item) => ({
-    params: { id: item.id },
-    props: { item, allItems: hardwareItems },
+  return hardwareEntries.map((entry) => ({
+    params: { id: entry.slug },
   }));
 }
 
-const { item, allItems } = Astro.props as { item: HardwareItem; allItems: HardwareItem[] };
+const { id } = Astro.params;
+const entry = await getEntry("hardware", id);
+const { Content } = await entry.render();
+const item = entry.data as HardwareItem;
+
+const allEntries = await getCollection("hardware");
+const allItems = allEntries.map((e) => e.data as HardwareItem);
 
 // Get related hardware items
 const relatedItems = item?.related
-  ? allItems.filter(hardwareItem => item.related!.includes(hardwareItem.id))
+  ? allItems.filter((hardwareItem) => item.related!.includes(hardwareItem.id))
   : [];
 
 // Function to truncate description by word count
@@ -44,7 +47,7 @@ const getStatusBadge = (status: string) => {
 ---
 
 <Layout>
-  <div class="pt-16 md:pt-24 pb-16 px-4 md:px-16">
+  <div class="pt-20 md:pt-28 pb-16 px-4 md:px-16">
     <div class="max-w-5xl mx-auto">
       <!-- Back Button -->
       <div class="mb-8">
@@ -59,20 +62,13 @@ const getStatusBadge = (status: string) => {
       <!-- Hardware Details -->
       <div class="mb-16">
         <!-- Image or Carousel -->
-        {item.images && item.images.length > 0 ? (
-          <HardwareCarousel images={item.images} name={item.name} captions={item.imageCaptions} client:load />
-        ) : item.cloudinaryPublicId && (
-          <div class="flex flex-col items-center justify-center mb-8">
-            <AdvancedImage
-              cldImg={cloudinary
-                .image(item.cloudinaryPublicId)
-                .resize(fit().width(500).height(500))}
-              alt={item.name}
-              className="w-96 h-96 object-contain"
-              client:load
-            />
-            <p class="text-gray-400 text-sm mt-2 font-mono">{item.name}</p>
-          </div>
+        {item.images && item.images.length > 0 && (
+          <HardwareCarousel
+            images={item.images}
+            name={item.name}
+            captions={item.imageCaptions}
+            client:load
+          />
         )}
 
         <!-- Details -->
@@ -85,22 +81,8 @@ const getStatusBadge = (status: string) => {
 
          
           <div>
-            <div class="font-sans text-lg text-gray-700 leading-relaxed prose prose-lg max-w-none prose-headings:font-mono prose-a:text-purple-600 prose-a:no-underline hover:prose-a:text-purple-800 prose-strong:text-gray-900 prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg prose-ul:list-disc prose-ol:list-decimal">
-              {item.details.map((paragraph, index) => (
-                <p class="mb-6" set:html={paragraph
-                  .replace(/^### (.*$)/gm, '<h3>$1</h3>')
-                  .replace(/^## (.*$)/gm, '<h2>$1</h2>')
-                  .replace(/^# (.*$)/gm, '<h1>$1</h1>')
-                  .replace(/^\* (.*$)/gm, '<li>$1</li>')
-                  .replace(/^- (.*$)/gm, '<li>$1</li>')
-                  .replace(/^(\d+)\. (.*$)/gm, '<li>$1. $2</li>')
-                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                  .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                  .replace(/`(.*?)`/g, '<code class="bg-gray-100 px-1 py-0.5 text-sm font-mono">$1</code>')
-                  .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-purple-600 hover:text-purple-800 underline" target="_blank" rel="noopener noreferrer">$1</a>')
-                  .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
-                } />
-              ))}
+            <div class="hardware-copy font-sans text-lg text-gray-700 leading-relaxed">
+              <Content />
             </div>
           </div>
         </div>
@@ -119,24 +101,13 @@ const getStatusBadge = (status: string) => {
                 class="block group"
               >
                 <div class="py-1 flex gap-2 md:gap-3 items-center">
-                  {(relatedItem.images && relatedItem.images.length > 0) || relatedItem.cloudinaryPublicId ? (
+                  {relatedItem.images && relatedItem.images.length > 0 ? (
                     <div class="flex-shrink-0">
-                      {relatedItem.images && relatedItem.images.length > 0 ? (
-                        <img
-                          src={relatedItem.images[0]}
-                          alt={relatedItem.name}
-                          class="w-20 h-20 md:w-28 md:h-28 object-contain rounded"
-                        />
-                      ) : relatedItem.cloudinaryPublicId ? (
-                        <AdvancedImage
-                          cldImg={cloudinary
-                            .image(relatedItem.cloudinaryPublicId)
-                            .resize(fit().width(224).height(224))}
-                          alt={relatedItem.name}
-                          className="w-20 h-20 md:w-28 md:h-28 object-contain rounded"
-                          client:load
-                        />
-                      ) : null}
+                      <img
+                        src={relatedItem.images[0]}
+                        alt={relatedItem.name}
+                        class="w-20 h-20 md:w-28 md:h-28 object-contain rounded"
+                      />
                     </div>
                   ) : null}
                   <div class="flex-1 min-w-0">

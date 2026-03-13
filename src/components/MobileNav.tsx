@@ -40,6 +40,7 @@ export default function MobileNav({ currentPath }: MobileNavProps) {
     { href: "/", label: "home", path: "/" },
     { href: "/hardware", label: "hardware", path: "/hardware" },
     { href: "/about", label: "about", path: "/about" },
+    { href: "/initiatives", label: "initiatives", path: "/initiatives" },
     { href: "/events", label: "events", path: "/events" },
     { href: "/log", label: "log", path: "/log" },
     { href: "/code-of-conduct", label: "conduct", path: "/code-of-conduct" },

@@ -1,0 +1,16 @@
+PP Mondwest font license
+========================
+
+This project uses the PP Mondwest font for on-site rendering only.
+
+- The PP Mondwest font files are **not** owned by this project.
+- Copyright and all associated rights remain with the original font author and/or publisher.
+- The font binaries included here are treated as build/source assets and are only
+  intended to be used to render this website.
+- They may **not** be extracted, redistributed, or reused outside of this site
+  except as permitted by the font’s original license.
+
+If you need to use PP Mondwest in your own work, please obtain it directly
+from the original source and review its license terms there.
+
+https://pangrampangram.com/products/bitmap-mondwest

@@ -1,0 +1,38 @@
+---
+id: "amd-kria-kr260"
+name: "AMD Kria KR260 Robotics"
+description: "FPGA-based robotics and industrial platform with ROS 2 acceleration, industrial interfaces, and low-latency processing. Built for developers building adaptive robotics and embedded AI solutions."
+images:
+  - "/images/hardware/hardware-amd-kria-kr260.jpg"
+imageCaptions:
+  - "AMD Kria KR260 Robotics Starter Kit"
+categories:
+  - "Robotics"
+  - "FPGA"
+status: "available"
+availableSince: "2025-09-01"
+related:
+  - "nexys-a7-fpga"
+  - "amd-kria-kv260"
+---
+
+The [AMD Kria KR260 Robotics Starter Kit](https://www.amd.com/en/products/system-on-modules/kria/k26/kr260-robotics-starter-kit.html) is a robotics-focused platform built on AMD/Xilinx adaptive SoC technology. It integrates FPGA fabric, a quad-core Arm Cortex-A53 processor, and industrial-grade interfaces for robotics, automation, and embedded AI applications.
+
+It delivers deterministic, low-latency control loops with hardware-accelerated ROS 2 nodes, enabling microsecond-level response times not achievable with CPU-only solutions. Developers can offload compute-heavy tasks (e.g., perception, sensor fusion, control algorithms) to the FPGA fabric while keeping ROS 2 software components running on Linux.
+
+Development starts with the [Kria Applications Documentation](https://xilinx.github.io/kria-apps-docs/), which includes prebuilt acceleration examples. Install the [Vitis](https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vitis.html) and [Vivado](https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vivado.html) toolchains for FPGA development and system integration. Provided reference pipelines let developers quickly test vision and control workloads before moving to custom hardware acceleration.
+
+A typical workflow involves deploying FPGA-accelerated pipelines alongside ROS 2 nodes for hybrid hardware/software systems. The modularity allows robotics developers to accelerate bottlenecks like image processing or real-time control while keeping higher-level autonomy in software.
+
+Example applications include factory automation, robotic arm control, high-speed inspection systems, and autonomous mobile robots with deterministic SLAM or vision pipelines. The platform is particularly suited for environments requiring reliable timing and industrial-grade interfaces.
+
+Challenges include the steeper learning curve of FPGA development, the need for specialized toolchains (Vitis/Vivado), and resource constraints compared to large FPGAs. Effective use requires familiarity with both embedded Linux and FPGA workflows, as debugging and optimization span hardware and software domains.
+
+Success with KR260 requires skills in ROS 2, embedded Linux, and FPGA design (HDL/HLS). Knowledge of real-time systems and industrial communication protocols is also valuable for fully leveraging the platform’s robotics and automation capabilities.
+
+**Essential Development Resources:**  
+- [Kria Applications Docs](https://xilinx.github.io/kria-apps-docs/)  
+- [ROS 2 Documentation](https://docs.ros.org/en/rolling/)  
+- [Vitis Development Platform](https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vitis.html)  
+- [Vivado Design Suite](https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vivado.html)
+

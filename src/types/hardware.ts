@@ -1,16 +1,5 @@
-export interface HardwareItem {
-  id: string;
-  name: string;
-  description: string;
-  cloudinaryPublicId?: string;
-  images?: string[];
-  imageCaptions?: string[];
-  categories: string[];
-  status: 'available' | 'coming-soon' | 'maintenance';
-  availableSince?: string;
-  isNew?: boolean;
-  details: string[];
-  related: string[];
-}
+import type { CollectionEntry } from "astro:content";
 
-export type HardwareStatus = HardwareItem['status'];
+export type HardwareItem = CollectionEntry<"hardware">["data"];
+
+export type HardwareStatus = HardwareItem["status"];

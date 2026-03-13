@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { CldImage } from "astro-cloudinary";
 import { SpaceCarousel } from "../components/SpaceCarousel";
+
+const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
 ---
 
 <Layout>
@@ -16,7 +17,7 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
       <!-- Main Content -->
       <div class="mb-12 font-sans text-lg text-gray-700 leading-relaxed space-y-4">
         <p>
-          Thinkin' Rocks is a prototpying ecosystem. We maintain spaces where people build AI systems, robotics projects, XR applications, embedded devices, and experimental hardware—the kind of stuff that needs actual equipment and other builders around.
+          Thinkin' Rocks is a prototyping ecosystem. We maintain spaces where people build AI systems, robotics projects, XR applications, embedded devices, and experimental hardware—the kind of stuff that needs actual equipment and other builders around.
         </p>
         <p>
           Most technical education teaches theory. Labs are locked behind bureaucracy. Makerspaces have basic equipment. Hardware startups can't afford gear until funding arrives. Researchers work in isolation. Hackathon projects die on Monday. We saw people with skills and drive but nowhere to actually build serious tech.
@@ -51,32 +52,32 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
       <SpaceCarousel
         images={[
           {
-            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/photo_2026-02-28_19.44.04_o1ovgk",
+            src: "/images/about/lab-workspace-desks.jpg",
             alt: "Workspace View",
             caption: "Where ideas turn into prototypes. Desks filled with ongoing projects, screens showing code and schematics, coffee cups that fuel late-night debugging sessions. (February 2026)"
           },
           {
-            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/photo_2026-02-28_19.44.06_pzzzhp",
+            src: "/images/about/lab-interior-main.jpg",
             alt: "Lab Interior",
             caption: "A space designed for builders. Every corner tells a story of something being made, tested, broken, and rebuilt better. This is where experiments happen daily. (February 2026)"
           },
           {
-            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/photo_2026-02-28_19.44.11_ucz7pf",
+            src: "/images/about/lab-space-overview.jpg",
             alt: "Lab Space",
             caption: "This is where the magic happens. Hardware meets software, theory meets practice, and strangers become collaborators. A space that runs on curiosity and caffeine. (February 2026)"
           },
           {
-            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/whole-area_v4qg1y",
+            src: "/images/about/lab-main-overview.jpg",
             alt: "Main Workspace",
             caption: "The main collaborative area. Multiple projects happening simultaneously, knowledge flowing freely between tables. Everyone's working on something different, yet somehow connected. (Early 2025)"
           },
           {
-            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/shelf-area_sfnum4",
+            src: "/images/about/lab-hardware-shelves.jpg",
             alt: "Hardware & Storage Area",
             caption: "Our hardware library. From GPUs and robotics kits to sensors and dev boards—tools that would normally be out of reach, now accessible to anyone with an idea. (Early 2025)"
           },
           {
-            src: "https://res.cloudinary.com/dby6mmmff/image/upload/w_1200,h_800,c_fill/chill-area_iz650y",
+            src: "/images/about/lab-chill-area.jpg",
             alt: "Chill Area",
             caption: "Not everything happens at a desk. This is where demos turn into discussions, where you grab lunch between build sessions, where the best ideas often start. (Early 2025)"
           }
@@ -224,13 +225,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 mb-8">
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded">
-            <CldImage
-              src="milana-min_yrnyld"
+            <img
+              src={avatarUrl("team-milana")}
               alt="Milana"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Milana</h3>
@@ -248,13 +247,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
 
         <div class="text-center">
           <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
-            <CldImage
-              src="yerzhan-min_gl7gur"
+            <img
+              src={avatarUrl("team-yerzhan")}
               alt="Yerzhan"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Yerzhan</h3>
@@ -272,13 +269,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
 
         <div class="text-center">
           <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
-            <CldImage
-              src="alex-min_ypkkz2"
+            <img
+              src={avatarUrl("team-alex")}
               alt="Alex"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Alex</h3>
@@ -296,13 +291,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
 
         <div class="text-center">
           <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
-            <CldImage
-              src="daniyar-min_kok519"
+            <img
+              src={avatarUrl("team-daniyar")}
               alt="Daniyar"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Daniyar</h3>
@@ -321,13 +314,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
 
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded" style="filter: saturate(0.7);">
-            <CldImage
-              src="photo_2026-02-28_13.35.24_utmlwr"
+            <img
+              src={avatarUrl("team-arthur")}
               alt="Arthur"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Arthur</h3>
@@ -345,13 +336,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
 
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded">
-            <CldImage
-              src="1738858718555_ghqvgp"
+            <img
+              src={avatarUrl("team-vlad")}
               alt="Vlad"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Vlad</h3>
@@ -369,13 +358,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
 
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded" style="filter: saturate(0.7);">
-            <CldImage
-              src="photo_2026-02-28_20.19.07_j1tzdc"
+            <img
+              src={avatarUrl("team-karim")}
               alt="Karim"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Karim</h3>
@@ -393,13 +380,11 @@ import { SpaceCarousel } from "../components/SpaceCarousel";
 
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded" style="filter: saturate(0.7);">
-            <CldImage
-              src="2026_01_viktor_solianoi_0_p63ypw"
+            <img
+              src={avatarUrl("team-viktor")}
               alt="Viktor"
               class="w-40 h-40 object-cover"
-              width={256}
-              height={256}
-              priority
+              loading="lazy"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Viktor</h3>

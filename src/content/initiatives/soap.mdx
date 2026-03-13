@@ -1,0 +1,126 @@
+---
+title: "GPU Smooth Overlap of Atomic Positions"
+description: "Why the Smooth Overlap of Atomic Positions descriptor is important to accelerate on GPUs, and what impact that has on materials and molecular simulation."
+nerd: true
+---
+
+## What is SOAP?
+
+SOAP (Smooth Overlap of Atomic Positions) is a way to turn the messy 3D positions of atoms into a clean numerical fingerprint that a machine‑learning model can understand.
+
+When you look at a material or a molecule, what really matters for its behavior is how atoms are arranged around each other: who is close to whom, at what distances, and in which directions. Raw coordinates are hard to work with directly – they change if you rotate or translate the structure, and they do not naturally capture many‑body relationships beyond simple pairwise distances.
+
+SOAP fixes this by:
+
+- looking at a local neighborhood around each atom;
+- smoothing the atomic positions into a continuous density instead of sharp points;
+- encoding that density into a numerical descriptor (a vector) that:
+  - is stable under rotation and translation of the whole structure;
+  - captures rich many‑body information about the local environment;
+  - works very well as input to machine‑learning models that predict energies, forces, and other properties.
+
+In practice, SOAP sits at the core of many modern machine‑learning interatomic potentials. It is the bridge between “geometry of atoms” and “numbers a model can learn from.”
+
+## What is being done on GPUs?
+
+The work referenced here focuses on **re‑engineering how SOAP descriptors are computed so they run efficiently on GPUs instead of being limited to CPUs.**
+
+That involves several steps:
+
+- **Profiling the descriptor** to find the real bottlenecks, such as:
+  - constructing the local atomic density around each atom;
+  - projecting that density onto a set of basis functions for different distances and angles;
+  - combining those projections into the final SOAP descriptor.
+- **Refactoring for parallelism**, by breaking the work into many small, independent tasks:
+  - different atoms and their neighborhoods;
+  - different radial and angular channels;
+  - different structures in a training set.
+  These tasks are then mapped onto thousands of GPU threads so they can run at the same time.
+- **Rewriting heavy operations in a GPU‑friendly way**:
+  - organizing memory so that reads and writes match GPU hardware expectations;
+  - minimizing data transfers between CPU and GPU;
+  - reusing intermediate results instead of recomputing them.
+- **Integrating with machine‑learning workflows**, so that from the user’s point of view:
+  - they can turn on GPU‑accelerated SOAP without rewriting their whole pipeline;
+  - both training and inference benefit from the speedup.
+
+The physics and mathematics of SOAP do not fundamentally change. The key difference is that the descriptor is now implemented in a way that fully exploits modern GPU hardware.
+
+## Why it could not be done easily before
+
+There are several reasons why SOAP was known to be powerful but often felt “too expensive” for the scales people wanted:
+
+- **SOAP is intentionally rich and heavy.**  
+  It was designed to encode a lot of structural information. That means many neighbors per atom, many distance and angle channels, and a lot of structured math. If you increase system size, descriptor resolution, or dataset size, the cost can explode.
+
+- **Earlier implementations were written with CPUs in mind.**  
+  Legacy SOAP codes often used control flow and memory layouts that work well on CPUs but map poorly to GPUs. GPUs want highly regular, parallel workloads with predictable memory access. A straightforward port of a CPU implementation can be slower on a GPU than on a well‑optimized CPU.
+
+- **The GPU ecosystem for this niche was immature.**  
+  Only relatively recently have we had:
+  - robust GPU libraries suitable for this style of scientific computing;
+  - more collective experience with GPU‑centric algorithm design in atomistic machine learning;
+  - tighter coupling between simulation codes and ML frameworks that already live on GPUs.
+
+Because of this, many projects either:
+
+- simplified the descriptor to keep runtime under control, or
+- reduced dataset sizes and system sizes to make CPU‑only SOAP evaluation feasible.
+
+The new GPU‑focused work is about crossing that barrier and making high‑quality SOAP practical at scale.
+
+## What is the impact?
+
+Accelerating SOAP on GPUs has several important consequences for materials science, chemistry, and molecular simulation:
+
+### Richer models at larger scale
+
+- You can afford higher‑resolution SOAP descriptors without turning every run into a multi‑day job.
+- You can train machine‑learning interatomic potentials on much larger datasets and larger atomic systems.
+- This often translates directly into:
+  - better accuracy;
+  - better transferability to new structures and conditions;
+  - more trustworthy predictions outside of tiny, carefully curated benchmarks.
+
+### Shorter feedback loops for researchers and engineers
+
+- Training runs that used to take days can drop to hours or less.
+- You can iterate on:
+  - descriptor hyperparameters;
+  - model architectures;
+  - data curation strategies;
+  much more quickly.
+- Faster iteration loops are crucial when you are exploring new materials spaces or designing new workflows, because you can try more ideas before you run out of time or compute budget.
+
+### Enabling new types of studies
+
+With fast SOAP on GPUs, previously unrealistic studies become practical:
+
+- high‑throughput screening of large numbers of candidate materials or molecular designs;
+- long and detailed molecular dynamics simulations using machine‑learning potentials rather than classical force fields;
+- more comprehensive exploration of:
+  - different temperatures and pressures;
+  - different defect types and concentrations;
+  - complex interfaces and multi‑component systems.
+
+Instead of being forced to pick between “small but accurate” and “large but crude,” researchers can push toward “large and accurate.”
+
+### Better use of modern compute hardware
+
+A lot of modern compute infrastructure in labs and companies is now GPU‑centric. If a critical part of the pipeline (here, computing SOAP descriptors) is stuck on the CPU, it becomes the bottleneck for everything else.
+
+GPU‑accelerated SOAP:
+
+- lines up the atomic descriptor step with the rest of the GPU‑based machine‑learning stack;
+- reduces expensive data movement between CPU and GPU;
+- makes it much easier to scale simulations and training across multiple GPUs or even clusters.
+
+## Why this matters beyond one algorithm
+
+SOAP is more than just a niche descriptor. It has become a standard way to represent local atomic environments in many cutting‑edge interatomic potentials. Making SOAP fast on GPUs:
+
+- turns it from a beautiful but sometimes impractical idea into a practical workhorse;
+- raises the baseline for what is considered “normal” in terms of dataset size, system size, and model complexity;
+- opens the door for new algorithms that build on SOAP‑like representations but assume GPU‑level performance from the start.
+
+In other words: accelerating SOAP is not just an optimization trick. It is one of the key enablers for scaling up data‑driven materials and molecular modeling to the level people actually want to use in research and industry. 

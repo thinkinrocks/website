@@ -1,0 +1,35 @@
+---
+id: "tenstorrent-blackhole"
+name: "Tenstorrent Blackhole™ p100a"
+description: "The Tenstorrent Blackhole™ p100a is a PCIe accelerator card with 16 RISC-V cores and 28 GB of GDDR6 memory. Designed for AI training and inference, it operates at up to 300W in an active-cooled desktop form factor and is supported by Tenstorrent's open-source software stack."
+images:
+  - "/images/hardware/hardware-tenstorrent-blackhole.jpg"
+imageCaptions:
+  - "Tenstorrent Blackhole p100a PCIe accelerator"
+categories:
+  - "AI"
+status: "available"
+availableSince: "2025-09-01"
+related:
+  - "shelby-computer"
+---
+
+The [Tenstorrent Blackhole™ p100a](https://tenstorrent.com/) introduces a new approach to AI acceleration, built on a RISC-V architecture with 16 high-performance cores and 28 GB of GDDR6 memory. Packaged as a PCIe board with active cooling, it delivers up to 300W of compute performance for workstations and research environments.
+
+It is designed for both training and inference of neural networks, offering an alternative to traditional GPU-based solutions. The architecture is particularly effective for large memory-intensive models such as LLMs, vision transformers, and reinforcement learning pipelines, while also enabling research into non-GPU compute paradigms.
+
+Setup requires Linux, a robust power supply, and adequate cooling capacity. Begin by installing the Tenstorrent software stack and drivers. Integration with frameworks like [PyTorch](https://pytorch.org/) and [TensorFlow](https://www.tensorflow.org/) is supported through bridge interfaces, allowing developers to port existing models with minimal changes.
+
+Development should start with vendor-provided benchmarks and examples to validate performance. Profiling workloads is essential to identify optimization opportunities, with iterative tuning often required to maximize throughput. The open-source nature of the stack also allows developers to customize compilers and runtime behavior.
+
+Use cases include efficient inference of large language models, quantization experiments, compiler and RISC-V accelerator research, and hybrid CPU/GPU/accelerator computing architectures. Researchers exploring next-generation ML hardware stacks benefit from its openness and programmability.
+
+The card’s ~300W power draw demands careful infrastructure planning. Adequate airflow, PSU capacity, and chassis compatibility are prerequisites. Compared to CUDA-based ecosystems, the Tenstorrent developer community is smaller, requiring developers to be comfortable with hands-on integration and contributing to open-source efforts.
+
+Success requires strong Linux skills, familiarity with ML frameworks, and experience in performance optimization. Knowledge of profiling, kernel tuning, and accelerator programming models will help unlock the hardware’s full potential.
+
+**Key Resources:**  
+- [Tenstorrent Official Site](https://tenstorrent.com/)  
+- [PyTorch](https://pytorch.org/) and [TensorFlow](https://www.tensorflow.org/)  
+- Tenstorrent Community (forums, GitHub) for open-source tools and developer discussions
+

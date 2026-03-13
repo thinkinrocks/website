@@ -1,8 +1,5 @@
 import React, { useState, useMemo } from 'react';
 import type { HardwareItem } from '../types/hardware';
-import {AdvancedImage} from '@cloudinary/react';
-import {fit} from "@cloudinary/url-gen/actions/resize";
-import {cloudinary} from "../data/cloudinary";
 import {
   Pagination,
   PaginationContent,
@@ -176,23 +173,13 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
               {/* Mobile Layout */}
               <div className="md:hidden">
                 <div className="flex gap-3 mb-3 items-center">
-                  {(item.images && item.images.length > 0) || item.cloudinaryPublicId ? (
+                  {item.images && item.images.length > 0 ? (
                     <div className="flex-shrink-0">
-                      {item.images && item.images.length > 0 ? (
-                        <img
-                          src={item.images[0]}
-                          alt={item.name}
-                          className="w-16 h-16 object-contain rounded"
-                        />
-                      ) : item.cloudinaryPublicId ? (
-                        <AdvancedImage
-                          cldImg={cloudinary
-                            .image(item.cloudinaryPublicId)
-                            .resize(fit().width(128).height(128))}
-                          alt={item.name}
-                          className="w-16 h-16 object-contain rounded"
-                        />
-                      ) : null}
+                      <img
+                        src={item.images[0]}
+                        alt={item.name}
+                        className="w-16 h-16 object-contain rounded"
+                      />
                     </div>
                   ) : null}
                   <div className="flex-1 min-w-0">
@@ -238,23 +225,13 @@ const HardwareSearch: React.FC<HardwareSearchProps> = ({ items }) => {
 
               {/* Desktop Layout */}
               <div className="hidden md:flex gap-4 items-center">
-                {(item.images && item.images.length > 0) || item.cloudinaryPublicId ? (
+                {item.images && item.images.length > 0 ? (
                   <div className="flex-shrink-0">
-                    {item.images && item.images.length > 0 ? (
-                      <img
-                        src={item.images[0]}
-                        alt={item.name}
-                        className="w-32 h-32 object-contain rounded"
-                      />
-                    ) : item.cloudinaryPublicId ? (
-                      <AdvancedImage
-                        cldImg={cloudinary
-                          .image(item.cloudinaryPublicId)
-                          .resize(fit().width(256).height(256))}
-                        alt={item.name}
-                        className="w-32 h-32 object-contain rounded"
-                      />
-                    ) : null}
+                    <img
+                      src={item.images[0]}
+                      alt={item.name}
+                      className="w-32 h-32 object-contain rounded"
+                    />
                   </div>
                 ) : null}
                 <div className="flex-1 min-w-0">
