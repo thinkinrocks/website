@@ -1,0 +1,236 @@
+---
+import Layout from "../layouts/Layout.astro";
+import challenges from "../content/hackathon-challenges.json";
+
+const hackathonName = "Frontier Interfaces Hackathon";
+const registrationUrl = "https://thinkinrocks.com";
+const prepChatUrl = "https://t.me/+rxHNt6GA4-o1NWUy";
+---
+
+<Layout hideNavbar={true}>
+	<main class="relative overflow-hidden bg-background">
+		<div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,oklch(0.96_0.03_95),transparent_45%),radial-gradient(circle_at_80%_20%,oklch(0.94_0.03_210),transparent_35%),linear-gradient(to_bottom,oklch(1_0_0)/0.7,oklch(0.98_0_0)/0.9)]"></div>
+		
+		<!-- Global Background Image -->
+		<img 
+			src="/images/u8219894999_marble_hand_holding_AR_glasses_glowing_in_pink_from_c8843068-5a1c-4921-8c28-6d66b6ef07f1%20Background%20Removed.png" 
+			alt="" 
+			class="pointer-events-none fixed left-1/2 -translate-x-1/2 translate-y-1/2 -z-[5] object-contain opacity-40" 
+			style="width: 1000px; max-width: 100vw; height: auto; -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 10%, transparent 80%); mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 10%, transparent 80%);"
+		/>
+
+		<div class="relative z-10 pt-6 px-4 md:pt-8 md:px-16">
+			<div class="flex w-full items-center gap-3">
+				<a href="https://varjo.com/" target="_blank" rel="noreferrer" class="flex h-14 flex-1 items-center justify-center bg-muted/40 px-3">
+					<img src="/images/companies-logo/varjo.png" alt="Varjo" class="h-8 w-full object-contain" style="filter: saturate(0);" />
+				</a>
+				<a href="https://doublepoint.com/" target="_blank" rel="noreferrer" class="flex h-14 flex-1 items-center justify-center bg-muted/40 px-3">
+					<img src="/images/companies-logo/doublepoint.png" alt="Doublepoint" class="h-8 w-full object-contain" style="filter: saturate(0);" />
+				</a>
+				<a href="https://www.seetruetechnologies.com/" target="_blank" rel="noreferrer" class="flex h-14 flex-1 items-center justify-center bg-muted/40 px-3">
+					<img src="/images/companies-logo/seetrue-technologies.png" alt="SeeTrue Technologies" class="h-8 w-full object-contain" style="filter: saturate(0);" />
+				</a>
+			</div>
+		</div>
+
+		<div class="mt-8 px-4 md:mt-12 md:px-16 relative z-10 w-full flex justify-center">
+			<div class="w-full max-w-5xl">
+				
+				<div class="relative z-10" style="padding-top: 400px;">
+
+
+					<h1 class="font-display text-5xl leading-[0.92] tracking-tight md:text-7xl lg:text-8xl">{hackathonName}</h1>
+					<p class="mt-4 max-w-3xl text-muted-foreground md:text-lg">
+						Build new human-computer interfaces with AR, biosignals, and spatial computing.
+						<br />
+						For engineers, designers, and founders.
+					</p>
+					
+					<div class="mt-8 mb-16 flex flex-wrap gap-3 md:mb-20">
+					<a
+						href={registrationUrl}
+						class="inline-flex items-center gap-2 whitespace-nowrap bg-pink-50 px-3 py-1.5 text-pink-600 hover:bg-pink-100"
+					>
+						<span class="font-mono">Register Team</span>
+					</a>
+					<a
+						href={prepChatUrl}
+						class="hover:bg-slate-100 h-fit py-1.5 px-3 text-slate-600 inline-flex items-center gap-2 whitespace-nowrap"
+					>
+						<span class="font-mono">Join Prep Chat</span>
+					</a>
+					<a
+						id="view-rules-link"
+						href="#rules"
+						class="hover:bg-slate-100 h-fit py-1.5 px-3 text-slate-600 inline-flex items-center gap-2 whitespace-nowrap"
+					>
+						<span class="font-mono">View Rules</span>
+					</a> 
+				</div>
+			</div>
+
+			<div class="mx-auto mt-24 max-w-5xl space-y-14 md:mt-32">
+				<div class="grid grid-cols-2 items-center gap-14 md:gap-24" style="grid-template-columns: 0.9fr 1.1fr;">
+					<div class="order-1">
+						<div class="relative">
+							<div class="absolute bottom-4 left-1 top-4 w-px bg-foreground/25"></div>
+							<ol class="space-y-1.5">
+								<li class="relative rounded-xl bg-muted/40 p-3 pl-6">
+									<span class="absolute left-0 top-5 h-2.5 w-2.5 rounded-full bg-foreground"></span>
+								<p class="inline-flex rounded-full bg-foreground px-2.5 py-1 text-[11px] font-mono uppercase tracking-[0.14em] text-background">April 1</p>
+								<p class="mt-1 text-lg font-semibold">Soft Start</p>
+								<p class="mt-1 text-sm text-muted-foreground">Ideas, teammate matching, and early lab testing.</p>
+								</li>
+								<li class="relative rounded-xl bg-muted/40 p-3 pl-6">
+									<span class="absolute left-0 top-5 h-2.5 w-2.5 rounded-full bg-foreground"></span>
+								<p class="inline-flex rounded-full bg-foreground px-2.5 py-1 text-[11px] font-mono uppercase tracking-[0.14em] text-background">April 17 · 23:59</p>
+								<p class="mt-1 text-lg font-semibold">Registration Deadline</p>
+								</li>
+								<li class="relative rounded-xl bg-muted/40 p-3 pl-6">
+									<span class="absolute left-0 top-5 h-2.5 w-2.5 rounded-full bg-foreground"></span>
+								<p class="inline-flex rounded-full bg-foreground px-2.5 py-1 text-[11px] font-mono uppercase tracking-[0.14em] text-background">April 24 · 18:00</p>
+								<p class="mt-1 text-lg font-semibold">Forum Kickoff</p>
+								<p class="mt-1 text-sm text-muted-foreground">Partner demos, founder advice, and team alignment.</p>
+								</li>
+								<li class="relative rounded-xl bg-muted/40 p-3 pl-6">
+									<span class="absolute left-0 top-5 h-2.5 w-2.5 rounded-full bg-foreground"></span>
+								<p class="inline-flex rounded-full bg-foreground px-2.5 py-1 text-[11px] font-mono uppercase tracking-[0.14em] text-background">April 24-26</p>
+								<p class="mt-1 text-lg font-semibold">Main Hackathon</p>
+								<p class="mt-1 text-sm text-muted-foreground">Build and iterate into a working demo.</p>
+								</li>
+								<li class="relative rounded-xl bg-muted/40 p-3 pl-6">
+									<span class="absolute left-0 top-5 h-2.5 w-2.5 rounded-full bg-foreground"></span>
+								<p class="inline-flex rounded-full bg-foreground px-2.5 py-1 text-[11px] font-mono uppercase tracking-[0.14em] text-background">April 26</p>
+								<p class="mt-1 text-lg font-semibold">Final Showcase</p>
+								<p class="mt-1 text-sm text-muted-foreground">Stage demo and judging.</p>
+								</li>
+							</ol>
+						</div>
+					</div>
+					<div class="order-2">
+						<p class="text-muted-foreground">
+							Join Frontier Interfaces Hackathon to explore new ways to interact with machines and build better interfaces with brain waves,
+					biosensing, or augmented reality. The event is open to engineers, designers, and business students, with an emphasis on
+					creative technology combinations that can find a practical use case in the real world. The hackathon is organized by Thinkin' Rocks, which hosts an applied engineering lab at Startup Sauna. Challenges will
+							be revealed at the soft start of the hackathon. Only one person should register for each team. If you need to make
+							changes to your registration, contact the organizers on Telegram at @foxivil. Teams will be called before the event
+							to confirm registration.
+						</p>
+						<div class="mt-4 space-y-1 text-sm text-muted-foreground md:text-base">
+							<p><span class="font-semibold text-foreground">Dates:</span> April 1-April 26</p>
+							<p><span class="font-semibold text-foreground">Location:</span> Thinkin' Rocks Lab, Startup Sauna</p>
+						</div>
+						<p class="mt-4 text-muted-foreground">
+							Website: <a class="underline underline-offset-2" href="https://thinkinrocks.com">thinkinrocks.com</a>
+						</p>
+					</div>
+
+					
+				</div>
+
+				<div id="challenges" class="pt-8 md:pt-12">
+					<h2 class="font-display text-2xl tracking-tight md:text-3xl">Challenges</h2>
+					<p id="challenge-reveal-text" class="mt-4 max-w-3xl text-muted-foreground">
+						Challenge tracks will be revealed at the soft start on April 1, with themes spanning AR, biosignals, and new interaction design.
+					</p>
+
+					<div class="mt-8 mb-8 flex justify-center gap-3 md:gap-4" id="hackathon-countdown">
+						<div class="flex min-w-[6rem] flex-col items-center justify-center rounded-xl bg-muted/40 p-4 md:min-w-[7rem]">
+							<span id="countdown-days" class="font-display text-4xl font-semibold text-foreground md:text-5xl">00</span>
+							<span class="mt-2 text-xs font-mono uppercase tracking-widest text-muted-foreground">Days</span>
+						</div>
+						<div class="flex min-w-[6rem] flex-col items-center justify-center rounded-xl bg-muted/40 p-4 md:min-w-[7rem]">
+							<span id="countdown-hours" class="font-display text-4xl font-semibold text-foreground md:text-5xl">00</span>
+							<span class="mt-2 text-xs font-mono uppercase tracking-widest text-muted-foreground">Hours</span>
+						</div>
+						<div class="flex min-w-[6rem] flex-col items-center justify-center rounded-xl bg-muted/40 p-4 md:min-w-[7rem]">
+							<span id="countdown-minutes" class="font-display text-4xl font-semibold text-foreground md:text-5xl">00</span>
+							<span class="mt-2 text-xs font-mono uppercase tracking-widest text-muted-foreground">Mins</span>
+						</div>
+						<div class="flex min-w-[6rem] flex-col items-center justify-center rounded-xl bg-muted/40 p-4 md:min-w-[7rem]">
+							<span id="countdown-seconds" class="font-display text-4xl font-semibold text-foreground md:text-5xl">00</span>
+							<span class="mt-2 text-xs font-mono uppercase tracking-widest text-muted-foreground">Secs</span>
+						</div>
+					</div>
+
+					<script>
+						function initTimer() {
+							// April 1, 2026, 17:00 EEST (Finnish time: UTC+3 during DST)
+							const target = new Date("2026-04-01T17:00:00+03:00").getTime();
+							
+							function update() {
+								const dEl = document.getElementById("countdown-days");
+								const hEl = document.getElementById("countdown-hours");
+								const mEl = document.getElementById("countdown-minutes");
+								const sEl = document.getElementById("countdown-seconds");
+								const countdownContainer = document.getElementById("hackathon-countdown");
+								const revealText = document.getElementById("challenge-reveal-text");
+								const tracksContainer = document.getElementById("tracks-container");
+								
+								if (!dEl || !hEl || !mEl || !sEl) return;
+								
+								const diff = target - Date.now();
+								
+								if (diff <= 0) {
+									if (countdownContainer) countdownContainer.style.display = "none";
+									if (revealText) revealText.style.display = "none";
+									if (tracksContainer) tracksContainer.style.display = "block";
+									return;
+								}
+								
+								const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+								const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+								const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+								const secs = Math.floor((diff % (1000 * 60)) / 1000);
+								
+								dEl.innerText = String(days).padStart(2, '0');
+								hEl.innerText = String(hours).padStart(2, '0');
+								mEl.innerText = String(mins).padStart(2, '0');
+								sEl.innerText = String(secs).padStart(2, '0');
+							}
+							
+							update();
+							setInterval(update, 1000);
+						}
+						
+						// Run on initial load and handle Astro view transitions if enabled
+						document.addEventListener("DOMContentLoaded", initTimer);
+						document.addEventListener("astro:page-load", initTimer);
+						initTimer();
+					</script>
+
+					<div id="tracks-container" style="display: none;">
+						<div class="mt-6 grid gap-4 md:grid-cols-3">
+							{challenges.map((challenge) => (
+								<div class="rounded-xl bg-muted/50 p-4">
+									<p class="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground">{challenge.track}</p>
+									<p class="mt-2 font-semibold">{challenge.title}</p>
+									<p class="mt-1 text-sm text-muted-foreground">{challenge.description}</p>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+
+				
+
+				<div id="rules">
+					<h2 class="font-display text-2xl tracking-tight md:text-3xl">Rules</h2>
+					<ul class="mt-4 list-disc space-y-2 pl-6 text-sm text-muted-foreground">
+						<li>Teams must have 3-5 people.</li>
+						<li>You can register alone and find teammates at our space or at the beginning of the hackathon.</li>
+						<li>You can use any hardware and compute power to prepare your demo.</li>
+						<li>We strongly recommend experimenting with OpenBCI headsets, Emotibit, eye tracker, and motion trackers in our lab before the hackathon.</li>
+						<li>Show meaningful progress during the hackathon for your selected track.</li>
+						<li>If you use any pre-existing work (including open source libraries) that gives you an advantage, you must disclose it.</li>
+		
+						<li>Use biometric or physiological data responsibly and with consent.</li>
+					</ul>
+				</div>
+                
+				<!-- Spacer for bottom padding -->
+				<div class="h-32 md:h-64"></div>
+			</div>
+		</div>
+	</main>
+</Layout>
