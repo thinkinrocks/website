@@ -13,24 +13,43 @@ export const ToolsCarousel = () => {
   useEffect(() => {
     if (!api) return;
 
-    const interval = setInterval(() => {
-      if (api.canScrollNext()) {
-        api.scrollNext();
-      } else {
-        api.scrollTo(0);
-      }
-    }, 4000);
+    let interval: ReturnType<typeof setInterval> | null = null;
+    let isVisible = false;
+    const carouselElement = document.getElementById('tools-carousel');
 
-    return () => clearInterval(interval);
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !interval) {
+          interval = setInterval(() => {
+            if (api.canScrollNext()) {
+              api.scrollNext();
+            } else {
+              api.scrollTo(0);
+            }
+          }, 4000);
+        } else if (!isVisible && interval) {
+          clearInterval(interval);
+          interval = null;
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (carouselElement) observer.observe(carouselElement);
+
+    return () => {
+      if (interval) clearInterval(interval);
+      if (carouselElement) observer.unobserve(carouselElement);
+    };
   }, [api]);
 
   return (
-    <div className="w-full mt-8 px-2 md:px-4">
+    <div id="tools-carousel" className="w-full mt-8 px-2 md:px-4">
       <Carousel
         setApi={setApi}
         opts={{
           align: "start",
-          loop: true,
+            loop: false,
         }}
         className="w-full"
         style={{

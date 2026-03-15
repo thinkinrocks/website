@@ -2,40 +2,49 @@ export function initHeroScroll() {
     const bgImage = document.getElementById("hero-bg-image");
     const parallaxBg = document.getElementById("parallax-bg");
 
+    let handVisible = true;
+
+    // IntersectionObserver to track visibility
+    if (bgImage) {
+        const observer = new window.IntersectionObserver(
+            ([entry]) => {
+                handVisible = entry.intersectionRatio > 0 && entry.isIntersecting;
+            },
+            { threshold: 0.01 }
+        );
+        observer.observe(bgImage);
+    }
+
     const handleScroll = () => {
         const scrollY = window.scrollY;
-        
+
         // Handle marble hand fade
         if (bgImage) {
-            // Start fading from 0px scroll, fully muted by 600px scroll
             const progress = Math.min(1, Math.max(0, scrollY / 600));
-            // Reduce opacity (from 1 down to 0)
-            const opacity = 1 - (progress);
-            // Reduce saturation (from 1 down to 0)
+            const opacity = 1 - progress;
             const saturate = 1 - progress;
             bgImage.style.opacity = opacity.toString();
             bgImage.style.filter = `saturate(${saturate})`;
         }
 
-        // Handle full-page parallax background
-        if (parallaxBg) {
-            // Scroll the background up slower than the page scrolls
-            // We use negative value to push it upwards as user scrolls down
-            const translateY = -(scrollY * 0.3);
-            parallaxBg.style.transform = `translateY(${translateY}px)`;
+        // Only move marble hand if visible (opacity > 0 and handVisible)
+        if (bgImage && handVisible && bgImage.style.opacity !== "0") {
+            const translateX = scrollY * 0;
+            const translateY = -scrollY * 0.3;
+            bgImage.style.transform = `translate(${translateX}px, ${translateY}px)`;
+        } else if (bgImage) {
+            // Reset transform if not visible
+            bgImage.style.transform = "";
         }
 
-        // Move marble hand right and down as scroll happens
-        if (bgImage) {
-            // ...existing code...
-            const translateX = scrollY * 0 // Move right
-            const translateY = -scrollY * 0.3; // Move down
-            bgImage.style.transform = `translate(${translateX}px, ${translateY}px)`;
+        // Handle full-page parallax background
+        if (parallaxBg) {
+            const translateY = -(scrollY * 0.3);
+            parallaxBg.style.transform = `translateY(${translateY}px)`;
         }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    // Run once immediately on load
     handleScroll();
 }
 
