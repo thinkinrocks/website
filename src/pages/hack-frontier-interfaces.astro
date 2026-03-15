@@ -1,0 +1,184 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ToolsCarousel } from "../components/ToolsCarousel";
+import { ChallengesSection } from "../components/ChallengesSection";
+import timelineData from "../content/hackathon-timeline.json";
+
+const hackathonName = "Frontier Interfaces Hackathon";
+const registrationUrl = "https://thinkinrocks.com";
+const prepChatUrl = "https://t.me/+rxHNt6GA4-o1NWUy";
+---
+
+<Layout hideNavbar={true}>
+	<main class="relative overflow-hidden select-none bg-transparent">
+		<div id="parallax-bg" aria-hidden="true" class="pointer-events-none fixed inset-0 -z-20 h-[150vh] w-screen" style="background-image: url('/images/hack-background.png'); background-size: cover; background-position: top center; background-repeat: no-repeat; will-change: transform; opacity: 0.3; filter: grayscale(100%);"></div>
+		
+		<!-- Global Background Image -->
+		<img 
+			id="hero-bg-image"
+			src="/images/u8219894999_marble_hand_holding_AR_glasses_glowing_in_pink_from_c8843068-5a1c-4921-8c28-6d66b6ef07f1%20Background%20Removed.png" 
+			alt="" 
+			
+			class="pointer-events-none fixed left-[70%] top-16 md:top-32 lg:top-40 -translate-x-1/2 z-0 object-contain opacity-100" 
+			style="width: 1000px; max-width: 100vw; height: auto; -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 10%, transparent 80%); mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 10%, transparent 80%); will-change: opacity, filter;"
+		/>
+
+		<div class="relative z-10 pt-6 px-4 md:pt-8 md:px-16">
+			<div class="flex w-full items-center gap-2 md:gap-3">
+				<a href="https://www.dispelix.com/" target="_blank" rel="noreferrer" class="group flex h-14 flex-1 items-center justify-center px-2 md:px-3">
+					<img src="/images/companies-logo/dispelix.png" loading="lazy"
+                    decoding="async"  alt="Dispelix" class="h-8 w-full object-contain grayscale transition-all duration-300 group-hover:grayscale-0" />
+				</a>
+				<a href="https://www.seetruetechnologies.com/" target="_blank" rel="noreferrer" class="group flex h-14 flex-1 items-center justify-center px-2 md:px-3">
+					<img src="/images/companies-logo/seetrue-technologies.png" loading="lazy"
+                    decoding="async"  alt="SeeTrue Technologies" class="h-10 md:h-14 w-full object-contain scale-110 grayscale transition-all duration-300 md:scale-125 group-hover:grayscale-0" />
+				</a>
+				
+				<a href="https://varjo.com/" target="_blank" rel="noreferrer" class="group flex h-14 flex-1 items-center justify-center px-2 md:px-3">
+					<img src="/images/companies-logo/varjo.png" loading="lazy"
+                    decoding="async"  alt="Varjo" class="h-5 md:h-6 w-full object-contain grayscale transition-all duration-300 group-hover:grayscale-0 " />
+				</a>
+				<a href="https://doublepoint.com/" target="_blank" rel="noreferrer" class="group flex h-14 flex-1 items-center justify-center px-2 md:px-3">
+					<img src="/images/companies-logo/doublepoint.png" loading="lazy"
+                    decoding="async"  alt="Doublepoint" class="h-8 w-full object-contain grayscale transition-all duration-300 group-hover:grayscale-0 " />
+				</a>
+			</div>
+			<div class="mt-4 px-3 text-center">
+				<span class="text-xs font-mono text-muted-foreground/70 tracking-widest">powered by <a href="https://thinkinrocks.com/" target="_blank" rel="noreferrer" class="text-fuchsia-500 hover:underline">Thinkin'Rocks*</a></span>
+			</div>
+		</div>
+
+		<div class="mt-8 px-4 md:mt-12 md:px-16 relative z-10 w-full flex justify-center">
+			<div class="w-full max-w-5xl">
+				
+				<div class="relative z-10 pt-[25vw] lg:pt-[250px]">
+
+
+					<h1 class="font-display text-[14vw] leading-[0.85] tracking-tight sm:text-8xl md:text-9xl lg:text-[140px] xl:text-[160px]">
+						Frontier<br />
+						Interfaces<br />
+						Hackathon
+					</h1>
+					<p class="mt-4 max-w-3xl text-muted-foreground md:text-lg">
+						Build new human-computer interfaces with AR, biosignals, and spatial computing.
+					
+						
+					</p>
+					
+					<div class="mt-8 flex flex-wrap items-center gap-3">
+					<a
+						href={registrationUrl}
+						class="inline-flex w-fit items-center gap-2 whitespace-nowrap bg-fuchsia-50 px-3 py-1.5 text-fuchsia-600 hover:bg-fuchsia-100"
+					>
+						<span class="font-mono">Register Team</span>
+					</a>
+					<a
+						href={prepChatUrl}
+						class="hover:bg-slate-100 w-fit h-fit py-1.5 px-3 text-slate-600 inline-flex items-center gap-2 whitespace-nowrap"
+					>
+						<span class="font-mono">Join Prep Chat</span>
+					</a>
+					<a
+						id="view-rules-link"
+						href="#rules"
+						class="hover:bg-slate-100 w-fit h-fit py-1.5 px-3 text-slate-600 inline-flex items-center gap-2 whitespace-nowrap"
+					>
+						<span class="font-mono">View Rules</span>
+					</a> 
+				</div>
+			</div>
+
+			<div class="mx-auto mt-12 md:mt-16 lg:mt-20 max-w-5xl space-y-14">
+				<div class="grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] items-center gap-14 md:gap-24">
+					<div class="order-2 md:order-1">
+						<div class="relative" id="timeline-container">
+							<div class="absolute bottom-4 left-1 top-4 w-px bg-muted"></div>
+							<div class="absolute top-4 left-1 w-px bg-fuchsia-500 transition-all duration-1000" id="timeline-progress-line" style="height: 0px;"></div>
+							<ol class="space-y-1.5" id="timeline-events">
+								{timelineData.map((item) => (
+									<li class="relative p-3 pl-6 timeline-event" data-date={item.dateAttr}>
+										<span class="absolute left-0 top-5 h-2.5 w-2.5 rounded-full bg-muted transition-colors duration-500 timeline-dot"></span>
+										<p class="inline-flex px-2.5 py-1 text-[11px] font-mono uppercase tracking-[0.14em] text-muted-foreground transition-colors duration-500 timeline-date">{item.displayDate}</p>
+										<p class="mt-1 px-2.5 text-lg font-semibold">{item.title}</p>
+										{item.description && (
+											<p class="mt-1 px-2.5 text-sm text-muted-foreground">{item.description}</p>
+										)}
+									</li>
+								))}
+							</ol>
+						</div>
+					</div>
+					<div class="order-1 md:order-2">
+						<p class="text-muted-foreground">
+							Join Frontier Interfaces Hackathon to explore new ways to interact with machines and build better interfaces with brain waves,
+					biosensing, or augmented reality. The event is open to engineers, designers, and business students, with an emphasis on
+					creative technology combinations that can find a practical use case in the real world. The hackathon is organized by Thinkin' Rocks, which hosts an applied engineering lab at Startup Sauna. Challenges will
+							be revealed at the soft start of the hackathon. 
+						</p>
+						<div class="mt-4 space-y-1 text-sm text-muted-foreground md:text-base">
+							<p><span class="font-semibold text-foreground">Dates:</span> April 24-26th</p>
+							<p><span class="font-semibold text-foreground">Location:</span> Startup Sauna, Garage</p>
+						</div>
+						
+					</div>
+
+					
+				</div>
+
+				<div id="rules">
+					<h2 class="font-display text-2xl tracking-tight md:text-3xl">Rules</h2>
+					<ul class="mt-4 list-disc space-y-2 pl-6 text-sm text-muted-foreground">
+						<li>Teams must have 3-5 people.</li>
+						<li>You can register alone and find teammates at our space or at the beginning of the hackathon.</li>
+						<li>You can use any hardware and compute power to prepare your demo.</li>
+						<li>We strongly recommend experimenting with OpenBCI headsets, Emotibit, eye tracker, and motion trackers in our lab before the hackathon.</li>
+						<li>Show meaningful progress during the hackathon for your selected track.</li>
+						<li>If you use any pre-existing work (including open source libraries) that gives you an advantage, you must disclose it.</li>
+		
+						<li>Use biometric or physiological data responsibly and with consent.</li>
+					</ul>
+				</div>
+
+				<ChallengesSection client:only="react" />
+
+				<script>
+					import { initHeroScroll, initTimeline, initSmoothScroll } from "../utils/hackathon";
+					
+					// Run on initial load and handle Astro view transitions if enabled
+					document.addEventListener("DOMContentLoaded", () => {
+						initTimeline();
+						initHeroScroll();
+						initSmoothScroll();
+					});
+					document.addEventListener("astro:page-load", () => {
+						initTimeline();
+						initHeroScroll();
+						initSmoothScroll();
+					});
+					initTimeline();
+					initHeroScroll();
+					initSmoothScroll();
+				</script>
+
+				<div id="available-tools" class="pt-8 md:pt-12">
+					<h2 class="font-display text-2xl tracking-tight md:text-3xl">Available Tools</h2>
+					<p class="mt-4 max-w-3xl text-muted-foreground">
+						Participants will have access to a variety of hardware interfaces and sensors at the lab, including:
+					</p>
+					
+					<ToolsCarousel client:load />
+
+				</div>
+
+                
+				<!-- Spacer for bottom padding -->
+				<div class="h-8 md:h-8"></div>
+				<div class="w-full text-center py-8 text-muted-foreground text-sm font-mono">
+					If you have any questions contact us at<br>
+					<a href="mailto:milana@thinkinrocks.com" class="text-fuchsia-500">milana@thinkinrocks.com</a> or on <a href="https://t.me/+rxHNt6GA4-o1NWUy" class="text-fuchsia-500">Telegram</a>.
+				</div>
+				
+			</div>
+		</div>
+	</main>
+</Layout>
