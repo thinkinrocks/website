@@ -40,19 +40,19 @@ export const ChallengesSection = () => {
           
           {isMounted && (
             <div className="mt-8 mb-8 flex justify-center gap-3 md:gap-4">
-              <div className="flex min-w-[6rem] flex-col items-center justify-center bg-muted/40 p-4 md:min-w-[7rem]">
+              <div className="flex min-w-[6rem] flex-col items-center justify-center  p-4 md:min-w-[7rem]">
                 <span className="font-display text-4xl font-semibold text-foreground md:text-5xl">{String(timeLeft.days).padStart(2, '0')}</span>
                 <span className="mt-2 text-xs font-mono uppercase tracking-widest text-muted-foreground">Days</span>
               </div>
-              <div className="flex min-w-[6rem] flex-col items-center justify-center bg-muted/40 p-4 md:min-w-[7rem]">
+              <div className="flex min-w-[6rem] flex-col items-center justify-center p-4 md:min-w-[7rem]">
                 <span className="font-display text-4xl font-semibold text-foreground md:text-5xl">{String(timeLeft.hours).padStart(2, '0')}</span>
                 <span className="mt-2 text-xs font-mono uppercase tracking-widest text-muted-foreground">Hours</span>
               </div>
-              <div className="flex min-w-[6rem] flex-col items-center justify-center bg-muted/40 p-4 md:min-w-[7rem]">
+              <div className="flex min-w-[6rem] flex-col items-center justify-center p-4 md:min-w-[7rem]">
                 <span className="font-display text-4xl font-semibold text-foreground md:text-5xl">{String(timeLeft.mins).padStart(2, '0')}</span>
                 <span className="mt-2 text-xs font-mono uppercase tracking-widest text-muted-foreground">Mins</span>
               </div>
-              <div className="flex min-w-[6rem] flex-col items-center justify-center bg-muted/40 p-4 md:min-w-[7rem]">
+              <div className="flex min-w-[6rem] flex-col items-center justify-center  p-4 md:min-w-[7rem]">
                 <span className="font-display text-4xl font-semibold text-foreground md:text-5xl">{String(timeLeft.secs).padStart(2, '0')}</span>
                 <span className="mt-2 text-xs font-mono uppercase tracking-widest text-muted-foreground">Secs</span>
               </div>

@@ -24,6 +24,14 @@ export function initHeroScroll() {
             const translateY = -(scrollY * 0.3);
             parallaxBg.style.transform = `translateY(${translateY}px)`;
         }
+
+        // Move marble hand right and down as scroll happens
+        if (bgImage) {
+            // ...existing code...
+            const translateX = scrollY * 0 // Move right
+            const translateY = -scrollY * 0.3; // Move down
+            bgImage.style.transform = `translate(${translateX}px, ${translateY}px)`;
+        }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });

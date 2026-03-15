@@ -11,9 +11,7 @@ export const ToolsCarousel = () => {
   const [api, setApi] = useState<CarouselApi>();
 
   useEffect(() => {
-    if (!api) {
-      return;
-    }
+    if (!api) return;
 
     const interval = setInterval(() => {
       if (api.canScrollNext()) {
@@ -21,13 +19,13 @@ export const ToolsCarousel = () => {
       } else {
         api.scrollTo(0);
       }
-    }, 4000); // Change slide every 4 seconds
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [api]);
 
   return (
-    <div className="w-full mt-8 md:px-4">
+    <div className="w-full mt-8 px-2 md:px-4">
       <Carousel
         setApi={setApi}
         opts={{
@@ -36,26 +34,38 @@ export const ToolsCarousel = () => {
         }}
         className="w-full"
         style={{
-          maskImage: 'linear-gradient(to right, transparent, black 2%, black 98%, transparent)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent, black 2%, black 98%, transparent)'
+          maskImage:
+            "linear-gradient(to right, transparent, black 2%, black 98%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 2%, black 98%, transparent)",
         }}
       >
         <CarouselContent className="-ml-2 md:-ml-4">
           {tools.map((tool, index) => (
-            <CarouselItem key={index} className="pl-2 md:pl-4 basis-[85%] sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
-              <div className="flex flex-col h-full text-card-foreground">
-                <div className="p-4 flex-1 flex flex-col items-center justify-end gap-6 h-full">
-                  <div className="h-20 w-full flex items-center justify-center">
-                    <a href={tool.link} target="_blank" rel="noopener noreferrer">
-                      <img 
-                        src={tool.image} 
-                        alt={tool.name} 
-                        className="max-h-full w-full object-contain filter opacity-100 transition-all dark:invert" 
-                      />
-                    </a>
-                  </div>
-                  <div className="w-full text-center h-8 flex items-start justify-center">
-                    <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground leading-tight">{tool.category}</p>
+            <CarouselItem
+              key={index}
+              className="pl-2 md:pl-4 basis-1/2 sm:basis-1/2 md:basis-1/3 lg:basis-1/5"
+            >
+              <div className="h-full text-card-foreground">
+                <div className="p-3 flex h-full flex-col items-center justify-between gap-3">
+                  <a
+                    href={tool.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex w-full items-center justify-center h-20 sm:h-24"
+                  >
+                    <img  loading="lazy"
+                    decoding="async"
+                      src={tool.image}
+                      alt={tool.name}
+                      className="max-h-full max-w-full object-contain dark:invert"
+                    />
+                  </a>
+
+                  <div className="w-full text-center min-h-[2rem] flex items-start justify-center">
+                    <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground leading-tight">
+                      {tool.category}
+                    </p>
                   </div>
                 </div>
               </div>
