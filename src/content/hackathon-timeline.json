@@ -1,0 +1,38 @@
+[
+  {
+    "dateAttr": "2026-03-17T12:00:00+02:00",
+    "displayDate": "March 17 · 12:00",
+    "title": "Registration Starts",
+    "description": ""
+  },
+  {
+    "dateAttr": "2026-04-01T12:00:00+03:00",
+    "displayDate": "April 1 · 12:00",
+    "title": "Soft Start",
+    "description": "Ideas, teammate matching, and early lab testing."
+  },
+  {
+    "dateAttr": "2026-04-17T23:59:00+03:00",
+    "displayDate": "April 17 · 23:59",
+    "title": "Registration Deadline",
+    "description": ""
+  },
+  {
+    "dateAttr": "2026-04-24T18:00:00+03:00",
+    "displayDate": "April 24 · 18:00",
+    "title": "Forum Kickoff",
+    "description": "Partner demos, founder advice, and team alignment."
+  },
+  {
+    "dateAttr": "2026-04-24T20:00:00+03:00",
+    "displayDate": "April 24-26",
+    "title": "Main Hackathon",
+    "description": "Build and iterate into a working demo."
+  },
+  {
+    "dateAttr": "2026-04-26T15:00:00+03:00",
+    "displayDate": "April 26 · 15:00",
+    "title": "Final Showcase",
+    "description": "Stage demo and judging."
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Varjo",
+    "category": "XR-3 Headsets",
+    "image": "/images/companies-logo/varjo.png",
+    "link": "https://www.thinkinrocks.com/hardware/varjo-xr3"
+  },
+  {
+    "name": "Dispelix",
+    "category": "Optical Waveguides",
+    "image": "/images/companies-logo/dispelix.png",
+    "link": "https://dispelix.com/consumer_ar/"
+  },
+  {
+    "name": "SeeTrue",
+    "category": "Eye Trackers",
+    "image": "/images/companies-logo/seetrue-technologies.png",
+    "link": "https://www.thinkinrocks.com/hardware/seetrue-eye-tracker"
+  },
+  {
+    "name": "Doublepoint",
+    "category": "Gesture Trackers",
+    "image": "/images/companies-logo/doublepoint.png",
+    "link": "https://www.thinkinrocks.com/hardware/doublepoint-dev-kit"
+  },
+  {
+    "name": "OpenBCI",
+    "category": "EEG & EXG Kits",
+    "image": "/images/companies-logo/openbci.png",
+    "link": "https://www.thinkinrocks.com/hardware/ultracortex-mark-iv-cyton"
+  },
+  {
+    "name": "Emotibit",
+    "category": "Biometric Sensors",
+    "image": "/images/companies-logo/emotibit.png",
+    "link": "https://www.thinkinrocks.com/hardware/emotibit-bundle"
+  },
+  {
+    "name": "Sony",
+    "category": "Motion tracking",
+    "image": "/images/companies-logo/sony.png",
+    "link":"https://www.thinkinrocks.com/hardware/mobile-mocap-pro-xyn"
+  },
+  {
+    "name": "Bambu Lab",
+    "category": "P1S 3D Printers",
+    "image": "/images/companies-logo/bambulab.png",
+    "link": "https://www.thinkinrocks.com/hardware/bambu-lab-p1s-ams2-pro"
+  },
+  {
+    "name": "Raspberry Pi",
+    "category": "Pi 5 Boards",
+    "image": "/images/companies-logo/raspberry%20pi.png",
+    "link": "https://www.thinkinrocks.com/hardware/raspberry-pi-5"
+  }
+]
