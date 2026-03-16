@@ -15,36 +15,65 @@ export function initHeroScroll() {
         observer.observe(bgImage);
     }
 
+    let lastHandOpacity: number | null = null;
+    let lastHandSaturate: number | null = null;
+    let lastHandTransform: string | null = null;
+    let lastParallaxTransform: string | null = null;
+
     const handleScroll = () => {
         const scrollY = window.scrollY;
 
-        // Handle marble hand fade
+        // Marble hand fade and move
         if (bgImage) {
             const progress = Math.min(1, Math.max(0, scrollY / 600));
             const opacity = 1 - progress;
             const saturate = 1 - progress;
-            bgImage.style.opacity = opacity.toString();
-            bgImage.style.filter = `saturate(${saturate})`;
+            if (lastHandOpacity !== opacity) {
+                bgImage.style.opacity = opacity.toString();
+                lastHandOpacity = opacity;
+            }
+            if (lastHandSaturate !== saturate) {
+                bgImage.style.filter = `saturate(${saturate})`;
+                lastHandSaturate = saturate;
+            }
         }
 
         // Only move marble hand if visible (opacity > 0 and handVisible)
         if (bgImage && handVisible && bgImage.style.opacity !== "0") {
             const translateX = scrollY * 0;
             const translateY = -scrollY * 0.3;
-            bgImage.style.transform = `translate(${translateX}px, ${translateY}px)`;
-        } else if (bgImage) {
-            // Reset transform if not visible
+            const transform = `translate(${translateX}px, ${translateY}px)`;
+            if (lastHandTransform !== transform) {
+                bgImage.style.transform = transform;
+                lastHandTransform = transform;
+            }
+        } else if (bgImage && lastHandTransform !== "") {
             bgImage.style.transform = "";
+            lastHandTransform = "";
         }
 
-        // Handle full-page parallax background
+        // Parallax background
         if (parallaxBg) {
             const translateY = -(scrollY * 0.3);
-            parallaxBg.style.transform = `translateY(${translateY}px)`;
+            const transform = `translateY(${translateY}px)`;
+            if (lastParallaxTransform !== transform) {
+                parallaxBg.style.transform = transform;
+                lastParallaxTransform = transform;
+            }
         }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    let ticking = false;
+    const onScroll = () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                handleScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     handleScroll();
 }
 
