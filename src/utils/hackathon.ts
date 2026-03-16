@@ -38,19 +38,7 @@ export function initHeroScroll() {
             }
         }
 
-        // Only move marble hand if visible (opacity > 0 and handVisible)
-        if (bgImage && handVisible && bgImage.style.opacity !== "0") {
-            const translateX = scrollY * 0;
-            const translateY = -scrollY * 0.3;
-            const transform = `translate(${translateX}px, ${translateY}px)`;
-            if (lastHandTransform !== transform) {
-                bgImage.style.transform = transform;
-                lastHandTransform = transform;
-            }
-        } else if (bgImage && lastHandTransform !== "") {
-            bgImage.style.transform = "";
-            lastHandTransform = "";
-        }
+       
 
        
     };
