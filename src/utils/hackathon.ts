@@ -25,7 +25,7 @@ export function initHeroScroll() {
 
         // Marble hand fade and move
         if (bgImage) {
-            const progress = Math.min(1, Math.max(0, scrollY / 600));
+            const progress = Math.min(1, Math.max(0, scrollY / 400));
             const opacity = 1 - progress;
             const saturate = 1 - progress;
             if (lastHandOpacity !== opacity) {
