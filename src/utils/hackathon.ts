@@ -52,15 +52,7 @@ export function initHeroScroll() {
             lastHandTransform = "";
         }
 
-        // Parallax background
-        if (parallaxBg) {
-            const translateY = -(scrollY * 0.3);
-            const transform = `translateY(${translateY}px)`;
-            if (lastParallaxTransform !== transform) {
-                parallaxBg.style.transform = transform;
-                lastParallaxTransform = transform;
-            }
-        }
+       
     };
 
     let ticking = false;
