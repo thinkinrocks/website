@@ -16,11 +16,7 @@ const currentPath = Astro.url.pathname;
         <div class="flex items-center space-x-2">
           <a href="/" id="tr-link-desktop" class={`font-mono nav-item hover:text-purple-600 ${(currentPath === '/' || currentPath === '') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>TR*</a>
           <span class="text-gray-700">|</span>
-          <a href="/hardware" class={`font-mono nav-item hover:text-purple-600 ${currentPath.startsWith('/hardware') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>hardware</a>
-          <span class="text-gray-700">|</span>
           <a href="/about" class={`font-mono nav-item hover:text-purple-600 ${currentPath.startsWith('/about') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>about</a>
-          <span class="text-gray-700">|</span>
-          <a href="/initiatives" class={`font-mono nav-item hover:text-purple-600 ${currentPath.startsWith('/initiatives') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>initiatives</a>
           <span class="text-gray-700">|</span>
           <a href="/events" class={`font-mono nav-item hover:text-purple-600 ${currentPath.startsWith('/events') ? 'text-purple-600 font-medium' : 'text-gray-700'}`}>events</a>
           <span class="text-gray-700">|</span>
