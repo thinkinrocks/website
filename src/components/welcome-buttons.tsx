@@ -17,6 +17,7 @@ export default function WelcomeButtons() {
         <FaCalendarAlt className="w-4 h-4 -mb-0.5" />
         <span className="font-mono">Attend events</span>
       </PurpleButtonLink><br/>
+      
       <TealButtonLink
         href="https://t.me/+rxHNt6GA4-o1NWUy?text=Hello,%20I%20am%20"
         onClick={() => track("join-chat-click")}
