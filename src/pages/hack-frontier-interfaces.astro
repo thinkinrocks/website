@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { ToolsCarousel } from "../components/ToolsCarousel";
 import { ChallengesSection } from "../components/ChallengesSection";
+import WorkshopsList from "../components/WorkshopsList";
 import timelineData from "../content/hackathon-timeline.json";
 
 const hackathonName = "Frontier Interfaces Hackathon";
@@ -132,6 +133,19 @@ const prepChatUrl = "https://t.me/+rxHNt6GA4-o1NWUy";
 					
 				</div>
 
+				
+
+
+								<ChallengesSection client:only="react" />
+
+								<div id="workshops" class="pt-8 md:pt-12">
+									<h2 class="font-display text-2xl tracking-tight md:text-3xl mb-4">Workshops</h2>
+									
+									<div class="mt-8">
+										<WorkshopsList client:load />
+									</div>
+								</div>
+
 				<div id="rules">
 					<h2 class="font-display text-2xl tracking-tight md:text-3xl">Rules</h2>
 					<ul class="mt-4 list-disc space-y-2 pl-6 text-sm text-muted-foreground">
@@ -145,8 +159,6 @@ const prepChatUrl = "https://t.me/+rxHNt6GA4-o1NWUy";
 						<li>Use biometric or physiological data responsibly and with consent.</li>
 					</ul>
 				</div>
-
-				<ChallengesSection client:only="react" />
 
 				<script>
 					import { initHeroScroll, initTimeline, initSmoothScroll } from "../utils/hackathon";
