@@ -61,7 +61,7 @@ export const ChallengesSection = () => {
       {!isRevealed ? (
         <>
           <p className="mt-4 max-w-3xl text-muted-foreground">
-            Challenge tracks will be revealed at the soft start on April 1, with themes spanning AR, biosignals, and new interaction design.
+            Challenge tracks will be revealed at the <a href="https://luma.com/snql39fy" className="text-fuchsia-600 hover:underline">soft start</a> on April 1, with themes spanning AR, biosignals, and new interaction design.
           </p>
           {isMounted && timerActive && (
             <div className="mt-8 mb-8 flex justify-center gap-3 md:gap-4">

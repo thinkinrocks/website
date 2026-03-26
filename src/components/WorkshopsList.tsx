@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import type { LumaEvent } from '../utils/luma';
 import { formatEventDate, formatEventTime } from '../utils/luma';
 
-function truncateDescription(description: string, maxLength: number = 200): { text: string, wasTruncated: boolean } {
+function truncateDescription(description: string, maxLength: number = 300): { text: string, wasTruncated: boolean } {
   if (!description || description.length <= maxLength) {
     return { text: description || '', wasTruncated: false };
   }
@@ -23,35 +23,52 @@ interface WorkshopCardProps {
 }
 
 function WorkshopCard({ item, isPast }: WorkshopCardProps) {
+  // Only use the truncated description version of cardContent
+  const { text: shortDescriptionMobile } = truncateDescription(item.event.description || "", 300);
+  const { text: shortDescriptionMd } = truncateDescription(item.event.description || "", 180);
+  const { text: shortDescriptionLg } = truncateDescription(item.event.description || "", 300);
   const cardContent = (
-    <div className="flex flex-col items-center r p-4 h-full">
+    <div className="flex flex-col md:flex-row items-center p-4 h-full gap-4">
       {item.event.cover_url && (
         <img
           src={item.event.cover_url}
           alt={item.event.name}
-          className="w-full  mb-4"
+          className="w-full md:w-30 object-cover  mb-4 md:mb-0"
         />
       )}
-      
-      <div className="flex flex-col items-center gap-1 text-sm text-gray-700">
-         <span className="font-mono">
-          {formatEventDate(item.event.start_at, item.event.timezone)}
-          {" • "}
-          {formatEventTime(item.event.start_at, item.event.timezone)}
-        </span>
-        
-        {item.event.geo_address_json?.address && (
-          <span className="font-mono text-gray-600 left">{item.event.geo_address_json.address}</span>
+      <div className="flex flex-col justify-between flex-1">
+        <div>
+          <h3 className="text-lg font-display font-semibold mb-1 text-gray-900 group-hover:text-fuchsia-600 transition-colors">
+            {item.event.name}
+          </h3>
+          <div className="flex flex-wrap items-center gap-2 text-sm text-gray-700 mb-2">
+            <span className="font-mono">
+              {formatEventDate(item.event.start_at, item.event.timezone)}
+              {" • "}
+              {formatEventTime(item.event.start_at, item.event.timezone)}
+            </span>
+           
+          </div>
+          {/* Show longest description on mobile, medium on md, longest on lg+ */}
+          {item.event.description && (
+            <>
+              <p className="text-sm text-muted-foreground mb-2 md:hidden">{shortDescriptionMobile}</p>
+              <p className="text-sm text-muted-foreground mb-2 hidden md:block lg:hidden">{shortDescriptionMd}</p>
+              <p className="text-sm text-muted-foreground mb-2 hidden lg:block">{shortDescriptionLg}</p>
+            </>
+          )}
+          
+        </div>
+        {item.event.register_url && (
+          <a
+            href={item.event.register_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-flex w-fit items-center gap-2 whitespace-nowrap bg-fuchsia-50 px-3 py-1.5 text-fuchsia-600 hover:bg-fuchsia-100 font-mono rounded transition-colors border border-fuchsia-200 shadow-sm"
+          >
+            Register
+          </a>
         )}
-        <a
-          href={item.event.register_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 inline-flex w-fit  gap-2 whitespace-nowrap bg-fuchsia-50 px-3 py-1.5 text-fuchsia-600 hover:bg-fuchsia-100 font-mono  transition-colors "
-        >
-          Register
-        </a>
-       
       </div>
     </div>
   );
@@ -127,10 +144,10 @@ export default function WorkshopsList() {
 
   return (
     <div className="w-full">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="space-y-6">
         {allWorkshops.length === 0 ? (
-          <p className="font-sans text-lg text-gray-700 col-span-full">
-            No workshops to display at the moment. Check back soon or join our <a href="https://discord.gg/5MEu6njksN" className="text-purple-600 hover:text-purple-800 transition-colors">Discord</a> to stay updated.
+          <p className="font-sans text-lg text-gray-700">
+            No workshops to display at the moment.
           </p>
         ) : (
           allWorkshops.map(item => (
