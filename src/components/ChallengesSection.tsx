@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import challenges from "../content/hackathon-challenges.json";
 
 export const ChallengesSection = () => {
-  const target = new Date("2026-04-01T17:00:00+03:00").getTime();
+  const target = new Date("2026-04-01T18:00:00+03:00").getTime();
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, mins: 0, secs: 0 });
   const [isRevealed, setIsRevealed] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -85,9 +85,9 @@ export const ChallengesSection = () => {
           )}
         </>
       ) : (
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
+        <div className="mt-6 flex flex-col gap-4">
           {challenges.map((challenge, i) => (
-            <div key={i} className="rounded-xl bg-muted/50 p-4">
+            <div key={i} className="rounded-xl  p-4">
               <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground">{challenge.track}</p>
               <p className="mt-2 font-semibold">{challenge.title}</p>
               <p className="mt-1 text-sm text-muted-foreground">{challenge.description}</p>

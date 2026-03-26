@@ -140,32 +140,10 @@ const prepChatUrl = "https://t.me/+rxHNt6GA4-o1NWUy";
 				
 
 
-								<ChallengesSection client:only="react" />
-
-								<div id="workshops" class="pt-8 md:pt-12">
-									<h2 class="font-display text-2xl tracking-tight md:text-3xl mb-4">Workshops</h2>
-									<p class="list-disc space-y-2  max-w-3xl text-muted-foreground">We are organizing a series of workshops to help participants get the most out of the hackathon experience.</p>
-									
-									<div class="mt-8">
-										{
-											(() => {
-												// Helsinki is UTC+3 in April (EEST)
-												const now = new Date();
-												const helsinkiOffset = 3 * 60; // minutes
-												const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-												const helsinkiTime = new Date(utc + 60000 * helsinkiOffset);
-												const showTime = new Date('2026-04-01T18:00:00+03:00');
-												if (helsinkiTime >= showTime) {
-													return <WorkshopsList client:load />;
-												} else {
-													return <div class="text-center text-muted-foreground font-mono">To be announced on <a href="https://luma.com/snql39fy" class="text-fuchsia-600 hover:underline">01.04.2026</a></div>;
-												}
-											})()
-										}
-									</div>
-								</div>
-
-				<div id="rules">
+																<div class="mb-12 md:mb-20">
+																	<ChallengesSection client:only="react" />
+																</div>
+								<div id="rules">
 					<h2 class="font-display text-2xl tracking-tight md:text-3xl">Rules</h2>
 					<ul class="mt-4 list-disc space-y-2 pl-6 text-sm text-muted-foreground">
 						<li>Teams must have 3-5 people.</li>
@@ -178,6 +156,30 @@ const prepChatUrl = "https://t.me/+rxHNt6GA4-o1NWUy";
 						<li>Use biometric or physiological data responsibly and with consent.</li>
 					</ul>
 				</div>
+
+								<div id="workshops" class="pt-8 md:pt-12">
+									<h2 class="font-display text-2xl tracking-tight md:text-3xl mb-4">Workshops</h2>
+									<p class="list-disc space-y-2  max-w-3xl text-muted-foreground">We are organizing a series of workshops to help participants get the most out of the hackathon experience.</p>
+									
+									<div class="mt-8">
+										{
+											(() => {
+												// Get current time in Helsinki using Intl API
+												const now = new Date();
+												const helsinkiTimeString = now.toLocaleString('en-US', { timeZone: 'Europe/Helsinki' });
+												const helsinkiTime = new Date(helsinkiTimeString);
+												const showTime = new Date('2026-04-01T18:00:00+03:00');
+												if (helsinkiTime >= showTime) {
+													return <WorkshopsList client:load />;
+												} else {
+													return <div class="text-center text-muted-foreground font-mono">To be announced on <a href="https://luma.com/snql39fy" class="text-fuchsia-600 hover:underline">01.04.2026</a></div>;
+												}
+											})()
+										}
+									</div>
+								</div>
+
+				
 
 				<script>
 					import { initHeroScroll, initTimeline, initSmoothScroll } from "../utils/hackathon";

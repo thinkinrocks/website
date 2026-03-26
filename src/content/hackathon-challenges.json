@@ -13,5 +13,10 @@
     "track": "Track 3",
     "title": "[Track Name Placeholder]",
     "description": "[Short challenge prompt and expected output.]"
+  },
+  {
+    "track": "Track 4",
+    "title": "[Track Name Placeholder]",
+    "description": "[Short challenge prompt and expected output.]"
   }
 ]
