@@ -56,12 +56,21 @@ export const ChallengesSection = () => {
           )}
         </>
       ) : (
-        <div className="mt-6 flex flex-col gap-4">
+        <div className="mt-6 flex flex-col gap-2">
           {challenges.map((challenge, i) => (
             <div key={i} className="rounded-xl  p-4">
-              <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground">{challenge.track}</p>
-              <p className="mt-2 font-semibold">{challenge.title}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{challenge.description}</p>
+              <div className="flex items-center gap-2">
+                <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground text-d">{challenge.track}</p>
+                {Array.isArray(challenge.devices) && challenge.devices.map((device, idx) => (
+                  <span
+                    key={idx}
+                    className="inline-block bg-fuchsia-100 text-fuchsia-700 text-[10px] font-mono px-2 py-0.5 "
+                  >
+                    {device}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-2 font-display text-2xl">{challenge.title}</p>
             </div>
           ))}
         </div>

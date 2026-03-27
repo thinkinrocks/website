@@ -1,22 +1,26 @@
 [
   {
     "track": "Track 1",
-    "title": "[Track Name Placeholder]",
-    "description": "[Short challenge prompt and expected output.]"
+    "title": "Storytelling with Biosensing in TouchDesigner",
+    "description": "Turn emotional, physiological, and motion data into interactive visualizations. Participants will use biosignals such as heart rate, electrodermal activity (EDA), and accelerometer data to drive visual outputs in real time or from pre-recorded streams. The focus is on creating meaningful mappings between internal states and visual expression, enabling applications in interactive media, well-being, and performance.",
+    "devices": ["Emotibit"]
   },
   {
     "track": "Track 2",
-    "title": "[Track Name Placeholder]",
-    "description": "[Short challenge prompt and expected output.]"
+    "title": "Gaze-Aware Interfaces for Real-Time Contextual Support",
+    "description": "Design interfaces that respond to where users are looking. Using gaze tracking, participants will detect attention patterns (e.g., fixation duration) and provide contextual information dynamically on a display. The goal is to create responsive, intelligent systems that enhance user interaction without being intrusive.",
+    "devices": ["SeeTrue Eye Tracker"]
   },
   {
     "track": "Track 3",
-    "title": "[Track Name Placeholder]",
-    "description": "[Short challenge prompt and expected output.]"
+    "title": "Designing UI/UX for AR Displays",
+    "description": "Design user interfaces for AR displays, considering perception, alignment, color, and safety. Participants should explore limitations and propose solutions for robust AR interaction.",
+    "devices": ["Dispelix Demo"]
   },
   {
     "track": "Track 4",
-    "title": "[Track Name Placeholder]",
-    "description": "[Short challenge prompt and expected output.]"
+    "title": "Exploration of Accessible Control of Interfaces Using Brainwaves or Bio-Data",
+    "description": "Develop systems that allow users to control interfaces using brain signals or biosignals, with a focus on accessibility and alternative interaction methods. The challenge should use OpenBCI as the primary input, while other devices may be used to support, extend, or validate the interaction. The focus is on creating clear, usable, and robust signal-to-action mappings that work in realistic conditions rather than only in ideal demos.",
+    "devices": ["OpenBCI", "Doublepoint"]
   }
 ]

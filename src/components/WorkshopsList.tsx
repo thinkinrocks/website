@@ -23,20 +23,21 @@ interface WorkshopCardProps {
 }
 
 function WorkshopCard({ item, isPast }: WorkshopCardProps) {
-  // Only use the truncated description version of cardContent
-  const { text: shortDescriptionMobile } = truncateDescription(item.event.description || "", 300);
-  const { text: shortDescriptionMd } = truncateDescription(item.event.description || "", 180);
-  const { text: shortDescriptionLg } = truncateDescription(item.event.description || "", 300);
+  // Use the same (longest) truncated description for all screen sizes
+  const { text: shortDescription } = truncateDescription(item.event.description || "", 300);
   const cardContent = (
-    <div className="flex flex-col md:flex-row items-center p-4 h-full gap-4">
+    <div className="flex flex-row items-center p-4 h-full gap-4">
       {item.event.cover_url && (
-        <img
-          src={item.event.cover_url}
-          alt={item.event.name}
-          className="w-full md:w-30 object-cover  mb-4 md:mb-0"
-        />
+        <div className="flex-shrink-0 flex items-center justify-center h-28 w-28 md:h-32 md:w-32">
+          <img
+            src={item.event.cover_url}
+            alt={item.event.name}
+            className="h-28 w-28 md:h-32 md:w-32 object-contain rounded"
+            style={{ objectPosition: 'center' }}
+          />
+        </div>
       )}
-      <div className="flex flex-col justify-between flex-1">
+      <div className="flex flex-col justify-between flex-1 min-w-0">
         <div>
           <h3 className="text-lg font-display font-semibold mb-1 text-gray-900 group-hover:text-fuchsia-600 transition-colors">
             {item.event.name}
@@ -47,17 +48,10 @@ function WorkshopCard({ item, isPast }: WorkshopCardProps) {
               {" • "}
               {formatEventTime(item.event.start_at, item.event.timezone)}
             </span>
-           
           </div>
-          {/* Show longest description on mobile, medium on md, longest on lg+ */}
           {item.event.description && (
-            <>
-              <p className="text-sm text-muted-foreground mb-2 md:hidden">{shortDescriptionMobile}</p>
-              <p className="text-sm text-muted-foreground mb-2 hidden md:block lg:hidden">{shortDescriptionMd}</p>
-              <p className="text-sm text-muted-foreground mb-2 hidden lg:block">{shortDescriptionLg}</p>
-            </>
+            <p className="text-sm text-muted-foreground mb-2">{shortDescription}</p>
           )}
-          
         </div>
         {item.event.register_url && (
           <a
