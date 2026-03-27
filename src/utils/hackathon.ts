@@ -1,3 +1,4 @@
+
 export function initHeroScroll() {
     const bgImage = document.getElementById("hero-bg-image");
     const parallaxBg = document.getElementById("parallax-bg");
@@ -15,10 +16,10 @@ export function initHeroScroll() {
         observer.observe(bgImage);
     }
 
-    let lastHandOpacity: number | null = null;
-    let lastHandSaturate: number | null = null;
-    let lastHandTransform: string | null = null;
-    let lastParallaxTransform: string | null = null;
+    let lastHandOpacity = null;
+    let lastHandSaturate = null;
+    let lastHandTransform = null;
+    let lastParallaxTransform = null;
 
     const handleScroll = () => {
         const scrollY = window.scrollY;
@@ -37,10 +38,6 @@ export function initHeroScroll() {
                 lastHandSaturate = saturate;
             }
         }
-
-       
-
-       
     };
 
     let ticking = false;
@@ -75,7 +72,7 @@ export function initTimeline() {
         const timestamp = new Date(dateAttr).getTime();
         const dot = el.querySelector(".timeline-dot");
         const dateText = el.querySelector(".timeline-date");
-        const htmlEl = el as HTMLElement;
+        const htmlEl = el;
         const dotTop = htmlEl.offsetTop + 20; // 20px because of top-5
 
         if (now >= timestamp) {

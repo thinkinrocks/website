@@ -6,14 +6,8 @@ export const ChallengesSection = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, mins: 0, secs: 0 });
   const [isRevealed, setIsRevealed] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-
-  const [timerActive, setTimerActive] = useState(false);
-
   useEffect(() => {
     setIsMounted(true);
-    const section = document.getElementById('challenges');
-    let interval: ReturnType<typeof setInterval> | null = null;
-
     const updateTimer = () => {
       const diff = target - Date.now();
       if (diff <= 0) {
@@ -27,43 +21,20 @@ export const ChallengesSection = () => {
         secs: Math.floor((diff % (1000 * 60)) / 1000),
       });
     };
-
-    const observer = new window.IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimerActive(true);
-          updateTimer();
-          if (!interval) {
-            interval = setInterval(updateTimer, 1000);
-          }
-        } else {
-          setTimerActive(false);
-          if (interval) {
-            clearInterval(interval);
-            interval = null;
-          }
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (section) observer.observe(section);
-
-    return () => {
-      if (interval) clearInterval(interval);
-      if (section) observer.unobserve(section);
-    };
+    updateTimer();
+    const interval = setInterval(updateTimer, 1000);
+    return () => clearInterval(interval);
   }, [target]);
 
   return (
     <div id="challenges" className="pt-8 md:pt-12">
       <h2 className="font-display text-2xl tracking-tight md:text-3xl">Challenges</h2>
-      
       {!isRevealed ? (
         <>
           <p className="mt-4 max-w-3xl text-muted-foreground">
             Challenge tracks will be revealed at the <a href="https://luma.com/snql39fy" className="text-fuchsia-600 hover:underline">soft start</a> on April 1, with themes spanning AR, biosignals, and new interaction design.
           </p>
-          {isMounted && timerActive && (
+          {isMounted && (
             <div className="mt-8 mb-8 flex justify-center gap-3 md:gap-4">
               <div className="flex min-w-[6rem] flex-col items-center justify-center  p-4 md:min-w-[7rem]">
                 <span className="font-display text-4xl font-semibold text-foreground md:text-5xl">{String(timeLeft.days).padStart(2, '0')}</span>
