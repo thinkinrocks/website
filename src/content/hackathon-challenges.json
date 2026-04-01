@@ -13,7 +13,7 @@
   },
   {
     "track": "Track 3",
-    "title": "Designing UI/UX for AR Displays",
+    "title": "Designing UI/UX for AR Display",
     "description": "Design user interfaces for AR displays, considering perception, alignment, color, and safety. Participants should explore limitations and propose solutions for robust AR interaction.",
     "devices": ["Dispelix Demo"]
   },
