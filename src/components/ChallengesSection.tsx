@@ -2,18 +2,28 @@ import React, { useState, useEffect } from "react";
 import challenges from "../content/hackathon-challenges.json";
 
 export const ChallengesSection = () => {
-  const target = new Date("2026-04-01T18:00:00+03:00").getTime();
+  // April 1, 2026 18:00 EEST (UTC+3) -> 15:00 UTC
+  const target = Date.UTC(2026, 3, 1, 15, 0, 0);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, mins: 0, secs: 0 });
-  const [isRevealed, setIsRevealed] = useState(false);
+  const [isRevealed, setIsRevealed] = useState(() => Date.now() >= target);
   const [isMounted, setIsMounted] = useState(false);
+
   useEffect(() => {
     setIsMounted(true);
+
+    if (!Number.isFinite(target)) {
+      setIsRevealed(true);
+      return;
+    }
+
     const updateTimer = () => {
       const diff = target - Date.now();
       if (diff <= 0) {
         setIsRevealed(true);
+        setTimeLeft({ days: 0, hours: 0, mins: 0, secs: 0 });
         return;
       }
+
       setTimeLeft({
         days: Math.floor(diff / (1000 * 60 * 60 * 24)),
         hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
