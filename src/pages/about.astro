@@ -1,8 +1,81 @@
 ---
+import { Image, getImage } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import { SpaceCarousel } from "../components/SpaceCarousel";
 
-const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
+// --- Lab photos for the carousel ---
+// Imported so Astro's image pipeline can resize / re-encode them as WebP
+// and emit a responsive srcset. Without this they shipped as 2-3 MB JPEGs.
+import labPeopleBiosensing from "../assets/about/lab-people-biosensing.jpg";
+import labLecture1 from "../assets/about/lab-lecture-1.jpg";
+import labFpga from "../assets/about/lab-fpga.jpg";
+import labWorkspaceDesks from "../assets/about/lab-workspace-desks.jpg";
+import labInteriorMain from "../assets/about/lab-interior-main.jpg";
+import labSpaceOverview from "../assets/about/lab-space-overview.jpg";
+import labMainOverview from "../assets/about/lab-main-overview.jpg";
+import labHardwareShelves from "../assets/about/lab-hardware-shelves.jpg";
+import labChillArea from "../assets/about/lab-chill-area.jpg";
+
+// --- Company logos ---
+import logoVarjo from "../assets/companies-logo/varjo.png";
+import logoDoublepoint from "../assets/companies-logo/doublepoint.png";
+import logoAlif from "../assets/companies-logo/Alif_Semiconductor_logo.webp";
+import logoAalto from "../assets/companies-logo/aalto-logo.png";
+import logoKyutech from "../assets/companies-logo/kyutech-logo.png";
+import logoIgnite from "../assets/companies-logo/ignite-logo.png";
+import logoWihuri from "../assets/companies-logo/wihuri-logo.png";
+import logoYksityisyrittajainsaatio from "../assets/companies-logo/yksityisyrittajainsaatio.png";
+import logoSeetrue from "../assets/companies-logo/seetrue-technologies.png";
+import logoDispelix from "../assets/companies-logo/dispelix.png";
+import logoKthAi from "../assets/companies-logo/kth-ai-society.png";
+
+// --- Team avatars ---
+import teamMilana from "../assets/team/team-milana.jpg";
+import teamYerzhan from "../assets/team/team-yerzhan.jpg";
+import teamAlex from "../assets/team/team-alex.jpg";
+import teamDaniyar from "../assets/team/team-daniyar.jpg";
+import teamArthur from "../assets/team/team-arthur.jpg";
+import teamVlad from "../assets/team/team-vlad.jpg";
+import teamKarim from "../assets/team/team-karim.jpg";
+import teamViktor from "../assets/team/team-viktor.jpg";
+
+// Build optimized carousel slide data. The carousel renders inside max-w-4xl
+// (≈896px) at aspect-3/2. Widths must come from Vercel's configured sizes list
+// (640, 750, 828, 1080, 1200, 1920, 2048, 3840) — anything else is silently
+// dropped by sharedValidateOptions in @astrojs/vercel/image/shared.
+const carouselWidths = [640, 1080, 1920];
+const slideSources = [
+  { img: labPeopleBiosensing, alt: "People working with biosensing", caption: "Developers exploring biosensing in the lab, experimenting with OpenBCI and EmotiBit hardware during a session led by Yerzhan Zhamashev (March 2026)" },
+  { img: labLecture1, alt: "Lab Interior", caption: "Lecture and discussion in the lab during a session on prototyping with microcontrollers, led by Karim Nicolae Costan (March 2026)" },
+  { img: labFpga, alt: "People working with FPGAs", caption: "Developers learning about FPGAs and hardware description languages during a session led by Daniyar Bakytuly (February 2026)" },
+  { img: labWorkspaceDesks, alt: "Workspace View", caption: "Where ideas turn into prototypes. Desks filled with ongoing projects, screens showing code and schematics, coffee cups that fuel late-night debugging sessions. (February 2026)" },
+  { img: labInteriorMain, alt: "Lab Interior", caption: "A space designed for builders. Every corner tells a story of something being made, tested, broken, and rebuilt better. This is where experiments happen daily. (February 2026)" },
+  { img: labSpaceOverview, alt: "Lab Space", caption: "This is where the magic happens. Hardware meets software, theory meets practice, and strangers become collaborators. A space that runs on curiosity and caffeine. (February 2026)" },
+  { img: labMainOverview, alt: "Main Workspace", caption: "The main collaborative area. Multiple projects happening simultaneously, knowledge flowing freely between tables. Everyone's working on something different, yet somehow connected. (Late 2025)" },
+  { img: labHardwareShelves, alt: "Hardware & Storage Area", caption: "Our hardware library. From GPUs and robotics kits to sensors and dev boards—tools that would normally be out of reach, now accessible to anyone with an idea. (Late 2025)" },
+  { img: labChillArea, alt: "Chill Area", caption: "Not everything happens at a desk. This is where demos turn into discussions, where you grab lunch between build sessions, where the best ideas often start. (Late 2025)" },
+];
+
+const slides = await Promise.all(
+  slideSources.map(async ({ img, alt, caption }) => {
+    const optimized = await getImage({
+      src: img,
+      width: 1200,
+      widths: carouselWidths,
+      format: "webp",
+      quality: 75,
+    });
+    return {
+      src: optimized.src,
+      srcSet: optimized.srcSet.attribute,
+      sizes: "(min-width: 1024px) 896px, 100vw",
+      width: optimized.attributes.width as number,
+      height: optimized.attributes.height as number,
+      alt,
+      caption,
+    };
+  })
+);
 ---
 
 <Layout>
@@ -30,7 +103,7 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
             class="text-purple-600 hover:text-purple-800 transition-colors"
             data-umami-event="location-sus"
             >Startup Sauna</a
-          > at Aalto University, second floor.  
+          > at Aalto University, second floor.
           Join our <a
             href="https://t.me/+rxHNt6GA4-o1NWUy"
             class="text-purple-600 hover:text-purple-800 transition-colors"
@@ -39,59 +112,10 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
         </p>
       </div>
 
-       
+
 
       <!-- Space Photos Carousel -->
-      <SpaceCarousel
-        images={[
-           {
-            src: "images/about/lab-people-biosensing.jpg",
-             alt: "People working with biosensing",
-            caption: "Developers exploring biosensing in the lab, experimenting with OpenBCI and EmotiBit hardware during a session led by Yerzhan Zhamashev (March 2026)"
-          },
-          {
-            src: "images/about/lab-lecture-1.jpg",
-            alt: "Lab Interior",
-            caption: "Lecture and discussion in the lab during a session on prototyping with microcontrollers, led by Karim Nicolae Costan (March 2026)"
-          },
-          {
-            src: "images/about/lab-fpga.jpg",
-            alt: "People working with FPGAs",
-            caption: "Developers learning about FPGAs and hardware description languages during a session led by Daniyar Bakytuly (February 2026)"
-          },
-          {
-            src: "images/about/lab-workspace-desks.jpg",
-            alt: "Workspace View",
-            caption: "Where ideas turn into prototypes. Desks filled with ongoing projects, screens showing code and schematics, coffee cups that fuel late-night debugging sessions. (February 2026)"
-          },
-          {
-            src: "/images/about/lab-interior-main.jpg",
-            alt: "Lab Interior",
-            caption: "A space designed for builders. Every corner tells a story of something being made, tested, broken, and rebuilt better. This is where experiments happen daily. (February 2026)"
-          },
-          {
-            src: "/images/about/lab-space-overview.jpg",
-            alt: "Lab Space",
-            caption: "This is where the magic happens. Hardware meets software, theory meets practice, and strangers become collaborators. A space that runs on curiosity and caffeine. (February 2026)"
-          },
-          {
-            src: "/images/about/lab-main-overview.jpg",
-            alt: "Main Workspace",
-            caption: "The main collaborative area. Multiple projects happening simultaneously, knowledge flowing freely between tables. Everyone's working on something different, yet somehow connected. (Late 2025)"
-          },
-          {
-            src: "/images/about/lab-hardware-shelves.jpg",
-            alt: "Hardware & Storage Area",
-            caption: "Our hardware library. From GPUs and robotics kits to sensors and dev boards—tools that would normally be out of reach, now accessible to anyone with an idea. (Late 2025)"
-          },
-          {
-            src: "/images/about/lab-chill-area.jpg",
-            alt: "Chill Area",
-            caption: "Not everything happens at a desk. This is where demos turn into discussions, where you grab lunch between build sessions, where the best ideas often start. (Late 2025)"
-          }
-        ]}
-        client:load
-      />
+      <SpaceCarousel images={slides} client:load />
 
       <!-- Partners Section -->
       <div class="mb-6 font-sans text-base md:text-lg text-gray-700 leading-relaxed">
@@ -104,7 +128,7 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
           > to see what's available.
         </p>
       </div>
-      
+
       <div class="mb-16 fade-in">
         <div
           class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-8"
@@ -114,9 +138,12 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
               <div
                 class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
               >
-                <img
-                  src="/images/companies-logo/varjo.png"
+                <Image
+                  src={logoVarjo}
                   alt="Varjo"
+                  width={160}
+                  loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-contain"
                   style="filter: saturate(0);"
                 />
@@ -128,9 +155,12 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
               <div
                 class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
               >
-                <img
-                  src="/images/companies-logo/doublepoint.png"
+                <Image
+                  src={logoDoublepoint}
                   alt="Doublepoint"
+                  width={160}
+                  loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-contain"
                   style="filter: saturate(0);"
                 />
@@ -142,9 +172,12 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
               <div
                 class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
               >
-                <img
-                  src="/images/companies-logo/Alif_Semiconductor_logo.webp"
+                <Image
+                  src={logoAlif}
                   alt="Alif Semiconductor"
+                  width={160}
+                  loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-contain"
                   style="filter: saturate(0);"
                 />
@@ -156,9 +189,12 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
               <div
                 class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
               >
-                <img
-                  src="/images/companies-logo/aalto-logo.png"
+                <Image
+                  src={logoAalto}
                   alt="Aalto University"
+                  width={160}
+                  loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-contain"
                   style="filter: saturate(0);"
                 />
@@ -170,9 +206,12 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
               <div
                 class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
               >
-                <img
-                  src="/images/companies-logo/kyutech-logo.png"
+                <Image
+                  src={logoKyutech}
                   alt="Kyushu Institute of Technology"
+                  width={160}
+                  loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-contain"
                   style="filter: saturate(0);"
                 />
@@ -184,9 +223,12 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
               <div
                 class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
               >
-                <img
-                  src="/images/companies-logo/ignite-logo.png"
+                <Image
+                  src={logoIgnite}
                   alt="Ignite"
+                  width={160}
+                  loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-contain"
                   style="filter: saturate(0);"
                 />
@@ -198,9 +240,12 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
               <div
                 class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
               >
-                <img
-                  src="/images/companies-logo/wihuri-logo.png"
+                <Image
+                  src={logoWihuri}
                   alt="Wihuri"
+                  width={160}
+                  loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-contain"
                   style="filter: saturate(0);"
                 />
@@ -212,9 +257,12 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
               <div
                 class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
               >
-                <img
-                  src="/images/companies-logo/yksityisyrittajainsaatio.png"
+                <Image
+                  src={logoYksityisyrittajainsaatio}
                   alt="Yksityisyrittäjäin saatio"
+                  width={160}
+                  loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-contain"
                   style="filter: saturate(0);"
                 />
@@ -226,9 +274,12 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
               <div
                 class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
               >
-                <img
-                  src="/images/companies-logo/seetrue-technologies.png"
+                <Image
+                  src={logoSeetrue}
                   alt="SeeTrue Technologies"
+                  width={160}
+                  loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-contain"
                   style="filter: saturate(0);"
                 />
@@ -241,9 +292,12 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
               <div
                 class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
               >
-                <img
-                  src="/images/companies-logo/dispelix.png"
+                <Image
+                  src={logoDispelix}
                   alt="Dispelix"
+                  width={160}
+                  loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-contain"
                   style="filter: saturate(0);"
                 />
@@ -255,9 +309,12 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
               <div
                 class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
               >
-                <img
-                  src="/images/companies-logo/kth-ai-society.png"
+                <Image
+                  src={logoKthAi}
                   alt="KTH AI Society"
+                  width={160}
+                  loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-contain"
                   style="filter: saturate(0);"
                 />
@@ -276,11 +333,13 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 mb-8">
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded">
-            <img
-              src={avatarUrl("team-milana")}
+            <Image
+              src={teamMilana}
               alt="Milana"
-              class="w-40 h-40 object-cover"
+              width={160}
               loading="lazy"
+              decoding="async"
+              class="w-40 h-40 object-cover"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Milana Begantsova</h3>
@@ -297,11 +356,13 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
 
         <div class="text-center">
           <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
-            <img
-              src={avatarUrl("team-yerzhan")}
+            <Image
+              src={teamYerzhan}
               alt="Yerzhan"
-              class="w-40 h-40 object-cover"
+              width={160}
               loading="lazy"
+              decoding="async"
+              class="w-40 h-40 object-cover"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Yerzhan Zhamashev</h3>
@@ -319,11 +380,13 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
 
         <div class="text-center">
           <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
-            <img
-              src={avatarUrl("team-alex")}
+            <Image
+              src={teamAlex}
               alt="Alex"
-              class="w-40 h-40 object-cover"
+              width={160}
               loading="lazy"
+              decoding="async"
+              class="w-40 h-40 object-cover"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Alex Osadchuk</h3>
@@ -340,11 +403,13 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
 
         <div class="text-center">
           <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
-            <img
-              src={avatarUrl("team-daniyar")}
+            <Image
+              src={teamDaniyar}
               alt="Daniyar"
-              class="w-40 h-40 object-cover"
+              width={160}
               loading="lazy"
+              decoding="async"
+              class="w-40 h-40 object-cover"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900"> Daniyar Bakytuly</h3>
@@ -362,11 +427,13 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
 
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded" style="filter: saturate(0.7);">
-            <img
-              src={avatarUrl("team-arthur")}
+            <Image
+              src={teamArthur}
               alt="Arthur"
-              class="w-40 h-40 object-cover"
+              width={160}
               loading="lazy"
+              decoding="async"
+              class="w-40 h-40 object-cover"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900"> Artur Roos</h3>
@@ -384,11 +451,13 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
 
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded">
-            <img
-              src={avatarUrl("team-vlad")}
+            <Image
+              src={teamVlad}
               alt="Vlad"
-              class="w-40 h-40 object-cover"
+              width={160}
               loading="lazy"
+              decoding="async"
+              class="w-40 h-40 object-cover"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Vlad Borodenko</h3>
@@ -406,11 +475,13 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
 
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded" style="filter: saturate(0.7);">
-            <img
-              src={avatarUrl("team-karim")}
+            <Image
+              src={teamKarim}
               alt="Karim"
-              class="w-40 h-40 object-cover"
+              width={160}
               loading="lazy"
+              decoding="async"
+              class="w-40 h-40 object-cover"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900">Karim Nicolae Costan</h3>
@@ -428,11 +499,13 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
 
         <div class="text-center">
           <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded" style="filter: saturate(0.7);">
-            <img
-              src={avatarUrl("team-viktor")}
+            <Image
+              src={teamViktor}
               alt="Viktor"
-              class="w-40 h-40 object-cover"
+              width={160}
               loading="lazy"
+              decoding="async"
+              class="w-40 h-40 object-cover"
             />
           </div>
           <h3 class="text-xs font-mono mb-0.5 text-gray-900"> Viktor Solianoi </h3>
