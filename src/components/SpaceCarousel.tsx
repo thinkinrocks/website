@@ -7,7 +7,14 @@ import {
 } from "@/components/ui/carousel";
 
 interface SpaceImage {
+  /** Optimized fallback URL (e.g. WebP from Astro getImage) */
   src: string;
+  /** Optional responsive srcset (e.g. "url-400.webp 400w, url-800.webp 800w") */
+  srcSet?: string;
+  /** Sizes attribute paired with srcSet */
+  sizes?: string;
+  width: number;
+  height: number;
   alt: string;
   caption: string;
 }
@@ -19,14 +26,6 @@ interface SpaceCarouselProps {
 export const SpaceCarousel: React.FC<SpaceCarouselProps> = ({ images }) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
-
-  // Preload all images
-  React.useEffect(() => {
-    images.forEach((image) => {
-      const img = new Image();
-      img.src = image.src;
-    });
-  }, [images]);
 
   React.useEffect(() => {
     if (!api) {
@@ -63,8 +62,8 @@ export const SpaceCarousel: React.FC<SpaceCarouselProps> = ({ images }) => {
     <div className="relative mb-12">
       <div className="flex items-center justify-center">
         <div className="flex flex-col max-w-4xl mx-auto w-full px-4">
-      <Carousel 
-        setApi={setApi} 
+      <Carousel
+        setApi={setApi}
         className="w-full"
         opts={{
           startIndex: 0,
@@ -78,9 +77,16 @@ export const SpaceCarousel: React.FC<SpaceCarouselProps> = ({ images }) => {
               <div className="aspect-[3/2] overflow-hidden rounded-lg">
                 <img
                   src={image.src}
+                  srcSet={image.srcSet}
+                  sizes={image.sizes}
+                  width={image.width}
+                  height={image.height}
                   alt={image.alt}
                   className="w-full h-full object-cover"
-                  loading="eager"
+                  // Only the first slide is critical for LCP. Lazy-load the rest
+                  // so we don't fetch ~7 MB of images the user hasn't scrolled to yet.
+                  loading={index === 0 ? "eager" : "lazy"}
+                  fetchPriority={index === 0 ? "high" : "auto"}
                   decoding="async"
                 />
               </div>

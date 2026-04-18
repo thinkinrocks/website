@@ -1,9 +1,15 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import { ToolsCarousel } from "../components/ToolsCarousel";
 import { ChallengesSection } from "../components/ChallengesSection";
 import WorkshopsList from "../components/WorkshopsList";
 import timelineData from "../content/hackathon-timeline.json";
+
+import logoDispelix from "../assets/companies-logo/dispelix.png";
+import logoSeetrue from "../assets/companies-logo/seetrue-technologies.png";
+import logoVarjo from "../assets/companies-logo/varjo.png";
+import logoDoublepoint from "../assets/companies-logo/doublepoint.png";
 
 const hackathonName = "Frontier Interfaces Hackathon";
 const registrationUrl = "https://luma.com/9reujzgi";
@@ -28,20 +34,20 @@ const prepChatUrl = "https://t.me/+rxHNt6GA4-o1NWUy";
 		<div class="relative z-10 pt-6 px-4 md:pt-8 md:px-16">
 			<div class="flex w-full items-center gap-2 md:gap-3">
 				<a href="https://www.dispelix.com/" target="_blank" rel="noreferrer" class="group flex h-14 flex-1 items-center justify-center px-2 md:px-3">
-					<img src="/images/companies-logo/dispelix.png" loading="lazy"
+					<Image src={logoDispelix} width={200} loading="lazy"
                     decoding="async"  alt="Dispelix" class="h-8 w-full object-contain grayscale transition-all duration-300 group-hover:grayscale-0" />
 				</a>
 				<a href="https://www.seetruetechnologies.com/" target="_blank" rel="noreferrer" class="group flex h-14 flex-1 items-center justify-center px-2 md:px-3">
-					<img src="/images/companies-logo/seetrue-technologies.png" loading="lazy"
+					<Image src={logoSeetrue} width={200} loading="lazy"
                     decoding="async"  alt="SeeTrue Technologies" class="h-10 md:h-14 w-full object-contain scale-110 grayscale transition-all duration-300 md:scale-125 group-hover:grayscale-0" />
 				</a>
-				
+
 				<a href="https://varjo.com/" target="_blank" rel="noreferrer" class="group flex h-14 flex-1 items-center justify-center px-2 md:px-3">
-					<img src="/images/companies-logo/varjo.png" loading="lazy"
+					<Image src={logoVarjo} width={200} loading="lazy"
                     decoding="async"  alt="Varjo" class="h-5 md:h-6 w-full object-contain grayscale transition-all duration-300 group-hover:grayscale-0 " />
 				</a>
 				<a href="https://doublepoint.com/" target="_blank" rel="noreferrer" class="group flex h-14 flex-1 items-center justify-center px-2 md:px-3">
-					<img src="/images/companies-logo/doublepoint.png" loading="lazy"
+					<Image src={logoDoublepoint} width={200} loading="lazy"
                     decoding="async"  alt="Doublepoint" class="h-8 w-full object-contain grayscale transition-all duration-300 group-hover:grayscale-0 " />
 				</a>
 			</div>
