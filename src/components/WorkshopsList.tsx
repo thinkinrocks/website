@@ -26,43 +26,85 @@ function WorkshopCard({ item, isPast }: WorkshopCardProps) {
   // Use the same (longest) truncated description for all screen sizes
   const { text: shortDescription } = truncateDescription(item.event.description || "", 300);
   const cardContent = (
-    <div className="flex flex-row items-center p-4 h-full gap-4">
-      {item.event.cover_url && (
-        <div className="flex-shrink-0 flex items-center justify-center h-28 w-28 md:h-32 md:w-32">
-          <img
-            src={item.event.cover_url}
-            alt={item.event.name}
-            className="h-28 w-28 md:h-32 md:w-32 object-contain rounded"
-            style={{ objectPosition: 'center' }}
-          />
-        </div>
-      )}
-      <div className="flex flex-col justify-between flex-1 min-w-0">
-        <div>
-          <h3 className="text-lg font-display font-semibold mb-1 text-gray-900 group-hover:text-fuchsia-600 transition-colors">
-            {item.event.name}
-          </h3>
-          <div className="flex flex-wrap items-center gap-2 text-sm text-gray-700 mb-2">
-            <span className="font-mono">
-              {formatEventDate(item.event.start_at, item.event.timezone)}
-              {" • "}
-              {formatEventTime(item.event.start_at, item.event.timezone)}
-            </span>
-          </div>
-          {item.event.description && (
-            <p className="text-sm text-muted-foreground mb-2">{shortDescription}</p>
+    <div className="p-4 h-full">
+      <div className="space-y-3 md:hidden">
+        <div className="flex items-center gap-4">
+          {item.event.cover_url && (
+            <div className="flex-shrink-0 flex items-center justify-center h-28 w-28">
+              <img
+                src={item.event.cover_url}
+                alt={item.event.name}
+                className="h-28 w-28 object-contain rounded"
+                style={{ objectPosition: 'center' }}
+              />
+            </div>
           )}
+          <div className="flex min-w-0 flex-1 flex-col justify-center">
+            <h3 className="text-lg font-display font-semibold mb-1 text-gray-900 group-hover:text-fuchsia-600 transition-colors">
+              {item.event.name}
+            </h3>
+            <div className="flex flex-wrap items-center gap-2 text-sm text-gray-700">
+              <span className="font-mono">
+                {formatEventDate(item.event.start_at, item.event.timezone)}
+                {" • "}
+                {formatEventTime(item.event.start_at, item.event.timezone)}
+              </span>
+            </div>
+          </div>
         </div>
+        {item.event.description && (
+          <p className="text-sm text-muted-foreground">{shortDescription}</p>
+        )}
         {item.event.register_url && (
           <a
             href={item.event.register_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 inline-flex w-fit items-center gap-2 whitespace-nowrap bg-fuchsia-50 px-3 py-1.5 text-fuchsia-600 hover:bg-fuchsia-100 font-mono rounded transition-colors border border-fuchsia-200 shadow-sm"
+            className="mx-auto inline-flex w-fit items-center gap-2 whitespace-nowrap bg-fuchsia-50 px-3 py-1.5 text-fuchsia-600 hover:bg-fuchsia-100 font-mono rounded transition-colors border border-fuchsia-200 shadow-sm"
           >
             Register
           </a>
         )}
+      </div>
+
+      <div className="hidden gap-4 md:flex md:items-center">
+        {item.event.cover_url && (
+          <div className="flex-shrink-0 flex items-center justify-center h-32 w-32">
+            <img
+              src={item.event.cover_url}
+              alt={item.event.name}
+              className="h-32 w-32 object-contain rounded"
+              style={{ objectPosition: 'center' }}
+            />
+          </div>
+        )}
+        <div className="flex flex-col justify-between flex-1 min-w-0">
+          <div>
+            <h3 className="text-lg font-display font-semibold mb-1 text-gray-900 group-hover:text-fuchsia-600 transition-colors">
+              {item.event.name}
+            </h3>
+            <div className="flex flex-wrap items-center gap-2 text-sm text-gray-700 mb-2">
+              <span className="font-mono">
+                {formatEventDate(item.event.start_at, item.event.timezone)}
+                {" • "}
+                {formatEventTime(item.event.start_at, item.event.timezone)}
+              </span>
+            </div>
+            {item.event.description && (
+              <p className="text-sm text-muted-foreground mb-2">{shortDescription}</p>
+            )}
+          </div>
+          {item.event.register_url && (
+            <a
+              href={item.event.register_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-flex w-fit items-center gap-2 whitespace-nowrap bg-fuchsia-50 px-3 py-1.5 text-fuchsia-600 hover:bg-fuchsia-100 font-mono rounded transition-colors border border-fuchsia-200 shadow-sm"
+            >
+              Register
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );
