@@ -1,0 +1,105 @@
+---
+import socials from "../content/socials.json";
+import { FaDiscord, FaLinkedin, FaTelegram, FaInstagram } from "react-icons/fa";
+
+const iconMap = {
+  discord: FaDiscord,
+  linkedin: FaLinkedin,
+  telegram: FaTelegram,
+  instagram: FaInstagram,
+} as const;
+---
+
+<footer class="border-t border-transparent px-4 py-10 md:px-16 md:py-14">
+  <div class="px-4 py-6 md:px-8 md:py-10">
+    <div class="mx-auto max-w-6xl">
+      <!-- mobile -->
+      <div class="md:hidden text-center">
+        <a href="/" class="inline-flex justify-center">
+          <img src="/images/logo-tr.svg" alt="Thinkin' Rocks" class="h-auto w-[280px] md:w-[320px]" />
+        </a>
+        <p class="mt-3 text-sm text-gray-600">
+          © 2026 Thinkin' Rocks. All rights reserved.
+        </p>
+      </div>
+
+      <!-- desktop -->
+      <div class="hidden md:block">
+        <div class="mx-auto max-w-5xl grid gap-10 md:grid-cols-[1.2fr_0.7fr_1fr] md:items-start">
+          <!-- Logo / brand -->
+          <div>
+            <a href="/" class="inline-block">
+              <img
+                src="/images/logo-tr.svg"
+                alt="Thinkin' Rocks"
+                class="h-auto w-[280px] md:w-[320px]"
+              />
+            </a>
+
+            <p class="mt-14 font-sans text-[18px] text-gray-600">
+              ©2026 Thinkin’ Rocks. All rights reserved
+            </p>
+          </div>
+
+          <!-- Nav -->
+          <nav class="font-mono text-[18px] leading-[1.9] text-gray-900">
+            <ul class="space-y-2">
+              <li><a href="/about" class="hover:opacity-70 transition-opacity">about</a></li>
+              <li><a href="/events" class="hover:opacity-70 transition-opacity">events</a></li>
+              <li><a href="/log" class="hover:opacity-70 transition-opacity">log</a></li>
+              <li><a href="/conduct" class="hover:opacity-70 transition-opacity">conduct</a></li>
+            </ul>
+          </nav>
+
+          <!-- Social / links -->
+          <div class="font-mono text-[18px] leading-[1.9] text-gray-900">
+            <ul class="space-y-2">
+  <li>
+    <a
+      href="https://t.me/+rxHNt6GA4-o1NWUy"
+      target="_blank"
+      rel="noreferrer"
+      class="hover:opacity-70 transition-opacity"
+    >
+      Telegram Chat
+    </a>
+  </li>
+  <li>
+    <a
+      href="https://github.com/thinkinrocks"
+      target="_blank"
+      rel="noreferrer"
+      class="hover:opacity-70 transition-opacity"
+    >
+      GitHub
+    </a>
+  </li>
+</ul>
+
+            <div class="mt-4">
+              <p class="font-mono text-[18px] text-gray-900">Social media:</p>
+
+              <div class="mt-3 flex items-center gap-5 text-gray-900">
+                {socials.map((item) => {
+                  const Icon = iconMap[item.icon as keyof typeof iconMap];
+
+                  return (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={item.ariaLabel}
+                      class="hover:opacity-70 transition-opacity"
+                    >
+                      <Icon className="h-8 w-8" />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

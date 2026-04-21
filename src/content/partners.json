@@ -1,0 +1,79 @@
+[
+  {
+    "name": "Varjo",
+    "href": "https://varjo.com/",
+    "umamiEvent": "partner-varjo",
+    "image": "/images/companies-logo/varjo.png",
+    "alt": "Varjo"
+  },
+  {
+    "name": "Doublepoint",
+    "href": "https://doublepoint.com/",
+    "umamiEvent": "partner-doublepoint",
+    "image": "/images/companies-logo/doublepoint.png",
+    "alt": "Doublepoint"
+  },
+  {
+    "name": "Alif Semiconductor",
+    "href": "https://alifsemi.com/",
+    "umamiEvent": "partner-alif",
+    "image": "/images/companies-logo/Alif_Semiconductor_logo.webp",
+    "alt": "Alif Semiconductor"
+  },
+  {
+    "name": "Aalto University",
+    "href": "https://www.aalto.fi/",
+    "umamiEvent": "partner-aalto",
+    "image": "/images/companies-logo/aalto-logo.png",
+    "alt": "Aalto University"
+  },
+  {
+    "name": "Kyushu Institute of Technology",
+    "href": "https://www.kyutech.ac.jp/",
+    "umamiEvent": "partner-kyutech",
+    "image": "/images/companies-logo/kyutech-logo.png",
+    "alt": "Kyushu Institute of Technology"
+  },
+  {
+    "name": "Ignite",
+    "href": "https://ignite.aaltoes.com",
+    "umamiEvent": "partner-ignite",
+    "image": "/images/companies-logo/ignite-logo.png",
+    "alt": "Ignite"
+  },
+  {
+    "name": "Wihuri",
+    "href": "https://wihurinrahasto.fi",
+    "umamiEvent": "partner-wihuri",
+    "image": "/images/companies-logo/wihuri-logo.png",
+    "alt": "Wihuri"
+  },
+  {
+    "name": "Yksityisyrittäjäin säätiö",
+    "href": "http://www.yksityisyrittajainsaatio.fi",
+    "umamiEvent": "partner-yksityisyrittajainsaatio",
+    "image": "/images/companies-logo/yksityisyrittajainsaatio.png",
+    "alt": "Yksityisyrittäjäin saatio"
+  },
+  {
+    "name": "SeeTrue Technologies",
+    "href": "https://www.seetruetechnologies.com/",
+    "umamiEvent": "partner-seetrue",
+    "image": "/images/companies-logo/seetrue-technologies.png",
+    "alt": "SeeTrue Technologies"
+  },
+  {
+    "name": "Dispelix",
+    "href": "https://dispelix.com",
+    "umamiEvent": "partner-dispelix",
+    "image": "/images/companies-logo/dispelix.png",
+    "alt": "Dispelix"
+  },
+  {
+    "name": "KTH AI Society",
+    "href": "https://kthais.com",
+    "umamiEvent": "partner-kthais",
+    "image": "/images/companies-logo/kth-ai-society.png",
+    "alt": "KTH AI Society"
+  }
+]

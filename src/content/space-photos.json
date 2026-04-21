@@ -1,0 +1,56 @@
+[
+  {
+    "src": "/images/about/lab-people-biosensing.jpg",
+    "alt": "People working with biosensing",
+    "description": "Developers exploring biosensing in the lab, experimenting with OpenBCI and EmotiBit hardware during a session led by Yerzhan Zhamashev.",
+    "date": "2026-03"
+  },
+  {
+    "src": "/images/about/lab-lecture-1.jpg",
+    "alt": "Lab interior during a lecture",
+    "description": "Lecture and discussion in the lab during a session on prototyping with microcontrollers, led by Karim Nicolae Costan.",
+    "date": "2026-03"
+  },
+  {
+    "src": "/images/about/lab-fpga.jpg",
+    "alt": "People working with FPGAs",
+    "description": "Developers learning about FPGAs and hardware description languages during a session led by Daniyar Bakytuly.",
+    "date": "2026-02"
+  },
+  {
+    "src": "/images/about/lab-workspace-desks.jpg",
+    "alt": "Workspace view",
+    "description": "Where ideas turn into prototypes. Desks filled with ongoing projects, screens showing code and schematics, and coffee cups fueling late-night debugging sessions.",
+    "date": "2026-02"
+  },
+  {
+    "src": "/images/about/lab-interior-main.jpg",
+    "alt": "Lab interior",
+    "description": "A space designed for builders. Every corner tells a story of something being made, tested, broken, and rebuilt better. This is where experiments happen daily.",
+    "date": "2026-02"
+  },
+  {
+    "src": "/images/about/lab-space-overview.jpg",
+    "alt": "Lab space overview",
+    "description": "This is where the magic happens. Hardware meets software, theory meets practice, and strangers become collaborators. A space that runs on curiosity and caffeine.",
+    "date": "2026-02"
+  },
+  {
+    "src": "/images/about/lab-main-overview.jpg",
+    "alt": "Main workspace",
+    "description": "The main collaborative area. Multiple projects happening simultaneously, with knowledge flowing freely between tables. Everyone is working on something different, yet somehow connected.",
+    "date": "2025-11"
+  },
+  {
+    "src": "/images/about/lab-hardware-shelves.jpg",
+    "alt": "Hardware and storage area",
+    "description": "Our hardware library. From GPUs and robotics kits to sensors and dev boards, tools that would normally be out of reach are accessible to anyone with an idea.",
+    "date": "2025-11"
+  },
+  {
+    "src": "/images/about/lab-chill-area.jpg",
+    "alt": "Chill area",
+    "description": "Not everything happens at a desk. This is where demos turn into discussions, where people grab lunch between build sessions, and where some of the best ideas begin.",
+    "date": "2025-11"
+  }
+]

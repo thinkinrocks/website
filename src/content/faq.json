@@ -1,0 +1,26 @@
+[
+  {
+    "question": "How do I join?",
+    "answer": "Join our Telegram chat, introduce yourself, and come by the lab. Start working on something. Access deepens as you build."
+  },
+  {
+    "question": "What can I build here?",
+    "answer": "AI experiments, robotics systems, hardware prototypes, research projects, creative technology. Priority goes to active, collaborative projects that share knowledge with the community."
+  },
+  {
+    "question": "Does it cost anything?",
+    "answer": "Basic participation is free. For intensive equipment use or long-term projects, we may ask for contributions to cover maintenance. We keep barriers low while maintaining sustainability."
+  },
+  {
+    "question": "Can I find collaborators?",
+    "answer": "Yes. Many arrive without a team and find one here. Skills overlap, ideas collide, unexpected things emerge. The Telegram chat and build sessions are where collaboration starts."
+  },
+  {
+    "question": "When are workshops held?",
+    "answer": "Regularly. Structured trainings on specific tools, open build nights where everyone works on their own projects. Both matter. Check Telegram for schedules."
+  },
+  {
+    "question": "How do I stay updated?",
+    "answer": "Join the Telegram chat. Events, workshops, and spontaneous build sessions are announced there. It's also where questions get answered and ideas find collaborators."
+  }
+]

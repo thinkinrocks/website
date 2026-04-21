@@ -1,8 +1,38 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { SpaceCarousel } from "../components/SpaceCarousel";
-
+import partners from "../content/partners.json";
+import teamMembers from "../content/team.json";
+import { TeamCarousel } from "../components/TeamCarousel";
+import { FAQAccordion } from "../components/FAQAccordion";
+import faqs from "../content/faq.json";
+import spacePhotos from "../content/space-photos.json";
 const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
+const formatMonthYear = (date: string): string => {
+  const [year, month] = date.split("-");
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+
+  return `${monthNames[Number(month) - 1]} ${year}`;
+};
+
+const carouselImages = spacePhotos.map((photo) => ({
+  src: photo.src,
+  alt: photo.alt,
+  caption: `${photo.description} (${formatMonthYear(photo.date)})`
+}));
 ---
 
 <Layout>
@@ -19,9 +49,12 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
         <p>
           Thinkin' Rocks is a prototyping ecosystem. We maintain spaces where people build AI systems, robotics projects, XR applications, embedded devices, and experimental hardware—the kind of stuff that needs actual equipment and other builders around.
         </p>
+        
         <p>
           Most technical education teaches theory. Labs are locked behind bureaucracy. Makerspaces have basic equipment. Hardware startups can't afford gear until funding arrives. Researchers work in isolation. Hackathon projects die on Monday. We saw people with skills and drive but nowhere to actually build serious tech.
         </p>
+        <!-- Space Photos Carousel -->
+        <SpaceCarousel images={carouselImages} client:load />
         <p>
           So we made a place where the default is "yes, try it." Where you can start on Tuesday and have a working prototype by Friday. Where breaking things is learning, and someone in the room has probably solved your exact problem before. Equipment is shared, knowledge transfer is built in, and access comes from showing up and contributing. We also run Nerd Outs—sessions where people share what they're obsessed with, whether it's a circuit they debugged for weeks or an algorithm that won't leave their head.
         </p>
@@ -41,57 +74,7 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
 
        
 
-      <!-- Space Photos Carousel -->
-      <SpaceCarousel
-        images={[
-           {
-            src: "images/about/lab-people-biosensing.jpg",
-             alt: "People working with biosensing",
-            caption: "Developers exploring biosensing in the lab, experimenting with OpenBCI and EmotiBit hardware during a session led by Yerzhan Zhamashev (March 2026)"
-          },
-          {
-            src: "images/about/lab-lecture-1.jpg",
-            alt: "Lab Interior",
-            caption: "Lecture and discussion in the lab during a session on prototyping with microcontrollers, led by Karim Nicolae Costan (March 2026)"
-          },
-          {
-            src: "images/about/lab-fpga.jpg",
-            alt: "People working with FPGAs",
-            caption: "Developers learning about FPGAs and hardware description languages during a session led by Daniyar Bakytuly (February 2026)"
-          },
-          {
-            src: "images/about/lab-workspace-desks.jpg",
-            alt: "Workspace View",
-            caption: "Where ideas turn into prototypes. Desks filled with ongoing projects, screens showing code and schematics, coffee cups that fuel late-night debugging sessions. (February 2026)"
-          },
-          {
-            src: "/images/about/lab-interior-main.jpg",
-            alt: "Lab Interior",
-            caption: "A space designed for builders. Every corner tells a story of something being made, tested, broken, and rebuilt better. This is where experiments happen daily. (February 2026)"
-          },
-          {
-            src: "/images/about/lab-space-overview.jpg",
-            alt: "Lab Space",
-            caption: "This is where the magic happens. Hardware meets software, theory meets practice, and strangers become collaborators. A space that runs on curiosity and caffeine. (February 2026)"
-          },
-          {
-            src: "/images/about/lab-main-overview.jpg",
-            alt: "Main Workspace",
-            caption: "The main collaborative area. Multiple projects happening simultaneously, knowledge flowing freely between tables. Everyone's working on something different, yet somehow connected. (Late 2025)"
-          },
-          {
-            src: "/images/about/lab-hardware-shelves.jpg",
-            alt: "Hardware & Storage Area",
-            caption: "Our hardware library. From GPUs and robotics kits to sensors and dev boards—tools that would normally be out of reach, now accessible to anyone with an idea. (Late 2025)"
-          },
-          {
-            src: "/images/about/lab-chill-area.jpg",
-            alt: "Chill Area",
-            caption: "Not everything happens at a desk. This is where demos turn into discussions, where you grab lunch between build sessions, where the best ideas often start. (Late 2025)"
-          }
-        ]}
-        client:load
-      />
+      
 
       <!-- Partners Section -->
       <div class="mb-6 font-sans text-base md:text-lg text-gray-700 leading-relaxed">
@@ -105,416 +88,88 @@ const avatarUrl = (slug: string) => `/images/team/${slug}.jpg`;
         </p>
       </div>
       
-      <div class="mb-16 fade-in">
-        <div
-          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-8"
+        <div class="mb-16 fade-in">
+  <div
+    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-8"
+  >
+    {partners.map((partner) => (
+      <div class="bg-gray-50 p-3 md:p-4 lg:p-6 text-center">
+        <a
+          href={partner.href}
+          target="_blank"
+          data-umami-event={partner.umamiEvent}
         >
-          <div class="bg-gray-50 p-3 md:p-4 lg:p-6 text-center">
-            <a href="https://varjo.com/" target="_blank" data-umami-event="partner-varjo">
-              <div
-                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
-              >
-                <img
-                  src="/images/companies-logo/varjo.png"
-                  alt="Varjo"
-                  class="w-full h-full object-contain"
-                  style="filter: saturate(0);"
-                />
-              </div>
-            </a>
+          <div
+            class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
+          >
+            <img
+              src={partner.image}
+              alt={partner.alt}
+              class="w-full h-full object-contain"
+              style="filter: saturate(0);"
+            />
           </div>
-          <div class="bg-gray-50 p-3 md:p-4 lg:p-6 text-center">
-            <a href="https://doublepoint.com/" target="_blank" data-umami-event="partner-doublepoint">
-              <div
-                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
-              >
-                <img
-                  src="/images/companies-logo/doublepoint.png"
-                  alt="Doublepoint"
-                  class="w-full h-full object-contain"
-                  style="filter: saturate(0);"
-                />
-              </div>
-            </a>
-          </div>
-          <div class="bg-gray-50 p-3 md:p-4 lg:p-6 text-center">
-            <a href="https://alifsemi.com/" target="_blank" data-umami-event="partner-alif">
-              <div
-                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
-              >
-                <img
-                  src="/images/companies-logo/Alif_Semiconductor_logo.webp"
-                  alt="Alif Semiconductor"
-                  class="w-full h-full object-contain"
-                  style="filter: saturate(0);"
-                />
-              </div>
-            </a>
-          </div>
-          <div class="bg-gray-50 p-3 md:p-4 lg:p-6 text-center">
-            <a href="https://www.aalto.fi/" target="_blank" data-umami-event="partner-aalto">
-              <div
-                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
-              >
-                <img
-                  src="/images/companies-logo/aalto-logo.png"
-                  alt="Aalto University"
-                  class="w-full h-full object-contain"
-                  style="filter: saturate(0);"
-                />
-              </div>
-            </a>
-          </div>
-          <div class="bg-gray-50 p-3 md:p-4 lg:p-6 text-center">
-            <a href="https://www.kyutech.ac.jp/" target="_blank" data-umami-event="partner-kyutech">
-              <div
-                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
-              >
-                <img
-                  src="/images/companies-logo/kyutech-logo.png"
-                  alt="Kyushu Institute of Technology"
-                  class="w-full h-full object-contain"
-                  style="filter: saturate(0);"
-                />
-              </div>
-            </a>
-          </div>
-          <div class="bg-gray-50 p-3 md:p-4 lg:p-6 text-center">
-            <a href="https://ignite.aaltoes.com" target="_blank" data-umami-event="partner-ignite">
-              <div
-                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
-              >
-                <img
-                  src="/images/companies-logo/ignite-logo.png"
-                  alt="Ignite"
-                  class="w-full h-full object-contain"
-                  style="filter: saturate(0);"
-                />
-              </div>
-            </a>
-          </div>
-          <div class="bg-gray-50 p-3 md:p-4 lg:p-6 text-center">
-            <a href="https://wihurinrahasto.fi" target="_blank" data-umami-event="partner-wihuri">
-              <div
-                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
-              >
-                <img
-                  src="/images/companies-logo/wihuri-logo.png"
-                  alt="Wihuri"
-                  class="w-full h-full object-contain"
-                  style="filter: saturate(0);"
-                />
-              </div>
-            </a>
-          </div>
-          <div class="bg-gray-50 p-3 md:p-4 lg:p-6 text-center">
-            <a href="http://www.yksityisyrittajainsaatio.fi" target="_blank" data-umami-event="partner-wihuri">
-              <div
-                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
-              >
-                <img
-                  src="/images/companies-logo/yksityisyrittajainsaatio.png"
-                  alt="Yksityisyrittäjäin saatio"
-                  class="w-full h-full object-contain"
-                  style="filter: saturate(0);"
-                />
-              </div>
-            </a>
-          </div>
-           <div class="bg-gray-50 p-3 md:p-4 lg:p-6 text-center">
-            <a href="https://www.seetruetechnologies.com/" target="_blank" data-umami-event="partner-seetrue">
-              <div
-                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
-              >
-                <img
-                  src="/images/companies-logo/seetrue-technologies.png"
-                  alt="SeeTrue Technologies"
-                  class="w-full h-full object-contain"
-                  style="filter: saturate(0);"
-                />
-              </div>
-            </a>
-          </div>
-
-          <div class="bg-gray-50 p-3 md:p-4 lg:p-6 text-center">
-            <a href="https://dispelix.com" target="_blank" data-umami-event="partner-wihuri">
-              <div
-                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
-              >
-                <img
-                  src="/images/companies-logo/dispelix.png"
-                  alt="Dispelix"
-                  class="w-full h-full object-contain"
-                  style="filter: saturate(0);"
-                />
-              </div>
-            </a>
-          </div>
-          <div class="bg-gray-50 p-3 md:p-4 lg:p-6 text-center">
-            <a href="https://kthais.com" target="_blank" data-umami-event="partner-wihuri">
-              <div
-                class="w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 mx-auto flex items-center justify-center"
-              >
-                <img
-                  src="/images/companies-logo/kth-ai-society.png"
-                  alt="KTH AI Society"
-                  class="w-full h-full object-contain"
-                  style="filter: saturate(0);"
-                />
-              </div>
-            </a>
-          </div>
-        </div>
+        </a>
       </div>
+    ))}
+  </div>
+</div>
 
       <!-- Team Section -->
       <div class="mb-8 font-sans text-lg text-gray-700 leading-relaxed max-w-prose">
         <p class="font-mono text-gray-900">The people who keep this place running:</p>
       </div>
 
-      <div class="mb-16 fade-in">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 mb-8">
-        <div class="text-center">
-          <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded">
-            <img
-              src={avatarUrl("team-milana")}
-              alt="Milana"
-              class="w-40 h-40 object-cover"
-              loading="lazy"
-            />
-          </div>
-          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Milana Begantsova</h3>
-          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
-            <span class="font-mono text-purple-500"
-              >tg: <a
-                href="https://t.me/foxivil"
-                target="_blank"
-                data-umami-event="telegram-milana"
-                class="hover:underline">@foxivil</a
-              ></span>
-          </p>
-        </div>
+      
+<!-- Mobile -->
+<div class="md:hidden">
+  <TeamCarousel members={teamMembers} client:load />
+</div>
 
-        <div class="text-center">
-          <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
-            <img
-              src={avatarUrl("team-yerzhan")}
-              alt="Yerzhan"
-              class="w-40 h-40 object-cover"
-              loading="lazy"
-            />
-          </div>
-          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Yerzhan Zhamashev</h3>
-          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
-            <span class="font-mono text-purple-500"
-              >tg: <a
-                data-umami-event="telegram-yerzhan"
-                href="https://t.me/yerzham"
-                target="_blank"
-                class="hover:underline">@yerzham</a
-              ></span
-            >
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
-            <img
-              src={avatarUrl("team-alex")}
-              alt="Alex"
-              class="w-40 h-40 object-cover"
-              loading="lazy"
-            />
-          </div>
-          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Alex Osadchuk</h3>
-          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
-            <span class="font-mono text-purple-500"
-              >tg: <a
-                data-umami-event="telegram-alex"
-                href="https://t.me/alexocc"
-                target="_blank"
-                class="hover:underline">@alexocc</a
-              ></span>
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div class="w-40 h-40 bg-gray-200 mx-auto mb-2 overflow-hidden rounded">
-            <img
-              src={avatarUrl("team-daniyar")}
-              alt="Daniyar"
-              class="w-40 h-40 object-cover"
-              loading="lazy"
-            />
-          </div>
-          <h3 class="text-xs font-mono mb-0.5 text-gray-900"> Daniyar Bakytuly</h3>
-          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
-            <span class="font-mono text-purple-500"
-              >tg: <a
-                href="https://t.me/UhOhOhNo"
-                data-umami-event="telegram-daniyar"
-                target="_blank"
-                class="hover:underline">@UhOhOhNo</a
-              ></span
-            >
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded" style="filter: saturate(0.7);">
-            <img
-              src={avatarUrl("team-arthur")}
-              alt="Arthur"
-              class="w-40 h-40 object-cover"
-              loading="lazy"
-            />
-          </div>
-          <h3 class="text-xs font-mono mb-0.5 text-gray-900"> Artur Roos</h3>
-          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
-            <span class="font-mono text-purple-500"
-              >tg: <a
-                href="https://t.me/ktnlvr"
-                data-umami-event="telegram-artur"
-                target="_blank"
-                class="hover:underline">@ktnlvr</a
-              ></span
-            >
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded">
-            <img
-              src={avatarUrl("team-vlad")}
-              alt="Vlad"
-              class="w-40 h-40 object-cover"
-              loading="lazy"
-            />
-          </div>
-          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Vlad Borodenko</h3>
-          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
-            <span class="font-mono text-purple-500"
-              >tg: <a
-                href="https://t.me/VladyslavBM"
-                data-umami-event="telegram-vlad"
-                target="_blank"
-                class="hover:underline">@VladyslavBM</a
-              ></span
-            >
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded" style="filter: saturate(0.7);">
-            <img
-              src={avatarUrl("team-karim")}
-              alt="Karim"
-              class="w-40 h-40 object-cover"
-              loading="lazy"
-            />
-          </div>
-          <h3 class="text-xs font-mono mb-0.5 text-gray-900">Karim Nicolae Costan</h3>
-          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
-            <span class="font-mono text-purple-500"
-              >tg: <a
-                href="https://t.me/Goldixan"
-                data-umami-event="telegram-karim"
-                target="_blank"
-                class="hover:underline">@Goldixan</a
-              ></span
-            >
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div class="w-40 h-40 mx-auto mb-2 overflow-hidden rounded" style="filter: saturate(0.7);">
-            <img
-              src={avatarUrl("team-viktor")}
-              alt="Viktor"
-              class="w-40 h-40 object-cover"
-              loading="lazy"
-            />
-          </div>
-          <h3 class="text-xs font-mono mb-0.5 text-gray-900"> Viktor Solianoi </h3>
-          <p class="font-sans text-xs text-gray-600 leading-tight w-40 mx-auto min-h-[60px]">
-            <span class="font-mono text-purple-500"
-              >tg: <a
-                href="https://t.me/srviktorian"
-                data-umami-event="telegram-viktor"
-                target="_blank"
-                class="hover:underline">@srviktorian</a
-              ></span
-            >
-          </p>
-        </div>
-        </div>
-      </div>
-
-      <!-- FAQ Section -->
-      <div class="mb-12">
-      <h2
-        id="faq"
-        class="text-3xl md:text-4xl font-display font-bold tracking-tighter mb-6"
+<!-- Desktop -->
+<div class="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-8">
+  {teamMembers.map((member) => (
+    <div class="w-full overflow-hidden rounded-sm border border-gray-200 bg-white">
+      <div
+        class={`relative aspect-[4/3] bg-gray-100 ${member.imageClass || ""}`}
+        style={member.imageStyle || ""}
       >
-        FAQ
-      </h2>
+        <img
+          src={avatarUrl(member.slug)}
+          alt={member.alt}
+          class="absolute inset-0 h-full w-full object-cover object-center"
+          loading="lazy"
+        />
+      </div>
 
-      <div class="space-y-8">
+      <div class="bg-[#f3f3f3] px-3 py-2 font-mono text-xs leading-5 text-gray-700">
         <div>
-          <h3 class="text-xl font-mono mb-2 text-gray-900">
-            How do I join?
-          </h3>
-          <p class="font-sans text-lg text-gray-700 leading-relaxed">
-            Join our Telegram chat, introduce yourself, and come by the lab. Start working on something. Access deepens as you build.
-          </p>
+          const name = <span class="text-gray-900">"{member.name}"</span>;
         </div>
-
         <div>
-          <h3 class="text-xl font-mono mb-2 text-gray-900">
-            What can I build here?
-          </h3>
-          <p class="font-sans text-lg text-gray-700 leading-relaxed">
-            AI experiments, robotics systems, hardware prototypes, research projects, creative technology. Priority goes to active, collaborative projects that share knowledge with the community.
-          </p>
+          const role = <span class="text-gray-900">"{member.role || "team"}"</span>;
         </div>
-
         <div>
-          <h3 class="text-xl font-mono mb-2 text-gray-900">
-            Does it cost anything?
-          </h3>
-          <p class="font-sans text-lg text-gray-700 leading-relaxed">
-            Basic participation is free. For intensive equipment use or long-term projects, we may ask for contributions to cover maintenance. We keep barriers low while maintaining sustainability.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-mono mb-2 text-gray-900">
-            Can I find collaborators?
-          </h3>
-          <p class="font-sans text-lg text-gray-700 leading-relaxed">
-            Yes. Many arrive without a team and find one here. Skills overlap, ideas collide, unexpected things emerge. The Telegram chat and build sessions are where collaboration starts.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-mono mb-2 text-gray-900">
-            When are workshops held?
-          </h3>
-          <p class="font-sans text-lg text-gray-700 leading-relaxed">
-            Regularly. Structured trainings on specific tools, open build nights where everyone works on their own projects. Both matter. Check Telegram for schedules.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-mono mb-2 text-gray-900">
-            How do I stay updated?
-          </h3>
-          <p class="font-sans text-lg text-gray-700 leading-relaxed">
-            Join the Telegram chat. Events, workshops, and spontaneous build sessions are announced there. It's also where questions get answered and ideas find collaborators.
-          </p>
+          const tg = <a
+            href={member.tgUrl}
+            target="_blank"
+            data-umami-event={member.umamiEvent}
+            class="text-gray-900 hover:underline"
+          >"{member.tg}"</a>;
         </div>
       </div>
     </div>
-    </div>
-  </div>
+  ))}
+</div>
+   
+  <div class="mb-12">
+  <h2
+    id="faq"
+    class="text-3xl md:text-4xl font-display font-bold tracking-tighter mb-6"
+  >
+    FAQ
+  </h2>
+
+  <FAQAccordion items={faqs} client:load />
+</div>
 </Layout>

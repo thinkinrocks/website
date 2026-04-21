@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Discord",
+    "href": "https://discord.gg/5MEu6njksN",
+    "icon": "discord",
+    "ariaLabel": "Discord",
+    "umamiEvent": "discord-navbar-clicked"
+  },
+  {
+    "name": "LinkedIn",
+    "href": "https://www.linkedin.com/company/thinkin-rocks/",
+    "icon": "linkedin",
+    "ariaLabel": "LinkedIn",
+    "umamiEvent": "linkedin-navbar-clicked"
+  },
+  {
+    "name": "Telegram",
+    "href": "https://t.me/thinkinrocks",
+    "icon": "telegram",
+    "ariaLabel": "Telegram",
+    "umamiEvent": "telegram-navbar-clicked"
+  },
+  {
+    "name": "Instagram",
+    "href": "https://instagram.com/thinkinrocks",
+    "icon": "instagram",
+    "ariaLabel": "Instagram",
+    "umamiEvent": "instagram-navbar-clicked"
+  }
+]

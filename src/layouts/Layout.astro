@@ -1,6 +1,7 @@
 ---
 import "@fontsource-variable/instrument-sans";
 import "../styles/global.css";
+import Footer from "../components/footer.astro";
 import "../styles/fonts.css";
 import Analytics from "@vercel/analytics/astro";
 import Navbar from "../components/Navbar.astro";
@@ -8,9 +9,10 @@ import { ClientRouter } from "astro:transitions";
 
 export interface Props {
   hideNavbar?: boolean;
+  hideFooter?: boolean;
 }
 
-const { hideNavbar = false } = Astro.props;
+const { hideNavbar = false, hideFooter = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -30,18 +32,16 @@ const { hideNavbar = false } = Astro.props;
     <ClientRouter />
   </head>
   <body>
-    
-    <!-- Add nav-ready class immediately if navbar is hidden -->
     {hideNavbar && <script is:inline>document.body.classList.add('nav-ready');</script>}
-    
+
     {!hideNavbar && <Navbar />}
     <slot />
-    
+    {!hideFooter && <Footer />}
+
     <script>
       function initPage() {
         document.body.classList.add('loaded');
 
-        // Intersection observer for fade-in animations
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -53,7 +53,6 @@ const { hideNavbar = false } = Astro.props;
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Handle lazy loaded images
         document.querySelectorAll('img[loading="lazy"]').forEach(img => {
           const imageEl = img as HTMLImageElement;
           if (imageEl.complete) {
@@ -64,7 +63,6 @@ const { hideNavbar = false } = Astro.props;
         });
       }
 
-      // Run on initial load and after view transitions
       document.addEventListener('astro:page-load', initPage);
     </script>
   </body>

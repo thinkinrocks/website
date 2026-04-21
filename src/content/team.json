@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "team-milana",
+    "alt": "Milana",
+    "name": "Milana",
+    "role": "CEO",
+    "tg": "@foxivil",
+    "tgUrl": "https://t.me/foxivil",
+    "umamiEvent": "telegram-milana",
+    "imageClass": "",
+    "imageStyle": ""
+  },
+  {
+    "slug": "team-yerzhan",
+    "alt": "Yerzhan",
+    "name": "Yerzhan",
+    "role": "Team",
+    "tg": "@yerzham",
+    "tgUrl": "https://t.me/yerzham",
+    "umamiEvent": "telegram-yerzhan",
+    "imageClass": "bg-gray-200",
+    "imageStyle": ""
+  },
+  {
+    "slug": "team-alex",
+    "alt": "Alex",
+    "name": "Alex",
+    "role": "Team",
+    "tg": "@alexocc",
+    "tgUrl": "https://t.me/alexocc",
+    "umamiEvent": "telegram-alex",
+    "imageClass": "bg-gray-200",
+    "imageStyle": ""
+  },
+  {
+    "slug": "team-daniyar",
+    "alt": "Daniyar",
+    "name": "Daniyar",
+    "role": "Team",
+    "tg": "@UhOhOhNo",
+    "tgUrl": "https://t.me/UhOhOhNo",
+    "umamiEvent": "telegram-daniyar",
+    "imageClass": "bg-gray-200",
+    "imageStyle": ""
+  },
+  {
+    "slug": "team-arthur",
+    "alt": "Arthur",
+    "name": "Artur",
+    "role": "Team",
+    "tg": "@ktnlvr",
+    "tgUrl": "https://t.me/ktnlvr",
+    "umamiEvent": "telegram-artur",
+    "imageClass": "",
+    "imageStyle": "filter: saturate(0.7);"
+  },
+  {
+    "slug": "team-vlad",
+    "alt": "Vlad",
+    "name": "Vlad",
+    "role": "Team",
+    "tg": "@VladyslavBM",
+    "tgUrl": "https://t.me/VladyslavBM",
+    "umamiEvent": "telegram-vlad",
+    "imageClass": "",
+    "imageStyle": ""
+  }
+]
