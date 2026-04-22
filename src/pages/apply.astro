@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ApplyForm } from "../components/ApplyForm";
+---
+
+<Layout hideFooter={true} hideNavbar={true}>
+  <main class="relative min-h-screen overflow-hidden bg-[#fcfbff]">
+    <div class="pointer-events-none fixed inset-0 overflow-hidden">
+      <div class="math-grid absolute inset-0"></div>
+      <div class="math-grid-fine absolute inset-0"></div>
+
+      <!-- right: warrior -->
+    <!-- right: warrior -->
+<!-- right: warrior -->
+<div
+  class="scene-warrior pointer-events-none fixed right-[-14vw] bottom-0 z-[1]
+         w-[clamp(900px,78vw,1800px)]
+         aspect-[1400/900]
+         bg-no-repeat bg-right-bottom bg-contain"
+  style="background-image: url('/images/shader-snapshot-48.png');"
+></div>
+
+<!-- left: hand -->
+<div
+  class="scene-hand pointer-events-none fixed left-0 top-1/4 z-[1]
+         w-[42vw] sm:w-[40vw] md:w-[36vw] lg:w-[34vw] xl:w-[32vw] 2xl:w-[30vw]
+         max-w-[760px] min-w-[280px]
+         aspect-[520/700]
+         bg-no-repeat bg-left-center bg-contain"
+  style="background-image: url('/images/shader-snapshot(3) Background Removed.png');"
+></div>
+
+    </div>
+
+    <div class="relative z-10 px-4 pt-8 pb-16 md:px-16 md:pt-12 md:pb-24">
+      <div class="mx-auto max-w-5xl">
+        <div class="pt-6 md:pt-10">
+          <p class="font-mono text-xs uppercase tracking-[0.18em] text-fuchsia-600">
+            <a href="/">Thinkin' Rocks* / first cohort</a>
+          </p>
+
+          <h1 class="mt-3 font-display text-[18vw] leading-[0.9] tracking-tight sm:text-7xl md:text-8xl lg:text-[120px]">
+            Build with us
+          </h1>
+
+          <p class="mt-5 max-w-2xl text-base leading-relaxed text-gray-700 md:text-xl">
+            We are backing a small first cohort of builders with hardware,
+            technical support, workspace, potential investments and a strong
+            community around them. If you are working on a serious technical
+            project and need the right environment to move faster, prototype
+            better, and get to a real demo,  <span class=" px-1.5 py-0.5 text-fuchsia-500">
+  apply by 31 May.
+</span>
+          </p>
+        </div>
+
+        <div class="mt-10 md:mt-14">
+          <div class="mx-auto w-full max-w-2xl">
+            <ApplyForm client:load />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .math-grid {
+    opacity: 0.2;
+    background-image:
+      linear-gradient(rgba(217, 70, 239, 0.22) 1.5px, transparent 1.5px),
+      linear-gradient(90deg, rgba(217, 70, 239, 0.22) 1.5px, transparent 1.5px);
+    background-size: 72px 72px;
+    animation: gridDriftA 18s linear infinite;
+  }
+
+  .math-grid-fine {
+    opacity: 0.18;
+    background-image:
+      linear-gradient(rgba(217, 70, 239, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(217, 70, 239, 0.12) 1px, transparent 1px);
+    background-size: 18px 18px;
+    mask-image: radial-gradient(circle at center, black 72%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle at center, black 72%, transparent 100%);
+    animation: gridDriftB 26s linear infinite reverse;
+  }
+  
+
+</style>

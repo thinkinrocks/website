@@ -27,3 +27,6 @@ pnpm-debug.log*
 *.ttf
 *.eot
 *.otf
+
+*/generated/prisma
+prisma/migrations
