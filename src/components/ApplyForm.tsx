@@ -83,13 +83,14 @@ export function ApplyForm() {
         throw new Error(result?.error || `Request failed with ${response.status}`);
       }
 
-      setSuccessMessage("APPLICATION_SUBMITTED");
+      setSuccessMessage("APPLICATION_SUBMITTED — REDIRECTING...");
       setFormData(initialState);
+      window.location.href = "/apply/thank-you";
+      return;
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "Something went wrong.";
       setErrorMessage(message.toUpperCase());
-    } finally {
       setIsSubmitting(false);
     }
   };
