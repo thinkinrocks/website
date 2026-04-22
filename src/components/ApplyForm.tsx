@@ -145,7 +145,7 @@ export function ApplyForm() {
               onChange={updateField("projectName")}
               required
               className={inputClass}
-              placeholder="How is your project called?"
+              placeholder="What is your project called?"
             />
           </div>
 
