@@ -164,7 +164,7 @@ export function ApplyForm() {
             />
             <div className="flex items-center justify-between gap-4">
             <p className={helperClass}>
-                #what problem you want to solve?
+                #what problem do you want to solve?
               </p>
               <p className={helperClass}>
                 words: {countWords(formData.shortDescription)}
