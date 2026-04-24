@@ -14,6 +14,7 @@ import { ApplyForm } from "../components/ApplyForm";
 <!-- right: warrior -->
 <div
   class="scene-warrior pointer-events-none fixed right-[-14vw] bottom-0 z-[1]
+         hidden md:block
          w-[clamp(900px,78vw,1800px)]
          aspect-[1400/900]
          bg-no-repeat bg-right-bottom bg-contain"
@@ -23,6 +24,7 @@ import { ApplyForm } from "../components/ApplyForm";
 <!-- left: hand -->
 <div
   class="scene-hand pointer-events-none fixed left-0 top-1/4 z-[1]
+         hidden md:block
          w-[42vw] sm:w-[40vw] md:w-[36vw] lg:w-[34vw] xl:w-[32vw] 2xl:w-[30vw]
          max-w-[760px] min-w-[280px]
          aspect-[520/700]
@@ -32,27 +34,33 @@ import { ApplyForm } from "../components/ApplyForm";
 
     </div>
 
-<div class="mx-auto max-w-2xl pt-6 text-left md:pt-10">
-  <p class="font-mono text-xs uppercase tracking-[0.18em] text-fuchsia-600">
-    <a href="/">Thinkin' Rocks* / first cohort</a>
-  </p>
+<div class="relative z-[2] px-4 pt-6 text-left sm:px-6 md:pt-10">
+  <div class="mx-auto w-full max-w-2xl">
+    <p class="font-mono text-xs uppercase tracking-[0.18em] text-fuchsia-600">
+      <a href="/">Thinkin' Rocks* / first cohort</a>
+    </p>
 
-  <h1 class="mt-3 font-display text-[18vw] leading-[0.9] tracking-tight sm:text-7xl md:text-8xl lg:text-[120px]">
-    Build with us
-  </h1>
+    <h1 class="mt-3 font-display text-5xl leading-[0.9] tracking-tight sm:text-6xl md:text-8xl lg:text-7xl">
+       Backing Ambitious Hardware Projects
+    </h1>
 
-  <p class="mt-5 max-w-2xl text-xl leading-relaxed text-gray-700 md:text-xl">
-    We are backing a small first cohort of builders with hardware,
-    technical support, workspace, potential investments and a strong
-    community around them. If you are working on a serious technical
-    project and need the right environment to move faster, prototype
-    better, and get to a real demo, <span class="px-1.5 py-0.5 text-fuchsia-500">
-      apply by 31 May.
-    </span>
-  </p>
+    <p class="mt-5 text-xl leading-relaxed text-gray-700 md:text-xl">
+      We are backing most ambitious hardware builders in Finland together with our partners.
+      We will provide a dedicated space for experimentation, support with your build cycles and connect you with the industry and investors.
+      If you are working on a serious technical challenge and need the right environment to move faster, prototype
+      big, and get unfiltered exposure, <span class="text-fuchsia-500">apply by 31 May.
+      </span>
+    </p>
+
+    <div class="mt-5 border border-fuchsia-200 bg-fuchsia-50/70 px-4 py-3">
+      <p class="font-mono text-xs uppercase tracking-[0.18em] text-fuchsia-600">
+        Note: applications are reviewed on a rolling basis. Apply as soon as possible.
+      </p>
+    </div>
+  </div>
 </div>
 
-        <div class="mt-10 mb-12 md:mt-14 md:mb-20">
+        <div class="relative z-[2] mt-10 mb-12 px-4 sm:px-6 md:mt-14 md:mb-20">
   <div class="mx-auto w-full max-w-2xl">
     <ApplyForm client:load />
   </div>

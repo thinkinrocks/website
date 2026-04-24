@@ -33,10 +33,10 @@ const labelClass =
   "font-mono text-[11px] uppercase tracking-[0.22em] text-fuchsia-700";
 
 const inputClass =
-  "h-12 rounded-none border border-fuchsia-200 bg-white px-3 font-mono text-sm text-zinc-900 placeholder:font-sans placeholder:text-sm placeholder:text-zinc-400 shadow-none transition focus-visible:ring-0 focus-visible:border-fuchsia-500";
+  "h-12 rounded-none border border-fuchsia-200 bg-white px-3 font-mono text-base text-zinc-900 placeholder:font-sans placeholder:text-base placeholder:text-zinc-400 shadow-none transition focus-visible:ring-0 focus-visible:border-fuchsia-500";
 
 const textareaClass =
-  "h-[140px] rounded-none border border-fuchsia-200 bg-white px-3 py-3 font-mono text-sm leading-relaxed text-zinc-900 placeholder:font-sans placeholder:text-sm placeholder:leading-relaxed placeholder:text-zinc-400 shadow-none resize-none overflow-y-auto transition focus-visible:ring-0 focus-visible:border-fuchsia-500";
+  "h-[140px] rounded-none border border-fuchsia-200 bg-white px-3 py-3 font-mono text-base leading-relaxed text-zinc-900 placeholder:font-sans placeholder:text-base placeholder:leading-relaxed placeholder:text-zinc-400 shadow-none resize-none overflow-y-auto transition focus-visible:ring-0 focus-visible:border-fuchsia-500";
 const helperClass =
   "font-mono text-[11px] uppercase tracking-[0.12em] text-zinc-400";
 
@@ -83,13 +83,14 @@ export function ApplyForm() {
         throw new Error(result?.error || `Request failed with ${response.status}`);
       }
 
-      setSuccessMessage("APPLICATION_SUBMITTED");
+      setSuccessMessage("APPLICATION_SUBMITTED — REDIRECTING...");
       setFormData(initialState);
+      window.location.href = "/apply/thank-you";
+      return;
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "Something went wrong.";
       setErrorMessage(message.toUpperCase());
-    } finally {
       setIsSubmitting(false);
     }
   };
@@ -145,7 +146,7 @@ export function ApplyForm() {
               onChange={updateField("projectName")}
               required
               className={inputClass}
-              placeholder="How is your project called?"
+              placeholder="What is your project called?"
             />
           </div>
 
@@ -164,7 +165,7 @@ export function ApplyForm() {
             />
             <div className="flex items-center justify-between gap-4">
             <p className={helperClass}>
-                #what problem you want to solve?
+                #what problem do you want to solve?
               </p>
               <p className={helperClass}>
                 words: {countWords(formData.shortDescription)}
